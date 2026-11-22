@@ -1,0 +1,52 @@
+schema_version: 1
+task: place_fan
+
+entities:
+  manipulated_object: fan
+  support_target: pad
+
+stages:
+  - controller: traditional
+    operation: approach_manipulated_object
+  - controller: vla
+    operation: local_grasp
+  - controller: traditional
+    operation: adaptive_support_placement
+
+grasp_handoff:
+  detector: stable_closed_gripper_command
+  stable_steps: 3
+  gripper_command_threshold: 0.25
+  trial_lift: false
+
+placement:
+  controller: adaptive_support
+  candidate_budget: 6
+  support_type: plane
+  safe_escape: measured_scene_corridor
+  support_anchor: lowest_visible_object_layer_at_visual_table_height
+  target_anchor: measured_support_center_at_median_surface_height
+  desired_orientation: fixed_quaternion
+  desired_quaternion_wxyz: [0.707, 0.707, 0.0, 0.0]
+  approach_direction: support_surface_normal
+  distance_source: rgbd_spacing_icp_residual_and_robot_arrival_residual
+  fixed_release_gap: null
+
+release:
+  require:
+    - support_contact_observed
+  retreat: selected_precontact
+
+truth_policy:
+  simulator_truth_for_control: false
+  simulator_truth_for_final_evaluation: true
+
+success:
+  source: env.check_success
+  position:
+    axes: [x, y, z]
+    tolerance_m: [0.04, 0.04, 0.04]
+  orientation:
+    quaternion_wxyz: [0.707, 0.707, 0.0, 0.0]
+    tolerance: 0.05
+  grippers_open: both

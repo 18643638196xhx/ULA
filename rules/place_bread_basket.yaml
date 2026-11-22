@@ -1,0 +1,45 @@
+schema_version: 1
+task: place_bread_basket
+
+entities:
+  manipulated_object: bread
+  support_target: breadbasket
+
+stages:
+  - controller: traditional
+    operation: approach_manipulated_object
+  - controller: vla
+    operation: local_grasp
+  - controller: traditional
+    operation: container_placement
+
+placement:
+  controller: container
+  support_type: container
+  candidate_budget: 6
+  safe_escape: measured_scene_corridor
+  target_anchor: container_interior
+  release_mode: drop_into
+  desired_orientation: initial_world
+
+targets:
+  - object: bread.*
+    slot: breadbasket.interior
+
+release:
+  require:
+    - object_in_container
+    - support_contact_observed
+  retreat: selected_precontact
+
+success:
+  source: env.check_success
+  criteria:
+    - all_targets_near_container: {max_distance_m: 0.05}
+    - target_height_above: {min_z_m: 0.73}
+
+    - grippers_open: both
+
+truth_policy:
+  simulator_truth_for_control: false
+  simulator_truth_for_final_evaluation: true

@@ -1,0 +1,67 @@
+schema_version: 2
+task: put_object_cabinet
+
+entities:
+  manipulated_object: object
+  articulated_container: cabinet
+
+# Extracted from the official successful demonstration. VLA handles the random
+# movable object. The known articulated handle is engaged geometrically.
+stages:
+  - controller: traditional
+    operation: approach_manipulated_object
+  - controller: vla
+    operation: local_object_grasp
+  - controller: traditional
+    operation: approach_articulated_handle
+  - controller: traditional
+    operation: engage_articulated_handle
+  - controller: traditional
+    operation: open_prismatic_container
+  - controller: traditional
+    operation: verified_object_lift
+  - controller: traditional
+    operation: place_in_articulated_container
+  - controller: traditional
+    operation: release_and_retreat
+
+articulation:
+  model: 036_cabinet
+  model_id: 46653
+  movable_link: link_1
+  prismatic_joint: joint_1
+  contact_point_ids: [0, 1]
+  functional_point_id: 0
+
+opening:
+  # No task-specific fixed pull distance. Travel comes from the measured object
+  # extent and is clamped by the static URDF joint limit.
+  distance_source: measured_object_extent_and_urdf_limit
+  position_uncertainty_m: 0.015
+  gripper_clearance_m: 0.04
+
+object_grasp:
+  detector: closed_command_then_planned_visual_lift
+  stable_steps: 3
+  gripper_command_threshold: 0.25
+
+handle_grasp:
+  detector: visual_CAD_contact_pose_then_gripper_command
+  verification: first_task_pull_segment
+
+placement:
+  target: cabinet.functional_point[0]
+  target_update: visually_estimated_root_plus_measured_tcp_drawer_motion
+  object_to_hand: fresh_post_lift_visual_cad_pose
+  release_mode: lower_open_retreat
+
+success:
+  source: env.check_success
+  criteria:
+    - object_xy_at_drawer_functional_point: {max_axis_error_m: 0.05}
+    - object_height_above_start_m: {range: [0.007, 0.12]}
+    - manipulating_gripper_open: true
+
+truth_policy:
+  simulator_truth_for_control: false
+  simulator_truth_for_final_evaluation: true

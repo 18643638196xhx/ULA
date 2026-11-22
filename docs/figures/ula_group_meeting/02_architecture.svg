@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="568.8pt" viewBox="0 0 864 568.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-24T20:19:03.829057</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 568.8 
+L 864 568.8 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="line2d_1">
+    <path d="M 295.2 93.6 
+L 295.2 118.8 
+L 194.4 118.8 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: square"/>
+   </g>
+   <g id="patch_2">
+    <path d="M 194.4 120.797314 
+Q 194.4 151.200116 194.4 179.70226 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 197.8 172.90226 
+L 194.4 179.70226 
+L 191 172.90226 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 525.6 95.602258 
+Q 525.6 138.600789 525.6 179.698661 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 529 172.898661 
+L 525.6 179.698661 
+L 522.2 172.898661 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 194.4 264.802368 
+Q 194.4 286.201823 194.4 305.70062 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 197.8 298.90062 
+L 194.4 305.70062 
+L 191 298.90062 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 525.6 264.802368 
+Q 525.6 286.201823 525.6 305.70062 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 529 298.90062 
+L 525.6 305.70062 
+L 522.2 298.90062 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 194.4 388.8 
+L 194.4 423.36 
+L 334.8 423.36 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: square"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 334.8 425.363467 
+Q 334.8 440.281012 334.8 453.2979 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 338.2 446.4979 
+L 334.8 453.2979 
+L 331.4 446.4979 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 525.6 390.799731 
+Q 525.6 423.000863 525.6 453.301336 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 529 446.501336 
+L 525.6 453.301336 
+L 522.2 446.501336 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 648 493.2 
+L 795.6 493.2 
+L 795.6 54 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: square"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 793.597742 54 
+Q 714.597392 54 637.4977 54 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 644.2977 57.4 
+L 637.4977 54 
+L 644.2977 50.6 
+" clip-path="url(#p181573c60a)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 203.04 14.4 
+L 617.76 14.4 
+Q 633.6 14.4 633.6 30.24 
+L 633.6 77.76 
+Q 633.6 93.6 617.76 93.6 
+L 203.04 93.6 
+Q 187.2 93.6 187.2 77.76 
+L 187.2 30.24 
+Q 187.2 14.4 203.04 14.4 
+z
+" clip-path="url(#p181573c60a)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 48.24 183.6 
+L 340.56 183.6 
+Q 356.4 183.6 356.4 199.44 
+L 356.4 246.96 
+Q 356.4 262.8 340.56 262.8 
+L 48.24 262.8 
+Q 32.4 262.8 32.4 246.96 
+L 32.4 199.44 
+Q 32.4 183.6 48.24 183.6 
+z
+" clip-path="url(#p181573c60a)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 393.84 183.6 
+L 657.36 183.6 
+Q 673.2 183.6 673.2 199.44 
+L 673.2 246.96 
+Q 673.2 262.8 657.36 262.8 
+L 393.84 262.8 
+Q 378 262.8 378 246.96 
+L 378 199.44 
+Q 378 183.6 393.84 183.6 
+z
+" clip-path="url(#p181573c60a)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 48.24 309.6 
+L 340.56 309.6 
+Q 356.4 309.6 356.4 325.44 
+L 356.4 372.96 
+Q 356.4 388.8 340.56 388.8 
+L 48.24 388.8 
+Q 32.4 388.8 32.4 372.96 
+L 32.4 325.44 
+Q 32.4 309.6 48.24 309.6 
+z
+" clip-path="url(#p181573c60a)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 393.84 309.6 
+L 657.36 309.6 
+Q 673.2 309.6 673.2 325.44 
+L 673.2 372.96 
+Q 673.2 388.8 657.36 388.8 
+L 393.84 388.8 
+Q 378 388.8 378 372.96 
+L 378 325.44 
+Q 378 309.6 393.84 309.6 
+z
+" clip-path="url(#p181573c60a)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 231.84 457.2 
+L 632.16 457.2 
+Q 648 457.2 648 473.04 
+L 648 516.96 
+Q 648 532.8 632.16 532.8 
+L 231.84 532.8 
+Q 216 532.8 216 516.96 
+L 216 473.04 
+Q 216 457.2 231.84 457.2 
+z
+" clip-path="url(#p181573c60a)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 714.24 226.8 
+L 837.36 226.8 
+Q 853.2 226.8 853.2 242.64 
+L 853.2 282.96 
+Q 853.2 298.8 837.36 298.8 
+L 714.24 298.8 
+Q 698.4 298.8 698.4 282.96 
+L 698.4 242.64 
+Q 698.4 226.8 714.24 226.8 
+z
+" clip-path="url(#p181573c60a)" style="fill: #ffffff; stroke: #086bca; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 24px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(349.711875 43.673437)">ULA 调度层</text>
+    <text style="font-weight: 700; font-size: 24px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(230.805 76.795313)">传统接近 → VLA 抓取 → 传统放置</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 19px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #086bca" x="194.4" y="152.535547" transform="rotate(-0 194.4 152.535547)">接近 / 搬运放置</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 19px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #086bca" x="525.6" y="152.535547" transform="rotate(-0 525.6 152.535547)">局部抓取</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 22px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(81.792656 213.733984)">RGB-D 感知 + 显式几何</text>
+    <text style="font-weight: 700; font-size: 22px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(73.4 244.095703)">生成手的目标位置与朝向</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(408.620156 214.164258)">图像 + 机器人状态 + 语言</text>
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(409.432266 243.145898)">WorldLA 生成关节动作块</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 22px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(108.799375 339.733984)">CuRobo 运动规划</text>
+    <text style="font-weight: 700; font-size: 22px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(67.683438 370.095703)">末端目标 → 关节运动轨迹</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(445.027266 340.164258)">TOPP 时间参数化</text>
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(404.643281 369.145898)">关节动作 → 可执行短轨迹</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 23px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(374.5 485.103711)">共同执行层</text>
+    <text style="font-weight: 700; font-size: 23px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(277.44 516.845508)">关节驱动 + 夹爪驱动 + SAPIEN</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 20px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(725.8 254.194531)">机器人状态</text>
+    <text style="font-weight: 700; font-size: 20px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(715.8 281.796094)">与新观测反馈</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 14px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #60717f" x="25.92" y="556.596719" transform="rotate(-0 25.92 556.596719)">同一场景连续运行，不重置、不瞬移；抓稳切换仍使用仿真物体位姿与接触信息。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p181573c60a">
+   <rect x="0" y="0" width="864" height="568.8"/>
+  </clipPath>
+ </defs>
+</svg>

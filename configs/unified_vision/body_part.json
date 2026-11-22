@@ -1,0 +1,6 @@
+{
+  "queries": [
+    {"key": "body", "prompts": ["microwave door"], "attributes": ["position", "bounds", "plane", "structures"], "required": ["position"]},
+    {"key": "part", "prompts": ["microwave handle"], "parent": "body", "search_protrusions": true, "attributes": ["position", "bounds"], "required": ["position"]}
+  ]
+}

@@ -1,0 +1,48 @@
+schema_version: 1
+task: place_cans_plasticbox
+
+entities:
+  manipulated_object: object1
+  support_target: plasticbox
+
+stages:
+  - controller: traditional
+    operation: approach_manipulated_object
+  - controller: vla
+    operation: local_grasp
+  - controller: traditional
+    operation: container_placement
+
+placement:
+  controller: container
+  support_type: container
+  candidate_budget: 6
+  safe_escape: measured_scene_corridor
+  target_anchor: container_functional_point
+  release_mode: drop_into
+  desired_orientation: initial_world
+
+targets:
+  - object: object1
+    slot: plasticbox.functional_point[any]
+  - object: object2
+    slot: plasticbox.functional_point[any]
+
+release:
+  require:
+    - object_in_container
+    - support_contact_observed
+  retreat: selected_precontact
+
+success:
+  source: env.check_success
+  criteria:
+    - each_object_at_a_plasticbox_slot: {max_distance_m: 0.04}
+
+    - grippers_open: both
+
+truth_policy:
+  simulator_truth_for_control: false
+  simulator_truth_for_final_evaluation: true
+
+order: [object1, object2]

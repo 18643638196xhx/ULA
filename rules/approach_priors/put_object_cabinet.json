@@ -1,0 +1,32 @@
+{
+  "schema": "ula_demo_relative_approach_v1",
+  "task": "put_object_cabinet",
+  "mode": "visual_bounds_top_anchor",
+  "arm": "left",
+  "interaction_to_approach_world_m": [
+    -0.0009514689445495605,
+    -0.00016085803508758545,
+    0.08086508512496948
+  ],
+  "approach_ee_rotation_world": [
+    [0.00007213977175735131, -0.9977006060190206, -0.06777533139079567],
+    [0.0013375542749459735, -0.06777517467135707, 0.9976997226855524],
+    [-0.9999991028718049, -0.00016262701451436046, 0.0013295894250654472]
+  ],
+  "provenance": {
+    "demonstration": "/data2/xuhuixin/RoboTwin/data_official50/demo_clean/put_object_cabinet/aloha_agilex/data/episode_0000000.hdf5",
+    "approach_frame": 35,
+    "interaction_frame": 48,
+    "interaction_distance_m": 0.08087084246332825,
+    "source_fields": "recorded_robot_EE_states_only",
+    "simulator_object_pose_used": false,
+    "demonstration_depth_used": false
+  },
+  "runtime_contract": {
+    "anchor": "current_RGBD_visible_bounds_top_center",
+    "exact_candidate_first": true,
+    "neighbours": "current_RGBD_point_spacing",
+    "geometry_bounds_candidates": "fallback_only"
+  },
+  "limitation": "The public HDF5 contains no object pose; only the demonstrated approach displacement is transferred to the current visual anchor."
+}

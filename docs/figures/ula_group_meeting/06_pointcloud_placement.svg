@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="489.6pt" viewBox="0 0 864 489.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-24T20:19:04.846863</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 489.6 
+L 864 489.6 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 264.802588 75.6 
+Q 288.001384 75.6 309.299522 75.6 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 302.499522 72.2 
+L 309.299522 75.6 
+L 302.499522 79 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 552.802588 75.6 
+Q 576.001384 75.6 597.299522 75.6 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 590.499522 72.2 
+L 597.299522 75.6 
+L 590.499522 79 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 235.922168 240.639368 
+Q 277.200757 228.599779 316.654715 217.092375 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 309.174715 215.732375 
+L 316.654715 217.092375 
+L 311.078715 222.260375 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 531.08811 220.253577 
+Q 575.999452 235.79981 619.114698 250.724319 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 613.800969 245.287014 
+L 619.114698 250.724319 
+L 611.576617 251.712919 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 685.44 283.68 
+L 761.76 283.68 
+L 761.76 290.88 
+L 685.44 290.88 
+z
+" clip-path="url(#p9a4e06a2ce)" style="fill: #cfd9e0; stroke: #cfd9e0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 41.04 28.8 
+L 246.96 28.8 
+Q 262.8 28.8 262.8 44.64 
+L 262.8 106.56 
+Q 262.8 122.4 246.96 122.4 
+L 41.04 122.4 
+Q 25.2 122.4 25.2 106.56 
+L 25.2 44.64 
+Q 25.2 28.8 41.04 28.8 
+z
+" clip-path="url(#p9a4e06a2ce)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 329.04 28.8 
+L 534.96 28.8 
+Q 550.8 28.8 550.8 44.64 
+L 550.8 106.56 
+Q 550.8 122.4 534.96 122.4 
+L 329.04 122.4 
+Q 313.2 122.4 313.2 106.56 
+L 313.2 44.64 
+Q 313.2 28.8 329.04 28.8 
+z
+" clip-path="url(#p9a4e06a2ce)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 617.04 28.8 
+L 822.96 28.8 
+Q 838.8 28.8 838.8 44.64 
+L 838.8 106.56 
+Q 838.8 122.4 822.96 122.4 
+L 617.04 122.4 
+Q 601.2 122.4 601.2 106.56 
+L 601.2 44.64 
+Q 601.2 28.8 617.04 28.8 
+z
+" clip-path="url(#p9a4e06a2ce)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 104.4 284.4 
+L 104.4 201.6 
+L 176.4 201.6 
+L 176.4 284.4 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #086bca; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 389.919153 264.506543 
+L 369.434105 184.280594 
+L 439.195799 166.467509 
+L 459.680847 246.693457 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #086bca; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 687.6 284.4 
+L 687.6 201.6 
+L 759.6 201.6 
+L 759.6 284.4 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #086bca; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 61.2 284.4 
+L 223.2 284.4 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #8b9296; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 637.2 291.6 
+L 810 291.6 
+" clip-path="url(#p9a4e06a2ce)" style="fill: none; stroke: #8b9296; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 116.64 392.4 
+L 747.36 392.4 
+Q 763.2 392.4 763.2 408.24 
+L 763.2 430.56 
+Q 763.2 446.4 747.36 446.4 
+L 116.64 446.4 
+Q 100.8 446.4 100.8 430.56 
+L 100.8 408.24 
+Q 100.8 392.4 116.64 392.4 
+z
+" clip-path="url(#p9a4e06a2ce)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(102 52.073437)">抓前观测</text>
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(81 81.055078)">保存表面点云</text>
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(44.043281 110.036719)">桌面约束 → 支撑锚点</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(390 52.073437)">抓后观测</text>
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(350.331328 81.055078)">ICP 对齐前后表面</text>
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(358.5 110.036719)">估计平移与旋转</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(678 52.073437)">放置目标</text>
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(625.5 81.055078)">把锚点对准视觉杯垫</text>
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(657 110.036719)">补偿抓后倾斜</text>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="m08388406bb" d="M 0 4.472136 
+C 1.186024 4.472136 2.323632 4.000923 3.162278 3.162278 
+C 4.000923 2.323632 4.472136 1.186024 4.472136 0 
+C 4.472136 -1.186024 4.000923 -2.323632 3.162278 -3.162278 
+C 2.323632 -4.000923 1.186024 -4.472136 0 -4.472136 
+C -1.186024 -4.472136 -2.323632 -4.000923 -3.162278 -3.162278 
+C -4.000923 -2.323632 -4.472136 -1.186024 -4.472136 0 
+C -4.472136 1.186024 -4.000923 2.323632 -3.162278 3.162278 
+C -2.323632 4.000923 -1.186024 4.472136 0 4.472136 
+z
+" style="stroke: #086bca"/>
+    </defs>
+    <g clip-path="url(#p9a4e06a2ce)">
+     <use xlink:href="#m08388406bb" x="140.4" y="284.4" style="fill: #086bca; stroke: #086bca"/>
+    </g>
+   </g>
+   <g id="PathCollection_2">
+    <g clip-path="url(#p9a4e06a2ce)">
+     <use xlink:href="#m08388406bb" x="424.8" y="255.6" style="fill: #086bca; stroke: #086bca"/>
+    </g>
+   </g>
+   <g id="PathCollection_3">
+    <g clip-path="url(#p9a4e06a2ce)">
+     <use xlink:href="#m08388406bb" x="723.6" y="284.4" style="fill: #086bca; stroke: #086bca"/>
+    </g>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 21px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #086bca" x="140.4" y="325.855078" transform="rotate(-0 140.4 325.855078)">近似支撑锚点</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 17px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #60717f" x="140.4" y="353.616016" transform="rotate(-0 140.4 353.616016)">可见 XY 中心 + 桌面高度</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 19px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #086bca" x="424.8" y="325.335547" transform="rotate(-0 424.8 325.335547)">抓后锚点随估计运动更新</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 19px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #086bca" x="723.6" y="325.335547" transform="rotate(-0 723.6 325.335547)">目标：锚点落在杯垫上</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #086bca" x="432" y="424.855078" transform="rotate(-0 432 424.855078)">关键假设：初始直立 + 水平桌面 + 刚性夹持 + 前后表面有重叠</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 14px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #60717f" x="25.92" y="475.236719" transform="rotate(-0 25.92 475.236719)">支撑锚点是几何近似，不是直接看见的杯底，也不是预标注功能点；不回退到 FoundationPose。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p9a4e06a2ce">
+   <rect x="0" y="0" width="864" height="489.6"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,36 @@
+# ===== 大体积产物 / 外部依赖（绝不入库）=====
+results/
+checkpoints/
+datasets/
+.runtime_cache/
+videos/
+pytest-of-*/
+tra_pipe/
+external/
+*.log
+
+# ===== 二进制 / 大文件 =====
+*.hdf5
+*.mp4
+*.npz
+*.pkl
+*.glb
+*.obj
+*.zip
+*.pack
+
+# ===== 本地备份 / 临时副本 =====
+*.bak
+*.bak_*
+*.orig
+*.pre_*
+
+# ===== 本地凭据 =====
+.env
+.env.*
+!.env.example
+
+# ===== Python =====
+__pycache__/
+*.pyc
+.venv/

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ULA_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
+export ULA_PILLBOTTLE_FOCUSED_PY=${PI_PY:-${ULA_ROOT}/external/pi05/.venv/bin/python}
+export PI_PY=${ULA_ROOT}/scripts/pillbottle_focused_python.sh
+exec bash "${ULA_ROOT}/scripts/run_move_pillbottle_pad_known_model.sh" \
+  --known-model 1 --known-approach annotated --known-approach-search ranked \
+  --known-placement-policy visual "$@"

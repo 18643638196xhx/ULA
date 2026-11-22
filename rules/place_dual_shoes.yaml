@@ -1,0 +1,55 @@
+schema_version: 1
+task: place_dual_shoes
+
+entities:
+  manipulated_object: left_shoe
+  support_target: shoe_box
+
+stages:
+  - controller: traditional
+    operation: approach_manipulated_object
+  - controller: vla
+    operation: local_grasp
+  - controller: traditional
+    operation: container_placement
+
+placement:
+  controller: container
+  support_type: container
+  candidate_budget: 6
+  safe_escape: measured_scene_corridor
+  target_anchor: fixed_pose
+  release_mode: drop_into
+  desired_orientation: initial_world
+
+targets:
+  - object: left_shoe
+    slot: [0.0, -0.17]
+    tolerance_m: 0.05
+    quaternion_wxyz: [0.5, 0.5, -0.5, -0.5]
+    quaternion_tolerance: 0.07
+  - object: right_shoe
+    slot: [0.0, -0.09]
+    tolerance_m: 0.05
+    quaternion_wxyz: [0.5, 0.5, -0.5, -0.5]
+    quaternion_tolerance: 0.07
+
+release:
+  require:
+    - object_in_container
+    - support_contact_observed
+  retreat: selected_precontact
+
+success:
+  source: env.check_success
+  criteria:
+    - left_shoe_pose: {target_xy: [0.0, -0.17], tolerance_m: [0.05, 0.05], quaternion_wxyz: [0.5,0.5,-0.5,-0.5], quaternion_tolerance: 0.07}
+    - right_shoe_pose: {target_xy: [0.0, -0.09], tolerance_m: [0.05, 0.05], quaternion_wxyz: [0.5,0.5,-0.5,-0.5], quaternion_tolerance: 0.07}
+    - shoes_on_box_top: {z_offset_m: 0.01, tolerance_m: 0.03}
+    - grippers_open: both
+
+truth_policy:
+  simulator_truth_for_control: false
+  simulator_truth_for_final_evaluation: true
+
+order: [left_shoe, right_shoe]

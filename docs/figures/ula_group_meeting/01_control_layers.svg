@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="309.6pt" viewBox="0 0 864 309.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-24T20:19:03.583130</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 309.6 
+L 864 309.6 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 257.598413 116.64 
+Q 286.200107 116.64 312.901144 116.64 
+" clip-path="url(#pce5d0380e0)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 306.101144 113.24 
+L 312.901144 116.64 
+L 306.101144 120.04 
+" clip-path="url(#pce5d0380e0)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 549.198413 116.64 
+Q 577.800107 116.64 604.501144 116.64 
+" clip-path="url(#pce5d0380e0)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 597.701144 113.24 
+L 604.501144 116.64 
+L 597.701144 120.04 
+" clip-path="url(#pce5d0380e0)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 41.04 66.24 
+L 239.76 66.24 
+Q 255.6 66.24 255.6 82.08 
+L 255.6 151.2 
+Q 255.6 167.04 239.76 167.04 
+L 41.04 167.04 
+Q 25.2 167.04 25.2 151.2 
+L 25.2 82.08 
+Q 25.2 66.24 41.04 66.24 
+z
+" clip-path="url(#pce5d0380e0)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 332.64 66.24 
+L 531.36 66.24 
+Q 547.2 66.24 547.2 82.08 
+L 547.2 151.2 
+Q 547.2 167.04 531.36 167.04 
+L 332.64 167.04 
+Q 316.8 167.04 316.8 151.2 
+L 316.8 82.08 
+Q 316.8 66.24 332.64 66.24 
+z
+" clip-path="url(#pce5d0380e0)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 624.24 66.24 
+L 822.96 66.24 
+Q 838.8 66.24 838.8 82.08 
+L 838.8 151.2 
+Q 838.8 167.04 822.96 167.04 
+L 624.24 167.04 
+Q 608.4 167.04 608.4 151.2 
+L 608.4 82.08 
+Q 608.4 66.24 624.24 66.24 
+z
+" clip-path="url(#pce5d0380e0)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 167.04 210.96 
+L 696.96 210.96 
+Q 712.8 210.96 712.8 226.8 
+L 712.8 252.72 
+Q 712.8 268.56 696.96 268.56 
+L 167.04 268.56 
+Q 151.2 268.56 151.2 252.72 
+L 151.2 226.8 
+Q 151.2 210.96 167.04 210.96 
+z
+" clip-path="url(#pce5d0380e0)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 15.886694px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(84.796571 109.804378)">感知：在哪里？</text>
+    <text style="font-weight: 700; font-size: 15.886694px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(33.749396 131.729256)">RGB-D → 杯子表面与杯垫位置</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 17.022364px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(363.910543 109.315729)">几何：手停哪里？</text>
+    <text style="font-weight: 700; font-size: 17.022364px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(325.44266 132.807921)">物体观测 → 末端位置与朝向</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 17.715711px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(643.879302 109.0174)">规划：关节怎样转？</text>
+    <text style="font-weight: 700; font-size: 17.715711px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(616.936197 133.466465)">CuRobo → 可执行关节轨迹</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 24px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #086bca" x="432" y="245.994375" transform="rotate(-0 432 245.994375)">需要机器人运动学模型 ≠ 必须准备杯子 CAD</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 14px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #60717f" x="25.92" y="295.236719" transform="rotate(-0 25.92 295.236719)">传统控制根据当前观测重新计算目标与轨迹，不是固定动作回放。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pce5d0380e0">
+   <rect x="0" y="0" width="864" height="309.6"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,97 @@
+schema_version: 1
+kind: demo_primitive_library
+# These defaults are a ULA execution policy, not properties of the teacher.
+primitives:
+  move:
+    kind: basic
+    description: 移动机械手或持有物体
+    recognition: {matcher: measured_motion}
+    controller: traditional
+    executor: curobo
+    parameters: [relative_keyframes]
+    completion: relative_target_arrival
+  grasp:
+    kind: basic
+    description: 局部接近并抓取目标物体
+    recognition: {matcher: gripper_closing, alternatives: [object_follows_hand_onset]}
+    controller: vla
+    executor: local_policy
+    parameters: [precontact_relative_pose, object_identity]
+    completion: configured_grasp_handoff
+  release:
+    kind: basic
+    description: 张开夹爪释放物体
+    recognition: {matcher: gripper_opening}
+    controller: traditional
+    executor: gripper
+    parameters: [gripper_open_value]
+    completion: measured_gripper_open
+  push:
+    kind: basic
+    description: 接触目标后沿指定方向推动
+    recognition: {matcher: contact_motion, intent_words: [push]}
+    controller: traditional
+    executor: constrained_translation
+    parameters: [contact_reference, direction, relative_keyframes]
+    completion: target_relation_or_displacement
+  pull:
+    kind: basic
+    description: 接触或抓住目标后沿指定方向拉动
+    recognition: {matcher: contact_motion, intent_words: [pull, drag]}
+    controller: traditional
+    executor: constrained_translation
+    parameters: [contact_reference, direction, relative_keyframes]
+    completion: target_relation_or_displacement
+  rotate:
+    kind: basic
+    description: 将物体或机构转到目标朝向
+    recognition:
+      matcher: angular_motion
+      intent_words: [rotate, turn, adjust, upright, head-up, shake, pour, dump]
+    controller: traditional
+    executor: constrained_rotation
+    parameters: [rotation_reference, relative_keyframes, target_orientation]
+    completion: target_orientation_or_articulation
+  press:
+    kind: basic
+    description: 在目标接触区域沿指定方向按压
+    recognition: {matcher: contact_motion, intent_words: [press, click, stamp]}
+    controller: traditional
+    executor: constrained_translation
+    parameters: [contact_reference, direction, relative_keyframes]
+    completion: target_actuation_observed
+  strike:
+    kind: basic
+    description: 按指定方向和速度敲击目标
+    recognition: {matcher: contact_motion, intent_words: [strike, beat, hit, hammer]}
+    controller: traditional
+    executor: contact_trajectory
+    parameters: [contact_reference, relative_keyframes, speed_profile]
+    completion: task_contact_effect
+  place:
+    kind: composite
+    description: 将持有物体移动到目标区域并释放
+    recognition:
+      matcher: held_motion_then_release
+      intent_words: [place, put, stack, hanging, hang, ranking, position, set]
+      intent_patterns: ['\bmove\b.+\b(?:to|onto|into|on)\b']
+    controller: children
+    recipe: [move, release]
+    parameters: [object_to_target_goal, runtime_object_to_hand]
+    completion: object_target_relation_and_release
+  open:
+    kind: composite
+    description: 通过接触操作使机构打开
+    recognition: {matcher: articulated_episode, intent_words: [open]}
+    controller: children
+    recipe: [grasp, pull_or_rotate_or_push, release_optional]
+    parameters: [articulation_reference, target_open_state]
+    completion: observed_open_state
+  handover:
+    kind: composite
+    description: 接收手抓取后由递出手释放
+    recognition: {matcher: receive_then_donor_release, intent_words: [handover, hand-over, pass]}
+    controller: children
+    recipe: [receiver_grasp, donor_release]
+    parameters: [shared_object_identity, receiver_relative_pose]
+    completion: receiver_holds_same_object

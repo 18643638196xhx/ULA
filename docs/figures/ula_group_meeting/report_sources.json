@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-24",
+  "pdf_pages": 14,
+  "statistics": {
+    "A": {
+      "successes": 50,
+      "total_episodes": 50,
+      "completion_time_samples": 49,
+      "mean_completion_s": 6.905559007192449
+    },
+    "B": {
+      "successes": 48,
+      "total_episodes": 50,
+      "completion_time_samples": 47,
+      "mean_completion_s": 5.895244081365935
+    }
+  },
+  "sources": {
+    "A": {
+      "path": "/data1/xuhuixin/ula/results/three_stage_50eps_seed0_profiled/report.json",
+      "sha256": "18bd0494962557bdeda0c0b0ceaa9a0d76e7c7a110f8718446a47227e6c2689c"
+    },
+    "B": {
+      "path": "/data1/xuhuixin/ula/results/pointcloud_relaxed_12mm_35deg_50eps_seed0_gpu5_v1/report.json",
+      "sha256": "f0bb32df6b80f72969191d8114507ec629cb916d1a8e826b738d7ed868821d83"
+    },
+    "pc90": {
+      "path": "/data1/xuhuixin/ula/results/pointcloud_full_50eps_20261024_190030/report.json",
+      "sha256": "2160bd56e986cf1bf9e59e326d24b074400c736d217578fa2debf7f4a2a34ddd"
+    },
+    "pc92": {
+      "path": "/data1/xuhuixin/ula/results/pointcloud_mv_retry_50eps_seed0_gpu5_v1/report.json",
+      "sha256": "5ddfa68679fc99fbbb6d36bbaa7da64b967e1e820ac331fe2d5624aa1f5552da"
+    }
+  },
+  "note": "Existing result files read only; no experiment launched. SVG text remains editable."
+}

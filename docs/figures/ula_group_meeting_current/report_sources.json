@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-24",
+  "pdf_pages": 10,
+  "embedded_figures": 6,
+  "user_provided_baselines": {
+    "traditional": {
+      "time_s": 5.24,
+      "success_rate": 0.84
+    },
+    "vla": {
+      "time_s": 17.592,
+      "success_rate": 0.98
+    }
+  },
+  "baseline_caveat": "No original logs or sample counts specified; timing comparability not verified",
+  "reports": {
+    "A": {
+      "path": "/data1/xuhuixin/ula/results/three_stage_50eps_seed0_profiled/report.json",
+      "sha256": "18bd0494962557bdeda0c0b0ceaa9a0d76e7c7a110f8718446a47227e6c2689c",
+      "successes": 50,
+      "total": 50,
+      "completion_samples": 49,
+      "mean_completion_s": 6.905559007192449
+    },
+    "B": {
+      "path": "/data1/xuhuixin/ula/results/visual_trial_50eps_20261024_v1/report.json",
+      "sha256": "0fe04773d2253c746ad4edb8fdc3ae7e3777a563f78cf04e30d22172ca08335a",
+      "successes": 49,
+      "total": 50,
+      "completion_samples": 48,
+      "mean_completion_s": 6.119689460960217
+    }
+  },
+  "note": "Only A and current B; no intermediate variants; no evaluation launched; old reports retained"
+}

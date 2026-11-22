@@ -1,0 +1,42 @@
+schema_version: 1
+task: put_bottles_dustbin
+
+entities:
+  manipulated_object: bottles
+  support_target: dustbin
+
+stages:
+  - controller: traditional
+    operation: approach_manipulated_object
+  - controller: vla
+    operation: local_grasp
+  - controller: traditional
+    operation: container_placement
+
+placement:
+  controller: container
+  support_type: container
+  candidate_budget: 6
+  safe_escape: measured_scene_corridor
+  target_anchor: container_interior
+  release_mode: drop_into
+  desired_orientation: initial_world
+
+targets:
+  - object: bottles.*
+    slot: dustbin.interior
+
+release:
+  require:
+    - object_in_container
+    - support_contact_observed
+  retreat: selected_precontact
+
+success:
+  source: env.check_success
+  criteria:
+    - all_targets_in_bin_region: {target_xy: [-0.45, 0.0], tolerance_m: [0.221, 0.325], z_range_m: [0.2, 0.7]}
+
+truth_policy:
+  simulator_truth_for_control: false
+  simulator_truth_for_final_evaluation: true

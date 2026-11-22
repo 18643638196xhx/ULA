@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="439.2pt" viewBox="0 0 864 439.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-24T20:19:05.204259</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 439.2 
+L 864 439.2 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 28.8 115.2 
+L 143.487079 115.2 
+L 143.487079 162 
+L 28.8 162 
+z
+" clip-path="url(#pff3bc2a227)" style="fill: #96c6ea; stroke: #96c6ea; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 143.487079 115.2 
+L 476.257689 115.2 
+L 476.257689 162 
+L 143.487079 162 
+z
+" clip-path="url(#pff3bc2a227)" style="fill: #176cc0; stroke: #176cc0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 476.257689 115.2 
+L 633.397555 115.2 
+L 633.397555 162 
+L 476.257689 162 
+z
+" clip-path="url(#pff3bc2a227)" style="fill: #619ed3; stroke: #619ed3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 633.397555 115.2 
+L 709.96434 115.2 
+L 709.96434 162 
+L 633.397555 162 
+z
+" clip-path="url(#pff3bc2a227)" style="fill: #d9e1e6; stroke: #d9e1e6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 28.8 252 
+L 83.282366 252 
+L 83.282366 298.8 
+L 28.8 298.8 
+z
+" clip-path="url(#pff3bc2a227)" style="fill: #96c6ea; stroke: #96c6ea; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 83.282366 252 
+L 418.358162 252 
+L 418.358162 298.8 
+L 83.282366 298.8 
+z
+" clip-path="url(#pff3bc2a227)" style="fill: #176cc0; stroke: #176cc0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 418.358162 252 
+L 536.542385 252 
+L 536.542385 298.8 
+L 418.358162 298.8 
+z
+" clip-path="url(#pff3bc2a227)" style="fill: #619ed3; stroke: #619ed3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 536.542385 252 
+L 610.306876 252 
+L 610.306876 298.8 
+L 536.542385 298.8 
+z
+" clip-path="url(#pff3bc2a227)" style="fill: #d9e1e6; stroke: #d9e1e6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 43.2 363.6 
+L 59.04 363.6 
+L 59.04 379.44 
+L 43.2 379.44 
+z
+" clip-path="url(#pff3bc2a227)" style="fill: #96c6ea; stroke: #96c6ea; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 244.8 363.6 
+L 260.64 363.6 
+L 260.64 379.44 
+L 244.8 379.44 
+z
+" clip-path="url(#pff3bc2a227)" style="fill: #176cc0; stroke: #176cc0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 446.4 363.6 
+L 462.24 363.6 
+L 462.24 379.44 
+L 446.4 379.44 
+z
+" clip-path="url(#pff3bc2a227)" style="fill: #619ed3; stroke: #619ed3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 648 363.6 
+L 663.84 363.6 
+L 663.84 379.44 
+L 648 379.44 
+z
+" clip-path="url(#pff3bc2a227)" style="fill: #d9e1e6; stroke: #d9e1e6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #086bca" x="28.8" y="89.695078" transform="rotate(-0 28.8 89.695078)">A 已知模型</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #183951" x="86.143539" y="142.915781" transform="rotate(-0 86.143539 142.915781)">1.163</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #ffffff" x="309.872384" y="142.915781" transform="rotate(-0 309.872384 142.915781)">3.374</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #ffffff" x="554.827622" y="142.915781" transform="rotate(-0 554.827622 142.915781)">1.593</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #183951" x="671.680948" y="142.915781" transform="rotate(-0 671.680948 142.915781)">0.776</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 23px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #086bca" x="724.36434" y="142.774609" transform="rotate(-0 724.36434 142.774609)">6.906 s</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #60717f" x="28.8" y="186.115781" transform="rotate(-0 28.8 186.115781)">50/50 成功（100%） · 时间 n=49</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #086bca" x="28.8" y="226.495078" transform="rotate(-0 28.8 226.495078)">B 无预备杯子模型</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #183951" x="56.041183" y="279.715781" transform="rotate(-0 56.041183 279.715781)">0.552</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #ffffff" x="250.820264" y="279.715781" transform="rotate(-0 250.820264 279.715781)">3.397</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #ffffff" x="477.450274" y="279.715781" transform="rotate(-0 477.450274 279.715781)">1.198</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: middle; fill: #183951" x="573.424631" y="279.715781" transform="rotate(-0 573.424631 279.715781)">0.748</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 23px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #086bca" x="624.706876" y="279.574609" transform="rotate(-0 624.706876 279.574609)">5.895 s</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #60717f" x="28.8" y="322.915781" transform="rotate(-0 28.8 322.915781)">48/50 成功（96%） · 时间 n=47</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #183951" x="68.4" y="376.195781" transform="rotate(-0 68.4 376.195781)">传统接近</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #183951" x="270" y="376.195781" transform="rotate(-0 270 376.195781)">VLA 抓取</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #183951" x="471.6" y="376.195781" transform="rotate(-0 471.6 376.195781)">传统放置</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 18px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #183951" x="673.2" y="376.195781" transform="rotate(-0 673.2 376.195781)">公共开销</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 14px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #60717f" x="25.92" y="417.636719" transform="rotate(-0 25.92 417.636719)">时间：排除首轮，仅成功轮平均；样本集合不同，不是单模块严格因果消融。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pff3bc2a227">
+   <rect x="0" y="0" width="864" height="439.2"/>
+  </clipPath>
+ </defs>
+</svg>

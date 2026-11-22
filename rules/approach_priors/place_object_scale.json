@@ -1,0 +1,8 @@
+{
+  "schema":"ula_demo_relative_approach_v1","task":"place_object_scale","mode":"visual_bounds_top_anchor","arm":"right",
+  "interaction_to_approach_world_m":[0.0010749250650405884,-0.0016598254442214966,0.0792245864868164],
+  "approach_ee_rotation_world":[[0.0012395331988647174,0.38972827778260843,-0.9209290597293861],[0.007761324345788384,-0.9209057785470101,-0.38970797898314224],[-0.9999691122238971,-0.006664573154209569,-0.004166300856131899]],
+  "provenance":{"demonstration":"/data2/xuhuixin/RoboTwin/data_official50/demo_clean/place_object_scale/aloha_agilex/data/episode_0000000.hdf5","approach_frame":33,"interaction_distance_m":0.0792492623839982,"source_fields":"recorded_robot_EE_states_only","simulator_object_pose_used":false,"demonstration_depth_used":false},
+  "runtime_contract":{"anchor":"current_RGBD_visible_bounds_top_center","exact_candidate_first":true,"neighbours":"current_RGBD_point_spacing","geometry_bounds_candidates":"fallback_only"},
+  "limitation":"Official HDF5 has no object pose; this is a demonstrated approach direction relative to a visual anchor, not a full object-frame pose."
+}

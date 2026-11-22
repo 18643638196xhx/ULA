@@ -1,0 +1,31 @@
+schema_version: 1
+task: shake_bottle
+
+entities:
+  manipulated_object: bottle
+
+stages:
+  - controller: traditional
+    operation: approach_manipulated_object
+  - controller: vla
+    operation: local_grasp
+  - controller: traditional
+    operation: shake
+
+shake:
+  axis: y
+  amplitude_rad: 2.7489
+  cycles: 3
+  lift_step_m: 0.05
+  pre_lift_m: 0.1
+  pre_quaternion_wxyz: [0.707, 0.0, 0.0, 0.707]
+  horizontal: false
+
+truth_policy:
+  simulator_truth_for_control: false
+  simulator_truth_for_final_evaluation: true
+
+success:
+  source: env.check_success
+  height:
+    z_rule: "bottle_z > 0.8 + table_z_bias"

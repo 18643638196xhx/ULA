@@ -1,0 +1,6 @@
+{
+  "queries": [
+    {"key": "object", "prompts": ["pill bottle", "orange cap white pill bottle"], "attributes": ["position", "bounds", "axis"], "required": ["position", "bounds"], "min_extent_m": [0.008,0.008,0.015], "max_extent_m": [0.25,0.25,0.25], "hints": {"colors": ["orange","white"], "all_colors": true, "appearance_required": true, "support_relation": "above", "up_world": [0,0,1], "vertical_aspect_range": [0.65,4.0]}},
+    {"key": "destination", "prompts": ["blue square pad"], "attributes": ["position", "bounds", "plane"], "required": ["position", "plane"], "min_extent_m": [0.025,0.025,0], "max_extent_m": [0.20,0.20,0.02], "hints": {"colors": ["blue"], "appearance_required": true, "support_relation": "on", "up_world": [0,0,1], "min_planar_aspect": 0.55}}
+  ]
+}

@@ -1,0 +1,29 @@
+schema_version: 1
+task: turn_switch
+
+category: press
+
+entities:
+  manipulated_object: switch
+  model_name: 056_switch
+  model_id_attr: model_id
+
+stages:
+  - controller: traditional
+    operation: approach_contact_point
+  - controller: traditional
+    operation: actuate
+
+action:
+  type: turn
+  pre_grasp_m: 0.04
+  descend: to_contact_point
+
+success:
+  source: env.check_success
+  criteria:
+    - switch_turned: {switch_angle_reached: true}
+
+truth_policy:
+  simulator_truth_for_control: false
+  simulator_truth_for_final_evaluation: true

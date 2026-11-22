@@ -1,0 +1,6 @@
+{
+  "queries": [
+    {"key": "body", "prompts": ["basket"], "attributes": ["position", "bounds", "structures"], "required": ["position"]},
+    {"key": "part", "prompts": [], "parent": "body", "search_protrusions": true, "attributes": ["position", "bounds"], "required": ["position"]}
+  ]
+}

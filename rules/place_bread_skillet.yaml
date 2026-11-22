@@ -1,0 +1,54 @@
+schema_version: 1
+task: place_bread_skillet
+
+entities:
+  manipulated_object: bread
+  support_target: skillet
+
+stages:
+  - controller: traditional
+    operation: approach_manipulated_object
+  - controller: vla
+    operation: local_grasp
+  - controller: traditional
+    operation: container_placement
+
+placement:
+  controller: container
+  support_type: container
+  candidate_budget: 6
+  safe_escape: measured_scene_corridor
+  target_anchor: container_functional_point
+  release_mode: drop_into
+  desired_orientation: initial_world
+
+targets:
+  - object: bread
+    slot: skillet.functional_point[0]
+
+
+dual_arm:
+  main_arm: auto
+  place:
+    object: bread
+    arm: main
+  hold:
+    object: skillet
+    arm: opposite
+
+release:
+  require:
+    - object_in_container
+    - support_contact_observed
+  retreat: selected_precontact
+
+success:
+  source: env.check_success
+  criteria:
+    - target_at_container_functional_point: {max_distance_m: 0.035}
+    - container_lifted: {min_z_m: 0.76}
+    - object_lifted: {min_z_m: 0.76}
+
+truth_policy:
+  simulator_truth_for_control: false
+  simulator_truth_for_final_evaluation: true

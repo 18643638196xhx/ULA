@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="424.8pt" viewBox="0 0 864 424.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-24T23:41:27.708073</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 424.8 
+L 864 424.8 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="line2d_1">
+    <path d="M 241.2 64.8 
+L 284.4 64.8 
+L 284.4 127.44 
+" clip-path="url(#pdcea95759c)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: square"/>
+   </g>
+   <g id="patch_2">
+    <path d="M 286.400391 127.44 
+Q 298.800771 127.44 309.300494 127.44 
+" clip-path="url(#pdcea95759c)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 302.500494 124.04 
+L 309.300494 127.44 
+L 302.500494 130.84 
+" clip-path="url(#pdcea95759c)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 241.2 187.2 
+L 284.4 187.2 
+L 284.4 151.2 
+" clip-path="url(#pdcea95759c)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 286.400391 151.2 
+Q 298.800771 151.2 309.300494 151.2 
+" clip-path="url(#pdcea95759c)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 302.500494 147.8 
+L 309.300494 151.2 
+L 302.500494 154.6 
+" clip-path="url(#pdcea95759c)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 538.402588 147.6 
+Q 561.601384 147.6 582.899522 147.6 
+" clip-path="url(#pdcea95759c)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 576.099522 144.2 
+L 582.899522 147.6 
+L 576.099522 151 
+" clip-path="url(#pdcea95759c)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 712.8 196.399731 
+Q 712.8 228.600863 712.8 258.901336 
+" clip-path="url(#pdcea95759c)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+    <path d="M 716.2 252.101336 
+L 712.8 258.901336 
+L 709.4 252.101336 
+" clip-path="url(#pdcea95759c)" style="fill: none; stroke: #8b9296; stroke-width: 1.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 41.04 28.8 
+L 225.36 28.8 
+Q 241.2 28.8 241.2 44.64 
+L 241.2 84.96 
+Q 241.2 100.8 225.36 100.8 
+L 41.04 100.8 
+Q 25.2 100.8 25.2 84.96 
+L 25.2 44.64 
+Q 25.2 28.8 41.04 28.8 
+z
+" clip-path="url(#pdcea95759c)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 41.04 151.2 
+L 225.36 151.2 
+Q 241.2 151.2 241.2 167.04 
+L 241.2 207.36 
+Q 241.2 223.2 225.36 223.2 
+L 41.04 223.2 
+Q 25.2 223.2 25.2 207.36 
+L 25.2 167.04 
+Q 25.2 151.2 41.04 151.2 
+z
+" clip-path="url(#pdcea95759c)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 329.04 104.4 
+L 520.56 104.4 
+Q 536.4 104.4 536.4 120.24 
+L 536.4 178.56 
+Q 536.4 194.4 520.56 194.4 
+L 329.04 194.4 
+Q 313.2 194.4 313.2 178.56 
+L 313.2 120.24 
+Q 313.2 104.4 329.04 104.4 
+z
+" clip-path="url(#pdcea95759c)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 602.64 104.4 
+L 822.96 104.4 
+Q 838.8 104.4 838.8 120.24 
+L 838.8 178.56 
+Q 838.8 194.4 822.96 194.4 
+L 602.64 194.4 
+Q 586.8 194.4 586.8 178.56 
+L 586.8 120.24 
+Q 586.8 104.4 602.64 104.4 
+z
+" clip-path="url(#pdcea95759c)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 69.84 262.8 
+L 794.16 262.8 
+Q 810 262.8 810 278.64 
+L 810 318.96 
+Q 810 334.8 794.16 334.8 
+L 69.84 334.8 
+Q 54 334.8 54 318.96 
+L 54 278.64 
+Q 54 262.8 69.84 262.8 
+z
+" clip-path="url(#pdcea95759c)" style="fill: #deedf8; stroke: #cfd9e0; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 18.255477px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(77.020194 56.945153)">预备杯子 CAD</text>
+    <text style="font-weight: 700; font-size: 18.255477px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(33.773253 82.139138)">抓取接触点 / 放置功能点</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 18.202803px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(86.17704 179.367817)">当前 RGB-D</text>
+    <text style="font-weight: 700; font-size: 18.202803px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(33.919353 204.489108)">GroundingDINO + SAM2</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 17.177177px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(362.390484 142.009117)">FoundationPose</text>
+    <text style="font-weight: 700; font-size: 17.177177px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(321.736937 165.714963)">把已知形状对齐到当前画面</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 20px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(622.8 140.794531)">当前杯子位置与朝向</text>
+    <text style="font-weight: 700; font-size: 20px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(602.8 168.396094)">把模型标注变成现场目标</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 22px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(212.37125 289.333984)">传统接近 → VLA 闭爪并抬起 → 传统搬运放置</text>
+    <text style="font-weight: 700; font-size: 22px; font-family: 'WenQuanYi Micro Hei'; fill: #086bca" transform="translate(212 319.695703)">抓后重新视觉定位，更新杯子与手的保持关系</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 14px; font-family: 'WenQuanYi Micro Hei'; text-anchor: start; fill: #60717f" x="25.92" y="396.036719" transform="rotate(-0 25.92 396.036719)">A 的抓稳交接读取杯子位姿 / 物理接触真值；杯垫目标来自视觉深度，不需杯垫 CAD。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pdcea95759c">
+   <rect x="0" y="0" width="864" height="424.8"/>
+  </clipPath>
+ </defs>
+</svg>

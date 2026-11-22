@@ -1,0 +1,6 @@
+{
+  "queries": [
+    {"key": "object", "prompts": ["blue cup"], "attributes": ["position", "bounds", "axis"], "required": ["position", "bounds"], "min_extent_m": [0.008,0.008,0.025], "max_extent_m": [0.25,0.25,0.25], "hints": {"colors": ["blue"], "support_relation": "above", "up_world": [0,0,1], "vertical_aspect_range": [0.55,2.2]}},
+    {"key": "destination", "prompts": ["round coaster"], "attributes": ["position", "bounds", "plane"], "required": ["position", "plane"], "min_extent_m": [0.025,0.025,0], "max_extent_m": [0.25,0.25,0.02], "hints": {"support_relation": "on", "up_world": [0,0,1], "min_planar_aspect": 0.55}}
+  ]
+}

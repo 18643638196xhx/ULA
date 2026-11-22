@@ -1,0 +1,30 @@
+schema_version: 1
+task: click_bell
+
+category: press
+
+entities:
+  manipulated_object: bell
+  model_name: 050_bell
+  model_id_attr: bell_id
+
+stages:
+  - controller: traditional
+    operation: approach_contact_point
+  - controller: traditional
+    operation: actuate
+
+action:
+  type: press
+  contact_point_id: 0
+  descend: to_contact_point
+  tolerance_m: 0.03
+
+success:
+  source: env.check_success
+  criteria:
+    - bell_pressed: {stage_success_tag: true}
+
+truth_policy:
+  simulator_truth_for_control: false
+  simulator_truth_for_final_evaluation: true
