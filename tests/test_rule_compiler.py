@@ -409,3 +409,371 @@ def test_closure_attachment_earliest_sustained_run_and_bounds():
     ]
     with pytest.raises(RuntimeError, match="Implausible closure_attachment distance"):
         closure_attachment(T_block, bad_cmds, stable_steps=3)
+
+
+def test_execute_rotate_right_multiplies_relative_rotation():
+    import numpy as np
+    from adapters.primitive_executors import RuntimeContext, execute_stage
+    from adapters.rule_compiler import compile_demo_rule
+    from adapters.runtime_frame_calibration import (
+        ArmFrameCalibration,
+        FrameCalibration,
+        matrix_to_pose_wxyz,
+        pose_wxyz_to_matrix,
+        rotation_error_deg,
+    )
+
+    # 90-degree rotation around EE X-axis with local translation
+    T_rel = np.array([
+        [1.0, 0.0, 0.0, 0.02],
+        [0.0, 0.0, -1.0, -0.05],
+        [0.0, 1.0, 0.0, 0.03],
+        [0.0, 0.0, 0.0, 1.0],
+    ], dtype=float)
+    rule_data = {
+        "schema": "ula_demo_primitives_v1",
+        "task": "adjust_bottle",
+        "active_arms": ["left"],
+        "stages": [
+            {
+                "id": "left_003_rotate",
+                "primitive": "rotate",
+                "arm": "left",
+                "controller": "traditional",
+                "executor": "constrained_rotation",
+                "demo_frames": [90, 130],
+                "geometry": {
+                    "relative_rotation": T_rel.tolist(),
+                    "relative_rotation_role": "recorded_hand_motion_not_semantic_object_axis",
+                },
+            }
+        ],
+    }
+    plan = compile_demo_rule(rule_data)
+    assert len(plan.stages) == 1
+    st = plan.stages[0]
+    assert st.primitive == "rotate"
+    assert st.executor == "constrained_rotation"
+    assert st.relative_rotation is not None
+
+    # Non-identity starting pose to verify right-multiplication T_cur @ T_rel (not left-multiplication)
+    T_start = np.array([
+        [0.0, -1.0, 0.0, -0.10],
+        [1.0,  0.0, 0.0, -0.10],
+        [0.0,  0.0, 1.0,  0.95],
+        [0.0,  0.0, 0.0,  1.0],
+    ], dtype=float)
+    T_expected = T_start @ T_rel
+
+    class _FakeBackend:
+        def __init__(self, start_mat):
+            self.pose = matrix_to_pose_wxyz(start_mat)
+            self.calls = []
+
+        def get_arm_pose(self, arm):
+            return list(self.pose)
+
+        def move_to_pose(self, arm, target_pose_wxyz, **kwargs):
+            self.calls.append(list(target_pose_wxyz))
+            self.pose = list(target_pose_wxyz)
+            return True
+
+    cal = FrameCalibration(
+        schema_version=1,
+        robot_name="aloha_agilex",
+        source_task="adjust_bottle",
+        arms={
+            "left": ArmFrameCalibration(
+                arm="left",
+                ee_link="fl_link6",
+                sample_count=1,
+                T_recorded_ee_to_plan_target=np.eye(4).tolist(),
+                T_recorded_ee_to_ee_link=np.eye(4).tolist(),
+                T_recorded_ee_to_tcp=np.eye(4).tolist(),
+                max_plan_target_trans_err_m=0.0,
+                max_plan_target_rot_err_deg=0.0,
+                max_ee_link_trans_err_m=0.0,
+                max_ee_link_rot_err_deg=0.0,
+                max_tcp_trans_err_m=0.0,
+                max_tcp_rot_err_deg=0.0,
+            )
+        },
+    )
+    backend = _FakeBackend(T_start)
+    ctx = RuntimeContext(
+        robot_backend=backend,
+        calibration=cal,
+        perception_fn=lambda *a, **k: None,
+        vla_fn=lambda *a, **k: {},
+    )
+    outcome = execute_stage(st, ctx)
+    assert outcome.success is True
+    assert outcome.reason == "ok"
+    assert len(backend.calls) == 2  # 90 deg > 75 deg -> 2 SLERP waypoints
+    T_final = pose_wxyz_to_matrix(backend.pose)
+    assert np.linalg.norm(T_final[:3, 3] - T_expected[:3, 3]) < 1e-6
+    assert rotation_error_deg(T_final[:3, :3], T_expected[:3, :3]) < 1e-4
+
+
+def test_execute_move_bimanual_synchronized_lift():
+    import numpy as np
+    from adapters.primitive_executors import RuntimeContext, execute_stage
+    from adapters.rule_compiler import CompiledStage
+    from adapters.runtime_frame_calibration import (
+        ArmFrameCalibration,
+        FrameCalibration,
+        matrix_to_pose_wxyz,
+        pose_wxyz_to_matrix,
+    )
+
+    T_l0 = np.eye(4, dtype=float)
+    T_l0[:3, 3] = [-0.15, 0.0, 0.78]
+    T_r0 = np.eye(4, dtype=float)
+    T_r0[:3, 3] = [0.15, 0.0, 0.78]
+
+    class _FakeBimanualBackend:
+        def __init__(self):
+            self.poses = {"left": matrix_to_pose_wxyz(T_l0), "right": matrix_to_pose_wxyz(T_r0)}
+            self.both_calls = []
+            self.single_calls = []
+
+        def get_arm_pose(self, arm):
+            return list(self.poses[arm])
+
+        def move_to_pose(self, arm, target_wxyz):
+            self.single_calls.append((arm, list(target_wxyz)))
+            self.poses[arm] = list(target_wxyz)
+            return True
+
+        def move_both_to_poses(self, l_wxyz, r_wxyz):
+            self.both_calls.append((list(l_wxyz), list(r_wxyz)))
+            self.poses["left"] = list(l_wxyz)
+            self.poses["right"] = list(r_wxyz)
+            return True
+
+    def _arm_cal(arm, link):
+        return ArmFrameCalibration(
+            arm=arm, ee_link=link, sample_count=1,
+            T_recorded_ee_to_plan_target=np.eye(4).tolist(),
+            T_recorded_ee_to_ee_link=np.eye(4).tolist(),
+            T_recorded_ee_to_tcp=np.eye(4).tolist(),
+            max_plan_target_trans_err_m=0.0, max_plan_target_rot_err_deg=0.0,
+            max_ee_link_trans_err_m=0.0, max_ee_link_rot_err_deg=0.0,
+            max_tcp_trans_err_m=0.0, max_tcp_rot_err_deg=0.0,
+        )
+
+    cal = FrameCalibration(
+        schema_version=1, robot_name="aloha_agilex", source_task="lift_pot",
+        arms={"left": _arm_cal("left", "fl_link6"), "right": _arm_cal("right", "fr_link6")},
+    )
+    backend = _FakeBimanualBackend()
+    ctx = RuntimeContext(
+        robot_backend=backend, calibration=cal,
+        perception_fn=lambda *a, **k: None, vla_fn=lambda *a, **k: {},
+    )
+    ctx.held_objects["left"] = "pot"
+    ctx.held_objects["right"] = "pot"
+
+    st_r = CompiledStage(
+        stage_id="right_002_move", primitive="move", controller="traditional",
+        executor="curobo", role="retreat", arm="right", donor_arm=None, receiver_arm=None,
+        object_name="pot", reference_name=None, demo_frames=(92, 112), depends_on=(),
+        motion_delta_xyz_m=(0.0, 0.0, 0.12),
+    )
+    st_l = CompiledStage(
+        stage_id="left_002_move", primitive="move", controller="traditional",
+        executor="curobo", role="retreat", arm="left", donor_arm=None, receiver_arm=None,
+        object_name="pot", reference_name=None, demo_frames=(100, 112), depends_on=(),
+        motion_delta_xyz_m=(0.0, 0.0, 0.12),
+    )
+
+    out1 = execute_stage(st_r, ctx)
+    out2 = execute_stage(st_l, ctx)
+    assert out1.success is True and out1.reason == "ok"
+    assert out2.success is True and out2.reason == "bimanual_lift_already_done"
+    assert len(backend.both_calls) == 1
+    assert len(backend.single_calls) == 0
+    assert abs(pose_wxyz_to_matrix(backend.poses["left"])[2, 3] - 0.90) < 1e-6
+    assert abs(pose_wxyz_to_matrix(backend.poses["right"])[2, 3] - 0.90) < 1e-6
+
+
+def test_estimate_object_z_yaw_adaptive_symmetry_modes(tmp_path):
+    import numpy as np
+    from adapters.unified_perception import estimate_object_z_yaw_adaptive
+
+    rng = np.random.default_rng(0)
+    theta = rng.uniform(0, 2 * np.pi, 300)
+    r = rng.uniform(0.0, 0.04, 300)
+    cyl = np.column_stack([r * np.cos(theta), r * np.sin(theta), rng.uniform(0.74, 0.85, 300)])
+    Rz_cyl, info_cyl = estimate_object_z_yaw_adaptive(cyl, symmetric_180=True)
+    assert info_cyl["method"] == "radially_symmetric_skip"
+    assert np.allclose(Rz_cyl, np.eye(3), atol=1e-6)
+
+    tpl = np.column_stack([
+        rng.uniform(-0.15, 0.15, 400),
+        rng.uniform(-0.03, 0.03, 400),
+        rng.uniform(0.74, 0.80, 400),
+    ])
+    tpl_file = tmp_path / "bar.npz"
+    np.savez(tpl_file, bar_points_world=tpl)
+    ang = np.radians(32.0)
+    R_true = np.array([[np.cos(ang), -np.sin(ang), 0.0], [np.sin(ang), np.cos(ang), 0.0], [0.0, 0.0, 1.0]])
+    obs = tpl @ R_true.T + np.array([0.05, -0.04, 0.0])
+    Rz_bar, info_bar = estimate_object_z_yaw_adaptive(obs, f"{tpl_file}#bar_points_world", symmetric_180=True)
+    assert info_bar["method"] == "pca_axis_180"
+    assert abs(info_bar["yaw_deg"] - 32.0) < 1.0
+
+
+def test_execute_move_bimanual_adaptive_lift_and_scale_fallback():
+    import numpy as np
+    from adapters.primitive_executors import RuntimeContext, execute_stage
+    from adapters.rule_compiler import CompiledStage
+    from adapters.runtime_frame_calibration import (
+        ArmFrameCalibration,
+        FrameCalibration,
+        matrix_to_pose_wxyz,
+        pose_wxyz_to_matrix,
+    )
+
+    T_l0 = np.eye(4, dtype=float)
+    T_l0[:3, 3] = [-0.15, 0.0, 0.90]
+    T_r0 = np.eye(4, dtype=float)
+    T_r0[:3, 3] = [0.15, 0.0, 0.90]
+
+    class _CeilingBackend:
+        def __init__(self, z_ceiling):
+            self.poses = {"left": matrix_to_pose_wxyz(T_l0), "right": matrix_to_pose_wxyz(T_r0)}
+            self.z_ceiling = z_ceiling
+            self.calls = []
+
+        def get_arm_pose(self, arm):
+            return list(self.poses[arm])
+
+        def move_both_to_poses(self, l_wxyz, r_wxyz):
+            self.calls.append((l_wxyz[2], r_wxyz[2]))
+            if max(l_wxyz[2], r_wxyz[2]) > self.z_ceiling:
+                return False
+            self.poses["left"] = list(l_wxyz)
+            self.poses["right"] = list(r_wxyz)
+            return True
+
+    def _arm_cal(arm, link):
+        return ArmFrameCalibration(
+            arm=arm, ee_link=link, sample_count=1,
+            T_recorded_ee_to_plan_target=np.eye(4).tolist(),
+            T_recorded_ee_to_ee_link=np.eye(4).tolist(),
+            T_recorded_ee_to_tcp=np.eye(4).tolist(),
+            max_plan_target_trans_err_m=0.0, max_plan_target_rot_err_deg=0.0,
+            max_ee_link_trans_err_m=0.0, max_ee_link_rot_err_deg=0.0,
+            max_tcp_trans_err_m=0.0, max_tcp_rot_err_deg=0.0,
+        )
+
+    cal = FrameCalibration(
+        schema_version=1, robot_name="aloha_agilex", source_task="grab_roller",
+        arms={"left": _arm_cal("left", "fl_link6"), "right": _arm_cal("right", "fr_link6")},
+    )
+    backend = _CeilingBackend(z_ceiling=0.991)
+    ctx = RuntimeContext(
+        robot_backend=backend, calibration=cal,
+        perception_fn=lambda *a, **k: None, vla_fn=lambda *a, **k: {},
+    )
+    ctx.held_objects["left"] = "roller"
+    ctx.held_objects["right"] = "roller"
+    st = CompiledStage(
+        stage_id="left_002_move", primitive="move", controller="traditional",
+        executor="curobo", role="retreat", arm="left", donor_arm=None, receiver_arm=None,
+        object_name="roller", reference_name=None, demo_frames=(75, 87), depends_on=(),
+        motion_delta_xyz_m=(0.0, 0.0, 0.12),
+    )
+    out = execute_stage(st, ctx)
+    assert out.success is True
+    assert out.details["used_scale"] == 0.75
+    assert abs(pose_wxyz_to_matrix(backend.poses["left"])[2, 3] - 0.99) < 1e-6
+
+
+def test_execute_place_levels_small_tilt_and_enforces_support_clearance():
+    import numpy as np
+    from adapters.primitive_executors import RuntimeContext, execute_stage
+    from adapters.rule_compiler import CompiledStage
+    from adapters.runtime_frame_calibration import (
+        ArmFrameCalibration,
+        FrameCalibration,
+        matrix_to_pose_wxyz,
+        pose_wxyz_to_matrix,
+    )
+
+    # 12-deg tilted goal (tracking noise) with too-low Z (would penetrate a 2cm plate)
+    ang = np.radians(12.0)
+    T_tilted_goal = np.array([
+        [np.cos(ang), 0.0, -np.sin(ang), 0.0],
+        [0.0, 1.0, 0.0, 0.0],
+        [np.sin(ang), 0.0, np.cos(ang), 0.002],
+        [0.0, 0.0, 0.0, 1.0],
+    ], dtype=float)
+
+    T_start = np.eye(4, dtype=float)
+    T_start[:3, 3] = [-0.25, -0.10, 0.935]
+    T_plate = np.eye(4, dtype=float)
+    T_plate[:3, 3] = [-0.03, -0.10, 0.744]
+    # Object is 15 cm below EE (z_obj = 0.785 when EE z = 0.935)
+    T_att = np.eye(4, dtype=float)
+    T_att[:3, 3] = [0.0, 0.0, -0.15]
+
+    class _FakePlaceBackend:
+        def __init__(self):
+            self.pose = matrix_to_pose_wxyz(T_start)
+            self.moves = []
+            self.gripper_calls = []
+
+        def get_arm_pose(self, arm):
+            return list(self.pose)
+
+        def move_to_pose(self, arm, target_wxyz):
+            self.moves.append(list(target_wxyz))
+            self.pose = list(target_wxyz)
+            return True
+
+        def set_gripper(self, arm, val):
+            self.gripper_calls.append(val)
+            return True
+
+    cal = FrameCalibration(
+        schema_version=1, robot_name="aloha_agilex", source_task="place_container_plate",
+        arms={"left": ArmFrameCalibration(
+            arm="left", ee_link="fl_link6", sample_count=1,
+            T_recorded_ee_to_plan_target=np.eye(4).tolist(),
+            T_recorded_ee_to_ee_link=np.eye(4).tolist(),
+            T_recorded_ee_to_tcp=np.eye(4).tolist(),
+            max_plan_target_trans_err_m=0.0, max_plan_target_rot_err_deg=0.0,
+            max_ee_link_trans_err_m=0.0, max_ee_link_rot_err_deg=0.0,
+            max_tcp_trans_err_m=0.0, max_tcp_rot_err_deg=0.0,
+        )},
+    )
+    backend = _FakePlaceBackend()
+    ctx = RuntimeContext(
+        robot_backend=backend, calibration=cal,
+        perception_fn=lambda name, reason: T_plate,
+        vla_fn=lambda *a, **k: {},
+        enable_approach_yaw_symmetry=False,
+        object_init_z_min={"container": 0.741},
+        support_z_top={"plate": 0.761},
+        place_release_clearance_m=0.015,
+    )
+    ctx.attachments["left"] = T_att
+    ctx.held_objects["left"] = "container"
+    ctx.grasp_closure_ee_z["left"] = 0.935
+
+    st = CompiledStage(
+        stage_id="place_71_133", primitive="place", controller="traditional",
+        executor="curobo_place", role="place", arm="left", donor_arm=None, receiver_arm=None,
+        object_name="container", reference_name="plate", demo_frames=(71, 133), depends_on=(),
+        reusable_object_goal=T_tilted_goal.tolist(),
+    )
+    out = execute_stage(st, ctx)
+    assert out.success is True
+    assert out.details["leveled_goal_tilt_deg"] > 10.0
+    # Must have performed pre-transport vertical lift first, then preplace, then descend, then retreat
+    assert "pre_transport_lift" in out.details
+    # Descend Z must be clamped to >= 0.935 + (0.761 - 0.741) + 0.015 = 0.970
+    descend_z = out.details["place_descend"]["target_pose_wxyz"][2]
+    assert descend_z >= 0.9699

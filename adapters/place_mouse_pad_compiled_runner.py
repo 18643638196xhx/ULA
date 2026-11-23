@@ -28,6 +28,7 @@ from adapters.unified_perception import (
     PERCEPTION_SPEC,
     UnifiedPerceptionWorker,
     UnifiedVisionPerception,
+    estimate_template_z_yaw_rotation,
 )
 from adapters.worldla import WorldLA
 
@@ -140,6 +141,12 @@ def run_place_mouse_pad_compiled_episodes(
                     target_xyz = np.asarray(est.coaster_world_center, dtype=float)
                     T_mouse = np.eye(4, dtype=float)
                     T_mouse[:3, 3] = mouse_xyz
+                    if len(pts) >= 20:
+                        yaw_tpl = ULA_ROOT / "results/demo_multiview_template_place_mouse_pad_v1/merged_template.npz"
+                        yaw_spec = f"{yaw_tpl}#mouse_points_world" if yaw_tpl.is_file() else f"{DEFAULT_MOUSE_TEMPLATE}#mouse_points_world"
+                        Rz, _yaw_audit = estimate_template_z_yaw_rotation(pts, yaw_spec)
+                        if Rz is not None:
+                            T_mouse[:3, :3] = Rz
                     T_target = np.eye(4, dtype=float)
                     T_target[:3, 3] = target_xyz
                     perception_cache["mouse"] = T_mouse
@@ -183,49 +190,18 @@ def run_place_mouse_pad_compiled_episodes(
                             except Exception as exc:
                                 att_info = {"closure_attachment_error": str(exc)}
                         att_source = "closure_attachment"
-                        # Post-grasp visual refinement: lift 8 cm and re-localize held object via UnifiedVision
-                        # to measure any pre-closure slip inside the fingers (zero CAD, zero truth).
-                        if res.get("physical_grasp_confirmed") and att_mat is not None:
-                            try:
-                                lifted_pose = list(ctx.robot_backend.get_arm_pose(arm))
-                                lifted_pose[2] += 0.08
-                                moved_lift = bool(ctx.robot_backend.move_to_pose(arm, lifted_pose))
-                                att_info["postgrasp_moved"] = moved_lift
-                                if moved_lift:
-                                    ctx.robot_backend.settle_to_pose(arm, lifted_pose, 0.015, 10.0, max_steps=40)
-                                obs_lift = task.get_obs()
-                                cam_lift = obs_lift["observation"]["head_camera"]
-                                rgb_l = np.asarray(cam_lift["rgb"])
-                                dep_l = np.asarray(cam_lift["depth"], dtype=float)
-                                if dep_l.size and float(np.nanmax(dep_l)) < 20.0:
-                                    dep_l = dep_l * 1000.0
-                                intr_l = np.asarray(cam_lift["intrinsic_cv"], dtype=float)
-                                ext_l = np.asarray(cam_lift["extrinsic_cv"], dtype=float)
-                                post_perc = UnifiedVisionPerception(ULA_ROOT, ep_dir / "perception_postgrasp", worker=worker)
-                                est_l = post_perc.estimate(rgb_l, dep_l, intr_l, ext_l)
-                                pts_l = np.asarray(est_l.cup_points_world, dtype=float)
-                                att_info["postgrasp_pts_count"] = int(len(pts_l))
-                                if len(pts_l) >= 20:
-                                    held_xyz = np.median(pts_l, axis=0)
-                                    cur_ee = ctx.current_ee_matrix(arm)
-                                    dist_ee = float(np.linalg.norm(held_xyz - cur_ee[:3, 3]))
-                                    table_z = float(perception_cache["target"][2, 3])
-                                    if 0.04 <= dist_ee <= 0.25 and held_xyz[2] > table_z + 0.03:
-                                        T_held = cur_ee @ np.asarray(att_mat, dtype=float)
-                                        old_xyz = T_held[:3, 3].copy()
-                                        T_held[:3, 3] = held_xyz
-                                        att_mat = np.linalg.solve(cur_ee, T_held)
-                                        att_source = "postgrasp_unified_vision_refined"
-                                        att_info["postgrasp_shift_mm"] = np.round((held_xyz - old_xyz) * 1000.0, 1).tolist()
-                                        att_info["postgrasp_dist_ee_m"] = round(dist_ee, 4)
-                                    else:
-                                        att_info["postgrasp_rejected"] = {
-                                            "dist_ee_m": round(dist_ee, 4),
-                                            "held_z": round(float(held_xyz[2]), 4),
-                                            "table_z": round(table_z, 4),
-                                        }
-                            except Exception as exc:
-                                att_info["postgrasp_error"] = f"{type(exc).__name__}:{exc}"
+                        # Parallel-jaw self-alignment from rule.yaml attachment (zero CAD, zero truth):
+                        # flat parallel jaws self-align held object orientation and center along jaw depth/closing axes (x_ee, y_ee),
+                        # while preserving z_ee (along open finger gap) from closure_attachment.
+                        att_rel = stage.relations.get("attachment")
+                        if att_mat is not None and att_rel is not None:
+                            att_rule = np.asarray(att_rel.T_reference_controlled, dtype=float)
+                            att_mat = np.asarray(att_mat, dtype=float).copy()
+                            att_mat[:3, :3] = att_rule[:3, :3]
+                            att_mat[0, 3] = att_rule[0, 3]
+                            att_mat[1, 3] = att_rule[1, 3]
+                            att_source = "parallel_jaw_rule_alignment"
+                            att_info["parallel_jaw_aligned"] = True
                         res["attachment_info"] = att_info
                         if att_mat is not None:
                             res["attachment"] = np.asarray(att_mat, dtype=float).tolist()
@@ -304,6 +280,31 @@ def run_place_mouse_pad_compiled_episodes(
                     json.dumps({"summary": row, "compiled_run": run_result}, indent=2, default=str),
                     encoding="utf-8",
                 )
+            except Exception as exc:
+                # 场景不稳定（UnStableError）等问题不应终止整轮评测：
+                # 记录一条失败样本，继续下一个 seed。
+                failed = {
+                    "seed": ep_seed,
+                    "selected_arm": None,
+                    "controller_complete": False,
+                    "task_success": False,
+                    "failure_stage": "scene_or_runtime_error",
+                    "failure_reason": f"{type(exc).__name__}: {exc}",
+                    "elapsed_s": round(time.perf_counter() - t0, 3),
+                    "final_evaluation": {},
+                }
+                rows.append(failed)
+                try:
+                    (ep_dir / "result.json").write_text(
+                        json.dumps({"summary": failed,
+                                    "compiled_run": {"stages": [], "error": str(exc)}},
+                                   indent=2, default=str),
+                        encoding="utf-8",
+                    )
+                except Exception:
+                    pass
+                print(f"[{ep_seed}] 场景/运行异常，记为失败并继续: {type(exc).__name__}", flush=True)
+                continue
             finally:
                 try:
                     task.close_env()

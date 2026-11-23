@@ -227,6 +227,31 @@ def run_place_empty_cup_compiled_episodes(
                     json.dumps({"summary": row, "compiled_run": run_result}, indent=2, default=str),
                     encoding="utf-8",
                 )
+            except Exception as exc:
+                # 场景不稳定（UnStableError）等问题不应终止整轮评测：
+                # 记录一条失败样本，继续下一个 seed。
+                failed = {
+                    "seed": ep_seed,
+                    "selected_arm": None,
+                    "controller_complete": False,
+                    "task_success": False,
+                    "failure_stage": "scene_or_runtime_error",
+                    "failure_reason": f"{type(exc).__name__}: {exc}",
+                    "elapsed_s": round(time.perf_counter() - t0, 3),
+                    "final_evaluation": {},
+                }
+                rows.append(failed)
+                try:
+                    (ep_dir / "result.json").write_text(
+                        json.dumps({"summary": failed,
+                                    "compiled_run": {"stages": [], "error": str(exc)}},
+                                   indent=2, default=str),
+                        encoding="utf-8",
+                    )
+                except Exception:
+                    pass
+                print(f"[{ep_seed}] 场景/运行异常，记为失败并继续: {type(exc).__name__}", flush=True)
+                continue
             finally:
                 try:
                     task.close_env()

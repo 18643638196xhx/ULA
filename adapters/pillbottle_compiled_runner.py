@@ -80,6 +80,8 @@ def _rollout_worldla_grasp(
     opening_delta_tol: float = 0.004,
     stable_blocked_steps: int = 4,
     abort_on_empty_close_steps: int | None = None,
+    bimanual: bool = False,
+    max_thin_grasp_ee_z: float | None = None,
 ) -> dict[str, Any]:
     """Run WorldLA locally for grasp and stop once physical gripper encoder confirms hold."""
     start = int(task.take_action_cnt)
@@ -98,17 +100,48 @@ def _rollout_worldla_grasp(
         original(values, *a, **kw)
         l_cmd = float(task.robot.get_left_gripper_val())
         r_cmd = float(task.robot.get_right_gripper_val())
-        cmd = l_cmd if arm == "left" else r_cmd
-        opening = measured_gripper_opening(task.robot, arm)
-        if cmd < closed_threshold and minimum_blocked_opening <= opening <= maximum_blocked_opening:
-            if prev_opening is not None and abs(opening - prev_opening) <= opening_delta_tol:
-                blocked_run += 1
+        if bimanual:
+            l_open = measured_gripper_opening(task.robot, "left")
+            r_open = measured_gripper_opening(task.robot, "right")
+            cmd = max(l_cmd, r_cmd)
+            opening = min(l_open, r_open)
+            both_closed = (l_cmd < closed_threshold and r_cmd < closed_threshold)
+            both_in_range = (
+                minimum_blocked_opening <= l_open <= maximum_blocked_opening
+                and minimum_blocked_opening <= r_open <= maximum_blocked_opening
+            )
+            # Thin-handle height gate: if gripper closed to ~0, require both wrists to be
+            # down near the observed object cloud rather than closing on air mid-approach.
+            thin_height_ok = True
+            if max_thin_grasp_ee_z is not None and min(l_open, r_open) < 0.015:
+                l_z = float(task.get_arm_pose("left")[2])
+                r_z = float(task.get_arm_pose("right")[2])
+                thin_height_ok = (l_z <= float(max_thin_grasp_ee_z) and r_z <= float(max_thin_grasp_ee_z))
+            if both_closed and both_in_range and thin_height_ok:
+                if prev_opening is not None and abs(opening - prev_opening) <= opening_delta_tol:
+                    blocked_run += 1
+                else:
+                    blocked_run = 1
+                prev_opening = opening
             else:
-                blocked_run = 1
-            prev_opening = opening
+                blocked_run = 0
+                prev_opening = None
         else:
-            blocked_run = 0
-            prev_opening = None
+            cmd = l_cmd if arm == "left" else r_cmd
+            opening = measured_gripper_opening(task.robot, arm)
+            thin_height_ok = True
+            if max_thin_grasp_ee_z is not None and opening < 0.015:
+                cur_z = float(task.get_arm_pose(arm)[2])
+                thin_height_ok = (cur_z <= float(max_thin_grasp_ee_z))
+            if cmd < closed_threshold and minimum_blocked_opening <= opening <= maximum_blocked_opening and thin_height_ok:
+                if prev_opening is not None and abs(opening - prev_opening) <= opening_delta_tol:
+                    blocked_run += 1
+                else:
+                    blocked_run = 1
+                prev_opening = opening
+            else:
+                blocked_run = 0
+                prev_opening = None
         commands.append({
             "step": int(task.take_action_cnt),
             "phase_step": int(task.take_action_cnt) - start,
@@ -153,6 +186,62 @@ def _rollout_worldla_grasp(
         "physical_grasp_confirmed": bool(grasp_confirmed or (final_cmd < closed_threshold and minimum_blocked_opening <= final_opening <= maximum_blocked_opening)),
         "final_gripper_cmd": final_cmd,
         "final_measured_opening": final_opening,
+        "commands": commands,
+        "uses_object_truth": False,
+    }
+
+
+def _rollout_worldla_strike(task: Any, policy: WorldLA, arm: str, *, steps: int) -> dict[str, Any]:
+    """用 VLA 执行敲击：直接输出关节动作，不经规划器（与示范一致）。"""
+    start = int(task.take_action_cnt)
+    old_limit = task.step_lim
+    budget = max(1, int(steps))
+    min_steps = budget
+    # 不设人为上限：用任务剩余步数作为硬边界，靠“高度不再下降”提前收手。
+    max_steps = max(budget, int(old_limit) - start)
+    task.step_lim = start + max_steps
+    commands: list[dict[str, Any]] = []
+    closed_steps = 0
+    # 示范时长只是下限：示范在 strike 段开始时已经在运动，
+    # 我们从静止交接过去，VLA 起步更慢，因此继续到“末端高度不再下降”为止。
+    stall = 0
+    last_z: float | None = None
+    stop_reason = "strike_stall_detected"
+    try:
+        policy.reset()
+        while task.take_action_cnt < old_limit:
+            before = int(task.take_action_cnt)
+            policy.step(task, task.get_obs())
+            done = int(task.take_action_cnt) - start
+            cmd = float(task.robot.get_left_gripper_val() if arm == "left"
+                        else task.robot.get_right_gripper_val())
+            if cmd < 0.5:
+                closed_steps += 1
+            z = float(task.get_arm_pose(arm)[2])
+            dz = 0.0 if last_z is None else (last_z - z)
+            last_z = z
+            commands.append({"step": done, "gripper_cmd": cmd, "ee_z": z, "dz_down": dz})
+            print(f"[worldla-strike-{arm}] step={done}/{max_steps} dz={dz*1000:.1f}mm", flush=True)
+            if int(task.take_action_cnt) == before:
+                raise RuntimeError("WorldLA executed no action during strike")
+            if done >= min_steps:
+                if abs(dz) < 0.001:
+                    stall += 1
+                else:
+                    stall = 0
+                if stall >= 3:
+                    stop_reason = "strike_stall_detected"
+                    break
+            if done >= max_steps:
+                stop_reason = "strike_budget_cap"
+                break
+    finally:
+        task.step_lim = old_limit
+    return {
+        "arm": arm,
+        "vla_steps": int(task.take_action_cnt) - start,
+        "stop_reason": stop_reason,
+        "gripper_stayed_closed": bool(closed_steps >= max(1, len(commands) // 2)),
         "commands": commands,
         "uses_object_truth": False,
     }

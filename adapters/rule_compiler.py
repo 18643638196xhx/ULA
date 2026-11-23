@@ -10,7 +10,7 @@ import yaml
 from adapters.primitive_geometry import _transform
 
 SUPPORTED_SCHEMA = "ula_demo_primitives_v1"
-SUPPORTED_PRIMITIVES = ("move", "grasp", "release", "handover", "place")
+SUPPORTED_PRIMITIVES = ("move", "grasp", "release", "handover", "place", "rotate", "press", "strike", "open")
 
 
 @dataclass(frozen=True)
@@ -41,6 +41,8 @@ class CompiledStage:
     reusable_object_goal: list[list[float]] | None = None
     gripper_open_value: float = 1.0
     motion_delta_xyz_m: tuple[float, float, float] | None = None
+    relative_rotation: list[list[float]] | None = None
+    relative_rotation_role: str | None = None
     requires_runtime_tool_frame_reconciliation: bool = True
     child_ids: tuple[str, ...] = ()
 
@@ -133,6 +135,8 @@ def _default_executor(primitive: str, controller: str) -> str:
         return "handover_state_machine"
     if primitive == "place":
         return "curobo_place"
+    if primitive == "rotate":
+        return "constrained_rotation"
     return "curobo" if controller == "traditional" else "local_policy"
 
 
@@ -271,6 +275,15 @@ def compile_demo_rule(
             if len(v) == 3:
                 delta_xyz = (v[0], v[1], v[2])
 
+        geom_stage = s.get("geometry") or {}
+        rel_rot = None
+        raw_rel_rot = geom_stage.get("relative_rotation")
+        if isinstance(raw_rel_rot, list) and len(raw_rel_rot) == 4 and all(
+            isinstance(row, list) and len(row) == 4 for row in raw_rel_rot
+        ):
+            rel_rot = [[float(x) for x in row] for row in raw_rel_rot]
+        rel_rot_role = str(geom_stage.get("relative_rotation_role") or "") or None
+
         stage_entries.append(
             dict(
                 stage_id=sid,
@@ -289,6 +302,8 @@ def compile_demo_rule(
                 reusable_object_goal=obj_goal,
                 gripper_open_value=gripper_open_val,
                 motion_delta_xyz_m=delta_xyz,
+                relative_rotation=rel_rot,
+                relative_rotation_role=rel_rot_role,
                 requires_reconcile=bool((s.get("geometry") or {}).get("requires_runtime_tool_frame_reconciliation", True)),
                 child_ids=tuple(str(c["id"]) for c in (s.get("children") or [])),
             )
@@ -374,6 +389,8 @@ def compile_demo_rule(
             reusable_object_goal=e["reusable_object_goal"],
             gripper_open_value=e["gripper_open_value"],
             motion_delta_xyz_m=e["motion_delta_xyz_m"],
+            relative_rotation=e["relative_rotation"],
+            relative_rotation_role=e["relative_rotation_role"],
             requires_runtime_tool_frame_reconciliation=e["requires_reconcile"],
             child_ids=e["child_ids"],
         )

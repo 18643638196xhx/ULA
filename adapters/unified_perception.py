@@ -99,6 +99,37 @@ def _resolve_with_demo_template(worker_output: Path, request_num: int, target_ke
 
 
 
+def estimate_template_pose(points_world: np.ndarray, template_spec: str) -> tuple[np.ndarray | None, dict]:
+    """把示范点云模板配准到观测点云，返回完整 6-DoF 变换（模板→当前世界）。
+
+    与 estimate_template_z_yaw_rotation 共用同一套配准与质量门控，
+    区别是这里保留完整的旋转与平移，用于把整条示范轨迹映射到当前场景。
+    """
+    path_text, sep, array_name = str(template_spec).partition("#")
+    array_name = array_name if sep else "points_world"
+    tpl_path = Path(path_text).resolve()
+    if not tpl_path.is_file():
+        return None, {"pose_error": f"missing_template:{tpl_path}"}
+    pts = np.asarray(points_world, dtype=float)
+    if len(pts) < 20:
+        return None, {"pose_error": "too_few_points"}
+    mod = _load_demo_template_module()
+    cache_key = (str(tpl_path), array_name)
+    if cache_key not in _TEMPLATE_REC_CACHE:
+        _TEMPLATE_REC_CACHE[cache_key] = mod._template_record("object", tpl_path, array_name)
+    match = mod._match(_TEMPLATE_REC_CACHE[cache_key], pts)
+    if not match.get("accepted") or "demo_template_to_current_world" not in match:
+        return None, {"pose_accepted": False, "pose_reason": match.get("reason", "match_failed")}
+    M = np.asarray(match["demo_template_to_current_world"], dtype=float)
+    return M, {
+        "pose_accepted": True,
+        "match_cost": float(match.get("cost", 0.0)),
+        "yaw_deg": round(float(np.degrees(np.arctan2(M[1, 0], M[0, 0]))), 2),
+        "translation": M[:3, 3].tolist(),
+        "uses_CAD": False,
+    }
+
+
 def estimate_template_z_yaw_rotation(points_world: np.ndarray, template_spec: str) -> tuple[np.ndarray | None, dict]:
     """Estimate pure Z-axis rotation R_z(yaw) aligning a single clean-demo pointcloud template to observed points (zero CAD)."""
     path_text, sep, array_name = str(template_spec).partition("#")
@@ -462,3 +493,77 @@ class UnifiedVisionPerception:
         if getattr(estimate, "object_pose_world", None) is not None:
             saved["object_pose_world"] = estimate.object_pose_world
         np.savez(self.reference_path, **saved)
+
+
+def _pca_major_axis_angle_xy(points_world: np.ndarray) -> tuple[float, float]:
+    """Return (major_axis_angle_rad, aspect_ratio) of a 3D pointcloud projected onto XY."""
+    xy = np.asarray(points_world, dtype=float)[:, :2]
+    xy = xy - xy.mean(axis=0, keepdims=True)
+    cov = (xy.T @ xy) / max(len(xy), 1)
+    eigvals, eigvecs = np.linalg.eigh(cov)
+    # eigh returns ascending order: eigvals[1] >= eigvals[0]
+    lam_max = max(float(eigvals[1]), 1e-12)
+    lam_min = max(float(eigvals[0]), 1e-12)
+    aspect = float(np.sqrt(lam_max / lam_min))
+    v = eigvecs[:, 1]
+    angle = float(np.arctan2(v[1], v[0]))
+    return angle, aspect
+
+
+def estimate_object_z_yaw_adaptive(
+    points_world: np.ndarray,
+    template_spec: str | None = None,
+    *,
+    symmetric_180: bool = False,
+    aspect_ratio_thresh: float = 1.15,
+) -> tuple[np.ndarray | None, dict]:
+    """Symmetry-aware pure Z-yaw estimation (zero CAD, zero truth).
+
+    - Radially symmetric objects (XY aspect_ratio < aspect_ratio_thresh, e.g. cups/cans):
+      return identity I_3 to avoid random 360-deg wrist twisting.
+    - 180-deg symmetric elongated / two-handled objects (symmetric_180=True, e.g. pots/rollers):
+      align 2D PCA major axis directly to the template's 2D PCA major axis (wrapped to [-90, +90] deg).
+    - Asymmetric elongated objects: fall back to full 360-deg template matching.
+    """
+    pts = np.asarray(points_world, dtype=float)
+    if len(pts) < 20:
+        return None, {"yaw_error": "too_few_points", "uses_CAD": False}
+    cur_angle, aspect = _pca_major_axis_angle_xy(pts)
+    if aspect < float(aspect_ratio_thresh):
+        return np.eye(3, dtype=float), {
+            "method": "radially_symmetric_skip",
+            "yaw_accepted": True,
+            "yaw_deg": 0.0,
+            "aspect_ratio": round(aspect, 3),
+            "uses_CAD": False,
+        }
+    if symmetric_180:
+        tpl_angle = 0.0
+        if template_spec:
+            path_text, sep, array_name = str(template_spec).partition("#")
+            array_name = array_name if sep else "points_world"
+            tpl_path = Path(path_text).resolve()
+            if tpl_path.is_file():
+                with np.load(tpl_path, allow_pickle=False) as z:
+                    if array_name in z.files:
+                        tpl_angle, _ = _pca_major_axis_angle_xy(np.asarray(z[array_name], dtype=float))
+        # Wrap delta yaw into [-pi/2, +pi/2] (shortest 180-deg-symmetric alignment)
+        dyaw = float((cur_angle - tpl_angle + 0.5 * np.pi) % np.pi - 0.5 * np.pi)
+        c, s = float(np.cos(dyaw)), float(np.sin(dyaw))
+        Rz = np.array([[c, -s, 0.0], [s, c, 0.0], [0.0, 0.0, 1.0]], dtype=float)
+        return Rz, {
+            "method": "pca_axis_180",
+            "yaw_accepted": True,
+            "yaw_deg": round(float(np.degrees(dyaw)), 2),
+            "aspect_ratio": round(aspect, 3),
+            "uses_CAD": False,
+        }
+    if not template_spec:
+        return np.eye(3, dtype=float), {
+            "method": "no_template_identity",
+            "yaw_accepted": True,
+            "yaw_deg": 0.0,
+            "aspect_ratio": round(aspect, 3),
+            "uses_CAD": False,
+        }
+    return estimate_template_z_yaw_rotation(pts, template_spec)

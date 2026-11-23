@@ -445,6 +445,18 @@ def _make_composite(primitive, children, definitions, reason, **fields):
                 evidence_level='task_conditioned_candidate', **fields)
 
 
+
+def _recompute_after_relabel(stage, arm_tracks, visual, target, maximum, frequency):
+    """重标 primitive 后重算几何（接触类原语需要 strike_contact / contact 关系）。"""
+    stage.setdefault('frequency_hz', frequency)
+    if stage.get('frequency_hz') is None:
+        stage['frequency_hz'] = frequency
+    local_object = stage.get('object')
+    _keyframe_geometry(stage, arm_tracks, visual, local_object, target, None, maximum)
+    stage['geometry'].pop('keyframes', None)
+    return stage
+
+
 def _keyframe_geometry(stage, tracks, visual, object_name, target, initial_reference, maximum):
     arm = stage['arm']
     poses = tracks[arm]
@@ -519,8 +531,35 @@ def _keyframe_geometry(stage, tracks, visual, object_name, target, initial_refer
                 geometry['demonstrated_relations'].append(relation_record(
                     'contact_path', object_name, 'recorded_ee', frame,
                     obj, pose_matrix(poses[frame]), 'synchronous_visual_pose'))
-    if stage['primitive'] in ('push', 'pull', 'press', 'strike'):
-        missing.append('verified_contact_reference_and_tool_contact_frame')
+    if stage['primitive'] in ('press', 'strike'):
+        # 接触关系：工具（受控物体）相对被接触物体（reference）在位姿，
+        # 这正是 strike/press 的语义 —— 敲击物 × 被敲物。
+        tool_pose = visual.pose(object_name, end) if object_name else None
+        struck_pose = visual.pose(reference, end) if reference else None
+        if tool_pose is not None and struck_pose is not None:
+            geometry['demonstrated_relations'].append(relation_record(
+                'strike_contact' if stage['primitive'] == 'strike' else 'contact',
+                reference, object_name, end,
+                struck_pose, tool_pose, 'synchronous_visual_pose_at_contact'))
+            # strike 真正需要的是「末端相对被敲物体」的位姿：
+            # 被敲物体静止，复现这个相对位姿即可让工具与它接触，
+            # 不依赖工具自身的坐标系（工具姿态估计不可靠）。
+            if stage['primitive'] == 'strike':
+                geometry['demonstrated_relations'].append(relation_record(
+                    'strike_ee', reference, 'recorded_ee', end,
+                    struck_pose, pose_matrix(poses[end]),
+                    'recorded_ee_relative_to_struck_object'))
+                # 起点位姿：规划器把臂送到这里，之后交给 VLA 完成敲击
+                struck_start = visual.pose(reference, start)
+                if struck_start is not None:
+                    geometry['demonstrated_relations'].append(relation_record(
+                        'strike_start_ee', reference, 'recorded_ee', start,
+                        struck_start, pose_matrix(poses[start]),
+                        'recorded_ee_relative_to_struck_object_at_stage_start'))
+            geometry['contact_reference'] = reference
+            geometry['tool_object'] = object_name
+        else:
+            missing.append('verified_contact_reference_and_tool_contact_frame')
         path = poses[start:end+1, :3]
         delta = path[-1]-path[0]
         geometry['direction_world_hint'] = None if np.linalg.norm(delta) < 1e-9 else delta/np.linalg.norm(delta)
@@ -655,6 +694,9 @@ def extract_rule(task, description, arm_tracks, grippers, frequency, library, *,
                 downward = [stage for stage in (closed or candidates) if stage['motion']['delta_world_xyz_m'][2] < 0]
                 if downward: selected = max(downward, key=lambda stage: -stage['motion']['delta_world_xyz_m'][2])
             _relabel(selected, contact_intent, definitions, 'task_name_and_description_plus_measured_motion')
+            # 几何是在 primitive 还是 'move' 时算的，重标成 strike/press 之后必须重算，
+            # 否则接触关系（工具 × 被敲击物体）不会被产出。
+            _recompute_after_relabel(selected, arm_tracks, visual, target, config.max_keyframes, frequency)
             selected['alternative_interpretations'] = ['move', 'unverified_contact_action']
             local_preparations = [value for value in preparations if value['arm'] == arm
                                   and value['demo_frames'][1] <= selected['demo_frames'][1]]

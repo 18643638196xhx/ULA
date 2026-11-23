@@ -30,6 +30,20 @@ class RoboTwinRobotBackend:
         moved = bool(self.task.move((arm_tag, [action])))
         return bool(moved and getattr(self.task, "plan_success", True))
 
+    def move_both_to_poses(
+        self,
+        left_pose_wxyz: list[float],
+        right_pose_wxyz: list[float],
+    ) -> bool:
+        from envs.utils import Action, ArmTag
+        if hasattr(self.task, "plan_success"):
+            self.task.plan_success = True
+        l_tag, r_tag = ArmTag("left"), ArmTag("right")
+        l_act = Action(l_tag, "move", target_pose=list(left_pose_wxyz))
+        r_act = Action(r_tag, "move", target_pose=list(right_pose_wxyz))
+        moved = bool(self.task.move((l_tag, [l_act]), (r_tag, [r_act])))
+        return bool(moved and getattr(self.task, "plan_success", True))
+
     def set_gripper(self, arm: str, open_value: float) -> bool:
         from envs.utils import ArmTag
         if hasattr(self.task, "plan_success"):
