@@ -1,0 +1,1133 @@
+schema: ula_demo_primitives_v1
+task: handover_block
+description: use the left arm to grasp the red block on the table, handover it to
+  the right arm and place it on the blue pad
+geometry_schema_version: 1
+frame_count: 294
+frequency_hz: 15.0
+frame_indexing: zero_based_inclusive_reference_frames
+active_arms:
+- left
+- right
+task_intents:
+- handover
+- place
+bindings:
+  object: box
+  target: target_box
+  source: description_mentions_candidate
+controller_assignment_source: primitive_library_ULA_policy_not_teacher_labels
+config:
+  quiet_fraction: 0.4
+  noise_mad_scale: 6.0
+  smooth_frames: 3
+  minimum_bout_extent_fraction: 0.01
+  active_arm_fraction: 0.01
+  gripper_open_value: 1.0
+  gripper_closed_value: 0.0
+  gripper_delta_fraction: 0.005
+  minimum_gripper_ramp: 0.25
+  ramp_gap_frames: 2
+  local_approach_path_fraction: 0.2
+  max_keyframes: 5
+stages:
+- primitive: move
+  arm: left
+  demo_frames:
+  - 0
+  - 41
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 1
+    - 40
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - -0.06867125630378723
+    - 0.4689066410064697
+    - -0.033513426780700684
+    duration_s: 2.7333333333333334
+    path_length_m: 0.7206052769895558
+    orientation_change_deg: 77.58854086171701
+    angular_path_deg: 79.13620928985473
+    maximum_orientation_excursion_deg: 77.58854086171701
+  motion_role: transport
+  id: left_000_move
+  object: box
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - box
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: box
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry:
+  - object_or_target_relative_goal
+  keyframe_ids:
+  - left_000_move_frame0
+  - left_000_move_frame20
+  - left_000_move_frame21
+  - left_000_move_frame40
+  - left_000_move_frame41
+  depends_on: []
+- primitive: move
+  arm: right
+  demo_frames:
+  - 0
+  - 172
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 123
+    - 172
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - -0.28786122240126133
+    - 0.19928717613220215
+    - -0.01042628288269043
+    duration_s: 11.466666666666667
+    path_length_m: 0.44002472986205493
+    orientation_change_deg: 15.80162779122022
+    angular_path_deg: 18.039600286022456
+    maximum_orientation_excursion_deg: 15.808917133666496
+  motion_role: transport
+  id: right_000_move
+  object: box
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - box
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: box
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry:
+  - object_or_target_relative_goal
+  keyframe_ids:
+  - right_000_move_frame0
+  - right_000_move_frame86
+  - right_000_move_frame139
+  - right_000_move_frame164
+  - right_000_move_frame172
+  depends_on: []
+- primitive: grasp
+  arm: left
+  demo_frames:
+  - 41
+  - 75
+  description: 局部接近并抓取目标物体
+  controller: vla
+  executor: local_policy
+  completion: configured_grasp_handoff
+  required_parameters:
+  - precontact_relative_pose
+  - object_identity
+  recognition:
+    matcher: gripper_closing
+    event:
+      kind: gripper_close
+      start_frame: 53
+      end_frame: 67
+      start_value: 1.0
+      end_value: 0.0
+      evidence: recorded_gripper_state
+      physical_grasp_proven: false
+    approach_reference_source: pause_before_local_approach
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+  evidence_level: candidate_from_robot_events
+  physical_contact_confirmed: false
+  id: left_001_grasp
+  object: box
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - box
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+  frequency_hz: 15.0
+  motion:
+    delta_world_xyz_m:
+    - 0.06245219707489014
+    - 0.016483992338180542
+    - 0.002275228500366211
+    duration_s: 2.2666666666666666
+    path_length_m: 0.06571653075343419
+    orientation_change_deg: 0.642750797923674
+    angular_path_deg: 1.128049143650118
+    maximum_orientation_excursion_deg: 0.7345691784396372
+  reference: box
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      precontact:
+      - object
+      - recorded_ee
+      attachment:
+      - recorded_ee
+      - object
+    demonstrated_relations: []
+  missing_geometry:
+  - object_or_target_relative_goal
+  - postgrasp_object_to_hand
+  keyframe_ids:
+  - left_001_grasp_frame41
+  - left_001_grasp_frame46
+  - left_001_grasp_frame47
+  - left_001_grasp_frame58
+  - left_001_grasp_frame75
+  depends_on:
+  - left_000_move
+- primitive: move
+  arm: left
+  demo_frames:
+  - 75
+  - 90
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 75
+    - 88
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: closed_candidate
+  motion:
+    delta_world_xyz_m:
+    - -0.008098840713500977
+    - 0.00010958313941955566
+    - 0.09930419921875
+    duration_s: 1.0
+    path_length_m: 0.10013005121285655
+    orientation_change_deg: 0.8206592735926467
+    angular_path_deg: 2.3008477114211785
+    maximum_orientation_excursion_deg: 0.8234861384508477
+  motion_role: lift
+  id: left_002_move
+  object: box
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - box
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: target_box
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry:
+  - object_or_target_relative_goal
+  keyframe_ids:
+  - left_002_move_frame75
+  - left_002_move_frame82
+  - left_002_move_frame85
+  - left_002_move_frame90
+  depends_on:
+  - left_001_grasp
+- primitive: move
+  arm: left
+  demo_frames:
+  - 90
+  - 194
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 91
+    - 116
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: closed_candidate
+  motion:
+    delta_world_xyz_m:
+    - 0.17562183737754822
+    - -0.20308978855609894
+    - 0.060696959495544434
+    duration_s: 6.933333333333334
+    path_length_m: 0.2930859021598967
+    orientation_change_deg: 1.3735249655384256
+    angular_path_deg: 7.024218570574158
+    maximum_orientation_excursion_deg: 2.322855732795322
+  motion_role: transport
+  id: left_003_move
+  object: box
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - box
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: target_box
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry:
+  - object_or_target_relative_goal
+  keyframe_ids:
+  - left_003_move_frame90
+  - left_003_move_frame99
+  - left_003_move_frame103
+  - left_003_move_frame142
+  - left_003_move_frame194
+  depends_on:
+  - left_002_move
+- id: handover_172_208
+  primitive: handover
+  description: 接收手抓取后由递出手释放
+  controller: mixed
+  demo_frames:
+  - 172
+  - 208
+  children:
+  - primitive: grasp
+    arm: right
+    demo_frames:
+    - 172
+    - 186
+    description: 局部接近并抓取目标物体
+    controller: vla
+    executor: local_policy
+    completion: configured_grasp_handoff
+    required_parameters:
+    - precontact_relative_pose
+    - object_identity
+    recognition:
+      matcher: gripper_closing
+      event:
+        kind: gripper_close
+        start_frame: 172
+        end_frame: 186
+        start_value: 1.0
+        end_value: 0.0
+        evidence: recorded_gripper_state
+        physical_grasp_proven: false
+      approach_reference_source: no_preclose_motion_observed
+      object_follows_hand:
+        available: false
+        reason: insufficient_synchronous_visual_object_samples
+    evidence_level: candidate_from_robot_events
+    physical_contact_confirmed: false
+    id: right_001_grasp
+    object: box
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - box
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: false
+        reason: visual_object_rotation_samples_missing
+    frequency_hz: 15.0
+    motion:
+      delta_world_xyz_m:
+      - 0.0003131832927465439
+      - 0.0011422932147979736
+      - -0.0009875297546386719
+      duration_s: 0.9333333333333333
+      path_length_m: 0.001634859026481192
+      orientation_change_deg: 0.19652363876274215
+      angular_path_deg: 0.3089962750895307
+      maximum_orientation_excursion_deg: 0.19652363876274215
+    reference: box
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal: null
+      object_to_hand: null
+      relation_template:
+        precontact:
+        - object
+        - recorded_ee
+        attachment:
+        - recorded_ee
+        - object
+      demonstrated_relations: []
+    missing_geometry:
+    - object_or_target_relative_goal
+    - postgrasp_object_to_hand
+    keyframe_ids:
+    - right_001_grasp_frame172
+    - right_001_grasp_frame178
+    - right_001_grasp_frame179
+    - right_001_grasp_frame186
+    depends_on:
+    - right_000_move
+  - primitive: release
+    arm: left
+    demo_frames:
+    - 194
+    - 208
+    description: 张开夹爪释放物体
+    controller: traditional
+    executor: gripper
+    completion: measured_gripper_open
+    required_parameters:
+    - gripper_open_value
+    recognition:
+      matcher: gripper_opening
+      event:
+        kind: gripper_open
+        start_frame: 194
+        end_frame: 208
+        start_value: 0.0
+        end_value: 1.0
+        evidence: recorded_gripper_state
+        physical_grasp_proven: false
+    evidence_level: recorded_robot_state
+    physical_contact_confirmed: false
+    id: left_004_release
+    object: box
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - box
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: false
+        reason: visual_object_rotation_samples_missing
+    frequency_hz: 15.0
+    motion:
+      delta_world_xyz_m:
+      - 3.2275915145874023e-05
+      - -3.660470247268677e-05
+      - 4.267692565917969e-05
+      duration_s: 0.9333333333333333
+      path_length_m: 0.00012595947957956926
+      orientation_change_deg: 0.12627749721393572
+      angular_path_deg: 0.13588721946653012
+      maximum_orientation_excursion_deg: 0.12627749721393572
+    reference: target_box
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal: null
+      object_to_hand: null
+      relation_template:
+        prerelease_object_goal:
+        - target
+        - object
+      demonstrated_relations: []
+      gripper_open_value: 1.0
+    missing_geometry: []
+    keyframe_ids:
+    - left_004_release_frame194
+    - left_004_release_frame201
+    - left_004_release_frame202
+    - left_004_release_frame208
+    depends_on:
+    - left_003_move
+    - right_001_grasp
+  - primitive: move
+    arm: right
+    demo_frames:
+    - 186
+    - 208
+    description: 移动机械手或持有物体
+    controller: traditional
+    executor: curobo
+    completion: relative_target_arrival
+    required_parameters:
+    - relative_keyframes
+    recognition:
+      matcher: measured_motion
+      active_bout:
+      - 186
+      - 274
+    evidence_level: recorded_robot_state
+    physical_contact_confirmed: false
+    gripper_state: closed_candidate
+    motion:
+      delta_world_xyz_m:
+      - 0.0003582742065191269
+      - 0.0006779879331588745
+      - -0.00016504526138305664
+      duration_s: 1.4666666666666666
+      path_length_m: 0.000879270194539252
+      orientation_change_deg: 0.06113467632549921
+      angular_path_deg: 0.17471984824388764
+      maximum_orientation_excursion_deg: 0.10250424506737871
+    motion_role: lower
+    id: right_002_move_handover_overlap
+    object: box
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - box
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: false
+        reason: visual_object_rotation_samples_missing
+      object_follows_hand:
+        available: false
+        reason: insufficient_synchronous_visual_object_samples
+      object_approaches_target:
+        available: false
+        reason: synchronous_object_and_target_poses_missing
+    frequency_hz: 15.0
+    reference: target_box
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal: null
+      object_to_hand: null
+      relation_template:
+        approach:
+        - object
+        - recorded_ee
+        held_transport:
+        - target
+        - object
+      demonstrated_relations: []
+    missing_geometry:
+    - object_or_target_relative_goal
+    keyframe_ids:
+    - right_002_move_handover_overlap_frame186
+    - right_002_move_handover_overlap_frame197
+    - right_002_move_handover_overlap_frame202
+    - right_002_move_handover_overlap_frame203
+    - right_002_move_handover_overlap_frame208
+    depends_on:
+    - right_001_grasp
+  completion: receiver_holds_same_object
+  required_parameters:
+  - shared_object_identity
+  - receiver_relative_pose
+  recognition:
+    matcher: receive_then_donor_release
+    semantic_basis: handover_intent_plus_receiver_close_before_donor_release
+  evidence_level: task_conditioned_candidate
+  donor_arm: left
+  receiver_arm: right
+  same_object_visually_verified: false
+  geometry:
+    schema_version: 1
+    relation_template:
+      receiver_precontact:
+      - object
+      - receiver_recorded_ee
+      receiver_attachment:
+      - receiver_recorded_ee
+      - object
+      donor_attachment:
+      - donor_recorded_ee
+      - object
+    object: box
+    demonstrated_relations: []
+    runtime_rule: receiver_close_must_finish_before_donor_release
+  missing_geometry:
+  - receiver_precontact
+  - receiver_attachment
+  - donor_attachment
+  - same_object_tracking_across_handover
+  receiver_after_transfer:
+  - right_002_move
+- primitive: move
+  arm: left
+  demo_frames:
+  - 208
+  - 231
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 216
+    - 229
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - -0.10158611834049225
+    - -0.025307171046733856
+    - -0.00026297569274902344
+    duration_s: 1.5333333333333334
+    path_length_m: 0.10709172114942721
+    orientation_change_deg: 1.0046066173580415
+    angular_path_deg: 3.5272470430872604
+    maximum_orientation_excursion_deg: 1.6987040809005602
+  motion_role: transport
+  id: left_005_move
+  object: box
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - box
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: target_box
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry:
+  - object_or_target_relative_goal
+  keyframe_ids:
+  - left_005_move_frame208
+  - left_005_move_frame219
+  - left_005_move_frame222
+  - left_005_move_frame231
+  depends_on:
+  - left_004_release
+- id: place_208_288
+  primitive: place
+  description: 将持有物体移动到目标区域并释放
+  controller: traditional
+  demo_frames:
+  - 208
+  - 288
+  children:
+  - primitive: move
+    arm: right
+    demo_frames:
+    - 208
+    - 274
+    description: 移动机械手或持有物体
+    controller: traditional
+    executor: curobo
+    completion: relative_target_arrival
+    required_parameters:
+    - relative_keyframes
+    recognition:
+      matcher: measured_motion
+      active_bout:
+      - 186
+      - 274
+    evidence_level: recorded_robot_state
+    physical_contact_confirmed: false
+    gripper_state: closed_candidate
+    motion:
+      delta_world_xyz_m:
+      - 0.09300637803971767
+      - 0.13985757902264595
+      - -0.1520249843597412
+      duration_s: 4.4
+      path_length_m: 0.27089349924465816
+      orientation_change_deg: 15.917021238554353
+      angular_path_deg: 20.086947733997505
+      maximum_orientation_excursion_deg: 16.842634157051272
+    motion_role: lower
+    id: right_002_move
+    object: box
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - box
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: false
+        reason: visual_object_rotation_samples_missing
+      object_follows_hand:
+        available: false
+        reason: insufficient_synchronous_visual_object_samples
+      object_approaches_target:
+        available: false
+        reason: synchronous_object_and_target_poses_missing
+    frequency_hz: 15.0
+    reference: target_box
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal: null
+      object_to_hand: null
+      relation_template:
+        approach:
+        - object
+        - recorded_ee
+        held_transport:
+        - target
+        - object
+      demonstrated_relations: []
+    missing_geometry:
+    - object_or_target_relative_goal
+    keyframe_ids:
+    - right_002_move_frame208
+    - right_002_move_frame241
+    - right_002_move_frame257
+    - right_002_move_frame259
+    - right_002_move_frame274
+    depends_on:
+    - left_004_release
+    - right_002_move_handover_overlap
+  - primitive: release
+    arm: right
+    demo_frames:
+    - 274
+    - 288
+    description: 张开夹爪释放物体
+    controller: traditional
+    executor: gripper
+    completion: measured_gripper_open
+    required_parameters:
+    - gripper_open_value
+    recognition:
+      matcher: gripper_opening
+      event:
+        kind: gripper_open
+        start_frame: 274
+        end_frame: 288
+        start_value: 0.0
+        end_value: 1.0
+        evidence: recorded_gripper_state
+        physical_grasp_proven: false
+    evidence_level: recorded_robot_state
+    physical_contact_confirmed: false
+    id: right_003_release
+    object: box
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - box
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: false
+        reason: visual_object_rotation_samples_missing
+    frequency_hz: 15.0
+    motion:
+      delta_world_xyz_m:
+      - -0.0008375272154808044
+      - -9.81353223323822e-05
+      - -0.0001690387725830078
+      duration_s: 0.9333333333333333
+      path_length_m: 0.0008737211489463804
+      orientation_change_deg: 0.15296064484273483
+      angular_path_deg: 0.17261623021281183
+      maximum_orientation_excursion_deg: 0.15296064484273483
+    reference: target_box
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal: null
+      object_to_hand: null
+      relation_template:
+        prerelease_object_goal:
+        - target
+        - object
+      demonstrated_relations: []
+      gripper_open_value: 1.0
+    missing_geometry: []
+    keyframe_ids:
+    - right_003_release_frame274
+    - right_003_release_frame280
+    - right_003_release_frame281
+    - right_003_release_frame288
+    depends_on:
+    - right_002_move
+  completion: object_target_relation_and_release
+  required_parameters:
+  - object_to_target_goal
+  - runtime_object_to_hand
+  recognition:
+    matcher: held_motion_then_release
+    semantic_basis: placement_goal_and_postclose_motion_then_release
+  evidence_level: task_conditioned_candidate
+  arm: right
+  object_goal:
+    object: box
+    reference: target_box
+    T_reference_object: null
+    orientation_policy: requires_task_success_constraint
+    source: unresolved
+  demo_object_to_hand: null
+  runtime_object_to_hand: remeasure_after_this_run_grasp
+  geometry_template:
+    goal:
+    - target
+    - object
+    runtime_attachment:
+    - recorded_ee
+    - object
+  geometry_schema_version: 1
+  missing_geometry:
+  - object_to_target_goal
+  - postgrasp_object_to_hand
+- primitive: move
+  arm: left
+  demo_frames:
+  - 231
+  - 293
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 232
+    - 261
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - -0.06185527145862579
+    - -0.2571043521165848
+    - -0.12849348783493042
+    duration_s: 4.133333333333334
+    path_length_m: 0.3543216194189153
+    orientation_change_deg: 75.32273147739308
+    angular_path_deg: 76.28679102420452
+    maximum_orientation_excursion_deg: 75.32273147739308
+  motion_role: transport
+  id: left_006_move
+  object: box
+  object_binding_source: declared_or_unresolved
+  object_candidates:
+  - box
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: target_box
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry:
+  - object_or_target_relative_goal
+  keyframe_ids:
+  - left_006_move_frame231
+  - left_006_move_frame246
+  - left_006_move_frame262
+  - left_006_move_frame293
+  depends_on:
+  - left_005_move
+- primitive: move
+  arm: right
+  demo_frames:
+  - 288
+  - 293
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 288
+    - 293
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - -0.0002094954252243042
+    - -0.00010475888848304749
+    - -0.00030535459518432617
+    duration_s: 0.3333333333333333
+    path_length_m: 0.00044680130596983956
+    orientation_change_deg: 0.07642152167738953
+    angular_path_deg: 0.08395500564407385
+    maximum_orientation_excursion_deg: 0.07642152167738953
+  motion_role: lower
+  id: right_004_move
+  object: box
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - box
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: target_box
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry:
+  - object_or_target_relative_goal
+  keyframe_ids:
+  - right_004_move_frame288
+  - right_004_move_frame290
+  - right_004_move_frame291
+  - right_004_move_frame293
+  depends_on:
+  - right_003_release
+gripper_configuration_events: []
+execution_graph:
+  nodes:
+  - left_000_move
+  - left_001_grasp
+  - left_002_move
+  - left_003_move
+  - left_004_release
+  - left_005_move
+  - left_006_move
+  - right_000_move
+  - right_001_grasp
+  - right_002_move
+  - right_003_release
+  - right_004_move
+  - right_002_move_handover_overlap
+  edges:
+  - - left_000_move
+    - left_001_grasp
+  - - left_001_grasp
+    - left_002_move
+  - - left_002_move
+    - left_003_move
+  - - left_003_move
+    - left_004_release
+  - - left_004_release
+    - left_005_move
+  - - left_004_release
+    - right_002_move
+  - - left_005_move
+    - left_006_move
+  - - right_000_move
+    - right_001_grasp
+  - - right_001_grasp
+    - left_004_release
+  - - right_001_grasp
+    - right_002_move_handover_overlap
+  - - right_002_move
+    - right_003_release
+  - - right_002_move_handover_overlap
+    - right_002_move
+  - - right_003_release
+    - right_004_move
+  independent_arms_can_overlap: true
+visual_input_provenance: {}
+runtime_ready: false
+runtime_blockers:
+- donor_attachment
+- object_or_target_relative_goal
+- object_to_target_goal
+- postgrasp_object_to_hand
+- receiver_attachment
+- receiver_precontact
+- same_object_tracking_across_handover
+- new_schema_requires_runtime_compiler
+- recorded_EE_to_tool_frame_mapping
+robot_actions: 0
+live_simulator_reads: false
+uses_CAD: false
+limitations:
+- Gripper closure and measured hand motion are not physical grasp certificates.
+- Task-conditioned contact/action labels remain candidates without visual evidence.
+- Initial visual anchors do not substitute for post-grasp object poses.
+- Demonstrated frame numbers and timings are evidence, not runtime stop commands.
+declared_entities:
+- box
+- target_box
+official_success:
+  available: true
+  path: /data1/xuhuixin/ula/tra_pipe/RoboTwin/envs/handover_block.py
+  sha256: 5439712296d7e143d41f8e78b4ab86cd4fad7fb98f40f5f5abb067a462d17650
+  methods:
+  - "def check_success(self):\n        box_pos = self.box.get_functional_point(0,\
+    \ \"pose\").p\n        target_pose = self.target_box.get_functional_point(1, \"\
+    pose\").p\n        eps = [0.03, 0.03]\n        return (np.all(np.abs(box_pos[:2]\
+    \ - target_pose[:2]) < eps) and abs(box_pos[2] - target_pose[2]) < 0.01\n    \
+    \            and self.is_right_gripper_open())"
+  use: static_task_goal_reference_only
+  method_executed: false
+source_demo:
+  path: /data2/xuhuixin/RoboTwin/data_official50/demo_clean/handover_block/aloha_agilex/data/episode_0000000.hdf5
+  sha256: ccdbea3df10f42a187b8da42bdb77caa87ab0dbb33f32647345e1fe2a249f8bc
+  recorded_pose_convention: xyz_wxyz_world_recorded_EE
+  controller_labels_present: false
+primitive_library_sha256: 19c23514dca25624279ec647f0c4cd7a7ac5fd7373f42ff3e21a4202988bacad
+keyframes_file: keyframes.json
+events_file: events.json
