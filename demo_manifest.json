@@ -1,0 +1,1795 @@
+{
+ "generated_from": "/data2/xuhuixin/ula_demo_rgbd",
+ "note": "示范数据体积过大（约 89 GB）未纳入仓库，仅保留清单以便复现与校验",
+ "totals": {
+  "tasks": 34,
+  "files": 193,
+  "gb": 89.92
+ },
+ "per_task": {
+  "adjust_bottle": {
+   "count": 8,
+   "left": 6,
+   "right": 2,
+   "both": 0,
+   "gb": 2.71
+  },
+  "beat_block_hammer": {
+   "count": 6,
+   "left": 1,
+   "right": 5,
+   "both": 0,
+   "gb": 1.61
+  },
+  "blocks_ranking_rgb": {
+   "count": 8,
+   "left": 0,
+   "right": 0,
+   "both": 8,
+   "gb": 8.71
+  },
+  "blocks_ranking_size": {
+   "count": 8,
+   "left": 0,
+   "right": 0,
+   "both": 8,
+   "gb": 8.69
+  },
+  "click_alarmclock": {
+   "count": 4,
+   "left": 2,
+   "right": 2,
+   "both": 0,
+   "gb": 0.8
+  },
+  "click_bell": {
+   "count": 4,
+   "left": 2,
+   "right": 2,
+   "both": 0,
+   "gb": 0.72
+  },
+  "dump_bin_bigbin": {
+   "count": 8,
+   "left": 2,
+   "right": 0,
+   "both": 6,
+   "gb": 5.51
+  },
+  "grab_roller": {
+   "count": 8,
+   "left": 0,
+   "right": 0,
+   "both": 8,
+   "gb": 1.75
+  },
+  "handover_block": {
+   "count": 3,
+   "left": 0,
+   "right": 0,
+   "both": 3,
+   "gb": 1.99
+  },
+  "handover_mic": {
+   "count": 2,
+   "left": 0,
+   "right": 0,
+   "both": 2,
+   "gb": 1.03
+  },
+  "hanging_mug": {
+   "count": 4,
+   "left": 0,
+   "right": 0,
+   "both": 4,
+   "gb": 3.14
+  },
+  "lift_pot": {
+   "count": 8,
+   "left": 0,
+   "right": 0,
+   "both": 8,
+   "gb": 2.08
+  },
+  "move_can_pot": {
+   "count": 4,
+   "left": 3,
+   "right": 1,
+   "both": 0,
+   "gb": 1.41
+  },
+  "move_pillbottle_pad": {
+   "count": 7,
+   "left": 6,
+   "right": 1,
+   "both": 0,
+   "gb": 2.37
+  },
+  "move_playingcard_away": {
+   "count": 6,
+   "left": 4,
+   "right": 2,
+   "both": 0,
+   "gb": 1.65
+  },
+  "move_stapler_pad": {
+   "count": 6,
+   "left": 3,
+   "right": 3,
+   "both": 0,
+   "gb": 2.15
+  },
+  "open_laptop": {
+   "count": 4,
+   "left": 2,
+   "right": 2,
+   "both": 0,
+   "gb": 2.12
+  },
+  "open_microwave": {
+   "count": 6,
+   "left": 6,
+   "right": 0,
+   "both": 0,
+   "gb": 6.57
+  },
+  "pick_dual_bottles": {
+   "count": 8,
+   "left": 0,
+   "right": 0,
+   "both": 8,
+   "gb": 2.36
+  },
+  "place_a2b_left": {
+   "count": 4,
+   "left": 2,
+   "right": 2,
+   "both": 0,
+   "gb": 1.43
+  },
+  "place_a2b_right": {
+   "count": 4,
+   "left": 1,
+   "right": 3,
+   "both": 0,
+   "gb": 1.37
+  },
+  "place_bread_basket": {
+   "count": 4,
+   "left": 0,
+   "right": 0,
+   "both": 4,
+   "gb": 2.18
+  },
+  "place_can_basket": {
+   "count": 7,
+   "left": 0,
+   "right": 0,
+   "both": 7,
+   "gb": 4.11
+  },
+  "place_container_plate": {
+   "count": 6,
+   "left": 2,
+   "right": 4,
+   "both": 0,
+   "gb": 2.17
+  },
+  "place_empty_cup": {
+   "count": 6,
+   "left": 2,
+   "right": 4,
+   "both": 0,
+   "gb": 2.39
+  },
+  "place_fan": {
+   "count": 6,
+   "left": 4,
+   "right": 2,
+   "both": 0,
+   "gb": 2.07
+  },
+  "place_mouse_pad": {
+   "count": 4,
+   "left": 2,
+   "right": 2,
+   "both": 0,
+   "gb": 1.38
+  },
+  "place_object_basket": {
+   "count": 8,
+   "left": 0,
+   "right": 0,
+   "both": 8,
+   "gb": 4.71
+  },
+  "place_object_scale": {
+   "count": 4,
+   "left": 3,
+   "right": 1,
+   "both": 0,
+   "gb": 1.4
+  },
+  "place_object_stand": {
+   "count": 4,
+   "left": 2,
+   "right": 2,
+   "both": 0,
+   "gb": 1.28
+  },
+  "place_phone_stand": {
+   "count": 8,
+   "left": 7,
+   "right": 1,
+   "both": 0,
+   "gb": 2.41
+  },
+  "place_shoe": {
+   "count": 6,
+   "left": 2,
+   "right": 4,
+   "both": 0,
+   "gb": 2.5
+  },
+  "press_stapler": {
+   "count": 4,
+   "left": 3,
+   "right": 1,
+   "both": 0,
+   "gb": 1.09
+  },
+  "stamp_seal": {
+   "count": 6,
+   "left": 2,
+   "right": 4,
+   "both": 0,
+   "gb": 2.07
+  }
+ },
+ "files": [
+  {
+   "task": "adjust_bottle",
+   "file": "demo_clean_rgbd_auto_adjust_bottle/demo_clean_rgbd_auto_adjust_bottle/adjust_bottle/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 339.2,
+   "frames": 141,
+   "arm": "left",
+   "sha256": "c249daa5f0a8a226987183cfc388720f3bc592798368692a810bfdc60199840b"
+  },
+  {
+   "task": "adjust_bottle",
+   "file": "demo_clean_rgbd_auto_adjust_bottle/demo_clean_rgbd_auto_adjust_bottle/adjust_bottle/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 343.5,
+   "frames": 143,
+   "arm": "left",
+   "sha256": "fb4ec739bbf5094de27e585d6e98596157d4d731a961c88a5c644fcf3624a04b"
+  },
+  {
+   "task": "adjust_bottle",
+   "file": "demo_clean_rgbd_auto_adjust_bottle/demo_clean_rgbd_auto_adjust_bottle/adjust_bottle/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 360.2,
+   "frames": 150,
+   "arm": "left",
+   "sha256": "4c3012ab987780214235a06b53b5dd5de4004cc916c03d121d7c9074aacc917e"
+  },
+  {
+   "task": "adjust_bottle",
+   "file": "demo_clean_rgbd_auto_adjust_bottle/demo_clean_rgbd_auto_adjust_bottle/adjust_bottle/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 345.7,
+   "frames": 144,
+   "arm": "left",
+   "sha256": "bfc62c672fc06019c682399d1e6012e8eea7a7892a6722b6811a11882cfa4e67"
+  },
+  {
+   "task": "adjust_bottle",
+   "file": "demo_clean_rgbd_auto_adjust_bottle/demo_clean_rgbd_auto_adjust_bottle/adjust_bottle/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 357.8,
+   "frames": 149,
+   "arm": "left",
+   "sha256": "30d40d285a63b6d11774a15b6b05465f15ab58ceddef8457573dd51b7effcbbe"
+  },
+  {
+   "task": "adjust_bottle",
+   "file": "demo_clean_rgbd_auto_adjust_bottle/demo_clean_rgbd_auto_adjust_bottle/adjust_bottle/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 355.5,
+   "frames": 148,
+   "arm": "left",
+   "sha256": "cbcf7374ecf11cd486b4d90a3490bc16d79179032b63e182923fdbead2164631"
+  },
+  {
+   "task": "adjust_bottle",
+   "file": "demo_clean_rgbd_auto_adjust_bottle/demo_clean_rgbd_auto_adjust_bottle/adjust_bottle/aloha_agilex/data/episode_0000006.hdf5",
+   "size_mb": 341.1,
+   "frames": 142,
+   "arm": "right",
+   "sha256": "0e821822ca57ea5ae70c9261fefeaf54bf15efaeb60291e51e8d3916db45a289"
+  },
+  {
+   "task": "adjust_bottle",
+   "file": "demo_clean_rgbd_auto_adjust_bottle/demo_clean_rgbd_auto_adjust_bottle/adjust_bottle/aloha_agilex/data/episode_0000007.hdf5",
+   "size_mb": 329.3,
+   "frames": 137,
+   "arm": "right",
+   "sha256": "077b2632210fda8f0d394791706796daccbed1709af0af6161f7ecdaeba5df31"
+  },
+  {
+   "task": "beat_block_hammer",
+   "file": "demo_clean_rgbd_auto_beat_block_hammer/demo_clean_rgbd_auto_beat_block_hammer/beat_block_hammer/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 277.8,
+   "frames": 116,
+   "arm": "right",
+   "sha256": "403cc892a94b5e688c0f83758f4993e19147ccc88bfbe073b78656c48cb2acc0"
+  },
+  {
+   "task": "beat_block_hammer",
+   "file": "demo_clean_rgbd_auto_beat_block_hammer/demo_clean_rgbd_auto_beat_block_hammer/beat_block_hammer/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 280.3,
+   "frames": 117,
+   "arm": "left",
+   "sha256": "40dbf8fcdc2abfab06d38b89a588a3065accb462e820f43c086776cedafcb02b"
+  },
+  {
+   "task": "beat_block_hammer",
+   "file": "demo_clean_rgbd_auto_beat_block_hammer/demo_clean_rgbd_auto_beat_block_hammer/beat_block_hammer/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 268.2,
+   "frames": 112,
+   "arm": "right",
+   "sha256": "29eed0f5e3406db2999e565326c0ea85ee40177a56f1fae30c41d5fe67c9c548"
+  },
+  {
+   "task": "beat_block_hammer",
+   "file": "demo_clean_rgbd_auto_beat_block_hammer/demo_clean_rgbd_auto_beat_block_hammer/beat_block_hammer/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 273.0,
+   "frames": 114,
+   "arm": "right",
+   "sha256": "c6c26b1ad35f2d7c3e0c82744ed9c2d8abaad84ea17135e1e41d80d38594ec55"
+  },
+  {
+   "task": "beat_block_hammer",
+   "file": "demo_clean_rgbd_auto_beat_block_hammer/demo_clean_rgbd_auto_beat_block_hammer/beat_block_hammer/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 273.0,
+   "frames": 114,
+   "arm": "right",
+   "sha256": "7227de4e615ce564e2d847bb328ead4dcb50b530e67b807383f63fcc24f429c8"
+  },
+  {
+   "task": "beat_block_hammer",
+   "file": "demo_clean_rgbd_auto_beat_block_hammer/demo_clean_rgbd_auto_beat_block_hammer/beat_block_hammer/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 275.4,
+   "frames": 115,
+   "arm": "right",
+   "sha256": "40aeaf614811a470b8e8d0ab53c33fbf7c352035fced8ea1c1ad4af0eb36dc01"
+  },
+  {
+   "task": "blocks_ranking_rgb",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_rgb/demo_clean_rgbd_auto_blocks_ranking_rgb/blocks_ranking_rgb/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 1142.4,
+   "frames": 475,
+   "arm": "both",
+   "sha256": "429a584b0a1a6ead7b9d2120c5967d4723b4ba36d725e19d9b2b608a0801dfb5"
+  },
+  {
+   "task": "blocks_ranking_rgb",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_rgb/demo_clean_rgbd_auto_blocks_ranking_rgb/blocks_ranking_rgb/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 1075.1,
+   "frames": 448,
+   "arm": "both",
+   "sha256": "fe916a0e7f175f5c5d0312cd885859b7b8b5624a1403eb4b3a56991ba7efca8e"
+  },
+  {
+   "task": "blocks_ranking_rgb",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_rgb/demo_clean_rgbd_auto_blocks_ranking_rgb/blocks_ranking_rgb/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 1117.3,
+   "frames": 465,
+   "arm": "both",
+   "sha256": "31bd2987b1d9b995aa96069f9c996443a912b8c194140b8eba44c77645233ead"
+  },
+  {
+   "task": "blocks_ranking_rgb",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_rgb/demo_clean_rgbd_auto_blocks_ranking_rgb/blocks_ranking_rgb/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 1118.2,
+   "frames": 465,
+   "arm": "both",
+   "sha256": "eea9d6245ff719c0c74a304295c3906a4932032fc8d27b1d8f5fe790dce79ab2"
+  },
+  {
+   "task": "blocks_ranking_rgb",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_rgb/demo_clean_rgbd_auto_blocks_ranking_rgb/blocks_ranking_rgb/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 1150.4,
+   "frames": 478,
+   "arm": "both",
+   "sha256": "fe8cb10852a457e7bea86f182da96ff758dca634d4b159f85ecfe27669b39848"
+  },
+  {
+   "task": "blocks_ranking_rgb",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_rgb/demo_clean_rgbd_auto_blocks_ranking_rgb/blocks_ranking_rgb/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 1074.8,
+   "frames": 447,
+   "arm": "both",
+   "sha256": "a28b79c24ba4b498dd6fa1efae55d36b71ba36ba502584840e6c68fc0a8ce478"
+  },
+  {
+   "task": "blocks_ranking_rgb",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_rgb/demo_clean_rgbd_auto_blocks_ranking_rgb/blocks_ranking_rgb/aloha_agilex/data/episode_0000006.hdf5",
+   "size_mb": 1133.8,
+   "frames": 471,
+   "arm": "both",
+   "sha256": "808956807d202d9bb76942c994c06f262acc746165c507b3ef352495f018d4bf"
+  },
+  {
+   "task": "blocks_ranking_rgb",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_rgb/demo_clean_rgbd_auto_blocks_ranking_rgb/blocks_ranking_rgb/aloha_agilex/data/episode_0000007.hdf5",
+   "size_mb": 1104.5,
+   "frames": 460,
+   "arm": "both",
+   "sha256": "ae677649a83a9393ce9ff0ae939bb18dafd841fbd60b7292aa0ff07e3c5f6a4d"
+  },
+  {
+   "task": "blocks_ranking_size",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_size/demo_clean_rgbd_auto_blocks_ranking_size/blocks_ranking_size/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 1132.9,
+   "frames": 472,
+   "arm": "both",
+   "sha256": "24924eb475fab162adead7caac3cee33646467a541c81ccde54a35eac9c78b93"
+  },
+  {
+   "task": "blocks_ranking_size",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_size/demo_clean_rgbd_auto_blocks_ranking_size/blocks_ranking_size/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 1092.5,
+   "frames": 456,
+   "arm": "both",
+   "sha256": "602279b906d80223670047aea4eeebec80c13b55fc90ff3411c3806288a9f4e7"
+  },
+  {
+   "task": "blocks_ranking_size",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_size/demo_clean_rgbd_auto_blocks_ranking_size/blocks_ranking_size/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 1132.0,
+   "frames": 471,
+   "arm": "both",
+   "sha256": "4e50c8d2f834b8683f3e70a6913f762ec9746f344ea0f44eba1da98f98ea6a23"
+  },
+  {
+   "task": "blocks_ranking_size",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_size/demo_clean_rgbd_auto_blocks_ranking_size/blocks_ranking_size/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 1071.6,
+   "frames": 447,
+   "arm": "both",
+   "sha256": "5666c1a4519def705d049d66229b1b1b0c95ef15cabea9a736303ca844e6da31"
+  },
+  {
+   "task": "blocks_ranking_size",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_size/demo_clean_rgbd_auto_blocks_ranking_size/blocks_ranking_size/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 1115.6,
+   "frames": 465,
+   "arm": "both",
+   "sha256": "f31ece94f0ba8e116a706e06ae7ce89a509748a4cbe71daa1f3a34a97c160427"
+  },
+  {
+   "task": "blocks_ranking_size",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_size/demo_clean_rgbd_auto_blocks_ranking_size/blocks_ranking_size/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 1075.0,
+   "frames": 448,
+   "arm": "both",
+   "sha256": "049facec40edb77a2426a91c9f1e2497e7d0b9d49d12226d5ca649e2508db060"
+  },
+  {
+   "task": "blocks_ranking_size",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_size/demo_clean_rgbd_auto_blocks_ranking_size/blocks_ranking_size/aloha_agilex/data/episode_0000006.hdf5",
+   "size_mb": 1154.6,
+   "frames": 481,
+   "arm": "both",
+   "sha256": "c357e5ab0936f50fe57ea640b0d4791642f1d02ecf51fd833375522750b392d8"
+  },
+  {
+   "task": "blocks_ranking_size",
+   "file": "demo_clean_rgbd_auto_blocks_ranking_size/demo_clean_rgbd_auto_blocks_ranking_size/blocks_ranking_size/aloha_agilex/data/episode_0000007.hdf5",
+   "size_mb": 1107.9,
+   "frames": 462,
+   "arm": "both",
+   "sha256": "b4bbfb2bb5cbe6412e588f22d0c0ccb699346a4f81dc0fb21197d3f358105732"
+  },
+  {
+   "task": "click_alarmclock",
+   "file": "demo_clean_rgbd_auto_click_alarmclock/demo_clean_rgbd_auto_click_alarmclock/click_alarmclock/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 181.1,
+   "frames": 76,
+   "arm": "right",
+   "sha256": "dcc5bf0836a73e0a9d14d8abc07dc1579b0a8200f9bde4a47d8b156cb168ddc1"
+  },
+  {
+   "task": "click_alarmclock",
+   "file": "demo_clean_rgbd_auto_click_alarmclock/demo_clean_rgbd_auto_click_alarmclock/click_alarmclock/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 229.4,
+   "frames": 96,
+   "arm": "left",
+   "sha256": "f0a4410e08b23a11344d7652777b7644ee92841eb6c0d1f40a91ce8885e60ed9"
+  },
+  {
+   "task": "click_alarmclock",
+   "file": "demo_clean_rgbd_auto_click_alarmclock/demo_clean_rgbd_auto_click_alarmclock/click_alarmclock/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 198.7,
+   "frames": 83,
+   "arm": "right",
+   "sha256": "b761e0efd37ae3f7e2d63476464e7f2ac2f3c0e658067048da9f186345ca52d7"
+  },
+  {
+   "task": "click_alarmclock",
+   "file": "demo_clean_rgbd_auto_click_alarmclock/demo_clean_rgbd_auto_click_alarmclock/click_alarmclock/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 214.9,
+   "frames": 90,
+   "arm": "left",
+   "sha256": "0016ba6b2e0208ab8a15f6566d52b5844601d37bd2a2c8f34599c9e90299e75d"
+  },
+  {
+   "task": "click_bell",
+   "file": "demo_clean_rgbd_auto_click_bell/demo_clean_rgbd_auto_click_bell/click_bell/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 196.1,
+   "frames": 82,
+   "arm": "left",
+   "sha256": "5620c079c5af3a825f9aa97bb067708bc91727312c810d1c24aea815b92f4451"
+  },
+  {
+   "task": "click_bell",
+   "file": "demo_clean_rgbd_auto_click_bell/demo_clean_rgbd_auto_click_bell/click_bell/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 178.6,
+   "frames": 75,
+   "arm": "right",
+   "sha256": "f6f8a7329acb1518c102dc4813e69f27193941e92fb1c7214e6f3a5fba8a0810"
+  },
+  {
+   "task": "click_bell",
+   "file": "demo_clean_rgbd_auto_click_bell/demo_clean_rgbd_auto_click_bell/click_bell/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 184.0,
+   "frames": 77,
+   "arm": "left",
+   "sha256": "dc4e10ddd48c7f4cc9288b4c5b4cd69016583fc8b088e0b08ae1068f05a9fbba"
+  },
+  {
+   "task": "click_bell",
+   "file": "demo_clean_rgbd_auto_click_bell/demo_clean_rgbd_auto_click_bell/click_bell/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 181.9,
+   "frames": 76,
+   "arm": "right",
+   "sha256": "540c588cf88b34fb843978820c499a33020d82e75042eb58b7bd94639dc92a3e"
+  },
+  {
+   "task": "press_stapler",
+   "file": "demo_clean_rgbd_auto_click_bell/demo_clean_rgbd_auto_press_stapler/press_stapler/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 266.9,
+   "frames": 112,
+   "arm": "right",
+   "sha256": "80ada177b915ccbedfc40a147d2310d6153fdc823c0415a6aaaad4abb10b7943"
+  },
+  {
+   "task": "press_stapler",
+   "file": "demo_clean_rgbd_auto_click_bell/demo_clean_rgbd_auto_press_stapler/press_stapler/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 286.9,
+   "frames": 120,
+   "arm": "left",
+   "sha256": "86e8030e8fea19e8e9de6d7bd66cf0fcb322dfe1033b98b74476ad82a0a4390d"
+  },
+  {
+   "task": "press_stapler",
+   "file": "demo_clean_rgbd_auto_click_bell/demo_clean_rgbd_auto_press_stapler/press_stapler/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 279.8,
+   "frames": 117,
+   "arm": "left",
+   "sha256": "aca0522cb8185b38db2145ede4c1d9b5e15aa1349e531b5d50ef9d16bc9db3bd"
+  },
+  {
+   "task": "press_stapler",
+   "file": "demo_clean_rgbd_auto_click_bell/demo_clean_rgbd_auto_press_stapler/press_stapler/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 282.1,
+   "frames": 118,
+   "arm": "left",
+   "sha256": "305010d1a536dfe1d0eaae642c0f4185e19bca3afe1bbebc345957592316cda6"
+  },
+  {
+   "task": "dump_bin_bigbin",
+   "file": "demo_clean_rgbd_auto_dump_bin_bigbin/demo_clean_rgbd_auto_dump_bin_bigbin/dump_bin_bigbin/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 410.2,
+   "frames": 172,
+   "arm": "left",
+   "sha256": "80bd4c6ce44cc3787399f6049b6ca2a0f5032c8cdff7edb8f4f536225c338a7d"
+  },
+  {
+   "task": "dump_bin_bigbin",
+   "file": "demo_clean_rgbd_auto_dump_bin_bigbin/demo_clean_rgbd_auto_dump_bin_bigbin/dump_bin_bigbin/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 806.5,
+   "frames": 336,
+   "arm": "both",
+   "sha256": "139c438695a94914842ca392a51603641395f078583d7df06e6d7844ad3ab595"
+  },
+  {
+   "task": "dump_bin_bigbin",
+   "file": "demo_clean_rgbd_auto_dump_bin_bigbin/demo_clean_rgbd_auto_dump_bin_bigbin/dump_bin_bigbin/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 809.9,
+   "frames": 338,
+   "arm": "both",
+   "sha256": "b945f47fef78374b3450ae4e9ba4b251f064ca4b1d4c914f62ed0aa45448f680"
+  },
+  {
+   "task": "dump_bin_bigbin",
+   "file": "demo_clean_rgbd_auto_dump_bin_bigbin/demo_clean_rgbd_auto_dump_bin_bigbin/dump_bin_bigbin/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 775.3,
+   "frames": 323,
+   "arm": "both",
+   "sha256": "c8d2dc660e0ffa58f7208606c560d92b1c0898ec9a89b70e070bffa8ecb90f27"
+  },
+  {
+   "task": "dump_bin_bigbin",
+   "file": "demo_clean_rgbd_auto_dump_bin_bigbin/demo_clean_rgbd_auto_dump_bin_bigbin/dump_bin_bigbin/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 819.8,
+   "frames": 342,
+   "arm": "both",
+   "sha256": "c1d72c6917b5ddd68a2b67adede787272de1fbf37a2e5fedb1c2076234eaae5f"
+  },
+  {
+   "task": "dump_bin_bigbin",
+   "file": "demo_clean_rgbd_auto_dump_bin_bigbin/demo_clean_rgbd_auto_dump_bin_bigbin/dump_bin_bigbin/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 777.6,
+   "frames": 324,
+   "arm": "both",
+   "sha256": "b1188301b53fd7a7c4f7ea084d41a793a89447c812de866059145d1a3d92fa9b"
+  },
+  {
+   "task": "dump_bin_bigbin",
+   "file": "demo_clean_rgbd_auto_dump_bin_bigbin/demo_clean_rgbd_auto_dump_bin_bigbin/dump_bin_bigbin/aloha_agilex/data/episode_0000006.hdf5",
+   "size_mb": 417.5,
+   "frames": 175,
+   "arm": "left",
+   "sha256": "676a8c7c7a4220c321cb9281c2175c539f152da63344b7e716a50c3d06c1deef"
+  },
+  {
+   "task": "dump_bin_bigbin",
+   "file": "demo_clean_rgbd_auto_dump_bin_bigbin/demo_clean_rgbd_auto_dump_bin_bigbin/dump_bin_bigbin/aloha_agilex/data/episode_0000007.hdf5",
+   "size_mb": 821.2,
+   "frames": 342,
+   "arm": "both",
+   "sha256": "8ab1945ead50e3d51e2d393da0a8e282ba4d80f2f764b85a135d48caae75655b"
+  },
+  {
+   "task": "grab_roller",
+   "file": "demo_clean_rgbd_auto_grab_roller/demo_clean_rgbd_auto_grab_roller/grab_roller/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 221.5,
+   "frames": 92,
+   "arm": "both",
+   "sha256": "a50b654863e3675d1040197933d1cb5f987bedffe0028ff36bddd272b0924071"
+  },
+  {
+   "task": "grab_roller",
+   "file": "demo_clean_rgbd_auto_grab_roller/demo_clean_rgbd_auto_grab_roller/grab_roller/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 218.7,
+   "frames": 91,
+   "arm": "both",
+   "sha256": "8a714da03a044e3f20e0cbd48fbd87f928ebbeed570bd6e4c54d54d9adbf24d9"
+  },
+  {
+   "task": "grab_roller",
+   "file": "demo_clean_rgbd_auto_grab_roller/demo_clean_rgbd_auto_grab_roller/grab_roller/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 211.6,
+   "frames": 88,
+   "arm": "both",
+   "sha256": "3e417344e43eea6cf11ac3ba34ecde32931d4e42270807e56fcca5f476be0519"
+  },
+  {
+   "task": "grab_roller",
+   "file": "demo_clean_rgbd_auto_grab_roller/demo_clean_rgbd_auto_grab_roller/grab_roller/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 223.4,
+   "frames": 93,
+   "arm": "both",
+   "sha256": "c9056395eeb0f3c18d08251e410c52ce28781b666954bee2043ecc140901e674"
+  },
+  {
+   "task": "grab_roller",
+   "file": "demo_clean_rgbd_auto_grab_roller/demo_clean_rgbd_auto_grab_roller/grab_roller/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 238.5,
+   "frames": 99,
+   "arm": "both",
+   "sha256": "800704578f332a919da4b2fcab65d8d8061fa5252ada1e02d6da6220a9c96c17"
+  },
+  {
+   "task": "grab_roller",
+   "file": "demo_clean_rgbd_auto_grab_roller/demo_clean_rgbd_auto_grab_roller/grab_roller/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 228.1,
+   "frames": 95,
+   "arm": "both",
+   "sha256": "db9f57ce6c04e79b1d4642b5a68cb02dac8f86b37614f68bf53586bb1bd1de6a"
+  },
+  {
+   "task": "grab_roller",
+   "file": "demo_clean_rgbd_auto_grab_roller/demo_clean_rgbd_auto_grab_roller/grab_roller/aloha_agilex/data/episode_0000006.hdf5",
+   "size_mb": 233.5,
+   "frames": 97,
+   "arm": "both",
+   "sha256": "662f2c02146a39433dc39a46301c48e2c97cc15802b5e3f4bef63f6c803177ea"
+  },
+  {
+   "task": "grab_roller",
+   "file": "demo_clean_rgbd_auto_grab_roller/demo_clean_rgbd_auto_grab_roller/grab_roller/aloha_agilex/data/episode_0000007.hdf5",
+   "size_mb": 218.5,
+   "frames": 91,
+   "arm": "both",
+   "sha256": "84695ced82185d386e1610c28eb893f687dcc7573de38cc49abcf09407a4f14d"
+  },
+  {
+   "task": "handover_block",
+   "file": "demo_clean_rgbd_auto_handover_block/demo_clean_rgbd_auto_handover_block/handover_block/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 688.0,
+   "frames": 287,
+   "arm": "both",
+   "sha256": "2a7a4e116c70a743f97cd75418d41bdae3250199afd56440a7c3c8abee0115ef"
+  },
+  {
+   "task": "handover_block",
+   "file": "demo_clean_rgbd_auto_handover_block/demo_clean_rgbd_auto_handover_block/handover_block/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 667.7,
+   "frames": 278,
+   "arm": "both",
+   "sha256": "e6d4663174d0f808bb17b277aaf1bcbb3e8ab192a5ba72d3fff78d2abcef07a6"
+  },
+  {
+   "task": "hanging_mug",
+   "file": "demo_clean_rgbd_auto_hanging_mug/demo_clean_rgbd_auto_hanging_mug/hanging_mug/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 811.1,
+   "frames": 338,
+   "arm": "both",
+   "sha256": "ca2323394f409b4db217736319acadab00725844209d59a1adb0ff0255a0fccb"
+  },
+  {
+   "task": "hanging_mug",
+   "file": "demo_clean_rgbd_auto_hanging_mug/demo_clean_rgbd_auto_hanging_mug/hanging_mug/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 803.3,
+   "frames": 334,
+   "arm": "both",
+   "sha256": "687a43d5add1f50b7fbdc189e3915ffb52817e105599480cd1c9da358ae76a3c"
+  },
+  {
+   "task": "hanging_mug",
+   "file": "demo_clean_rgbd_auto_hanging_mug/demo_clean_rgbd_auto_hanging_mug/hanging_mug/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 811.8,
+   "frames": 338,
+   "arm": "both",
+   "sha256": "be3e564bdfe58b533ca5820ceda43ce8b39be79dc9b31fc13932cae2d9a21a83"
+  },
+  {
+   "task": "hanging_mug",
+   "file": "demo_clean_rgbd_auto_hanging_mug/demo_clean_rgbd_auto_hanging_mug/hanging_mug/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 797.4,
+   "frames": 331,
+   "arm": "both",
+   "sha256": "f481d38513aba235bd07f2a1da398db7aa5dca1408bd35c2b48a6c3beb298014"
+  },
+  {
+   "task": "lift_pot",
+   "file": "demo_clean_rgbd_auto_lift_pot/demo_clean_rgbd_auto_lift_pot/lift_pot/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 272.6,
+   "frames": 113,
+   "arm": "both",
+   "sha256": "90d253a813ad65c4382d6d8977d190f7aca835086c8070e1c25ba723def0676d"
+  },
+  {
+   "task": "lift_pot",
+   "file": "demo_clean_rgbd_auto_lift_pot/demo_clean_rgbd_auto_lift_pot/lift_pot/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 272.7,
+   "frames": 113,
+   "arm": "both",
+   "sha256": "5e5a5d99e3b3767e3505cd2159f766c9dc7b83ec43fc4bc7c28dabe90d2750e6"
+  },
+  {
+   "task": "lift_pot",
+   "file": "demo_clean_rgbd_auto_lift_pot/demo_clean_rgbd_auto_lift_pot/lift_pot/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 270.4,
+   "frames": 112,
+   "arm": "both",
+   "sha256": "968746d5e4242c4dca9e1348be45300895501964f6568ec9e589f9ccdcecb213"
+  },
+  {
+   "task": "lift_pot",
+   "file": "demo_clean_rgbd_auto_lift_pot/demo_clean_rgbd_auto_lift_pot/lift_pot/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 260.7,
+   "frames": 108,
+   "arm": "both",
+   "sha256": "ea84ddf83d4d17ba7a58dd10507def6e6158f32816aa179b36ba29dad0dfcb2d"
+  },
+  {
+   "task": "lift_pot",
+   "file": "demo_clean_rgbd_auto_lift_pot/demo_clean_rgbd_auto_lift_pot/lift_pot/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 260.7,
+   "frames": 108,
+   "arm": "both",
+   "sha256": "2d1bea9d54f9c3187ea40d5a22084dab611839f56ad3f441d3cb34fc8f60f230"
+  },
+  {
+   "task": "lift_pot",
+   "file": "demo_clean_rgbd_auto_lift_pot/demo_clean_rgbd_auto_lift_pot/lift_pot/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 258.2,
+   "frames": 107,
+   "arm": "both",
+   "sha256": "1027a17479a66d46fb4c905b0022f1eb16b97101c04d0bf93eea52328d1748dd"
+  },
+  {
+   "task": "lift_pot",
+   "file": "demo_clean_rgbd_auto_lift_pot/demo_clean_rgbd_auto_lift_pot/lift_pot/aloha_agilex/data/episode_0000006.hdf5",
+   "size_mb": 275.2,
+   "frames": 114,
+   "arm": "both",
+   "sha256": "78b7c73c0471e315ac8c0894aa3fb5cf5639a1a505d6d5dafbe4a212fadef15f"
+  },
+  {
+   "task": "lift_pot",
+   "file": "demo_clean_rgbd_auto_lift_pot/demo_clean_rgbd_auto_lift_pot/lift_pot/aloha_agilex/data/episode_0000007.hdf5",
+   "size_mb": 268.0,
+   "frames": 111,
+   "arm": "both",
+   "sha256": "d73570be8dd784724aba1ddea63afb30254533d5e7d0c6f465a988cc20eb968a"
+  },
+  {
+   "task": "move_can_pot",
+   "file": "demo_clean_rgbd_auto_move_can_pot/demo_clean_rgbd_auto_move_can_pot/move_can_pot/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 368.6,
+   "frames": 154,
+   "arm": "right",
+   "sha256": "113fdb2e8ef4e51870060b26c5c4256370d5562448804c6a2ef47fcd98b6958b"
+  },
+  {
+   "task": "move_can_pot",
+   "file": "demo_clean_rgbd_auto_move_can_pot/demo_clean_rgbd_auto_move_can_pot/move_can_pot/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 364.8,
+   "frames": 152,
+   "arm": "left",
+   "sha256": "0954ec84c1ca04e2510f9023862f2d99938512617c12406a2ec02e8bc8b92b5d"
+  },
+  {
+   "task": "move_can_pot",
+   "file": "demo_clean_rgbd_auto_move_can_pot/demo_clean_rgbd_auto_move_can_pot/move_can_pot/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 359.2,
+   "frames": 150,
+   "arm": "left",
+   "sha256": "c5e38405b88cadef78338743b49aa4affb509d51a138a22f63fa90272b495c6b"
+  },
+  {
+   "task": "move_can_pot",
+   "file": "demo_clean_rgbd_auto_move_can_pot/demo_clean_rgbd_auto_move_can_pot/move_can_pot/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 352.1,
+   "frames": 147,
+   "arm": "left",
+   "sha256": "7c12935797a0903416e4a1e9a6aa08a5890c24bf1f9dda2877ca7dd2523d2385"
+  },
+  {
+   "task": "move_playingcard_away",
+   "file": "demo_clean_rgbd_auto_move_playingcard_away/demo_clean_rgbd_auto_move_playingcard_away/move_playingcard_away/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 279.1,
+   "frames": 116,
+   "arm": "left",
+   "sha256": "7be5e71106d0572b900cd8a0af4c9321a4e55bc4e60ac8152182221565311aa3"
+  },
+  {
+   "task": "move_playingcard_away",
+   "file": "demo_clean_rgbd_auto_move_playingcard_away/demo_clean_rgbd_auto_move_playingcard_away/move_playingcard_away/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 279.0,
+   "frames": 116,
+   "arm": "right",
+   "sha256": "10de9aae19c33b50ce58310c443b8e0a998fb8f6b953c4e3d80004f736e5c088"
+  },
+  {
+   "task": "move_playingcard_away",
+   "file": "demo_clean_rgbd_auto_move_playingcard_away/demo_clean_rgbd_auto_move_playingcard_away/move_playingcard_away/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 296.7,
+   "frames": 124,
+   "arm": "right",
+   "sha256": "8995ee3ea9346588f4cda865720a43902ed0dde1fd66e696eb11255e49cd33d2"
+  },
+  {
+   "task": "move_playingcard_away",
+   "file": "demo_clean_rgbd_auto_move_playingcard_away/demo_clean_rgbd_auto_move_playingcard_away/move_playingcard_away/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 275.6,
+   "frames": 115,
+   "arm": "left",
+   "sha256": "2c00dd6808578d255db0fd33f7776ae065641e9fc087c973b7b2b6bba5dae3c0"
+  },
+  {
+   "task": "move_playingcard_away",
+   "file": "demo_clean_rgbd_auto_move_playingcard_away/demo_clean_rgbd_auto_move_playingcard_away/move_playingcard_away/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 289.7,
+   "frames": 121,
+   "arm": "left",
+   "sha256": "e01ed2c39898cd52fb79033495e480b9924ac67bb8f8240d09ad2a18066ba594"
+  },
+  {
+   "task": "move_playingcard_away",
+   "file": "demo_clean_rgbd_auto_move_playingcard_away/demo_clean_rgbd_auto_move_playingcard_away/move_playingcard_away/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 277.0,
+   "frames": 115,
+   "arm": "left",
+   "sha256": "f73984e211abe88664c35641f4fbdaf9a98b91acce12d7380d067566da65b5cf"
+  },
+  {
+   "task": "open_laptop",
+   "file": "demo_clean_rgbd_auto_open_laptop/demo_clean_rgbd_auto_open_laptop/open_laptop/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 444.7,
+   "frames": 186,
+   "arm": "left",
+   "sha256": "e8039fb9219a8438d9ca908f79c4043d7ad53cccae7e26304473131d41eabf5b"
+  },
+  {
+   "task": "open_laptop",
+   "file": "demo_clean_rgbd_auto_open_laptop/demo_clean_rgbd_auto_open_laptop/open_laptop/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 440.2,
+   "frames": 184,
+   "arm": "right",
+   "sha256": "0b086b289d74d06a1524e57c1b7b54ee54ae4acad9844ba83cb7ee0c58a4f18d"
+  },
+  {
+   "task": "open_laptop",
+   "file": "demo_clean_rgbd_auto_open_laptop/demo_clean_rgbd_auto_open_laptop/open_laptop/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 437.4,
+   "frames": 183,
+   "arm": "right",
+   "sha256": "89370345c6e594d413c4e446fdab4e06672e75ce321da2c97c7b76696bbf19f5"
+  },
+  {
+   "task": "open_laptop",
+   "file": "demo_clean_rgbd_auto_open_laptop/demo_clean_rgbd_auto_open_laptop/open_laptop/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 850.4,
+   "frames": 355,
+   "arm": "left",
+   "sha256": "a72ad4cf29ce515849c8b2528945f94501008cf1ab4d467e1f9b53e714db8d90"
+  },
+  {
+   "task": "open_microwave",
+   "file": "demo_clean_rgbd_auto_open_microwave/demo_clean_rgbd_auto_open_microwave/open_microwave/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 1078.3,
+   "frames": 451,
+   "arm": "left",
+   "sha256": "ba099a11efdbeee47b00b423103a8f8f31ad60c6e13ca37d4506bfebc68f9a2b"
+  },
+  {
+   "task": "open_microwave",
+   "file": "demo_clean_rgbd_auto_open_microwave/demo_clean_rgbd_auto_open_microwave/open_microwave/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 1527.2,
+   "frames": 638,
+   "arm": "left",
+   "sha256": "18b0c601d01c904e6e2db7be9fb0b7061c9e7389449a06cf590b52d5f08b54d6"
+  },
+  {
+   "task": "open_microwave",
+   "file": "demo_clean_rgbd_auto_open_microwave/demo_clean_rgbd_auto_open_microwave/open_microwave/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 1004.6,
+   "frames": 420,
+   "arm": "left",
+   "sha256": "afc3a4cc36430cf22bde8d915e3f4ed17aac1d113f1e97e2e6c768b12ded3be4"
+  },
+  {
+   "task": "open_microwave",
+   "file": "demo_clean_rgbd_auto_open_microwave/demo_clean_rgbd_auto_open_microwave/open_microwave/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 1006.5,
+   "frames": 421,
+   "arm": "left",
+   "sha256": "705e89436c0fdcfd607d1bf9b7a633fd44dd95592044e9adea5698170f98fde6"
+  },
+  {
+   "task": "open_microwave",
+   "file": "demo_clean_rgbd_auto_open_microwave/demo_clean_rgbd_auto_open_microwave/open_microwave/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 1093.9,
+   "frames": 457,
+   "arm": "left",
+   "sha256": "55bac964a36ce6544fd787cda000c0530306169f870669c2de59bc4a4a8db647"
+  },
+  {
+   "task": "open_microwave",
+   "file": "demo_clean_rgbd_auto_open_microwave/demo_clean_rgbd_auto_open_microwave/open_microwave/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 1022.1,
+   "frames": 427,
+   "arm": "left",
+   "sha256": "1aff01419e389672db67a0849b70010e6ec7dfbcc6001c4c5226ee177fb29207"
+  },
+  {
+   "task": "pick_dual_bottles",
+   "file": "demo_clean_rgbd_auto_pick_dual_bottles/demo_clean_rgbd_auto_pick_dual_bottles/pick_dual_bottles/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 326.2,
+   "frames": 135,
+   "arm": "both",
+   "sha256": "736b5803f35a277614bfe1820427777411f0d61770e4b6abb994f768783baab2"
+  },
+  {
+   "task": "pick_dual_bottles",
+   "file": "demo_clean_rgbd_auto_pick_dual_bottles/demo_clean_rgbd_auto_pick_dual_bottles/pick_dual_bottles/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 294.5,
+   "frames": 122,
+   "arm": "both",
+   "sha256": "7aae53a2758c452b3a3bdd86eeeaa600ea87a2e868482526fe872a12aceb577e"
+  },
+  {
+   "task": "pick_dual_bottles",
+   "file": "demo_clean_rgbd_auto_pick_dual_bottles/demo_clean_rgbd_auto_pick_dual_bottles/pick_dual_bottles/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 289.8,
+   "frames": 120,
+   "arm": "both",
+   "sha256": "c6b1fa4921a00ba550fc52e0efb4d7665cde825b962fb716714873329f44b821"
+  },
+  {
+   "task": "pick_dual_bottles",
+   "file": "demo_clean_rgbd_auto_pick_dual_bottles/demo_clean_rgbd_auto_pick_dual_bottles/pick_dual_bottles/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 311.6,
+   "frames": 129,
+   "arm": "both",
+   "sha256": "34dc85f3d63b05484357bf6bf6206f54c1b22b25fea08c4f0e7f45cf7522c907"
+  },
+  {
+   "task": "pick_dual_bottles",
+   "file": "demo_clean_rgbd_auto_pick_dual_bottles/demo_clean_rgbd_auto_pick_dual_bottles/pick_dual_bottles/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 282.5,
+   "frames": 117,
+   "arm": "both",
+   "sha256": "0d52c3a7e3e0102d2e8f4ae75f11cde3c330e2fd9bd8674b5dfa4df7050bc79f"
+  },
+  {
+   "task": "pick_dual_bottles",
+   "file": "demo_clean_rgbd_auto_pick_dual_bottles/demo_clean_rgbd_auto_pick_dual_bottles/pick_dual_bottles/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 304.2,
+   "frames": 126,
+   "arm": "both",
+   "sha256": "4a055ce3a83e65e169dbd6aa811724e74426ec67f63bbe7170c6b12c380a7fa4"
+  },
+  {
+   "task": "pick_dual_bottles",
+   "file": "demo_clean_rgbd_auto_pick_dual_bottles/demo_clean_rgbd_auto_pick_dual_bottles/pick_dual_bottles/aloha_agilex/data/episode_0000006.hdf5",
+   "size_mb": 311.3,
+   "frames": 129,
+   "arm": "both",
+   "sha256": "818f538dc2fa73ea722182bd92ef9750904c18d7d9fe9d6ca5d7341392c38f15"
+  },
+  {
+   "task": "pick_dual_bottles",
+   "file": "demo_clean_rgbd_auto_pick_dual_bottles/demo_clean_rgbd_auto_pick_dual_bottles/pick_dual_bottles/aloha_agilex/data/episode_0000007.hdf5",
+   "size_mb": 297.0,
+   "frames": 123,
+   "arm": "both",
+   "sha256": "78e96b58ab7f5d7173330462307d907770c0b855a82a014ae327d47b38a62a21"
+  },
+  {
+   "task": "place_a2b_left",
+   "file": "demo_clean_rgbd_auto_place_a2b_left/demo_clean_rgbd_auto_place_a2b_left/place_a2b_left/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 364.2,
+   "frames": 152,
+   "arm": "right",
+   "sha256": "f7e3a8c38f2f387bc75585d6eed3c4b29bed2b4f0f7310f05cf63d0e52057e48"
+  },
+  {
+   "task": "place_a2b_left",
+   "file": "demo_clean_rgbd_auto_place_a2b_left/demo_clean_rgbd_auto_place_a2b_left/place_a2b_left/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 363.6,
+   "frames": 151,
+   "arm": "left",
+   "sha256": "b3469f8003dc06706a1b05047243ae959c791f1e3f17e36d1c234040c7cedb4d"
+  },
+  {
+   "task": "place_a2b_left",
+   "file": "demo_clean_rgbd_auto_place_a2b_left/demo_clean_rgbd_auto_place_a2b_left/place_a2b_left/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 337.0,
+   "frames": 140,
+   "arm": "left",
+   "sha256": "c9cb8195dbb04eec9dfcbe29cdab6f88ceba912d2f984fb3f839f48187d97c31"
+  },
+  {
+   "task": "place_a2b_left",
+   "file": "demo_clean_rgbd_auto_place_a2b_left/demo_clean_rgbd_auto_place_a2b_left/place_a2b_left/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 393.8,
+   "frames": 164,
+   "arm": "right",
+   "sha256": "3a41ed4101a60e76a758a135e739b68bc2220c42436a16fac8ffabe789b98953"
+  },
+  {
+   "task": "place_a2b_right",
+   "file": "demo_clean_rgbd_auto_place_a2b_right/demo_clean_rgbd_auto_place_a2b_right/place_a2b_right/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 366.3,
+   "frames": 153,
+   "arm": "right",
+   "sha256": "6494f38314643c6c986b64507e88dfce1665867e4e7890b31120e4261d6f484a"
+  },
+  {
+   "task": "place_a2b_right",
+   "file": "demo_clean_rgbd_auto_place_a2b_right/demo_clean_rgbd_auto_place_a2b_right/place_a2b_right/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 330.3,
+   "frames": 138,
+   "arm": "left",
+   "sha256": "2672a3cd49fe3cd7ff2d2573ad1568609588a6f015d1a3b7e35aa5a171b9a49d"
+  },
+  {
+   "task": "place_a2b_right",
+   "file": "demo_clean_rgbd_auto_place_a2b_right/demo_clean_rgbd_auto_place_a2b_right/place_a2b_right/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 358.8,
+   "frames": 150,
+   "arm": "right",
+   "sha256": "37027108358720256c551581cb66bda508a1aa99510875a5372bac6e2c35bb24"
+  },
+  {
+   "task": "place_a2b_right",
+   "file": "demo_clean_rgbd_auto_place_a2b_right/demo_clean_rgbd_auto_place_a2b_right/place_a2b_right/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 346.3,
+   "frames": 144,
+   "arm": "right",
+   "sha256": "d0be3fcd2db49c32d86a75d220a3aea65242b4aca8e0dcdcd9584ebdfeb2f35f"
+  },
+  {
+   "task": "place_bread_basket",
+   "file": "demo_clean_rgbd_auto_place_bread_basket/demo_clean_rgbd_auto_place_bread_basket/place_bread_basket/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 548.9,
+   "frames": 225,
+   "arm": "both",
+   "sha256": "85c74d3209ad6e447807dbc434fddf38f362e4f87c94699ca46c75da769a5bb5"
+  },
+  {
+   "task": "place_bread_basket",
+   "file": "demo_clean_rgbd_auto_place_bread_basket/demo_clean_rgbd_auto_place_bread_basket/place_bread_basket/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 575.9,
+   "frames": 237,
+   "arm": "both",
+   "sha256": "cc3e0060c61e6032d231aaf3e7dd779669e32f7688412a73e664a4dbf57beb04"
+  },
+  {
+   "task": "place_bread_basket",
+   "file": "demo_clean_rgbd_auto_place_bread_basket/demo_clean_rgbd_auto_place_bread_basket/place_bread_basket/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 544.7,
+   "frames": 225,
+   "arm": "both",
+   "sha256": "4ead277b08adda2c7c9e0cd0d3797c31ef955addd07e9ac075ba69cf8240e748"
+  },
+  {
+   "task": "place_bread_basket",
+   "file": "demo_clean_rgbd_auto_place_bread_basket/demo_clean_rgbd_auto_place_bread_basket/place_bread_basket/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 559.2,
+   "frames": 231,
+   "arm": "both",
+   "sha256": "71875bf0f14563a55d0108cc839d0aa15a57f866dc41f0122ccd9555fea58907"
+  },
+  {
+   "task": "place_can_basket",
+   "file": "demo_clean_rgbd_auto_place_can_basket/demo_clean_rgbd_auto_place_can_basket/place_can_basket/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 585.2,
+   "frames": 242,
+   "arm": "both",
+   "sha256": "3928efe23fd96570f204c0b94b61780c63ec1e1dde511e16c1d9e51f96895597"
+  },
+  {
+   "task": "place_can_basket",
+   "file": "demo_clean_rgbd_auto_place_can_basket/demo_clean_rgbd_auto_place_can_basket/place_can_basket/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 616.6,
+   "frames": 255,
+   "arm": "both",
+   "sha256": "dc27b44e30ea414acac932a8fb6cf66508a29348daabc77c07f12116d208843c"
+  },
+  {
+   "task": "place_can_basket",
+   "file": "demo_clean_rgbd_auto_place_can_basket/demo_clean_rgbd_auto_place_can_basket/place_can_basket/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 604.4,
+   "frames": 250,
+   "arm": "both",
+   "sha256": "a254d88fc5acf79282d4e8cdcd84ab48256f0b8e4a3281730388311d810a1bae"
+  },
+  {
+   "task": "place_can_basket",
+   "file": "demo_clean_rgbd_auto_place_can_basket/demo_clean_rgbd_auto_place_can_basket/place_can_basket/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 610.4,
+   "frames": 252,
+   "arm": "both",
+   "sha256": "371fed47339a95232911bdd0583247c897be1a9b1bfebd5d5227b0b55f0ac3e7"
+  },
+  {
+   "task": "place_can_basket",
+   "file": "demo_clean_rgbd_auto_place_can_basket/demo_clean_rgbd_auto_place_can_basket/place_can_basket/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 593.8,
+   "frames": 245,
+   "arm": "both",
+   "sha256": "54fd906c25d41c4b714d36296bd721a34e2914827788ed30a7d3e7e4651b0b69"
+  },
+  {
+   "task": "place_can_basket",
+   "file": "demo_clean_rgbd_auto_place_can_basket/demo_clean_rgbd_auto_place_can_basket/place_can_basket/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 591.2,
+   "frames": 244,
+   "arm": "both",
+   "sha256": "bdddccade5a4e28548916bfbea4aa0c032c70d38c5968202e1835c08de834e3e"
+  },
+  {
+   "task": "place_can_basket",
+   "file": "demo_clean_rgbd_auto_place_can_basket/demo_clean_rgbd_auto_place_can_basket/place_can_basket/aloha_agilex/data/episode_0000006.hdf5",
+   "size_mb": 599.8,
+   "frames": 247,
+   "arm": "both",
+   "sha256": "a4c0ce58a6c0342eba265bbc47866273125a9a383d3ae254104335529fa56ed1"
+  },
+  {
+   "task": "place_container_plate",
+   "file": "demo_clean_rgbd_auto_place_container_plate/demo_clean_rgbd_auto_place_container_plate/place_container_plate/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 365.7,
+   "frames": 153,
+   "arm": "left",
+   "sha256": "a6d30b49baef0df29df6d194db103a60ffecf0336679ef789645cec52b028be7"
+  },
+  {
+   "task": "place_container_plate",
+   "file": "demo_clean_rgbd_auto_place_container_plate/demo_clean_rgbd_auto_place_container_plate/place_container_plate/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 369.0,
+   "frames": 154,
+   "arm": "right",
+   "sha256": "1e8033857a374ef9ecb73f5e1971266aa89257b840c1a5a12d3c656037fca5e1"
+  },
+  {
+   "task": "place_container_plate",
+   "file": "demo_clean_rgbd_auto_place_container_plate/demo_clean_rgbd_auto_place_container_plate/place_container_plate/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 373.4,
+   "frames": 156,
+   "arm": "right",
+   "sha256": "2ae69f00f25c94e40d0991dd6ad6ae6bc1b5cb07169973b0618a188beb1da99d"
+  },
+  {
+   "task": "place_container_plate",
+   "file": "demo_clean_rgbd_auto_place_container_plate/demo_clean_rgbd_auto_place_container_plate/place_container_plate/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 363.4,
+   "frames": 152,
+   "arm": "right",
+   "sha256": "f7984fe4c0c5dcff91fe8499665eb05e3b59662d040e73d3c0ade8ce16e35f40"
+  },
+  {
+   "task": "place_container_plate",
+   "file": "demo_clean_rgbd_auto_place_container_plate/demo_clean_rgbd_auto_place_container_plate/place_container_plate/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 384.7,
+   "frames": 161,
+   "arm": "left",
+   "sha256": "c265865c9f012627e1e8d8d5922dc6acd16eb24fa1a7db275f6e5d7b4aa876a9"
+  },
+  {
+   "task": "place_container_plate",
+   "file": "demo_clean_rgbd_auto_place_container_plate/demo_clean_rgbd_auto_place_container_plate/place_container_plate/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 365.7,
+   "frames": 153,
+   "arm": "right",
+   "sha256": "1ef6e0353aff68369f5eb50b3126b65bdbd0a9fd70a71186d3045aaab928a8c2"
+  },
+  {
+   "task": "place_object_basket",
+   "file": "demo_clean_rgbd_auto_place_object_basket/demo_clean_rgbd_auto_place_object_basket/place_object_basket/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 615.6,
+   "frames": 254,
+   "arm": "both",
+   "sha256": "1f0b37f60071ed0adfbc1157a5bc51a88c5c569f940216ba362418c667febc33"
+  },
+  {
+   "task": "place_object_basket",
+   "file": "demo_clean_rgbd_auto_place_object_basket/demo_clean_rgbd_auto_place_object_basket/place_object_basket/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 618.6,
+   "frames": 255,
+   "arm": "both",
+   "sha256": "18c1400ac0fb3ab417891a6f7c842a3bcb8c19197b70880049b6ff396c430813"
+  },
+  {
+   "task": "place_object_basket",
+   "file": "demo_clean_rgbd_auto_place_object_basket/demo_clean_rgbd_auto_place_object_basket/place_object_basket/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 586.4,
+   "frames": 242,
+   "arm": "both",
+   "sha256": "280e8e20656be76eee8422eb33e6ced13c637c5641f0022d46c1399d6e2afa7d"
+  },
+  {
+   "task": "place_object_basket",
+   "file": "demo_clean_rgbd_auto_place_object_basket/demo_clean_rgbd_auto_place_object_basket/place_object_basket/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 612.6,
+   "frames": 253,
+   "arm": "both",
+   "sha256": "1af95a43c171ad67dea6e8ca8c0e0bd1e9599954b8f3900ef2e5d9814e435a53"
+  },
+  {
+   "task": "place_object_basket",
+   "file": "demo_clean_rgbd_auto_place_object_basket/demo_clean_rgbd_auto_place_object_basket/place_object_basket/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 589.0,
+   "frames": 243,
+   "arm": "both",
+   "sha256": "4285a60a96995578f98e142f87693a8f4691245439748facb4abefff014449e2"
+  },
+  {
+   "task": "place_object_basket",
+   "file": "demo_clean_rgbd_auto_place_object_basket/demo_clean_rgbd_auto_place_object_basket/place_object_basket/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 587.6,
+   "frames": 242,
+   "arm": "both",
+   "sha256": "2194d09267d93dd71a562121f410dfd11e763ac05a5b1ae1112844890a2cdcc8"
+  },
+  {
+   "task": "place_object_basket",
+   "file": "demo_clean_rgbd_auto_place_object_basket/demo_clean_rgbd_auto_place_object_basket/place_object_basket/aloha_agilex/data/episode_0000006.hdf5",
+   "size_mb": 623.7,
+   "frames": 258,
+   "arm": "both",
+   "sha256": "c14c2c667eed22e8b73e4f6a02dcd4f283e78c08af8629ec9a4522ca84ad61ae"
+  },
+  {
+   "task": "place_object_basket",
+   "file": "demo_clean_rgbd_auto_place_object_basket/demo_clean_rgbd_auto_place_object_basket/place_object_basket/aloha_agilex/data/episode_0000007.hdf5",
+   "size_mb": 595.0,
+   "frames": 245,
+   "arm": "both",
+   "sha256": "ba05b60bf30ee9200d158c1543187b90483d68d47e7871535cfc6b5177542cd9"
+  },
+  {
+   "task": "place_object_scale",
+   "file": "demo_clean_rgbd_auto_place_object_scale/demo_clean_rgbd_auto_place_object_scale/place_object_scale/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 343.4,
+   "frames": 144,
+   "arm": "right",
+   "sha256": "69f0ecb5ccf4c42bc4532a470b8725620fefe1ea8bf43ed55e856be0a4d8db40"
+  },
+  {
+   "task": "place_object_scale",
+   "file": "demo_clean_rgbd_auto_place_object_scale/demo_clean_rgbd_auto_place_object_scale/place_object_scale/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 347.3,
+   "frames": 145,
+   "arm": "left",
+   "sha256": "cb2fb4d48c7419fad9af61dc505ee2a705a6297dddbecf661563a5a496abc1b3"
+  },
+  {
+   "task": "place_object_scale",
+   "file": "demo_clean_rgbd_auto_place_object_scale/demo_clean_rgbd_auto_place_object_scale/place_object_scale/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 348.5,
+   "frames": 145,
+   "arm": "left",
+   "sha256": "264d28ff97fa536a8dda5fbc20e7634b686d95588f7e841bd48fb47ae9379e1f"
+  },
+  {
+   "task": "place_object_scale",
+   "file": "demo_clean_rgbd_auto_place_object_scale/demo_clean_rgbd_auto_place_object_scale/place_object_scale/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 385.5,
+   "frames": 161,
+   "arm": "left",
+   "sha256": "fe5feb2ced3d2afe580d305a7e8db3ef5334d887df55b2d95c4d1231fe60aade"
+  },
+  {
+   "task": "place_object_stand",
+   "file": "demo_clean_rgbd_auto_place_object_stand/demo_clean_rgbd_auto_place_object_stand/place_object_stand/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 323.0,
+   "frames": 135,
+   "arm": "left",
+   "sha256": "a754233b1a00c8f15c09ed6616bdb44e1a68dab35e1bbc3cd5a43c8dec4d54a1"
+  },
+  {
+   "task": "place_object_stand",
+   "file": "demo_clean_rgbd_auto_place_object_stand/demo_clean_rgbd_auto_place_object_stand/place_object_stand/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 323.2,
+   "frames": 135,
+   "arm": "right",
+   "sha256": "bdf1a678e4c6439a708514996bfa39c0a351c5193c90faee098dc133fc63d3a3"
+  },
+  {
+   "task": "place_object_stand",
+   "file": "demo_clean_rgbd_auto_place_object_stand/demo_clean_rgbd_auto_place_object_stand/place_object_stand/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 328.0,
+   "frames": 137,
+   "arm": "left",
+   "sha256": "f98ee206d63f56e0248d820a47d0172da3676ef794c748e13e3d065c75ff2654"
+  },
+  {
+   "task": "place_object_stand",
+   "file": "demo_clean_rgbd_auto_place_object_stand/demo_clean_rgbd_auto_place_object_stand/place_object_stand/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 328.0,
+   "frames": 137,
+   "arm": "right",
+   "sha256": "f2c89699ee3f68bf6298fb2fb9786cc42322f413a9d0f6c07eabb71dfe02957d"
+  },
+  {
+   "task": "place_phone_stand",
+   "file": "demo_clean_rgbd_auto_place_phone_stand/demo_clean_rgbd_auto_place_phone_stand/place_phone_stand/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 308.9,
+   "frames": 129,
+   "arm": "left",
+   "sha256": "0a95518b7ec73a71a63c160436ca4d2c97c4785472054b61d42a5be1ce239f35"
+  },
+  {
+   "task": "place_phone_stand",
+   "file": "demo_clean_rgbd_auto_place_phone_stand/demo_clean_rgbd_auto_place_phone_stand/place_phone_stand/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 302.7,
+   "frames": 126,
+   "arm": "left",
+   "sha256": "7340a48bd93eaa35411a80b5b21f9a3833c215e1ecce18075bfb65d41d6d5d93"
+  },
+  {
+   "task": "place_phone_stand",
+   "file": "demo_clean_rgbd_auto_place_phone_stand/demo_clean_rgbd_auto_place_phone_stand/place_phone_stand/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 305.7,
+   "frames": 127,
+   "arm": "left",
+   "sha256": "b29f30564bdcd98f8fd70103523425d6be029e930503e73580b6bc1c103d7163"
+  },
+  {
+   "task": "place_phone_stand",
+   "file": "demo_clean_rgbd_auto_place_phone_stand/demo_clean_rgbd_auto_place_phone_stand/place_phone_stand/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 307.1,
+   "frames": 128,
+   "arm": "left",
+   "sha256": "27cefcfcb18bf60635235c0352ddb65f97652a177ec1a4cff414423170fedbf8"
+  },
+  {
+   "task": "place_phone_stand",
+   "file": "demo_clean_rgbd_auto_place_phone_stand/demo_clean_rgbd_auto_place_phone_stand/place_phone_stand/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 325.7,
+   "frames": 136,
+   "arm": "left",
+   "sha256": "eddafe340d897fa4e489a9d7254bb66d7008b02d03b6da00a192ad730ca43246"
+  },
+  {
+   "task": "place_phone_stand",
+   "file": "demo_clean_rgbd_auto_place_phone_stand/demo_clean_rgbd_auto_place_phone_stand/place_phone_stand/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 301.8,
+   "frames": 126,
+   "arm": "left",
+   "sha256": "02561f9c5da078df53698cf0a152f11a86d00139944cb7711a0183f3f71b70aa"
+  },
+  {
+   "task": "place_phone_stand",
+   "file": "demo_clean_rgbd_auto_place_phone_stand/demo_clean_rgbd_auto_place_phone_stand/place_phone_stand/aloha_agilex/data/episode_0000006.hdf5",
+   "size_mb": 301.1,
+   "frames": 126,
+   "arm": "right",
+   "sha256": "54454443d28e9923128ee8d5d793b12a4c7b9afca52b175f31764b2afc1b7371"
+  },
+  {
+   "task": "place_phone_stand",
+   "file": "demo_clean_rgbd_auto_place_phone_stand/demo_clean_rgbd_auto_place_phone_stand/place_phone_stand/aloha_agilex/data/episode_0000007.hdf5",
+   "size_mb": 313.0,
+   "frames": 130,
+   "arm": "left",
+   "sha256": "d3aafff39c2c6c251dc682b21e002b6076eb8910961a1aa578d46e2cdbb317f1"
+  },
+  {
+   "task": "stamp_seal",
+   "file": "demo_clean_rgbd_auto_stamp_seal/demo_clean_rgbd_auto_stamp_seal/stamp_seal/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 365.7,
+   "frames": 153,
+   "arm": "right",
+   "sha256": "31d06fdbb55013024a5ce8d9a9960e7405275b89504911566a60a03370b4d5b6"
+  },
+  {
+   "task": "stamp_seal",
+   "file": "demo_clean_rgbd_auto_stamp_seal/demo_clean_rgbd_auto_stamp_seal/stamp_seal/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 348.6,
+   "frames": 146,
+   "arm": "right",
+   "sha256": "92ea0ed0cfa826b7db0e31a28d68ea0b628efcc9e55ff7116bc25fcf65eb618d"
+  },
+  {
+   "task": "stamp_seal",
+   "file": "demo_clean_rgbd_auto_stamp_seal/demo_clean_rgbd_auto_stamp_seal/stamp_seal/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 336.9,
+   "frames": 141,
+   "arm": "left",
+   "sha256": "f670e42106d3b9c328ca82c2162acb1b2d16f9434e9e0662adac5db57c77a0f3"
+  },
+  {
+   "task": "stamp_seal",
+   "file": "demo_clean_rgbd_auto_stamp_seal/demo_clean_rgbd_auto_stamp_seal/stamp_seal/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 374.7,
+   "frames": 157,
+   "arm": "right",
+   "sha256": "5683cceb184ee8b4b67d0cdc2eb946b6bba14d28e1f399ac59f6a5a4e11ab706"
+  },
+  {
+   "task": "stamp_seal",
+   "file": "demo_clean_rgbd_auto_stamp_seal/demo_clean_rgbd_auto_stamp_seal/stamp_seal/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 360.9,
+   "frames": 151,
+   "arm": "right",
+   "sha256": "58b2b671fb3da17bdae95b4b920439745f5e8b094449b2797484f01b36dec9ac"
+  },
+  {
+   "task": "stamp_seal",
+   "file": "demo_clean_rgbd_auto_stamp_seal/demo_clean_rgbd_auto_stamp_seal/stamp_seal/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 325.2,
+   "frames": 136,
+   "arm": "left",
+   "sha256": "c61729e40794322e0cd697397fe8561bf3ccaffc903c5666668affbf67a2bf7a"
+  },
+  {
+   "task": "move_pillbottle_pad",
+   "file": "demo_clean_rgbd_both4/move_pillbottle_pad/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 337.1,
+   "frames": 141,
+   "arm": "left",
+   "sha256": "50921dc057c0b2671a24803572dcafa68a219d1177d2612262854f2504c0898b"
+  },
+  {
+   "task": "move_pillbottle_pad",
+   "file": "demo_clean_rgbd_both4/move_pillbottle_pad/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 351.5,
+   "frames": 147,
+   "arm": "left",
+   "sha256": "beb628a6138baab6023ea474f642d24d96ae42f92abd7ffac54ce3cb6930c8c3"
+  },
+  {
+   "task": "move_pillbottle_pad",
+   "file": "demo_clean_rgbd_both4/move_pillbottle_pad/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 328.1,
+   "frames": 137,
+   "arm": "right",
+   "sha256": "9977b90b202202a22430738c60aa2ca6bc1f0c2791434c5466f9ad49330c2dca"
+  },
+  {
+   "task": "move_pillbottle_pad",
+   "file": "demo_clean_rgbd_both4/move_pillbottle_pad/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 391.1,
+   "frames": 164,
+   "arm": "left",
+   "sha256": "538ca317dfb3c03c520845ad8e99c97a97fbc8b6d9ddabaee07f9c2e587e8d3a"
+  },
+  {
+   "task": "place_empty_cup",
+   "file": "demo_clean_rgbd_both4/place_empty_cup/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 426.2,
+   "frames": 178,
+   "arm": "right",
+   "sha256": "de59172af697e7bbfa686e8b5e1c549b70fff0c12472ad25eff591af11e73b73"
+  },
+  {
+   "task": "place_empty_cup",
+   "file": "demo_clean_rgbd_both4/place_empty_cup/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 402.4,
+   "frames": 168,
+   "arm": "right",
+   "sha256": "fa4fcbec9f047bb727833a02d1544b631359e9c50e8701dc39947190e37ef84d"
+  },
+  {
+   "task": "place_empty_cup",
+   "file": "demo_clean_rgbd_both4/place_empty_cup/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 414.2,
+   "frames": 173,
+   "arm": "right",
+   "sha256": "d9139eef8baac798eea25cc8fe7a6914db8bc9bd316195903302df35c5952401"
+  },
+  {
+   "task": "place_empty_cup",
+   "file": "demo_clean_rgbd_both4/place_empty_cup/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 402.6,
+   "frames": 168,
+   "arm": "right",
+   "sha256": "fd48ee2a65f1e3ffc8327a9aeaa17207e6a808996b58f430980884a7b12c94ea"
+  },
+  {
+   "task": "place_empty_cup",
+   "file": "demo_clean_rgbd_cup_left/demo_clean_rgbd_cup_left/place_empty_cup/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 401.8,
+   "frames": 168,
+   "arm": "left",
+   "sha256": "7dbd5356989f6569c08c5fcfe40a2d7131342ae87db4b3fc647add827883d6cc"
+  },
+  {
+   "task": "place_empty_cup",
+   "file": "demo_clean_rgbd_cup_left/demo_clean_rgbd_cup_left/place_empty_cup/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 406.4,
+   "frames": 170,
+   "arm": "left",
+   "sha256": "a6e45847ac4c7a19849d5e250979c687eaaede27b7c21b56ea0d6b2e64c912bc"
+  },
+  {
+   "task": "place_fan",
+   "file": "demo_clean_rgbd_fan_both/demo_clean_rgbd_fan_both/place_fan/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 363.9,
+   "frames": 152,
+   "arm": "right",
+   "sha256": "165a72011633848cb2a6ee9bd1a7427e578cbe73ef480f96157631c16c54b58f"
+  },
+  {
+   "task": "place_fan",
+   "file": "demo_clean_rgbd_fan_both/demo_clean_rgbd_fan_both/place_fan/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 383.6,
+   "frames": 160,
+   "arm": "left",
+   "sha256": "4dbb576b8f6e3147df531710212e945e5734781308f7dcdc5ac7fa41453117ad"
+  },
+  {
+   "task": "place_fan",
+   "file": "demo_clean_rgbd_fan_both/demo_clean_rgbd_fan_both/place_fan/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 321.7,
+   "frames": 134,
+   "arm": "left",
+   "sha256": "3bd2a35aa3c80cd8dc4695142f58021b77de235ae3b40aed02ea8c396d70b06d"
+  },
+  {
+   "task": "place_fan",
+   "file": "demo_clean_rgbd_fan_both/demo_clean_rgbd_fan_both/place_fan/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 354.3,
+   "frames": 148,
+   "arm": "left",
+   "sha256": "d8428b7a06406fa994fc0b740af990812086ea40d525abf2732595d1b04285b6"
+  },
+  {
+   "task": "place_fan",
+   "file": "demo_clean_rgbd_fan_both/demo_clean_rgbd_fan_both/place_fan/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 318.3,
+   "frames": 133,
+   "arm": "left",
+   "sha256": "d592b982458132e800ff77691ee68371bf5c8fbdc7857f4aacac6658be8842f6"
+  },
+  {
+   "task": "place_fan",
+   "file": "demo_clean_rgbd_fan_both/demo_clean_rgbd_fan_both/place_fan/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 375.8,
+   "frames": 157,
+   "arm": "right",
+   "sha256": "ccc24c57dd3707516db50af9a7b608b1ba160e19220a9efe4c334cf0d7c81d72"
+  },
+  {
+   "task": "handover_mic",
+   "file": "demo_clean_rgbd_handover_mic_one/demo_clean_rgbd_handover_mic_one/handover_mic/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 534.3,
+   "frames": 222,
+   "arm": "both",
+   "sha256": "bea09f5b6f7c423b03c0c32e00ddbf8c975a38964f9f68ba0ee8dee19aecd1a1"
+  },
+  {
+   "task": "handover_mic",
+   "file": "demo_clean_rgbd_handover_mic_one/demo_clean_rgbd_handover_mic_one/handover_mic/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 517.9,
+   "frames": 216,
+   "arm": "both",
+   "sha256": "b0e9cd25f76a05673d7c4ccd85fb84ee4eb56e7b554df8b5aaef02c7c304fb64"
+  },
+  {
+   "task": "place_mouse_pad",
+   "file": "demo_clean_rgbd_mouse_both/demo_clean_rgbd_mouse_both/place_mouse_pad/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 360.8,
+   "frames": 151,
+   "arm": "left",
+   "sha256": "bad5243cd75299baa0b6f9c2c54393270bfcbb3ef869b33f0f345fe6a14914aa"
+  },
+  {
+   "task": "place_mouse_pad",
+   "file": "demo_clean_rgbd_mouse_both/demo_clean_rgbd_mouse_both/place_mouse_pad/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 352.9,
+   "frames": 148,
+   "arm": "right",
+   "sha256": "4a885a48cba02ced192609fe165c0a193155290d8555bea25990bbfd16afc9db"
+  },
+  {
+   "task": "place_mouse_pad",
+   "file": "demo_clean_rgbd_mouse_both/demo_clean_rgbd_mouse_both/place_mouse_pad/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 348.8,
+   "frames": 146,
+   "arm": "left",
+   "sha256": "71cb5468fe9f2cbad28e598909041a5e353e6410fc51cfbb7cafe68cc014e699"
+  },
+  {
+   "task": "place_mouse_pad",
+   "file": "demo_clean_rgbd_mouse_both/demo_clean_rgbd_mouse_both/place_mouse_pad/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 356.0,
+   "frames": 149,
+   "arm": "right",
+   "sha256": "4ee263ac70451fb0e4735757f4e119f646c42cf776090685142b339f41e8936b"
+  },
+  {
+   "task": "handover_block",
+   "file": "demo_clean_rgbd_one/handover_block/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 690.5,
+   "frames": 288,
+   "arm": "both",
+   "sha256": "16d36e2d5834e51e04eb1daf6e4704467064bbb21ab0be310eed23254d5d189f"
+  },
+  {
+   "task": "move_pillbottle_pad",
+   "file": "demo_clean_rgbd_one/move_pillbottle_pad/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 339.5,
+   "frames": 142,
+   "arm": "left",
+   "sha256": "e359120ea81b8465f2b548965302fb95f68d181fbc597fe8d0f478e28af4438d"
+  },
+  {
+   "task": "move_pillbottle_pad",
+   "file": "demo_clean_rgbd_right_one/demo_clean_rgbd_right_one/move_pillbottle_pad/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 337.1,
+   "frames": 141,
+   "arm": "left",
+   "sha256": "114ef52bed7a33085f9e9be2525785f499791e3aded9d30c59bf1987ff3526e1"
+  },
+  {
+   "task": "move_pillbottle_pad",
+   "file": "demo_clean_rgbd_right_one/demo_clean_rgbd_right_one/move_pillbottle_pad/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 351.5,
+   "frames": 147,
+   "arm": "left",
+   "sha256": "d4a55ee4441263d82e983365788cc9a95d9e3aa08ad38e5cf93ba7924149077c"
+  },
+  {
+   "task": "place_shoe",
+   "file": "demo_clean_rgbd_shoe_both/demo_clean_rgbd_shoe_both/place_shoe/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 429.4,
+   "frames": 179,
+   "arm": "left",
+   "sha256": "092bd830d76ae33fe78a0f474489951d8400b5cd8a2b880445b01a7993ac8cb2"
+  },
+  {
+   "task": "place_shoe",
+   "file": "demo_clean_rgbd_shoe_both/demo_clean_rgbd_shoe_both/place_shoe/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 430.3,
+   "frames": 179,
+   "arm": "right",
+   "sha256": "9b504e37320c6a362ba061c3ad8be4c327f2be21a9ea7379ba7ba9d7d9f90e93"
+  },
+  {
+   "task": "place_shoe",
+   "file": "demo_clean_rgbd_shoe_both/demo_clean_rgbd_shoe_both/place_shoe/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 427.2,
+   "frames": 178,
+   "arm": "right",
+   "sha256": "6c166cfa27fac577f221b20a36da55f7c47d5635935c06c8d0799e30d1ae4191"
+  },
+  {
+   "task": "place_shoe",
+   "file": "demo_clean_rgbd_shoe_both/demo_clean_rgbd_shoe_both/place_shoe/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 429.6,
+   "frames": 179,
+   "arm": "right",
+   "sha256": "fb7ea95cd99c629ebd84050dbb5729735ffa6860db9aa2f0413eec41420ea259"
+  },
+  {
+   "task": "place_shoe",
+   "file": "demo_clean_rgbd_shoe_both/demo_clean_rgbd_shoe_both/place_shoe/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 439.8,
+   "frames": 183,
+   "arm": "left",
+   "sha256": "0f7452164287576033819c7e243f0dcadaa24ee8de926848c0d5839b65b19add"
+  },
+  {
+   "task": "place_shoe",
+   "file": "demo_clean_rgbd_shoe_both/demo_clean_rgbd_shoe_both/place_shoe/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 396.3,
+   "frames": 165,
+   "arm": "right",
+   "sha256": "d4970d4360c49f64e3694a0b9dd47ded4ad74aeb8576ca918bd763a52115e33c"
+  },
+  {
+   "task": "move_stapler_pad",
+   "file": "demo_clean_rgbd_stapler_both/demo_clean_rgbd_stapler_both/move_stapler_pad/aloha_agilex/data/episode_0000000.hdf5",
+   "size_mb": 414.1,
+   "frames": 173,
+   "arm": "left",
+   "sha256": "215b8cc5c28bde33dabd1ef3831fbb9b43b4082b0e60b79fe024c21bc5819ba8"
+  },
+  {
+   "task": "move_stapler_pad",
+   "file": "demo_clean_rgbd_stapler_both/demo_clean_rgbd_stapler_both/move_stapler_pad/aloha_agilex/data/episode_0000001.hdf5",
+   "size_mb": 334.1,
+   "frames": 140,
+   "arm": "right",
+   "sha256": "d16b43faa70f97bba3f84329d3743b61ee1ba48efb5775be9b7d30e456e5c414"
+  },
+  {
+   "task": "move_stapler_pad",
+   "file": "demo_clean_rgbd_stapler_both/demo_clean_rgbd_stapler_both/move_stapler_pad/aloha_agilex/data/episode_0000002.hdf5",
+   "size_mb": 335.3,
+   "frames": 140,
+   "arm": "left",
+   "sha256": "c87b1124bacd6fa1942161c7b9cc12e028cbe0b65c74bc4a1f23ef5fccf4d620"
+  },
+  {
+   "task": "move_stapler_pad",
+   "file": "demo_clean_rgbd_stapler_both/demo_clean_rgbd_stapler_both/move_stapler_pad/aloha_agilex/data/episode_0000003.hdf5",
+   "size_mb": 361.6,
+   "frames": 151,
+   "arm": "right",
+   "sha256": "43307d9ac78ad8c522cbdf6f374ab7a68bfb9acecb3d3f1e45440b2f1564f86e"
+  },
+  {
+   "task": "move_stapler_pad",
+   "file": "demo_clean_rgbd_stapler_both/demo_clean_rgbd_stapler_both/move_stapler_pad/aloha_agilex/data/episode_0000004.hdf5",
+   "size_mb": 370.9,
+   "frames": 155,
+   "arm": "left",
+   "sha256": "11b51b7fb4fd177b601c2a488bab8eefeb7bb5753f15a0f8370f93fc4b650255"
+  },
+  {
+   "task": "move_stapler_pad",
+   "file": "demo_clean_rgbd_stapler_both/demo_clean_rgbd_stapler_both/move_stapler_pad/aloha_agilex/data/episode_0000005.hdf5",
+   "size_mb": 387.8,
+   "frames": 162,
+   "arm": "right",
+   "sha256": "e5865ec05b68dc5e2f0d755e3b1ab21b053952d7c62e3121facef5c1086469e4"
+  }
+ ]
+}
