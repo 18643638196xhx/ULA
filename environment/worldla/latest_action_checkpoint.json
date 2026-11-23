@@ -1,0 +1,5 @@
+{
+  "checkpoint": "/data2/xuhuixin/wam_vla_outputs/vlma_robotwin50_official/action_model_100k_scheduled/action_checkpoints/final_step_100000",
+  "step": 100000,
+  "validation_action_loss": 0.0034789002323523163
+}
