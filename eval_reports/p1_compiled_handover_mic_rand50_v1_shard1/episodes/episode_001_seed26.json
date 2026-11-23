@@ -1,0 +1,10 @@
+{
+ "seed": 26,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": null,
+ "failure_stage": null,
+ "failure_reason": "mic_handover_not_confirmed:cmd=0.004;open=0.000",
+ "elapsed_s": 31.18,
+ "final_evaluation": {}
+}

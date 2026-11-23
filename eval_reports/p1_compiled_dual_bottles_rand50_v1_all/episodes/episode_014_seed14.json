@@ -1,0 +1,10 @@
+{
+ "seed": 14,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": null,
+ "failure_stage": null,
+ "failure_reason": "dual_bottles_grasp_not_confirmed:cmd=1.000;open=0.944",
+ "elapsed_s": 63.88,
+ "final_evaluation": {}
+}

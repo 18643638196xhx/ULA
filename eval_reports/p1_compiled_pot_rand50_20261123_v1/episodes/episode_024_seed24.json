@@ -1,0 +1,45 @@
+{
+ "seed": 24,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": "both",
+ "failure_stage": "right_001_grasp",
+ "failure_reason": "pot_grasp_not_confirmed:cmd=0.114;open=0.162",
+ "elapsed_s": 37.021,
+ "final_evaluation": {
+  "pot_xyz": [
+   -0.04629099369049072,
+   0.05755002424120903,
+   0.8266470432281494
+  ],
+  "pot_z": 0.8266470432281494,
+  "tcp_left_err_m": 0.14406668807344114,
+  "tcp_right_err_m": 0.02249743164454325,
+  "pot_dir": 0.6774829898199644,
+  "left_closed": true,
+  "right_closed": true
+ },
+ "stages": [
+  {
+   "id": "left_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": false,
+   "reason": "pot_grasp_not_confirmed:cmd=0.114;open=0.162"
+  }
+ ]
+}

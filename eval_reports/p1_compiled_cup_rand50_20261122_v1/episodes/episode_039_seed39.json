@@ -1,0 +1,41 @@
+{
+ "seed": 39,
+ "task_success": true,
+ "controller_complete": false,
+ "selected_arm": "left",
+ "failure_stage": "left_001_grasp",
+ "failure_reason": "cup_grasp_not_confirmed:cmd=1.000;open=0.944",
+ "elapsed_s": 37.192,
+ "final_evaluation": {
+  "cup_xyz": [
+   0.01263822428882122,
+   0.021364878863096237,
+   0.7492147088050842
+  ],
+  "coaster_xyz": [
+   0.023714622482657433,
+   0.04766618460416794,
+   0.7409999966621399
+  ],
+  "xy_error_m": 0.028538487707545915,
+  "z_error_m": 0.008214712142944336,
+  "left_open": true,
+  "right_open": true
+ },
+ "stages": [
+  {
+   "id": "left_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": false,
+   "reason": "cup_grasp_not_confirmed:cmd=1.000;open=0.944"
+  }
+ ]
+}

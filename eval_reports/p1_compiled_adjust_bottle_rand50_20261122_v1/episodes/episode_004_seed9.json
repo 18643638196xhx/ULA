@@ -1,0 +1,58 @@
+{
+ "seed": 9,
+ "task_success": true,
+ "controller_complete": true,
+ "selected_arm": "left",
+ "failure_stage": null,
+ "failure_reason": null,
+ "elapsed_s": 24.862,
+ "final_evaluation": {
+  "bottle_fp0_xyz": [
+   -0.237918172011138,
+   -0.098559810520247,
+   0.9869230195561816
+  ],
+  "qpose_tag": 0,
+  "height_ok": true,
+  "side_ok": true,
+  "left_open": false,
+  "right_open": true
+ },
+ "stages": [
+  {
+   "id": "left_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_002_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_003_move",
+   "primitive": "rotate",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_004_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  }
+ ]
+}

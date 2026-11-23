@@ -1,0 +1,63 @@
+{
+ "seed": 24,
+ "task_success": true,
+ "controller_complete": true,
+ "selected_arm": "both",
+ "failure_stage": null,
+ "failure_reason": null,
+ "elapsed_s": 25.27,
+ "final_evaluation": {
+  "roller_xyz": [
+   0.11457765102386475,
+   -0.09304670244455338,
+   0.8984474539756775
+  ],
+  "roller_z": 0.8984474539756775,
+  "left_closed": true,
+  "right_closed": true
+ },
+ "stages": [
+  {
+   "id": "left_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_002_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_002_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "bimanual_lift_already_done"
+  }
+ ]
+}

@@ -1,0 +1,1121 @@
+schema: ula_demo_primitives_v1
+task: grab_roller
+description: use both arms to grab the roller on the table
+geometry_schema_version: 1
+frame_count: 88
+frequency_hz: 15.0
+frame_indexing: zero_based_inclusive_reference_frames
+active_arms:
+- left
+- right
+task_intents: []
+bindings:
+  object: roller
+  target: null
+  source: explicit_specification
+controller_assignment_source: primitive_library_ULA_policy_not_teacher_labels
+config:
+  quiet_fraction: 0.4
+  noise_mad_scale: 6.0
+  smooth_frames: 3
+  minimum_bout_extent_fraction: 0.01
+  active_arm_fraction: 0.01
+  gripper_open_value: 1.0
+  gripper_closed_value: 0.0
+  gripper_delta_fraction: 0.005
+  minimum_gripper_ramp: 0.25
+  ramp_gap_frames: 2
+  local_approach_path_fraction: 0.2
+  max_keyframes: 5
+stages:
+- primitive: move
+  arm: left
+  demo_frames:
+  - 0
+  - 36
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 2
+    - 33
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - 0.25191424787044525
+    - 0.21447249501943588
+    - 0.016916990280151367
+    duration_s: 2.4
+    path_length_m: 0.4160151609846829
+    orientation_change_deg: 123.46128851537551
+    angular_path_deg: 145.6955059513976
+    maximum_orientation_excursion_deg: 123.46584846654908
+  motion_role: transport
+  id: left_000_move
+  object: roller
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - roller
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: true
+      maximum_excursion_deg: 0.0
+      final_rotation_deg: 0.0
+      sampled_frames:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+      - 31
+      - 32
+      - 33
+      - 34
+      - 35
+      - 36
+    object_follows_hand:
+      available: true
+      supported: false
+      sampled_frames:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+      - 31
+      - 32
+      - 33
+      - 34
+      - 35
+      - 36
+      translation_residual_m: 0.3137616015461134
+      rotation_residual_deg: 123.46584846654908
+      object_displacement_m: 0.0
+      hand_displacement_m: 0.3312784689051385
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: roller
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations:
+    - name: approach
+      reference: roller
+      controlled: recorded_ee
+      frame: 36
+      T_reference_controlled:
+      - - -0.013870722819938905
+        - 0.5148847295758525
+        - -0.857147197567637
+        - -0.07202833774462883
+      - - 0.004823983128834421
+        - -0.8571852308633848
+        - -0.5149856397769351
+        - -0.03644272513378975
+      - - -0.9998921603029126
+        - -0.011278086685588717
+        - 0.009405983493882553
+        - 0.19101558738053936
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    T_reference_recorded_ee_hint:
+    - - -0.013870722819938905
+      - 0.5148847295758525
+      - -0.857147197567637
+      - -0.07202833774462883
+    - - 0.004823983128834421
+      - -0.8571852308633848
+      - -0.5149856397769351
+      - -0.03644272513378975
+    - - -0.9998921603029126
+      - -0.011278086685588717
+      - 0.009405983493882553
+      - 0.19101558738053936
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    reference_scope: current_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - left_000_move_frame0
+  - left_000_move_frame17
+  - left_000_move_frame18
+  - left_000_move_frame34
+  - left_000_move_frame36
+  depends_on: []
+- primitive: move
+  arm: right
+  demo_frames:
+  - 0
+  - 36
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 2
+    - 33
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - -0.1815216839313507
+    - 0.2371472269296646
+    - 0.017490625381469727
+    duration_s: 2.4
+    path_length_m: 0.3759186267438873
+    orientation_change_deg: 116.13875404503493
+    angular_path_deg: 131.03757508618568
+    maximum_orientation_excursion_deg: 116.19556856358356
+  motion_role: transport
+  id: right_000_move
+  object: roller
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - roller
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: true
+      maximum_excursion_deg: 0.0
+      final_rotation_deg: 0.0
+      sampled_frames:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+      - 31
+      - 32
+      - 33
+      - 34
+      - 35
+      - 36
+    object_follows_hand:
+      available: true
+      supported: false
+      sampled_frames:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+      - 31
+      - 32
+      - 33
+      - 34
+      - 35
+      - 36
+      translation_residual_m: 0.22214556944308797
+      rotation_residual_deg: 116.19556856358358
+      object_displacement_m: 0.0
+      hand_displacement_m: 0.2991569002278536
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: roller
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations:
+    - name: approach
+      reference: roller
+      controlled: recorded_ee
+      frame: 36
+      T_reference_controlled:
+      - - -0.013056381472840606
+        - -0.5059344513516583
+        - 0.8624731078928388
+        - 0.07632205922732173
+      - - 0.0022451951900093734
+        - 0.8625296218648667
+        - 0.5060015914048187
+        - 0.05168678321926496
+      - - -0.9999122411498894
+        - 0.008542970276599157
+        - -0.010125594178057806
+        - 0.1905889969378819
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    T_reference_recorded_ee_hint:
+    - - -0.013056381472840606
+      - -0.5059344513516583
+      - 0.8624731078928388
+      - 0.07632205922732173
+    - - 0.0022451951900093734
+      - 0.8625296218648667
+      - 0.5060015914048187
+      - 0.05168678321926496
+    - - -0.9999122411498894
+      - 0.008542970276599157
+      - -0.010125594178057806
+      - 0.1905889969378819
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    reference_scope: current_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - right_000_move_frame0
+  - right_000_move_frame16
+  - right_000_move_frame18
+  - right_000_move_frame34
+  - right_000_move_frame36
+  depends_on: []
+- primitive: grasp
+  arm: left
+  demo_frames:
+  - 36
+  - 75
+  description: 局部接近并抓取目标物体
+  controller: vla
+  executor: local_policy
+  completion: configured_grasp_handoff
+  required_parameters:
+  - precontact_relative_pose
+  - object_identity
+  recognition:
+    matcher: gripper_closing
+    event:
+      kind: gripper_close
+      start_frame: 52
+      end_frame: 66
+      start_value: 1.0
+      end_value: 0.0
+      evidence: recorded_gripper_state
+      physical_grasp_proven: false
+    approach_reference_source: pause_before_local_approach
+    object_follows_hand:
+      available: true
+      supported: true
+      sampled_frames:
+      - 75
+      - 76
+      - 77
+      - 78
+      - 79
+      - 80
+      - 81
+      - 82
+      - 83
+      - 84
+      - 85
+      - 86
+      - 87
+      translation_residual_m: 1.1274368112207335e-16
+      rotation_residual_deg: 1.2074182697257333e-06
+      object_displacement_m: 0.10427854270749273
+      hand_displacement_m: 0.10440676286511757
+  evidence_level: visual_motion_supported
+  physical_contact_confirmed: false
+  id: left_001_grasp
+  object: roller
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - roller
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: true
+      maximum_excursion_deg: 0.5594854893685957
+      final_rotation_deg: 0.5516940374956956
+      sampled_frames:
+      - 36
+      - 37
+      - 38
+      - 39
+      - 40
+      - 41
+      - 42
+      - 43
+      - 44
+      - 45
+      - 46
+      - 47
+      - 48
+      - 49
+      - 50
+      - 51
+      - 52
+      - 53
+      - 54
+      - 55
+      - 56
+      - 57
+      - 58
+      - 59
+      - 60
+      - 61
+      - 62
+      - 63
+      - 64
+      - 65
+      - 66
+      - 67
+      - 68
+      - 69
+      - 70
+      - 71
+      - 72
+      - 73
+      - 74
+      - 75
+  frequency_hz: 15.0
+  motion:
+    delta_world_xyz_m:
+    - 0.0008474178612232208
+    - -0.003193892538547516
+    - -0.06289279460906982
+    duration_s: 2.6
+    path_length_m: 0.06900024960961197
+    orientation_change_deg: 3.0370620983704018
+    angular_path_deg: 4.25792222929088
+    maximum_orientation_excursion_deg: 3.048682439499339
+  reference: roller
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand:
+    - - 0.021049988248102645
+      - 0.011888584614087856
+      - -0.9997077370665031
+      - 0.12966255849497788
+    - - 0.4915438991949277
+      - -0.8708527976217403
+      - -6.215686076070966e-06
+      - 0.0007590656043015981
+    - - -0.8705983535241734
+      - -0.4914001082928877
+      - -0.024175202392882445
+      - -0.07774619135191062
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    relation_template:
+      precontact:
+      - object
+      - recorded_ee
+      attachment:
+      - recorded_ee
+      - object
+    demonstrated_relations:
+    - name: precontact
+      reference: roller
+      controlled: recorded_ee
+      frame: 36
+      T_reference_controlled:
+      - - -0.013870722819938905
+        - 0.5148847295758525
+        - -0.857147197567637
+        - -0.07202833774462883
+      - - 0.004823983128834421
+        - -0.8571852308633848
+        - -0.5149856397769351
+        - -0.03644272513378975
+      - - -0.9998921603029126
+        - -0.011278086685588717
+        - 0.009405983493882553
+        - 0.19101558738053936
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    - name: attachment
+      reference: recorded_ee
+      controlled: roller
+      frame: 75
+      T_reference_controlled:
+      - - 0.021049988248102645
+        - 0.011888584614087856
+        - -0.9997077370665031
+        - 0.12966255849497788
+      - - 0.4915438991949277
+        - -0.8708527976217403
+        - -6.215686076070966e-06
+        - 0.0007590656043015981
+      - - -0.8705983535241734
+        - -0.4914001082928877
+        - -0.024175202392882445
+        - -0.07774619135191062
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_postgrasp_visual_pose
+    T_reference_recorded_ee_hint:
+    - - 0.021049988248102575
+      - 0.49154389919492786
+      - -0.8705983535241734
+      - -0.07078821558317007
+    - - 0.011888584614087837
+      - -0.8708527976217406
+      - -0.49140010829288777
+      - -0.03908495674255062
+    - - -0.9997077370665033
+      - -6.215686076054592e-06
+      - -0.024175202392882515
+      - 0.12774513774217278
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    reference_scope: current_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - left_001_grasp_frame36
+  - left_001_grasp_frame45
+  - left_001_grasp_frame55
+  - left_001_grasp_frame74
+  - left_001_grasp_frame75
+  depends_on:
+  - left_000_move
+- primitive: grasp
+  arm: right
+  demo_frames:
+  - 36
+  - 75
+  description: 局部接近并抓取目标物体
+  controller: vla
+  executor: local_policy
+  completion: configured_grasp_handoff
+  required_parameters:
+  - precontact_relative_pose
+  - object_identity
+  recognition:
+    matcher: gripper_closing
+    event:
+      kind: gripper_close
+      start_frame: 52
+      end_frame: 66
+      start_value: 1.0
+      end_value: 0.0
+      evidence: recorded_gripper_state
+      physical_grasp_proven: false
+    approach_reference_source: pause_before_local_approach
+    object_follows_hand:
+      available: true
+      supported: true
+      sampled_frames:
+      - 75
+      - 76
+      - 77
+      - 78
+      - 79
+      - 80
+      - 81
+      - 82
+      - 83
+      - 84
+      - 85
+      - 86
+      - 87
+      translation_residual_m: 0.002694019018131584
+      rotation_residual_deg: 1.5950637687547078
+      object_displacement_m: 0.10427854270749273
+      hand_displacement_m: 0.10393976339049736
+  evidence_level: visual_motion_supported
+  physical_contact_confirmed: false
+  id: right_001_grasp
+  object: roller
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - roller
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: true
+      maximum_excursion_deg: 0.5594854893685957
+      final_rotation_deg: 0.5516940374956956
+      sampled_frames:
+      - 36
+      - 37
+      - 38
+      - 39
+      - 40
+      - 41
+      - 42
+      - 43
+      - 44
+      - 45
+      - 46
+      - 47
+      - 48
+      - 49
+      - 50
+      - 51
+      - 52
+      - 53
+      - 54
+      - 55
+      - 56
+      - 57
+      - 58
+      - 59
+      - 60
+      - 61
+      - 62
+      - 63
+      - 64
+      - 65
+      - 66
+      - 67
+      - 68
+      - 69
+      - 70
+      - 71
+      - 72
+      - 73
+      - 74
+      - 75
+  frequency_hz: 15.0
+  motion:
+    delta_world_xyz_m:
+    - 9.387731552124023e-05
+    - -0.0052055492997169495
+    - -0.06232941150665283
+    duration_s: 2.6
+    path_length_m: 0.0704445587471831
+    orientation_change_deg: 2.2899743892715243
+    angular_path_deg: 4.066310225466641
+    maximum_orientation_excursion_deg: 2.298468721560206
+  reference: roller
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand:
+    - - -0.024537864501070213
+      - -0.01551235334381131
+      - -0.9995785412359871
+      - 0.12994658883654453
+    - - -0.5437939619577234
+      - 0.8392186967878851
+      - 0.00032542274998217463
+      - 0.0012674816544080286
+    - - 0.8388599526405165
+      - 0.5435727604059837
+      - -0.029028158752664634
+      - -0.08700151526695796
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    relation_template:
+      precontact:
+      - object
+      - recorded_ee
+      attachment:
+      - recorded_ee
+      - object
+    demonstrated_relations:
+    - name: precontact
+      reference: roller
+      controlled: recorded_ee
+      frame: 36
+      T_reference_controlled:
+      - - -0.013056381472840606
+        - -0.5059344513516583
+        - 0.8624731078928388
+        - 0.07632205922732173
+      - - 0.0022451951900093734
+        - 0.8625296218648667
+        - 0.5060015914048187
+        - 0.05168678321926496
+      - - -0.9999122411498894
+        - 0.008542970276599157
+        - -0.010125594178057806
+        - 0.1905889969378819
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    - name: attachment
+      reference: recorded_ee
+      controlled: roller
+      frame: 75
+      T_reference_controlled:
+      - - -0.024537864501070213
+        - -0.01551235334381131
+        - -0.9995785412359871
+        - 0.12994658883654453
+      - - -0.5437939619577234
+        - 0.8392186967878851
+        - 0.00032542274998217463
+        - 0.0012674816544080286
+      - - 0.8388599526405165
+        - 0.5435727604059837
+        - -0.029028158752664634
+        - -0.08700151526695796
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_postgrasp_visual_pose
+    T_reference_recorded_ee_hint:
+    - - -0.024537864501069765
+      - -0.5437939619577232
+      - 0.8388599526405163
+      - 0.07685994763630011
+    - - -0.015512353343811068
+      - 0.8392186967878847
+      - 0.5435727604059836
+      - 0.04824373691280419
+    - - -0.9995785412359872
+      - 0.00032542274998221545
+      - -0.029028158752665137
+      - 0.12736591544356857
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    reference_scope: current_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - right_001_grasp_frame36
+  - right_001_grasp_frame46
+  - right_001_grasp_frame55
+  - right_001_grasp_frame74
+  - right_001_grasp_frame75
+  depends_on:
+  - right_000_move
+- primitive: move
+  arm: left
+  demo_frames:
+  - 75
+  - 87
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 75
+    - 87
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: closed_candidate
+  motion:
+    delta_world_xyz_m:
+    - -0.00035377219319343567
+    - 0.000555090606212616
+    - 0.10440468788146973
+    duration_s: 0.8
+    path_length_m: 0.10504426800397698
+    orientation_change_deg: 0.1604606606027238
+    angular_path_deg: 2.986399529722586
+    maximum_orientation_excursion_deg: 1.462196241150116
+  motion_role: lift
+  id: left_002_move
+  object: roller
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - roller
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: true
+      maximum_excursion_deg: 1.4621962411504936
+      final_rotation_deg: 0.16046066060507916
+      sampled_frames:
+      - 75
+      - 76
+      - 77
+      - 78
+      - 79
+      - 80
+      - 81
+      - 82
+      - 83
+      - 84
+      - 85
+      - 86
+      - 87
+    object_follows_hand:
+      available: true
+      supported: true
+      sampled_frames:
+      - 75
+      - 76
+      - 77
+      - 78
+      - 79
+      - 80
+      - 81
+      - 82
+      - 83
+      - 84
+      - 85
+      - 86
+      - 87
+      translation_residual_m: 1.1274368112207335e-16
+      rotation_residual_deg: 1.2074182697257333e-06
+      object_displacement_m: 0.10427854270749273
+      hand_displacement_m: 0.10440676286511757
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  holding_evidence: visual_rigid_comotion_not_physical_grasp_certificate
+  frequency_hz: 15.0
+  reference: null
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry:
+  - object_or_target_relative_goal
+  keyframe_ids:
+  - left_002_move_frame75
+  - left_002_move_frame80
+  - left_002_move_frame81
+  - left_002_move_frame82
+  - left_002_move_frame87
+  depends_on:
+  - left_001_grasp
+- primitive: move
+  arm: right
+  demo_frames:
+  - 75
+  - 87
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 75
+    - 87
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: closed_candidate
+  motion:
+    delta_world_xyz_m:
+    - -0.0007424429059028625
+    - 6.804615259170532e-05
+    - 0.10393708944320679
+    duration_s: 0.8
+    path_length_m: 0.10460824158974899
+    orientation_change_deg: 0.08274825735271411
+    angular_path_deg: 2.4429919468840136
+    maximum_orientation_excursion_deg: 1.2123488242898748
+  motion_role: lift
+  id: right_002_move
+  object: roller
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - roller
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: true
+      maximum_excursion_deg: 1.4621962411504936
+      final_rotation_deg: 0.16046066060507916
+      sampled_frames:
+      - 75
+      - 76
+      - 77
+      - 78
+      - 79
+      - 80
+      - 81
+      - 82
+      - 83
+      - 84
+      - 85
+      - 86
+      - 87
+    object_follows_hand:
+      available: true
+      supported: true
+      sampled_frames:
+      - 75
+      - 76
+      - 77
+      - 78
+      - 79
+      - 80
+      - 81
+      - 82
+      - 83
+      - 84
+      - 85
+      - 86
+      - 87
+      translation_residual_m: 0.002694019018131584
+      rotation_residual_deg: 1.5950637687547078
+      object_displacement_m: 0.10427854270749273
+      hand_displacement_m: 0.10393976339049736
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  holding_evidence: visual_rigid_comotion_not_physical_grasp_certificate
+  frequency_hz: 15.0
+  reference: null
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry:
+  - object_or_target_relative_goal
+  keyframe_ids:
+  - right_002_move_frame75
+  - right_002_move_frame80
+  - right_002_move_frame81
+  - right_002_move_frame83
+  - right_002_move_frame87
+  depends_on:
+  - right_001_grasp
+gripper_configuration_events: []
+execution_graph:
+  nodes:
+  - left_000_move
+  - left_001_grasp
+  - left_002_move
+  - right_000_move
+  - right_001_grasp
+  - right_002_move
+  edges:
+  - - left_000_move
+    - left_001_grasp
+  - - left_001_grasp
+    - left_002_move
+  - - right_000_move
+    - right_001_grasp
+  - - right_001_grasp
+    - right_002_move
+  independent_arms_can_overlap: true
+visual_input_provenance:
+  path: /data1/xuhuixin/ula/results/demo_visual_tracks_grab_roller_rgbd_left_v1/tracks.npz
+  demo_sha256: 3e417344e43eea6cf11ac3ba34ecde32931d4e42270807e56fcca5f476be0519
+  world_frame: world
+  units: m
+  grasp_frame: 63
+  release_frame: 88
+  static_entities:
+  - null
+  template_path: /data1/xuhuixin/ula/results/demo_multiview_template_grab_roller_both_v1/merged_template.npz
+  template_yaw_audit:
+    yaw_accepted: true
+    yaw_deg: -22.83
+    match_cost: 0.16168078638592093
+    uses_CAD: false
+  uses_CAD: false
+  uses_object_truth: false
+runtime_ready: false
+runtime_blockers:
+- object_or_target_relative_goal
+- new_schema_requires_runtime_compiler
+- recorded_EE_to_tool_frame_mapping
+robot_actions: 0
+live_simulator_reads: false
+uses_CAD: false
+limitations:
+- Gripper closure and measured hand motion are not physical grasp certificates.
+- Task-conditioned contact/action labels remain candidates without visual evidence.
+- Initial visual anchors do not substitute for post-grasp object poses.
+- Demonstrated frame numbers and timings are evidence, not runtime stop commands.
+declared_entities:
+- roller
+official_success:
+  available: true
+  path: /data1/xuhuixin/ula/tra_pipe/RoboTwin/envs/grab_roller.py
+  sha256: f0e1864199605acf59cf8982dded05129d873bb3934f200e47abafd918d41c89
+  methods:
+  - "def check_success(self):\n        roller_pose = self.roller.get_pose().p\n  \
+    \      return (self.is_left_gripper_close() and self.is_right_gripper_close()\
+    \ and roller_pose[2] > 0.8)"
+  use: static_task_goal_reference_only
+  method_executed: false
+source_demo:
+  path: /data2/xuhuixin/ula_demo_rgbd/demo_clean_rgbd_auto_grab_roller/demo_clean_rgbd_auto_grab_roller/grab_roller/aloha_agilex/data/episode_0000002.hdf5
+  sha256: 3e417344e43eea6cf11ac3ba34ecde32931d4e42270807e56fcca5f476be0519
+  recorded_pose_convention: xyz_wxyz_world_recorded_EE
+  controller_labels_present: false
+primitive_library_sha256: 19c23514dca25624279ec647f0c4cd7a7ac5fd7373f42ff3e21a4202988bacad
+keyframes_file: keyframes.json
+events_file: events.json

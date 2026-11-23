@@ -1,0 +1,880 @@
+schema: ula_demo_primitives_v1
+task: pick_diverse_bottles
+description: simultaneously pick up one bottle with each arm
+geometry_schema_version: 1
+frame_count: 135
+frequency_hz: 15.0
+frame_indexing: zero_based_inclusive_reference_frames
+active_arms:
+- left
+- right
+task_intents: []
+bindings:
+  object: bottle
+  target: null
+  source: explicit_specification
+controller_assignment_source: primitive_library_ULA_policy_not_teacher_labels
+config:
+  quiet_fraction: 0.4
+  noise_mad_scale: 6.0
+  smooth_frames: 3
+  minimum_bout_extent_fraction: 0.01
+  active_arm_fraction: 0.01
+  gripper_open_value: 1.0
+  gripper_closed_value: 0.0
+  gripper_delta_fraction: 0.005
+  minimum_gripper_ramp: 0.25
+  ramp_gap_frames: 2
+  local_approach_path_fraction: 0.2
+  max_keyframes: 5
+stages:
+- primitive: move
+  arm: left
+  demo_frames:
+  - 0
+  - 41
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 3
+    - 38
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - 0.10942456126213074
+    - 0.18418225646018982
+    - -0.08149528503417969
+    duration_s: 2.7333333333333334
+    path_length_m: 0.2635779554874398
+    orientation_change_deg: 35.68036912866326
+    angular_path_deg: 36.005068929169525
+    maximum_orientation_excursion_deg: 35.68036912866326
+  motion_role: transport
+  id: left_000_move
+  object: bottle_left
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - bottle
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: bottle_left
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations:
+    - name: approach
+      reference: bottle_left
+      controlled: recorded_ee
+      frame: 41
+      T_reference_controlled:
+      - - 0.5667897921632985
+        - -0.8237835369224213
+        - 0.01140244688962267
+        - -0.11529921226501465
+      - - 0.8238556063618758
+        - 0.5667871987712283
+        - -0.0037697712357711395
+        - -0.14202248921394348
+      - - -0.003357285449714983
+        - 0.011530637651485078
+        - 0.9999278839145147
+        - -0.020091677284240772
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - left_000_move_frame0
+  - left_000_move_frame20
+  - left_000_move_frame22
+  - left_000_move_frame41
+  depends_on: []
+- primitive: move
+  arm: right
+  demo_frames:
+  - 0
+  - 42
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 2
+    - 39
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - -0.0350307822227478
+    - 0.42467040568590164
+    - -0.07388007640838623
+    duration_s: 2.8
+    path_length_m: 0.6067165425725881
+    orientation_change_deg: 66.75788679021814
+    angular_path_deg: 66.91893540891935
+    maximum_orientation_excursion_deg: 66.75788679021814
+  motion_role: transport
+  id: right_000_move
+  object: bottle_right
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - bottle
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: bottle_right
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations:
+    - name: approach
+      reference: bottle_right
+      controlled: recorded_ee
+      frame: 42
+      T_reference_controlled:
+      - - -0.922741491830904
+        - -0.38541928346430254
+        - 0.000339392900619961
+        - 0.18840229940414427
+      - - 0.38541501086107444
+        - -0.9227263289833065
+        - 0.005602785374125623
+        - -0.05193035935163498
+      - - -0.001846254759027719
+        - 0.0053007296530076615
+        - 0.9999842466801715
+        - 0.021823305797576853
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - right_000_move_frame0
+  - right_000_move_frame21
+  - right_000_move_frame41
+  - right_000_move_frame42
+  depends_on: []
+- primitive: grasp
+  arm: left
+  demo_frames:
+  - 41
+  - 82
+  description: 局部接近并抓取目标物体
+  controller: vla
+  executor: local_policy
+  completion: configured_grasp_handoff
+  required_parameters:
+  - precontact_relative_pose
+  - object_identity
+  recognition:
+    matcher: gripper_closing
+    event:
+      kind: gripper_close
+      start_frame: 59
+      end_frame: 73
+      start_value: 1.0
+      end_value: 0.0
+      evidence: recorded_gripper_state
+      physical_grasp_proven: false
+    approach_reference_source: pause_before_local_approach
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+  evidence_level: candidate_from_robot_events
+  physical_contact_confirmed: false
+  id: left_001_grasp
+  object: bottle_left
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - bottle
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+  frequency_hz: 15.0
+  motion:
+    delta_world_xyz_m:
+    - 0.046191200613975525
+    - 0.0657559335231781
+    - 0.0023919343948364258
+    duration_s: 2.7333333333333334
+    path_length_m: 0.0822907336775512
+    orientation_change_deg: 0.29340474132844174
+    angular_path_deg: 1.4066522382312632
+    maximum_orientation_excursion_deg: 0.7074646293371888
+  reference: bottle_left
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      precontact:
+      - object
+      - recorded_ee
+      attachment:
+      - recorded_ee
+      - object
+    demonstrated_relations:
+    - name: precontact
+      reference: bottle_left
+      controlled: recorded_ee
+      frame: 41
+      T_reference_controlled:
+      - - 0.5667897921632985
+        - -0.8237835369224213
+        - 0.01140244688962267
+        - -0.11529921226501465
+      - - 0.8238556063618758
+        - 0.5667871987712283
+        - -0.0037697712357711395
+        - -0.14202248921394348
+      - - -0.003357285449714983
+        - 0.011530637651485078
+        - 0.9999278839145147
+        - -0.020091677284240772
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    - name: attachment
+      reference: recorded_ee
+      controlled: bottle_left
+      frame: 66
+      T_reference_controlled:
+      - - 0.5673965286238931
+        - 0.8234435694424207
+        - 0.001366473373667547
+        - 0.10244851038199093
+      - - -0.8233860509847244
+        - 0.5673355268393094
+        - 0.01287676317031045
+        - -0.014099590194051562
+      - - 0.009828038936463569
+        - -0.008431365837666042
+        - 0.999916157345592
+        - 0.018216571853935992
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - left_001_grasp_frame41
+  - left_001_grasp_frame50
+  - left_001_grasp_frame53
+  - left_001_grasp_frame61
+  - left_001_grasp_frame82
+  depends_on:
+  - left_000_move
+- primitive: grasp
+  arm: right
+  demo_frames:
+  - 42
+  - 81
+  description: 局部接近并抓取目标物体
+  controller: vla
+  executor: local_policy
+  completion: configured_grasp_handoff
+  required_parameters:
+  - precontact_relative_pose
+  - object_identity
+  recognition:
+    matcher: gripper_closing
+    event:
+      kind: gripper_close
+      start_frame: 59
+      end_frame: 73
+      start_value: 1.0
+      end_value: 0.0
+      evidence: recorded_gripper_state
+      physical_grasp_proven: false
+    approach_reference_source: pause_before_local_approach
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+  evidence_level: candidate_from_robot_events
+  physical_contact_confirmed: false
+  id: right_001_grasp
+  object: bottle_right
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - bottle
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+  frequency_hz: 15.0
+  motion:
+    delta_world_xyz_m:
+    - -0.06942218542098999
+    - 0.03211437910795212
+    - 0.001735389232635498
+    duration_s: 2.6
+    path_length_m: 0.07877148793166404
+    orientation_change_deg: 0.4730618139578624
+    angular_path_deg: 1.1386029175650099
+    maximum_orientation_excursion_deg: 0.7127623639475397
+  reference: bottle_right
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      precontact:
+      - object
+      - recorded_ee
+      attachment:
+      - recorded_ee
+      - object
+    demonstrated_relations:
+    - name: precontact
+      reference: bottle_right
+      controlled: recorded_ee
+      frame: 42
+      T_reference_controlled:
+      - - -0.922741491830904
+        - -0.38541928346430254
+        - 0.000339392900619961
+        - 0.18840229940414427
+      - - 0.38541501086107444
+        - -0.9227263289833065
+        - 0.005602785374125623
+        - -0.05193035935163498
+      - - -0.001846254759027719
+        - 0.0053007296530076615
+        - 0.9999842466801715
+        - 0.021823305797576853
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    - name: attachment
+      reference: recorded_ee
+      controlled: bottle_right
+      frame: 66
+      T_reference_controlled:
+      - - -0.9202274140425925
+        - 0.39138236647997887
+        - 0.001161745675509604
+        - 0.117529887077185
+      - - -0.3913834136787108
+        - -0.920227289284043
+        - -0.0008715240338302679
+        - 0.02847682079091335
+      - - 0.0007279709350069948
+        - -0.001256688296235025
+        - 0.9999989453958658
+        - -0.023745364714983452
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - right_001_grasp_frame42
+  - right_001_grasp_frame49
+  - right_001_grasp_frame54
+  - right_001_grasp_frame61
+  - right_001_grasp_frame81
+  depends_on:
+  - right_000_move
+- primitive: move
+  arm: right
+  demo_frames:
+  - 81
+  - 96
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 81
+    - 94
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: closed_candidate
+  motion:
+    delta_world_xyz_m:
+    - -0.00011214613914489746
+    - -0.00038920342922210693
+    - 0.10207521915435791
+    duration_s: 1.0
+    path_length_m: 0.10238993149086405
+    orientation_change_deg: 0.14139995696509522
+    angular_path_deg: 1.67193414533013
+    maximum_orientation_excursion_deg: 0.6400352335111835
+  motion_role: lift
+  id: right_002_move
+  object: bottle_right
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - bottle
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: null
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry: []
+  keyframe_ids:
+  - right_002_move_frame81
+  - right_002_move_frame87
+  - right_002_move_frame88
+  - right_002_move_frame91
+  - right_002_move_frame96
+  depends_on:
+  - right_001_grasp
+- primitive: move
+  arm: left
+  demo_frames:
+  - 82
+  - 96
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 82
+    - 94
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: closed_candidate
+  motion:
+    delta_world_xyz_m:
+    - -0.0007043778896331787
+    - -3.2529234886169434e-05
+    - 0.09812313318252563
+    duration_s: 0.9333333333333333
+    path_length_m: 0.09837313682258406
+    orientation_change_deg: 0.15687702824969094
+    angular_path_deg: 2.7065723683476897
+    maximum_orientation_excursion_deg: 1.2725178458196547
+  motion_role: lift
+  id: left_002_move
+  object: bottle_left
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - bottle
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: null
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry: []
+  keyframe_ids:
+  - left_002_move_frame82
+  - left_002_move_frame88
+  - left_002_move_frame89
+  - left_002_move_frame96
+  depends_on:
+  - left_001_grasp
+- primitive: move
+  arm: left
+  demo_frames:
+  - 96
+  - 134
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 98
+    - 123
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: closed_candidate
+  motion:
+    delta_world_xyz_m:
+    - -0.001630529761314392
+    - -0.12753959000110626
+    - 0.03916984796524048
+    duration_s: 2.533333333333333
+    path_length_m: 0.1505138124238103
+    orientation_change_deg: 11.615590004085313
+    angular_path_deg: 14.006404698544051
+    maximum_orientation_excursion_deg: 12.05917446991984
+  motion_role: transport
+  id: left_003_move
+  object: bottle_left
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - bottle
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: workspace_origin
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal:
+    - - 0.9796441463322474
+      - 0.20072133407313092
+      - -0.002879688327727353
+      - -0.06090458587798622
+    - - -0.2007259536423978
+      - 0.9796464123897929
+      - -0.0014135862752861171
+      - -0.13084191874879653
+    - - 0.002537339416055961
+      - 0.001962839705695603
+      - 0.9999948545712509
+      - 1.018693613101006
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations:
+    - name: held_transport
+      reference: workspace_origin
+      controlled: bottle_left
+      frame: 134
+      T_reference_controlled:
+      - - 0.9796441463322474
+        - 0.20072133407313092
+        - -0.002879688327727353
+        - -0.06090458587798622
+      - - -0.2007259536423978
+        - 0.9796464123897929
+        - -0.0014135862752861171
+        - -0.13084191874879653
+      - - 0.002537339416055961
+        - 0.001962839705695603
+        - 0.9999948545712509
+        - 1.018693613101006
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - left_003_move_frame96
+  - left_003_move_frame114
+  - left_003_move_frame115
+  - left_003_move_frame124
+  - left_003_move_frame134
+  depends_on:
+  - left_002_move
+- primitive: move
+  arm: right
+  demo_frames:
+  - 96
+  - 134
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 98
+    - 125
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: closed_candidate
+  motion:
+    delta_world_xyz_m:
+    - -0.055462390184402466
+    - -0.3340712636709213
+    - 0.030419111251831055
+    duration_s: 2.533333333333333
+    path_length_m: 0.3747499552608621
+    orientation_change_deg: 23.1288064121215
+    angular_path_deg: 23.421620606693057
+    maximum_orientation_excursion_deg: 23.133080861863853
+  motion_role: transport
+  id: right_003_move
+  object: bottle_right
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - bottle
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: workspace_origin
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal:
+    - - 0.9203147534481234
+      - 0.39117413856817285
+      - -0.001883587313619631
+      - 0.04439558717784428
+    - - -0.3911656786627892
+      - 0.9203127602915602
+      - 0.003719553845412053
+      - -0.12564757836074433
+    - - 0.003188482711184441
+      - -0.0026863655703247696
+      - 0.9999913084712402
+      - 0.9772859189949049
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations:
+    - name: held_transport
+      reference: workspace_origin
+      controlled: bottle_right
+      frame: 134
+      T_reference_controlled:
+      - - 0.9203147534481234
+        - 0.39117413856817285
+        - -0.001883587313619631
+        - 0.04439558717784428
+      - - -0.3911656786627892
+        - 0.9203127602915602
+        - 0.003719553845412053
+        - -0.12564757836074433
+      - - 0.003188482711184441
+        - -0.0026863655703247696
+        - 0.9999913084712402
+        - 0.9772859189949049
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - right_003_move_frame96
+  - right_003_move_frame111
+  - right_003_move_frame115
+  - right_003_move_frame132
+  - right_003_move_frame134
+  depends_on:
+  - right_002_move
+gripper_configuration_events: []
+execution_graph:
+  nodes:
+  - left_000_move
+  - left_001_grasp
+  - left_002_move
+  - left_003_move
+  - right_000_move
+  - right_001_grasp
+  - right_002_move
+  - right_003_move
+  edges:
+  - - left_000_move
+    - left_001_grasp
+  - - left_001_grasp
+    - left_002_move
+  - - left_002_move
+    - left_003_move
+  - - right_000_move
+    - right_001_grasp
+  - - right_001_grasp
+    - right_002_move
+  - - right_002_move
+    - right_003_move
+  independent_arms_can_overlap: true
+visual_input_provenance: {}
+runtime_ready: false
+runtime_blockers:
+- object_or_target_relative_goal
+- postgrasp_object_to_hand
+- new_schema_requires_runtime_compiler
+- recorded_EE_to_tool_frame_mapping
+robot_actions: 0
+live_simulator_reads: false
+uses_CAD: false
+limitations:
+- Gripper closure and measured hand motion are not physical grasp certificates.
+- Task-conditioned contact/action labels remain candidates without visual evidence.
+- Initial visual anchors do not substitute for post-grasp object poses.
+- Demonstrated frame numbers and timings are evidence, not runtime stop commands.
+declared_entities:
+- bottle1
+- bottle2
+official_success:
+  available: true
+  path: /data1/xuhuixin/ula/tra_pipe/RoboTwin/envs/pick_dual_bottles.py
+  sha256: 422f23510f3662405dcb5518d1ebe8a0270935849a4b02a2585615ff7bffc4ef
+  methods:
+  - "def check_success(self):\n        bottle1_target = self.left_target_pose[:2]\n\
+    \        bottle2_target = self.right_target_pose[:2]\n        eps = 0.1\n    \
+    \    bottle1_pose = self.bottle1.get_functional_point(0)\n        bottle2_pose\
+    \ = self.bottle2.get_functional_point(0)\n        if bottle1_pose[2] < 0.78 or\
+    \ bottle2_pose[2] < 0.78:\n            self.actor_pose = False\n        return\
+    \ (abs(bottle1_pose[0] - bottle1_target[0]) < eps and abs(bottle1_pose[1] - bottle1_target[1])\
+    \ < eps\n                and bottle1_pose[2] > 0.89 and abs(bottle2_pose[0] -\
+    \ bottle2_target[0]) < eps\n                and abs(bottle2_pose[1] - bottle2_target[1])\
+    \ < eps and bottle2_pose[2] > 0.89)"
+  use: static_task_goal_reference_only
+  method_executed: false
+source_demo:
+  path: /data2/xuhuixin/ula_demo_rgbd/demo_clean_rgbd_auto_pick_dual_bottles/demo_clean_rgbd_auto_pick_dual_bottles/pick_dual_bottles/aloha_agilex/data/episode_0000000.hdf5
+  sha256: 736b5803f35a277614bfe1820427777411f0d61770e4b6abb994f768783baab2
+  recorded_pose_convention: xyz_wxyz_world_recorded_EE
+  controller_labels_present: false
+primitive_library_sha256: 19c23514dca25624279ec647f0c4cd7a7ac5fd7373f42ff3e21a4202988bacad
+keyframes_file: keyframes.json
+events_file: events.json

@@ -1,0 +1,25 @@
+{
+ "seed": 28,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": "left",
+ "failure_stage": "initial_perception",
+ "failure_reason": "RuntimeError:Bottle/pad observation rejected after bounded resegmentation: [{'refined': False, 'quality': {'geometry_ok': False, 'reasons': ['object_mask_clipped'], 'spans_m': [0.04210908653149459, 0.04555982320090164, 0.13830127230218825], 'vertical_aspect': 3.2843569807373707, 'vertical_aspect_limit': 4.0, 'extent_growth_ratio': None}}, {'refined': True, 'error': 'Vision estimate failed: RuntimeError: Prompted cup resegmentation returned no credible foreground candidate; see /data1/xuhuixin/ula/results/p1_compiled_pillbottle_rand50_20261121_v2/vision_worker/perception.log'}]",
+ "elapsed_s": 24.222,
+ "final_evaluation": {
+  "pillbottle_xyz": [
+   0.2421102374792099,
+   -0.06145375594496727,
+   0.741312563419342
+  ],
+  "pad_xyz": [
+   0.2392120659351349,
+   0.07651745527982712,
+   0.7409999966621399
+  ],
+  "xy_error_m": 0.13800164682037572,
+  "z_error_m": 0.000312563419342049,
+  "left_open": true,
+  "right_open": true
+ }
+}

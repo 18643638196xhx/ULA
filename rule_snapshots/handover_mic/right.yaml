@@ -1,0 +1,768 @@
+schema: ula_demo_primitives_v1
+task: handover_mic
+description: Use one arm to grasp the microphone on the table and handover it to the
+  other arm
+geometry_schema_version: 1
+frame_count: 216
+frequency_hz: 15.0
+frame_indexing: zero_based_inclusive_reference_frames
+active_arms:
+- left
+- right
+task_intents:
+- handover
+bindings:
+  object: microphone
+  target: null
+  source: explicit_specification
+controller_assignment_source: primitive_library_ULA_policy_not_teacher_labels
+config:
+  quiet_fraction: 0.4
+  noise_mad_scale: 6.0
+  smooth_frames: 3
+  minimum_bout_extent_fraction: 0.01
+  active_arm_fraction: 0.01
+  gripper_open_value: 1.0
+  gripper_closed_value: 0.0
+  gripper_delta_fraction: 0.005
+  minimum_gripper_ramp: 0.25
+  ramp_gap_frames: 2
+  local_approach_path_fraction: 0.2
+  max_keyframes: 5
+stages:
+- primitive: move
+  arm: right
+  demo_frames:
+  - 0
+  - 32
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 1
+    - 30
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - -0.17979997396469116
+    - 0.19007816910743713
+    - 0.03456157445907593
+    duration_s: 2.1333333333333333
+    path_length_m: 0.3225644151390721
+    orientation_change_deg: 84.71830529940225
+    angular_path_deg: 89.41993017930447
+    maximum_orientation_excursion_deg: 84.71909711638129
+  motion_role: transport
+  id: right_000_move
+  object: microphone
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - microphone
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: microphone
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations:
+    - name: approach
+      reference: microphone
+      controlled: recorded_ee
+      frame: 32
+      T_reference_controlled:
+      - - 0.10476160283678676
+        - -0.9942512293521566
+        - 0.022124635653328895
+        - -0.01576497954338632
+      - - 0.09422392288022491
+        - 0.032070185761611025
+        - 0.9950343489258435
+        - -0.0920159270131638
+      - - -0.9900236658424528
+        - -0.10215672330757758
+        - 0.09704197522170635
+        - 0.2035028017898497
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - right_000_move_frame0
+  - right_000_move_frame16
+  - right_000_move_frame30
+  - right_000_move_frame32
+  depends_on: []
+  children: []
+- primitive: grasp
+  arm: right
+  demo_frames:
+  - 32
+  - 72
+  description: 局部接近并抓取目标物体
+  controller: vla
+  executor: local_policy
+  completion: configured_grasp_handoff
+  required_parameters:
+  - precontact_relative_pose
+  - object_identity
+  recognition:
+    matcher: gripper_closing
+    event:
+      kind: gripper_close
+      start_frame: 50
+      end_frame: 64
+      start_value: 1.0
+      end_value: 0.0
+      evidence: recorded_gripper_state
+      physical_grasp_proven: false
+    approach_reference_source: pause_before_local_approach
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+  evidence_level: candidate_from_robot_events
+  physical_contact_confirmed: false
+  id: right_001_grasp
+  object: microphone
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - microphone
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+  frequency_hz: 15.0
+  motion:
+    delta_world_xyz_m:
+    - 0.0011593252420425415
+    - 0.01023094356060028
+    - -0.07990407943725586
+    duration_s: 2.6666666666666665
+    path_length_m: 0.08400311733727436
+    orientation_change_deg: 4.4162317705096115
+    angular_path_deg: 5.9110548775788025
+    maximum_orientation_excursion_deg: 4.4162317705096115
+  reference: microphone
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      precontact:
+      - object
+      - recorded_ee
+      attachment:
+      - recorded_ee
+      - object
+    demonstrated_relations:
+    - name: precontact
+      reference: microphone
+      controlled: recorded_ee
+      frame: 32
+      T_reference_controlled:
+      - - 0.10476160283678676
+        - -0.9942512293521566
+        - 0.022124635653328895
+        - -0.01576497954338632
+      - - 0.09422392288022491
+        - 0.032070185761611025
+        - 0.9950343489258435
+        - -0.0920159270131638
+      - - -0.9900236658424528
+        - -0.10215672330757758
+        - 0.09704197522170635
+        - 0.2035028017898497
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    - name: attachment
+      reference: recorded_ee
+      controlled: microphone
+      frame: 57
+      T_reference_controlled:
+      - - 0.04627637458232055
+        - 0.11715080288672168
+        - -0.9920353756487282
+        - 0.13397558908960594
+      - - -0.9987901782435746
+        - 0.02196291935021035
+        - -0.043997841058224615
+        - -0.005412488275013366
+      - - 0.016633610542675193
+        - 0.9928712502417486
+        - 0.11802543557937827
+        - 0.06924428786819506
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - right_001_grasp_frame32
+  - right_001_grasp_frame51
+  - right_001_grasp_frame52
+  - right_001_grasp_frame72
+  depends_on:
+  - right_000_move
+  children: []
+- primitive: move
+  arm: right
+  demo_frames:
+  - 72
+  - 101
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 72
+    - 99
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: closed_candidate
+  motion:
+    delta_world_xyz_m:
+    - -0.005062498152256012
+    - -0.013958051800727844
+    - 0.11920320987701416
+    duration_s: 1.9333333333333333
+    path_length_m: 0.1344809094429992
+    orientation_change_deg: 93.8602040956993
+    angular_path_deg: 95.26735659019666
+    maximum_orientation_excursion_deg: 93.8602040956993
+  motion_role: lift
+  id: right_002_move
+  object: microphone
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - microphone
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: null
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry: []
+  keyframe_ids:
+  - right_002_move_frame72
+  - right_002_move_frame86
+  - right_002_move_frame100
+  - right_002_move_frame101
+  depends_on:
+  - right_001_grasp
+  children: []
+- primitive: move
+  arm: right
+  demo_frames:
+  - 101
+  - 182
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 102
+    - 110
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: closed_candidate
+  motion:
+    delta_world_xyz_m:
+    - -0.022040560841560364
+    - -0.02214162051677704
+    - -0.009019851684570312
+    duration_s: 5.4
+    path_length_m: 0.03800662817251661
+    orientation_change_deg: 1.8391993987163724
+    angular_path_deg: 4.1529775313961945
+    maximum_orientation_excursion_deg: 1.9569706927522128
+  motion_role: transport
+  id: right_003_move
+  object: microphone
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - microphone
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: workspace_origin
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal:
+    - - 0.6749449258457789
+      - -0.07602275706459373
+      - 0.7339413379033328
+      - 0.011027931790970391
+    - - 0.7376598107126737
+      - 0.04588701647400919
+      - -0.6736114498570052
+      - -0.05179845198436876
+    - - 0.01753142134508121
+      - 0.9960496584645828
+      - 0.08705014151745798
+      - 1.0792707316298116
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations:
+    - name: held_transport
+      reference: workspace_origin
+      controlled: microphone
+      frame: 136
+      T_reference_controlled:
+      - - 0.6749449258457789
+        - -0.07602275706459373
+        - 0.7339413379033328
+        - 0.011027931790970391
+      - - 0.7376598107126737
+        - 0.04588701647400919
+        - -0.6736114498570052
+        - -0.05179845198436876
+      - - 0.01753142134508121
+        - 0.9960496584645828
+        - 0.08705014151745798
+        - 1.0792707316298116
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - right_003_move_frame101
+  - right_003_move_frame116
+  - right_003_move_frame141
+  - right_003_move_frame164
+  - right_003_move_frame182
+  depends_on:
+  - right_002_move
+  children: []
+- id: handover_160_196
+  primitive: handover
+  description: 接收手抓取后由递出手释放
+  controller: mixed
+  demo_frames:
+  - 160
+  - 196
+  children: []
+  completion: receiver_holds_same_object
+  required_parameters:
+  - shared_object_identity
+  - receiver_relative_pose
+  recognition:
+    matcher: receive_then_donor_release
+    semantic_basis: handover_intent_plus_receiver_close_before_donor_release
+  evidence_level: task_conditioned_candidate
+  donor_arm: right
+  receiver_arm: left
+  same_object_visually_verified: false
+  same_object_visual_evidence:
+    verified: false
+    entity: microphone
+    frames:
+    - 160
+    - 174
+    - 182
+    all_required_visual_poses_available: false
+    evidence: null
+  geometry:
+    schema_version: 1
+    relation_template:
+      receiver_precontact:
+      - object
+      - receiver_recorded_ee
+      receiver_attachment:
+      - receiver_recorded_ee
+      - object
+      donor_attachment:
+      - donor_recorded_ee
+      - object
+    object: microphone
+    demonstrated_relations:
+    - name: receiver_precontact
+      reference: microphone
+      controlled: recorded_ee
+      frame: 160
+      T_reference_controlled:
+      - - 0.9642692430178977
+        - 0.2627446226260958
+        - 0.03391298056438694
+        - -0.12377444418944111
+      - - -0.0556969294653264
+        - 0.07590829388233414
+        - 0.995558025917127
+        - -0.011795549087533441
+      - - 0.259003241326869
+        - -0.9618748329179547
+        - 0.0878301017944979
+        - -0.04556778729666777
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    - name: receiver_attachment
+      reference: recorded_ee
+      controlled: microphone
+      frame: 174
+      T_reference_controlled:
+      - - 0.9606769486190608
+        - -0.061325473252031346
+        - 0.27081171821467714
+        - 0.12846071314352733
+      - - 0.2747274873561782
+        - 0.06835080865986456
+        - -0.9590896593366566
+        - -0.00695386427461725
+      - - 0.04030642731540935
+        - 0.9957747502753611
+        - 0.08251083947646307
+        - 0.02294457336264899
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    - name: donor_attachment
+      reference: recorded_ee
+      controlled: microphone
+      frame: 57
+      T_reference_controlled:
+      - - 0.04627637458232055
+        - 0.11715080288672168
+        - -0.9920353756487282
+        - 0.13397558908960594
+      - - -0.9987901782435746
+        - 0.02196291935021035
+        - -0.043997841058224615
+        - -0.005412488275013366
+      - - 0.016633610542675193
+        - 0.9928712502417486
+        - 0.11802543557937827
+        - 0.06924428786819506
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    runtime_rule: receiver_close_must_finish_before_donor_release
+    reusable_object_goal: null
+  missing_geometry: []
+  receiver_after_transfer:
+  - left_002_move
+  depends_on:
+  - right_003_move
+  object: microphone
+  reference: null
+- primitive: move
+  arm: left
+  demo_frames:
+  - 196
+  - 215
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 174
+    - 215
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: closed_candidate
+  motion:
+    delta_world_xyz_m:
+    - -0.04999612271785736
+    - 0.00035606324672698975
+    - -0.00018727779388427734
+    duration_s: 1.2666666666666666
+    path_length_m: 0.05051047287114927
+    orientation_change_deg: 0.15155813476394325
+    angular_path_deg: 1.4777840012821337
+    maximum_orientation_excursion_deg: 0.6030299175239452
+  motion_role: transport
+  id: left_002_move
+  object: microphone
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - microphone
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: null
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry: []
+  keyframe_ids:
+  - left_002_move_frame196
+  - left_002_move_frame205
+  - left_002_move_frame208
+  - left_002_move_frame210
+  - left_002_move_frame215
+  depends_on:
+  - handover_160_196
+  children: []
+- primitive: move
+  arm: right
+  demo_frames:
+  - 196
+  - 215
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 204
+    - 215
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - 0.047373682260513306
+    - -0.04988721013069153
+    - -0.0016045570373535156
+    duration_s: 1.2666666666666666
+    path_length_m: 0.06983559606712778
+    orientation_change_deg: 0.4629158338570192
+    angular_path_deg: 1.8584587377586945
+    maximum_orientation_excursion_deg: 0.4629158338570192
+  motion_role: transport
+  id: right_005_move
+  object: microphone
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - microphone
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: null
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations: []
+  missing_geometry: []
+  keyframe_ids:
+  - right_005_move_frame196
+  - right_005_move_frame205
+  - right_005_move_frame211
+  - right_005_move_frame215
+  depends_on:
+  - left_002_move
+  children: []
+gripper_configuration_events: []
+execution_graph:
+  nodes:
+  - left_000_move
+  - left_001_grasp
+  - left_002_move
+  - right_000_move
+  - right_001_grasp
+  - right_002_move
+  - right_003_move
+  - right_004_release
+  - right_005_move
+  - left_002_move_handover_overlap
+  edges:
+  - - left_000_move
+    - left_001_grasp
+  - - left_001_grasp
+    - left_002_move_handover_overlap
+  - - left_001_grasp
+    - right_004_release
+  - - left_002_move_handover_overlap
+    - left_002_move
+  - - right_000_move
+    - right_001_grasp
+  - - right_001_grasp
+    - right_002_move
+  - - right_002_move
+    - right_003_move
+  - - right_003_move
+    - right_004_release
+  - - right_004_release
+    - left_002_move
+  - - right_004_release
+    - right_005_move
+  independent_arms_can_overlap: true
+visual_input_provenance: {}
+runtime_ready: false
+runtime_blockers:
+- donor_attachment
+- object_or_target_relative_goal
+- postgrasp_object_to_hand
+- receiver_attachment
+- receiver_precontact
+- same_object_tracking_across_handover
+- new_schema_requires_runtime_compiler
+- recorded_EE_to_tool_frame_mapping
+robot_actions: 0
+live_simulator_reads: false
+uses_CAD: false
+limitations:
+- Gripper closure and measured hand motion are not physical grasp certificates.
+- Task-conditioned contact/action labels remain candidates without visual evidence.
+- Initial visual anchors do not substitute for post-grasp object poses.
+- Demonstrated frame numbers and timings are evidence, not runtime stop commands.
+declared_entities:
+- microphone
+official_success:
+  available: true
+  path: /data1/xuhuixin/ula/tra_pipe/RoboTwin/envs/handover_mic.py
+  sha256: 41ed0f2561cc8f1ae2449ba405decd4f5d7e3b80243b60921598657551891b17
+  methods:
+  - "def check_success(self):\n        microphone_pose = self.microphone.get_functional_point(0)\n\
+    \        contact = self.get_gripper_actor_contact_position(\"018_microphone\"\
+    )\n        if len(contact) == 0:\n            return False\n        close_gripper_func\
+    \ = self.is_left_gripper_close if self.handover_arm_tag == \"left\" else self.is_right_gripper_close\n\
+    \        open_gripper_func = self.is_left_gripper_open if self.grasp_arm_tag ==\
+    \ \"left\" else self.is_right_gripper_open\n        tag = microphone_pose[0] <\
+    \ 0 if self.handover_arm_tag == \"left\" else microphone_pose[0] > 0\n       \
+    \ return (close_gripper_func() and open_gripper_func() and microphone_pose[2]\
+    \ > 0.92 and tag)"
+  use: static_task_goal_reference_only
+  method_executed: false
+source_demo:
+  path: /data2/xuhuixin/ula_demo_rgbd/demo_clean_rgbd_handover_mic_one/demo_clean_rgbd_handover_mic_one/handover_mic/aloha_agilex/data/episode_0000001.hdf5
+  sha256: b0e9cd25f76a05673d7c4ccd85fb84ee4eb56e7b554df8b5aaef02c7c304fb64
+  recorded_pose_convention: xyz_wxyz_world_recorded_EE
+  controller_labels_present: false
+primitive_library_sha256: 19c23514dca25624279ec647f0c4cd7a7ac5fd7373f42ff3e21a4202988bacad
+keyframes_file: keyframes.json
+events_file: events.json

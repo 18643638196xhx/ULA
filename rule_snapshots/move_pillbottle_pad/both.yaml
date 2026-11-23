@@ -1,0 +1,1006 @@
+schema: ula_demo_primitives_v1
+task: move_pillbottle_pad
+description: Use one arm to pick the pillbottle and place it onto the pad.
+geometry_schema_version: 1
+frame_count: 142
+frequency_hz: 15.0
+frame_indexing: zero_based_inclusive_reference_frames
+active_arms:
+- left
+task_intents:
+- place
+bindings:
+  object: pillbottle
+  target: pad
+  source: explicit_specification
+controller_assignment_source: primitive_library_ULA_policy_not_teacher_labels
+config:
+  quiet_fraction: 0.4
+  noise_mad_scale: 6.0
+  smooth_frames: 3
+  minimum_bout_extent_fraction: 0.01
+  active_arm_fraction: 0.01
+  gripper_open_value: 1.0
+  gripper_closed_value: 0.0
+  gripper_delta_fraction: 0.005
+  minimum_gripper_ramp: 0.25
+  ramp_gap_frames: 2
+  local_approach_path_fraction: 0.2
+  max_keyframes: 5
+stages:
+- primitive: move
+  arm: left
+  demo_frames:
+  - 0
+  - 41
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 1
+    - 39
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - 0.19916900247335434
+    - 0.33616103790700436
+    - 0.0954749584197998
+    duration_s: 2.7333333333333334
+    path_length_m: 0.5443670134332516
+    orientation_change_deg: 84.37943538353065
+    angular_path_deg: 84.62232602576641
+    maximum_orientation_excursion_deg: 84.39022204873308
+  motion_role: transport
+  id: left_000_move
+  object: pillbottle
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - pillbottle
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: true
+      maximum_excursion_deg: 0.0
+      final_rotation_deg: 0.0
+      sampled_frames:
+      - 0
+      - 41
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: true
+      supported: false
+      start_distance_m: 0.16176184024246218
+      end_distance_m: 0.16176184024246218
+      sampled_frames:
+      - 0
+      - 41
+      reference: declared_visual_pose_origins_not_hidden_support_points
+  frequency_hz: 15.0
+  reference: pillbottle
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations:
+    - name: approach
+      reference: pillbottle
+      controlled: recorded_ee
+      frame: 41
+      T_reference_controlled:
+      - - 0.20835897004786297
+        - -0.7117082134822645
+        - 0.670863591546357
+        - -0.040248597036095374
+      - - 0.20810036180228186
+        - 0.702471751549552
+        - 0.6806083144457347
+        - -0.010927088430924797
+      - - -0.9556572497597418
+        - -0.0022038912831502944
+        - 0.2944730273638978
+        - 0.18173928871020661
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    T_reference_recorded_ee_hint:
+    - - 0.20835897004786297
+      - -0.7117082134822645
+      - 0.670863591546357
+      - -0.040248597036095374
+    - - 0.20810036180228186
+      - 0.702471751549552
+      - 0.6806083144457347
+      - -0.010927088430924797
+    - - -0.9556572497597418
+      - -0.0022038912831502944
+      - 0.2944730273638978
+      - 0.18173928871020661
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    reference_scope: current_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - left_000_move_frame0
+  - left_000_move_frame20
+  - left_000_move_frame38
+  - left_000_move_frame41
+  depends_on: []
+- primitive: grasp
+  arm: left
+  demo_frames:
+  - 41
+  - 76
+  description: 局部接近并抓取目标物体
+  controller: vla
+  executor: local_policy
+  completion: configured_grasp_handoff
+  required_parameters:
+  - precontact_relative_pose
+  - object_identity
+  recognition:
+    matcher: gripper_closing
+    event:
+      kind: gripper_close
+      start_frame: 54
+      end_frame: 68
+      start_value: 1.0
+      end_value: 0.0
+      evidence: recorded_gripper_state
+      physical_grasp_proven: false
+    approach_reference_source: pause_before_local_approach
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+  evidence_level: candidate_from_robot_events
+  physical_contact_confirmed: false
+  id: left_001_grasp
+  object: pillbottle
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - pillbottle
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: true
+      maximum_excursion_deg: 0.20852124912058104
+      final_rotation_deg: 0.20852124912058104
+      sampled_frames:
+      - 41
+      - 54
+      - 68
+      - 76
+  frequency_hz: 15.0
+  motion:
+    delta_world_xyz_m:
+    - 0.01339566707611084
+    - 0.011752458289265633
+    - -0.055749475955963135
+    duration_s: 2.3333333333333335
+    path_length_m: 0.05954366186439459
+    orientation_change_deg: 0.3061675905798182
+    angular_path_deg: 1.8638881275266028
+    maximum_orientation_excursion_deg: 0.8585364730435608
+  reference: pillbottle
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand:
+    - - 0.21027368479443798
+      - 0.21064420766834774
+      - -0.954680048633438
+      - 0.12692336992274922
+    - - -0.7109501537879941
+      - 0.7032409601557383
+      - -0.0014250572138675341
+      - -0.020636833544705774
+    - - 0.6710699339948087
+      - 0.6790295794256751
+      - 0.29763059982668766
+      - -0.01973703252957154
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    relation_template:
+      precontact:
+      - object
+      - recorded_ee
+      attachment:
+      - recorded_ee
+      - object
+    demonstrated_relations:
+    - name: precontact
+      reference: pillbottle
+      controlled: recorded_ee
+      frame: 41
+      T_reference_controlled:
+      - - 0.20835897004786297
+        - -0.7117082134822645
+        - 0.670863591546357
+        - -0.040248597036095374
+      - - 0.20810036180228186
+        - 0.702471751549552
+        - 0.6806083144457347
+        - -0.010927088430924797
+      - - -0.9556572497597418
+        - -0.0022038912831502944
+        - 0.2944730273638978
+        - 0.18173928871020661
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    - name: attachment
+      reference: recorded_ee
+      controlled: pillbottle
+      frame: 76
+      T_reference_controlled:
+      - - 0.21027368479443798
+        - 0.21064420766834774
+        - -0.954680048633438
+        - 0.12692336992274922
+      - - -0.7109501537879941
+        - 0.7032409601557383
+        - -0.0014250572138675341
+        - -0.020636833544705774
+      - - 0.6710699339948087
+        - 0.6790295794256751
+        - 0.29763059982668766
+        - -0.01973703252957154
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_postgrasp_visual_pose
+    T_reference_recorded_ee_hint:
+    - - 0.21027368479443814
+      - -0.7109501537879941
+      - 0.6710699339948089
+      - -0.02811547554561685
+    - - 0.21064420766834757
+      - 0.7032409601557383
+      - 0.6790295794256751
+      - 0.001179022842244734
+    - - -0.9546800486334377
+      - -0.0014250572138673249
+      - 0.29763059982668755
+      - 0.12701614513263104
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    reference_scope: current_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - left_001_grasp_frame41
+  - left_001_grasp_frame48
+  - left_001_grasp_frame58
+  - left_001_grasp_frame76
+  depends_on:
+  - left_000_move
+- id: place_76_136
+  primitive: place
+  description: 将持有物体移动到目标区域并释放
+  controller: traditional
+  demo_frames:
+  - 76
+  - 136
+  children:
+  - primitive: move
+    arm: left
+    demo_frames:
+    - 76
+    - 90
+    description: 移动机械手或持有物体
+    controller: traditional
+    executor: curobo
+    completion: relative_target_arrival
+    required_parameters:
+    - relative_keyframes
+    recognition:
+      matcher: measured_motion
+      active_bout:
+      - 76
+      - 88
+    evidence_level: recorded_robot_state
+    physical_contact_confirmed: false
+    gripper_state: closed_candidate
+    motion:
+      delta_world_xyz_m:
+      - -0.000438101589679718
+      - -0.0002899877727031708
+      - 0.05179673433303833
+      duration_s: 0.9333333333333333
+      path_length_m: 0.052706687583667
+      orientation_change_deg: 0.3314255289463422
+      angular_path_deg: 2.7311237570677833
+      maximum_orientation_excursion_deg: 0.87136720321154
+    motion_role: lift
+    id: left_002_move
+    object: pillbottle
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - pillbottle
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: true
+        maximum_excursion_deg: 0.33142552895292704
+        final_rotation_deg: 0.33142552895292704
+        sampled_frames:
+        - 76
+        - 90
+      object_follows_hand:
+        available: false
+        reason: insufficient_synchronous_visual_object_samples
+      object_approaches_target:
+        available: true
+        supported: false
+        start_distance_m: 0.16188036299335173
+        end_distance_m: 0.2012232477298573
+        sampled_frames:
+        - 76
+        - 90
+        reference: declared_visual_pose_origins_not_hidden_support_points
+    frequency_hz: 15.0
+    reference: pad
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal:
+      - - 0.9999893492640423
+        - 0.004589594226932165
+        - -0.0004868093153304758
+        - 0.11482197268263315
+      - - -0.004592080688630406
+        - 0.9999757491067945
+        - -0.005235837397637418
+        - -0.01659000818577746
+      - - 0.0004627671406765689
+        - 0.005238017099771523
+        - 0.9999861744161449
+        - 0.16441253493762575
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      object_to_hand: null
+      relation_template:
+        approach:
+        - object
+        - recorded_ee
+        held_transport:
+        - target
+        - object
+      demonstrated_relations:
+      - name: held_transport
+        reference: pad
+        controlled: pillbottle
+        frame: 90
+        T_reference_controlled:
+        - - 0.9999893492640423
+          - 0.004589594226932165
+          - -0.0004868093153304758
+          - 0.11482197268263315
+        - - -0.004592080688630406
+          - 0.9999757491067945
+          - -0.005235837397637418
+          - -0.01659000818577746
+        - - 0.0004627671406765689
+          - 0.005238017099771523
+          - 0.9999861744161449
+          - 0.16441253493762575
+        - - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+        source: synchronous_visual_pose
+      T_reference_recorded_ee_hint:
+      - - 0.2117029638052288
+        - -0.7077142972636273
+        - 0.6740343674952578
+        - 0.08665037518130492
+      - - 0.2146720551323046
+        - 0.7064961077739587
+        - 0.6743731596419892
+        - -0.01594694128637425
+      - - -0.9534661839107641
+        - 0.0019295462931041563
+        - 0.301493802572703
+        - 0.29142008882147286
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      reference_scope: current_visual_pose
+    missing_geometry: []
+    keyframe_ids:
+    - left_002_move_frame76
+    - left_002_move_frame80
+    - left_002_move_frame83
+    - left_002_move_frame90
+    depends_on:
+    - left_001_grasp
+  - primitive: move
+    arm: left
+    demo_frames:
+    - 90
+    - 109
+    description: 移动机械手或持有物体
+    controller: traditional
+    executor: curobo
+    completion: relative_target_arrival
+    required_parameters:
+    - relative_keyframes
+    recognition:
+      matcher: measured_motion
+      active_bout:
+      - 91
+      - 108
+    evidence_level: recorded_robot_state
+    physical_contact_confirmed: false
+    gripper_state: closed_candidate
+    motion:
+      delta_world_xyz_m:
+      - -0.07930094003677368
+      - -0.02090273518115282
+      - -0.0035897493362426758
+      duration_s: 1.2666666666666666
+      path_length_m: 0.08347611180848866
+      orientation_change_deg: 44.47074289911188
+      angular_path_deg: 44.63728389914549
+      maximum_orientation_excursion_deg: 44.47074289911188
+    motion_role: transport
+    id: left_003_move
+    object: pillbottle
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - pillbottle
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: true
+        maximum_excursion_deg: 44.47074289911185
+        final_rotation_deg: 44.47074289911185
+        sampled_frames:
+        - 90
+        - 109
+      object_follows_hand:
+        available: false
+        reason: insufficient_synchronous_visual_object_samples
+      object_approaches_target:
+        available: true
+        supported: true
+        start_distance_m: 0.2012232477298573
+        end_distance_m: 0.16347533394693187
+        sampled_frames:
+        - 90
+        - 109
+        reference: declared_visual_pose_origins_not_hidden_support_points
+    variant: move_to
+    frequency_hz: 15.0
+    reference: pad
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal:
+      - - 0.716826215385136
+        - -0.6969612016346332
+        - 0.020131079271389296
+        - 0.025768106164123394
+      - - 0.6970911025131434
+        - 0.7169821457258527
+        - 0.0007729860038616898
+        - -0.0181941486514961
+      - - -0.014972365665876041
+        - 0.01347909961237845
+        - 0.9997970504757487
+        - 0.16040312487175123
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      object_to_hand: null
+      relation_template:
+        approach:
+        - object
+        - recorded_ee
+        held_transport:
+        - target
+        - object
+      demonstrated_relations:
+      - name: held_transport
+        reference: pad
+        controlled: pillbottle
+        frame: 109
+        T_reference_controlled:
+        - - 0.716826215385136
+          - -0.6969612016346332
+          - 0.020131079271389296
+          - 0.025768106164123394
+        - - 0.6970911025131434
+          - 0.7169821457258527
+          - 0.0007729860038616898
+          - -0.0181941486514961
+        - - -0.014972365665876041
+          - 0.01347909961237845
+          - 0.9997970504757487
+          - 0.16040312487175123
+        - - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+        source: synchronous_visual_pose
+      T_reference_recorded_ee_hint:
+      - - -0.015299890165476171
+        - -0.9997880606359033
+        - 0.013774874620975819
+        - 0.007349435144531236
+      - - 0.2968700964458704
+        - 0.008613084489527578
+        - 0.9548790293077944
+        - -0.03684967646752707
+      - - -0.9547952970124768
+        - 0.018698892626984764
+        - 0.2966753987397347
+        - 0.2878303394852302
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      reference_scope: current_visual_pose
+    missing_geometry: []
+    keyframe_ids:
+    - left_003_move_frame90
+    - left_003_move_frame98
+    - left_003_move_frame99
+    - left_003_move_frame108
+    - left_003_move_frame109
+    depends_on:
+    - left_002_move
+  - primitive: move
+    arm: left
+    demo_frames:
+    - 109
+    - 122
+    description: 移动机械手或持有物体
+    controller: traditional
+    executor: curobo
+    completion: relative_target_arrival
+    required_parameters:
+    - relative_keyframes
+    recognition:
+      matcher: measured_motion
+      active_bout:
+      - 110
+      - 119
+    evidence_level: recorded_robot_state
+    physical_contact_confirmed: false
+    gripper_state: closed_candidate
+    motion:
+      delta_world_xyz_m:
+      - -0.0007569491863250732
+      - -0.0004232935607433319
+      - -0.047557830810546875
+      duration_s: 0.8666666666666667
+      path_length_m: 0.04766983135991769
+      orientation_change_deg: 0.3921687760697167
+      angular_path_deg: 0.8969753902365172
+      maximum_orientation_excursion_deg: 0.4117216400389191
+    motion_role: lower
+    id: left_004_move
+    object: pillbottle
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - pillbottle
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: true
+        maximum_excursion_deg: 0.39216877606360034
+        final_rotation_deg: 0.39216877606360034
+        sampled_frames:
+        - 109
+        - 122
+      object_follows_hand:
+        available: false
+        reason: insufficient_synchronous_visual_object_samples
+      object_approaches_target:
+        available: true
+        supported: true
+        start_distance_m: 0.16347533394693187
+        end_distance_m: 0.1170701323366843
+        sampled_frames:
+        - 109
+        - 122
+        reference: declared_visual_pose_origins_not_hidden_support_points
+    variant: move_to
+    frequency_hz: 15.0
+    reference: pad
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal:
+      - - 0.7145354128780008
+        - -0.6993269210919997
+        - 0.019519251503297353
+        - 0.025027251217795837
+      - - 0.699522546989261
+        - 0.7145921163166437
+        - -0.0051296736501869195
+        - -0.01779653001997636
+      - - -0.010360984360666051
+        - 0.017319490006476295
+        - 0.9997963218921111
+        - 0.11297050987340984
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      object_to_hand: null
+      relation_template:
+        approach:
+        - object
+        - recorded_ee
+        held_transport:
+        - target
+        - object
+      demonstrated_relations:
+      - name: held_transport
+        reference: pad
+        controlled: pillbottle
+        frame: 122
+        T_reference_controlled:
+        - - 0.7145354128780008
+          - -0.6993269210919997
+          - 0.019519251503297353
+          - 0.025027251217795837
+        - - 0.699522546989261
+          - 0.7145921163166437
+          - -0.0051296736501869195
+          - -0.01779653001997636
+        - - -0.010360984360666051
+          - 0.017319490006476295
+          - 0.9997963218921111
+          - 0.11297050987340984
+        - - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+        source: synchronous_visual_pose
+      T_reference_recorded_ee_hint:
+      - - -0.015695810987053083
+        - -0.9998222131742407
+        - 0.010449093779934915
+        - 0.006592485958206162
+      - - 0.3025130707896236
+        - 0.005212093716493116
+        - 0.9531309857939372
+        - -0.0372729700282704
+      - - -0.9530159933174736
+        - 0.018121151245262257
+        - 0.3023774799131964
+        - 0.2402725086746833
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      reference_scope: current_visual_pose
+    missing_geometry: []
+    keyframe_ids:
+    - left_004_move_frame109
+    - left_004_move_frame115
+    - left_004_move_frame116
+    - left_004_move_frame122
+    depends_on:
+    - left_003_move
+  - primitive: release
+    arm: left
+    demo_frames:
+    - 122
+    - 136
+    description: 张开夹爪释放物体
+    controller: traditional
+    executor: gripper
+    completion: measured_gripper_open
+    required_parameters:
+    - gripper_open_value
+    recognition:
+      matcher: gripper_opening
+      event:
+        kind: gripper_open
+        start_frame: 122
+        end_frame: 136
+        start_value: 0.0
+        end_value: 1.0
+        evidence: recorded_gripper_state
+        physical_grasp_proven: false
+    evidence_level: recorded_robot_state
+    physical_contact_confirmed: false
+    id: left_005_release
+    object: pillbottle
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - pillbottle
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: true
+        maximum_excursion_deg: 0.0
+        final_rotation_deg: 0.0
+        sampled_frames:
+        - 122
+        - 136
+    frequency_hz: 15.0
+    motion:
+      delta_world_xyz_m:
+      - -0.0006503313779830933
+      - 0.0001812279224395752
+      - -0.00039005279541015625
+      duration_s: 0.9333333333333333
+      path_length_m: 0.0008552444987840435
+      orientation_change_deg: 0.1775596854774103
+      angular_path_deg: 0.21181363544677792
+      maximum_orientation_excursion_deg: 0.1775596854774103
+    reference: pad
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal: null
+      object_to_hand: null
+      relation_template:
+        prerelease_object_goal:
+        - target
+        - object
+      demonstrated_relations: []
+      T_reference_recorded_ee_hint:
+      - - -0.01567163521653181
+        - -0.9998495730812802
+        - 0.00743176014292507
+        - 0.005942154580223069
+      - - 0.30314066022107594
+        - 0.0023316844820092664
+        - 0.9529429696305057
+        - -0.03709174210583083
+      - - -0.9528169498756676
+        - 0.017187043278538705
+        - 0.30305851839697784
+        - 0.23988245587927315
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      reference_scope: current_visual_pose
+      gripper_open_value: 1.0
+    missing_geometry: []
+    keyframe_ids:
+    - left_005_release_frame122
+    - left_005_release_frame129
+    - left_005_release_frame131
+    - left_005_release_frame136
+    depends_on:
+    - left_004_move
+  completion: object_target_relation_and_release
+  required_parameters:
+  - object_to_target_goal
+  - runtime_object_to_hand
+  recognition:
+    matcher: held_motion_then_release
+    semantic_basis: placement_goal_and_postclose_motion_then_release
+  evidence_level: task_conditioned_candidate
+  arm: left
+  object_goal:
+    object: pillbottle
+    reference: pad
+    T_reference_object:
+    - - 0.7145354128780008
+      - -0.6993269210919997
+      - 0.019519251503297353
+      - 0.025027251217795837
+    - - 0.699522546989261
+      - 0.7145921163166437
+      - -0.0051296736501869195
+      - -0.01779653001997636
+    - - -0.010360984360666051
+      - 0.017319490006476295
+      - 0.9997963218921111
+      - 0.11297050987340984
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    orientation_policy: requires_task_success_constraint
+    source: synchronous_prerelease_visual_poses
+  demo_object_to_hand:
+  - - 0.21027368479443798
+    - 0.21064420766834774
+    - -0.954680048633438
+    - 0.12692336992274922
+  - - -0.7109501537879941
+    - 0.7032409601557383
+    - -0.0014250572138675341
+    - -0.020636833544705774
+  - - 0.6710699339948087
+    - 0.6790295794256751
+    - 0.29763059982668766
+    - -0.01973703252957154
+  - - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  runtime_object_to_hand: remeasure_after_this_run_grasp
+  geometry_template:
+    goal:
+    - target
+    - object
+    runtime_attachment:
+    - recorded_ee
+    - object
+  geometry_schema_version: 1
+  missing_geometry: []
+gripper_configuration_events: []
+execution_graph:
+  nodes:
+  - left_000_move
+  - left_001_grasp
+  - left_002_move
+  - left_003_move
+  - left_004_move
+  - left_005_release
+  edges:
+  - - left_000_move
+    - left_001_grasp
+  - - left_001_grasp
+    - left_002_move
+  - - left_002_move
+    - left_003_move
+  - - left_003_move
+    - left_004_move
+  - - left_004_move
+    - left_005_release
+  independent_arms_can_overlap: true
+visual_input_provenance:
+  path: /data1/xuhuixin/ula/results/demo_visual_tracks_move_pillbottle_pad_rgbd_v1/tracks.npz
+  source_demo: /data2/xuhuixin/ula_demo_rgbd/demo_clean_rgbd_one/move_pillbottle_pad/aloha_agilex/data/episode_0000000.hdf5
+  demo_sha256: e359120ea81b8465f2b548965302fb95f68d181fbc597fe8d0f478e28af4438d
+  method: PillbottleWorker_GroundingDINO_SAM2_RGBD_plus_rigid_held_propagation
+  uses_object_truth: false
+  uses_CAD: false
+  frame_indices:
+  - 0
+  - 41
+  - 54
+  - 68
+  - 76
+  - 90
+  - 109
+  - 122
+  - 136
+  world_frame: world
+  units: m
+  source: clean_demo_synchronized_RGBD_template_registration
+  static_entities:
+  - target_box
+  uses_actor_pose: false
+  uses_renderer_labels: false
+  uses_contact_truth: false
+  object_template_frame: 0
+  object_template_extent_m:
+  - 0.0552576445043087
+  - 0.0576314814388752
+  - 0.19595365774801798
+  target_extent_m:
+  - 0.09632287174463272
+  - 0.09733682125806808
+  - 0.004183777186305471
+  target_initial_view_points:
+    cam_head: 1228
+    cam_left_wrist: 0
+    cam_right_wrist: 3328
+  object_initial_view_points:
+    cam_head: 1695
+    cam_left_wrist: 9300
+    cam_right_wrist: 0
+  observation_uncertainty_m: 0.01
+  identity_continuity:
+    box:
+      method: same_initial_RGBD_template_registered_without_candidate_rebinding
+      accepted_frames:
+      - 0
+      - 36
+      - 67
+      - 75
+      - 88
+      - 107
+      - 163
+      - 177
+      - 185
+      - 199
+      - 268
+      - 282
+      - 287
+      semantic_identity_scope: single_clean_demonstration_colour_component
+  precontact_static_pose_fix:
+    entity: box
+    reference_frame: 0
+    replaced_occluded_frame: 36
+    reason: Frame 36 was pre-contact (before first gripper close at frame 53) and
+      arm-occluded (+8.6cm Z shift, 23.8deg tilt).
+    old_frame36_pos:
+    - -0.16678331756445405
+    - 0.20081532547577366
+    - 0.928774435477447
+    new_frame36_pos:
+    - -0.17527616024017334
+    - 0.1954668015241623
+    - 0.8425327337318291
+runtime_ready: false
+runtime_blockers:
+- new_schema_requires_runtime_compiler
+- recorded_EE_to_tool_frame_mapping
+robot_actions: 0
+live_simulator_reads: false
+uses_CAD: false
+limitations:
+- Gripper closure and measured hand motion are not physical grasp certificates.
+- Task-conditioned contact/action labels remain candidates without visual evidence.
+- Initial visual anchors do not substitute for post-grasp object poses.
+- Demonstrated frame numbers and timings are evidence, not runtime stop commands.
+declared_entities:
+- pillbottle
+- pad
+official_success:
+  available: true
+  path: /data1/xuhuixin/ula/tra_pipe/RoboTwin/envs/move_pillbottle_pad.py
+  sha256: a5db7c65db15c2273d1f9e99fab8fc00533a27b740a45161c9402d43b8aa6824
+  methods:
+  - "def check_success(self):\n        pillbottle_pos = self.pillbottle.get_pose().p\n\
+    \        target_pos = self.pad.get_pose().p\n        eps1 = 0.03\n        return\
+    \ (np.all(abs(pillbottle_pos[:2] - target_pos[:2]) < np.array([eps1, eps1]))\n\
+    \                and np.abs(self.pillbottle.get_pose().p[2] - (0.741 + self.table_z_bias))\
+    \ < 0.005\n                and self.robot.is_left_gripper_open() and self.robot.is_right_gripper_open())"
+  use: static_task_goal_reference_only
+  method_executed: false
+source_demo:
+  path: /data2/xuhuixin/ula_demo_rgbd/demo_clean_rgbd_one/move_pillbottle_pad/aloha_agilex/data/episode_0000000.hdf5
+  sha256: e359120ea81b8465f2b548965302fb95f68d181fbc597fe8d0f478e28af4438d
+  recorded_pose_convention: xyz_wxyz_world_recorded_EE
+  controller_labels_present: false
+primitive_library_sha256: 19c23514dca25624279ec647f0c4cd7a7ac5fd7373f42ff3e21a4202988bacad
+keyframes_file: keyframes.json
+events_file: events.json

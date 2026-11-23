@@ -1,0 +1,48 @@
+{
+ "seed": 45,
+ "task_success": true,
+ "controller_complete": true,
+ "selected_arm": "right",
+ "failure_stage": null,
+ "failure_reason": null,
+ "elapsed_s": 29.967,
+ "final_evaluation": {
+  "mouse_xyz": [
+   0.17544446885585785,
+   -0.1965196281671524,
+   0.742174506187439
+  ],
+  "target_xyz": [
+   0.1765918880701065,
+   -0.19897198677062988,
+   0.7409999966621399
+  ],
+  "xy_error_m": 0.0027075142794225505,
+  "z_error_m": 0.0011745095252990723,
+  "left_open": true,
+  "right_open": true
+ },
+ "stages": [
+  {
+   "id": "right_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "place_72_143",
+   "primitive": "place",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  }
+ ]
+}

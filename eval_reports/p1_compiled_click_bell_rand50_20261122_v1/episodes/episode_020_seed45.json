@@ -1,0 +1,45 @@
+{
+ "seed": 45,
+ "task_success": false,
+ "controller_complete": true,
+ "selected_arm": "right",
+ "failure_stage": null,
+ "failure_reason": null,
+ "elapsed_s": 18.906,
+ "final_evaluation": {
+  "stage_success_tag": false,
+  "_diag_bell_contact_point": [
+   0.0750512108206749,
+   -0.0018556630238890648,
+   0.7667903971672058
+  ],
+  "_diag_final_ee": [
+   [
+    0.05084449425339699,
+    0.010746601037681103,
+    0.9758747220039368,
+    0.5785016238779601,
+    -0.3251902500999648,
+    0.5733957704288817,
+    0.48042113074338655
+   ]
+  ],
+  "_diag_gripper_contacts": []
+ },
+ "stages": [
+  {
+   "id": "left_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_002_move",
+   "primitive": "press",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  }
+ ]
+}

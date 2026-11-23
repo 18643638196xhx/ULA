@@ -1,0 +1,55 @@
+{
+ "seed": 29,
+ "task_success": true,
+ "controller_complete": true,
+ "selected_arm": "right",
+ "failure_stage": null,
+ "failure_reason": null,
+ "elapsed_s": 107.174,
+ "final_evaluation": {
+  "shoe_xyz": [
+   -0.019997544586658478,
+   -0.07558062672615051,
+   0.7414947748184204
+  ],
+  "shoe_qpose": [
+   0.4874442219734192,
+   0.5058711171150208,
+   -0.4999353289604187,
+   -0.5065146088600159
+  ],
+  "target_xyz": [
+   0.0,
+   -0.07999999821186066,
+   0.7400000095367432
+  ],
+  "xy_error_m": 0.02048005453664862,
+  "z_error_m": 0.001494765281677246,
+  "quat_max_err": 0.01255577802658081,
+  "left_open": true,
+  "right_open": true
+ },
+ "stages": [
+  {
+   "id": "right_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "place_73_151",
+   "primitive": "place",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  }
+ ]
+}

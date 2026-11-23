@@ -1,0 +1,10 @@
+{
+ "seed": 37,
+ "task_success": true,
+ "controller_complete": true,
+ "selected_arm": null,
+ "failure_stage": null,
+ "failure_reason": null,
+ "elapsed_s": 31.22,
+ "final_evaluation": {}
+}

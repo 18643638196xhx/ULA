@@ -1,0 +1,48 @@
+{
+ "seed": 31,
+ "task_success": true,
+ "controller_complete": true,
+ "selected_arm": "right",
+ "failure_stage": null,
+ "failure_reason": null,
+ "elapsed_s": 25.293,
+ "final_evaluation": {
+  "pillbottle_xyz": [
+   0.16224801540374756,
+   -0.13340115547180176,
+   0.7430550456047058
+  ],
+  "pad_xyz": [
+   0.1566680371761322,
+   -0.12975458800792694,
+   0.7409999966621399
+  ],
+  "xy_error_m": 0.0066658541305110956,
+  "z_error_m": 0.0020550456047058185,
+  "left_open": true,
+  "right_open": true
+ },
+ "stages": [
+  {
+   "id": "right_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "place_75_131",
+   "primitive": "place",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  }
+ ]
+}

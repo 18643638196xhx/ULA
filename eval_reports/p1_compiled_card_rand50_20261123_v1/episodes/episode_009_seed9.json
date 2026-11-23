@@ -1,0 +1,45 @@
+{
+ "seed": 9,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": "right",
+ "failure_stage": "right_001_grasp",
+ "failure_reason": "card_grasp_not_confirmed:cmd=1.000;open=0.934",
+ "elapsed_s": 33.727,
+ "final_evaluation": {
+  "stage_success_tag": false,
+  "_diag_card_pose": [
+   0.016520092263817787,
+   0.0027530044317245483,
+   0.7408455014228821
+  ],
+  "_diag_final_ee": [
+   [
+    0.3049226999282837,
+    0.06768129765987396,
+    0.8984934687614441,
+    0.10848048238071795,
+    0.6924222752076828,
+    0.11862379282364144,
+    -0.7033575005036887
+   ]
+  ],
+  "_diag_gripper_contacts": []
+ },
+ "stages": [
+  {
+   "id": "right_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": false,
+   "reason": "card_grasp_not_confirmed:cmd=1.000;open=0.934"
+  }
+ ]
+}

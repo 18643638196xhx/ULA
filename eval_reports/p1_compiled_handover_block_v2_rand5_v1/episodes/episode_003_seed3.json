@@ -1,0 +1,10 @@
+{
+ "seed": 3,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": null,
+ "failure_stage": null,
+ "failure_reason": "receiver_precontact_not_reached",
+ "elapsed_s": 37.93,
+ "final_evaluation": {}
+}

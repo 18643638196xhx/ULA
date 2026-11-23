@@ -1,0 +1,10 @@
+{
+ "seed": 44,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": null,
+ "failure_stage": "scene_or_runtime_error",
+ "failure_reason": "RuntimeError: Offset increment outside graph capture encountered unexpectedly.",
+ "elapsed_s": 0.144,
+ "final_evaluation": {}
+}

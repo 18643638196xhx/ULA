@@ -1,0 +1,403 @@
+schema: ula_demo_primitives_v1
+task: place_bread_basket
+description: place every bread on the table into the basket, using the available arm
+  or arms
+geometry_schema_version: 1
+frame_count: 225
+frequency_hz: 15.0
+frame_indexing: zero_based_inclusive_reference_frames
+active_arms:
+- right
+task_intents:
+- place
+bindings:
+  object: bread
+  target: breadbasket
+  source: explicit_specification
+controller_assignment_source: primitive_library_ULA_policy_not_teacher_labels
+config:
+  quiet_fraction: 0.4
+  noise_mad_scale: 6.0
+  smooth_frames: 3
+  minimum_bout_extent_fraction: 0.01
+  active_arm_fraction: 0.01
+  gripper_open_value: 1.0
+  gripper_closed_value: 0.0
+  gripper_delta_fraction: 0.005
+  minimum_gripper_ramp: 0.25
+  ramp_gap_frames: 2
+  local_approach_path_fraction: 0.2
+  max_keyframes: 5
+stages:
+- primitive: move
+  arm: right
+  demo_frames:
+  - 0
+  - 34
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 1
+    - 33
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - -0.14213429391384125
+    - 0.244248628616333
+    - 0.011893868446350098
+    duration_s: 2.2666666666666666
+    path_length_m: 0.3618427878974409
+    orientation_change_deg: 90.38824202220758
+    angular_path_deg: 91.78203242600233
+    maximum_orientation_excursion_deg: 90.38824202220758
+  motion_role: transport
+  id: right_000_move
+  object: bread
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - bread
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+    object_approaches_target:
+      available: false
+      reason: synchronous_object_and_target_poses_missing
+  frequency_hz: 15.0
+  reference: bread
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations:
+    - name: approach
+      reference: bread
+      controlled: recorded_ee
+      frame: 34
+      T_reference_controlled:
+      - - -7.026739148818795e-05
+        - -0.992258690260658
+        - -0.12418810999728275
+        - 0.008598847317695613
+      - - -0.0035255154555629
+        - -0.12418709270733183
+        - 0.9922525569358203
+        - 0.009448876857757568
+      - - -0.9999937828823069
+        - 0.0005075501000659233
+        - -0.0034894970453695218
+        - 0.18509224386215206
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - right_000_move_frame0
+  - right_000_move_frame17
+  - right_000_move_frame33
+  - right_000_move_frame34
+  depends_on: []
+- primitive: grasp
+  arm: right
+  demo_frames:
+  - 34
+  - 70
+  description: 局部接近并抓取目标物体
+  controller: vla
+  executor: local_policy
+  completion: configured_grasp_handoff
+  required_parameters:
+  - precontact_relative_pose
+  - object_identity
+  recognition:
+    matcher: gripper_closing
+    event:
+      kind: gripper_close
+      start_frame: 48
+      end_frame: 62
+      start_value: 1.0
+      end_value: 0.0
+      evidence: recorded_gripper_state
+      physical_grasp_proven: false
+    approach_reference_source: pause_before_local_approach
+    object_follows_hand:
+      available: false
+      reason: insufficient_synchronous_visual_object_samples
+  evidence_level: candidate_from_robot_events
+  physical_contact_confirmed: false
+  id: right_001_grasp
+  object: bread
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - bread
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: false
+      reason: visual_object_rotation_samples_missing
+  frequency_hz: 15.0
+  motion:
+    delta_world_xyz_m:
+    - -0.0009808838367462158
+    - 7.728487253189087e-05
+    - -0.0572514533996582
+    duration_s: 2.4
+    path_length_m: 0.0594912090313222
+    orientation_change_deg: 1.4529801501127289
+    angular_path_deg: 1.7443118457529692
+    maximum_orientation_excursion_deg: 1.4529801501127289
+  reference: bread
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      precontact:
+      - object
+      - recorded_ee
+      attachment:
+      - recorded_ee
+      - object
+    demonstrated_relations:
+    - name: precontact
+      reference: bread
+      controlled: recorded_ee
+      frame: 34
+      T_reference_controlled:
+      - - -7.026739148818795e-05
+        - -0.992258690260658
+        - -0.12418810999728275
+        - 0.008598847317695613
+      - - -0.0035255154555629
+        - -0.12418709270733183
+        - 0.9922525569358203
+        - 0.009448876857757568
+      - - -0.9999937828823069
+        - 0.0005075501000659233
+        - -0.0034894970453695218
+        - 0.18509224386215206
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    - name: attachment
+      reference: recorded_ee
+      controlled: bread
+      frame: 55
+      T_reference_controlled:
+      - - -0.0026349542191756352
+        - 0.020697645342522754
+        - -0.9997823085519856
+        - 0.1276342276355089
+      - - -0.9919609712201651
+        - -0.12654418811951934
+        - -5.396154177733529e-06
+        - 0.00904050263516648
+      - - -0.1265167522196551
+        - 0.9917450155813473
+        - 0.02086469451833705
+        - -0.011203733697642007
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - right_001_grasp_frame34
+  - right_001_grasp_frame41
+  - right_001_grasp_frame52
+  - right_001_grasp_frame70
+  depends_on:
+  - right_000_move
+- id: place_70_219
+  primitive: place
+  description: 将持有物体移动到目标区域并释放
+  controller: traditional
+  demo_frames:
+  - 70
+  - 219
+  children: []
+  completion: object_target_relation_and_release
+  required_parameters:
+  - object_to_target_goal
+  - runtime_object_to_hand
+  recognition:
+    matcher: held_motion_then_release
+    semantic_basis: placement_goal_and_postclose_motion_then_release
+  evidence_level: task_conditioned_candidate
+  arm: right
+  object_goal:
+    object: bread
+    reference: breadbasket
+    T_reference_object: null
+    orientation_policy: requires_task_success_constraint
+    source: unresolved
+  demo_object_to_hand: null
+  runtime_object_to_hand: remeasure_after_this_run_grasp
+  geometry_template:
+    goal:
+    - target
+    - object
+    runtime_attachment:
+    - recorded_ee
+    - object
+  geometry_schema_version: 1
+  missing_geometry: []
+  depends_on:
+  - right_001_grasp
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal:
+    - - 0.9999946217772953
+      - -0.0024852002042446693
+      - 0.0021401393480132455
+      - -0.01142780069062566
+    - - 0.0024954963875530017
+      - 0.9999852611113524
+      - -0.004821831378210926
+      - -0.02557107305374734
+    - - -0.0021281245884117945
+      - 0.004827146155339735
+      - 0.9999860847760487
+      - 0.08403907515526798
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    demonstrated_relations:
+    - name: goal
+      reference: breadbasket
+      controlled: bread
+      frame: 205
+      T_reference_controlled:
+      - - 0.9999946217772953
+        - -0.0024852002042446693
+        - 0.0021401393480132455
+        - -0.01142780069062566
+      - - 0.0024954963875530017
+        - 0.9999852611113524
+        - -0.004821831378210926
+        - -0.02557107305374734
+      - - -0.0021281245884117945
+        - 0.004827146155339735
+        - 0.9999860847760487
+        - 0.08403907515526798
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+  object: bread
+  reference: breadbasket
+gripper_configuration_events: []
+execution_graph:
+  nodes:
+  - left_000_move
+  - left_001_grasp
+  - left_002_move
+  - left_003_move
+  - left_004_move
+  - left_005_release
+  - left_006_move
+  - left_007_move
+  - right_000_move
+  - right_001_grasp
+  - right_002_move
+  - right_003_move
+  - right_004_release
+  edges:
+  - - left_000_move
+    - left_001_grasp
+  - - left_001_grasp
+    - left_002_move
+  - - left_002_move
+    - left_003_move
+  - - left_003_move
+    - left_004_move
+  - - left_004_move
+    - left_005_release
+  - - left_005_release
+    - left_006_move
+  - - left_006_move
+    - left_007_move
+  - - right_000_move
+    - right_001_grasp
+  - - right_001_grasp
+    - right_002_move
+  - - right_002_move
+    - right_003_move
+  - - right_003_move
+    - right_004_release
+  independent_arms_can_overlap: true
+visual_input_provenance: {}
+runtime_ready: false
+runtime_blockers:
+- object_or_target_relative_goal
+- object_to_target_goal
+- postgrasp_object_to_hand
+- new_schema_requires_runtime_compiler
+- recorded_EE_to_tool_frame_mapping
+robot_actions: 0
+live_simulator_reads: false
+uses_CAD: false
+limitations:
+- Gripper closure and measured hand motion are not physical grasp certificates.
+- Task-conditioned contact/action labels remain candidates without visual evidence.
+- Initial visual anchors do not substitute for post-grasp object poses.
+- Demonstrated frame numbers and timings are evidence, not runtime stop commands.
+declared_entities:
+- bread.*
+- breadbasket
+official_success:
+  available: true
+  path: /data1/xuhuixin/ula/tra_pipe/RoboTwin/envs/place_bread_basket.py
+  sha256: 50c433166301a7f0ac8615d041cc51aa673746b5b7d6fcc0b6f29790c560c053
+  methods:
+  - "def check_success(self):\n        breadbasket_pose = self.breadbasket.get_pose().p\n\
+    \        eps1 = 0.05\n        check = True\n        for i in range(len(self.bread)):\n\
+    \            pose = self.bread[i].get_pose().p\n            if np.all(abs(pose[:2]\
+    \ - breadbasket_pose[:2]) < np.array([eps1, eps1])) and (pose[2]\n           \
+    \                                                                            \
+    \   > 0.73 + self.table_z_bias):\n                continue\n            else:\n\
+    \                check = False\n\n        return (check and self.robot.is_left_gripper_open()\
+    \ and self.robot.is_right_gripper_open())"
+  use: static_task_goal_reference_only
+  method_executed: false
+source_demo:
+  path: /data2/xuhuixin/ula_demo_rgbd/demo_clean_rgbd_auto_place_bread_basket/demo_clean_rgbd_auto_place_bread_basket/place_bread_basket/aloha_agilex/data/episode_0000000.hdf5
+  sha256: 85c74d3209ad6e447807dbc434fddf38f362e4f87c94699ca46c75da769a5bb5
+  recorded_pose_convention: xyz_wxyz_world_recorded_EE
+  controller_labels_present: false
+primitive_library_sha256: 19c23514dca25624279ec647f0c4cd7a7ac5fd7373f42ff3e21a4202988bacad
+keyframes_file: keyframes.json
+events_file: events.json

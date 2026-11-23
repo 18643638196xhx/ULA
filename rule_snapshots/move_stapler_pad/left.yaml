@@ -1,0 +1,1328 @@
+schema: ula_demo_primitives_v1
+task: move_stapler_pad
+description: use appropriate arm to move the stapler to a colored mat
+geometry_schema_version: 1
+frame_count: 155
+frequency_hz: 15.0
+frame_indexing: zero_based_inclusive_reference_frames
+active_arms:
+- left
+task_intents:
+- place
+bindings:
+  object: stapler
+  target: pad
+  source: explicit_specification
+controller_assignment_source: primitive_library_ULA_policy_not_teacher_labels
+config:
+  quiet_fraction: 0.4
+  noise_mad_scale: 6.0
+  smooth_frames: 3
+  minimum_bout_extent_fraction: 0.01
+  active_arm_fraction: 0.01
+  gripper_open_value: 1.0
+  gripper_closed_value: 0.0
+  gripper_delta_fraction: 0.005
+  minimum_gripper_ramp: 0.25
+  ramp_gap_frames: 2
+  local_approach_path_fraction: 0.2
+  max_keyframes: 5
+stages:
+- primitive: move
+  arm: left
+  demo_frames:
+  - 0
+  - 30
+  description: 移动机械手或持有物体
+  controller: traditional
+  executor: curobo
+  completion: relative_target_arrival
+  required_parameters:
+  - relative_keyframes
+  recognition:
+    matcher: measured_motion
+    active_bout:
+    - 1
+    - 28
+  evidence_level: recorded_robot_state
+  physical_contact_confirmed: false
+  gripper_state: open
+  motion:
+    delta_world_xyz_m:
+    - 0.14164581894874573
+    - 0.12918588519096375
+    - 0.05761796236038208
+    duration_s: 2.0
+    path_length_m: 0.22895266661619673
+    orientation_change_deg: 94.57818552235696
+    angular_path_deg: 95.87744058625861
+    maximum_orientation_excursion_deg: 94.57818552235696
+  motion_role: transport
+  id: left_000_move
+  object: stapler
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - stapler
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: true
+      maximum_excursion_deg: 0.0
+      final_rotation_deg: 0.0
+      sampled_frames:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+    object_follows_hand:
+      available: true
+      supported: false
+      sampled_frames:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+      translation_residual_m: 0.16755071805144353
+      rotation_residual_deg: 94.57818552235696
+      object_displacement_m: 0.0
+      hand_displacement_m: 0.20018081962265047
+    object_approaches_target:
+      available: true
+      supported: false
+      start_distance_m: 0.18283427501122756
+      end_distance_m: 0.18283427501122756
+      sampled_frames:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+      reference: declared_visual_pose_origins_not_hidden_support_points
+  frequency_hz: 15.0
+  reference: stapler
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand: null
+    relation_template:
+      approach:
+      - object
+      - recorded_ee
+      held_transport:
+      - target
+      - object
+    demonstrated_relations:
+    - name: approach
+      reference: stapler
+      controlled: recorded_ee
+      frame: 30
+      T_reference_controlled:
+      - - -0.0030512151726027
+        - 0.0002367331641025923
+        - -0.9999953170107245
+        - -0.0037984691824546057
+      - - -0.006994461817449062
+        - -0.9999755152564607
+        - -0.0002153867683841971
+        - -0.00399925284580787
+      - - -0.9999708833710382
+        - 0.006993771871083687
+        - 0.0030527962854589585
+        - 0.23718704072480756
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    T_reference_recorded_ee_hint:
+    - - -0.0030512151726027
+      - 0.0002367331641025923
+      - -0.9999953170107245
+      - -0.0037984691824546057
+    - - -0.006994461817449062
+      - -0.9999755152564607
+      - -0.0002153867683841971
+      - -0.00399925284580787
+    - - -0.9999708833710382
+      - 0.006993771871083687
+      - 0.0030527962854589585
+      - 0.23718704072480756
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    reference_scope: current_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - left_000_move_frame0
+  - left_000_move_frame13
+  - left_000_move_frame15
+  - left_000_move_frame29
+  - left_000_move_frame30
+  depends_on: []
+- primitive: grasp
+  arm: left
+  demo_frames:
+  - 30
+  - 69
+  description: 局部接近并抓取目标物体
+  controller: vla
+  executor: local_policy
+  completion: configured_grasp_handoff
+  required_parameters:
+  - precontact_relative_pose
+  - object_identity
+  recognition:
+    matcher: gripper_closing
+    event:
+      kind: gripper_close
+      start_frame: 47
+      end_frame: 61
+      start_value: 1.0
+      end_value: 0.0
+      evidence: recorded_gripper_state
+      physical_grasp_proven: false
+    approach_reference_source: pause_before_local_approach
+    object_follows_hand:
+      available: true
+      supported: true
+      sampled_frames:
+      - 69
+      - 70
+      - 71
+      - 72
+      - 73
+      - 74
+      - 75
+      - 76
+      - 77
+      - 78
+      - 79
+      - 80
+      - 81
+      - 82
+      - 83
+      - 84
+      translation_residual_m: 2.220513810852149e-16
+      rotation_residual_deg: 0.0
+      object_displacement_m: 0.09853947982680716
+      hand_displacement_m: 0.09852285526443261
+  evidence_level: visual_motion_supported
+  physical_contact_confirmed: false
+  id: left_001_grasp
+  object: stapler
+  object_binding_source: declared_or_description_candidate
+  object_candidates:
+  - stapler
+  visual_evidence:
+    contact_proximity:
+      available: false
+      reason: recorded_EE_to_contact_region_calibration_missing
+    object_rotation:
+      available: true
+      maximum_excursion_deg: 0.050094735703266
+      final_rotation_deg: 0.050094735703266
+      sampled_frames:
+      - 30
+      - 31
+      - 32
+      - 33
+      - 34
+      - 35
+      - 36
+      - 37
+      - 38
+      - 39
+      - 40
+      - 41
+      - 42
+      - 43
+      - 44
+      - 45
+      - 46
+      - 47
+      - 48
+      - 49
+      - 50
+      - 51
+      - 52
+      - 53
+      - 54
+      - 55
+      - 56
+      - 57
+      - 58
+      - 59
+      - 60
+      - 61
+      - 62
+      - 63
+      - 64
+      - 65
+      - 66
+      - 67
+      - 68
+      - 69
+  frequency_hz: 15.0
+  motion:
+    delta_world_xyz_m:
+    - 0.0009587705135345459
+    - 0.00023649632930755615
+    - -0.0996246337890625
+    duration_s: 2.6
+    path_length_m: 0.10034643038218774
+    orientation_change_deg: 0.35906386510154503
+    angular_path_deg: 1.8812070397450669
+    maximum_orientation_excursion_deg: 0.7949979207989208
+  reference: stapler
+  geometry:
+    controlled_frame: recorded_ee
+    requires_runtime_tool_frame_reconciliation: true
+    reusable_object_goal: null
+    object_to_hand:
+    - - -0.0022154694582812657
+      - -0.007185340692547103
+      - -0.9999717308875347
+      - 0.1376040334532589
+    - - -0.0051835795266389805
+      - -0.9999606679046256
+      - 0.007196745585777743
+      - -0.004357015986247242
+    - - -0.9999841109729549
+      - 0.005199377161490914
+      - 0.002178136534319421
+      - -0.004811127047053915
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    relation_template:
+      precontact:
+      - object
+      - recorded_ee
+      attachment:
+      - recorded_ee
+      - object
+    demonstrated_relations:
+    - name: precontact
+      reference: stapler
+      controlled: recorded_ee
+      frame: 30
+      T_reference_controlled:
+      - - -0.0030512151726027
+        - 0.0002367331641025923
+        - -0.9999953170107245
+        - -0.0037984691824546057
+      - - -0.006994461817449062
+        - -0.9999755152564607
+        - -0.0002153867683841971
+        - -0.00399925284580787
+      - - -0.9999708833710382
+        - 0.006993771871083687
+        - 0.0030527962854589585
+        - 0.23718704072480756
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_visual_pose
+    - name: attachment
+      reference: recorded_ee
+      controlled: stapler
+      frame: 69
+      T_reference_controlled:
+      - - -0.0022154694582812657
+        - -0.007185340692547103
+        - -0.9999717308875347
+        - 0.1376040334532589
+      - - -0.0051835795266389805
+        - -0.9999606679046256
+        - 0.007196745585777743
+        - -0.004357015986247242
+      - - -0.9999841109729549
+        - 0.005199377161490914
+        - 0.002178136534319421
+        - -0.004811127047053915
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      source: synchronous_postgrasp_visual_pose
+    T_reference_recorded_ee_hint:
+    - - -0.0022154694582812683
+      - -0.005183579526639411
+      - -0.9999841109729545
+      - -0.004528778008337703
+    - - -0.007185340692546966
+      - -0.9999606679046252
+      - 0.0051993771614906445
+      - -0.0033430978905591435
+    - - -0.9999717308875342
+      - 0.007196745585777875
+      - 0.0021781365343194192
+      - 0.1376419791365202
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    reference_scope: current_visual_pose
+  missing_geometry: []
+  keyframe_ids:
+  - left_001_grasp_frame30
+  - left_001_grasp_frame38
+  - left_001_grasp_frame40
+  - left_001_grasp_frame49
+  - left_001_grasp_frame69
+  depends_on:
+  - left_000_move
+- id: place_69_149
+  primitive: place
+  description: 将持有物体移动到目标区域并释放
+  controller: traditional
+  demo_frames:
+  - 69
+  - 149
+  children:
+  - primitive: move
+    arm: left
+    demo_frames:
+    - 69
+    - 84
+    description: 移动机械手或持有物体
+    controller: traditional
+    executor: curobo
+    completion: relative_target_arrival
+    required_parameters:
+    - relative_keyframes
+    recognition:
+      matcher: measured_motion
+      active_bout:
+      - 69
+      - 82
+    evidence_level: recorded_robot_state
+    physical_contact_confirmed: false
+    gripper_state: closed_candidate
+    motion:
+      delta_world_xyz_m:
+      - 0.00028224289417266846
+      - -7.197260856628418e-05
+      - 0.09852242469787598
+      duration_s: 1.0
+      path_length_m: 0.09974075767217509
+      orientation_change_deg: 0.20368788617743125
+      angular_path_deg: 4.007722535618264
+      maximum_orientation_excursion_deg: 1.6621215283571635
+    motion_role: lift
+    id: left_002_move
+    object: stapler
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - stapler
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: true
+        maximum_excursion_deg: 1.6621215283566222
+        final_rotation_deg: 0.20368788617438147
+        sampled_frames:
+        - 69
+        - 70
+        - 71
+        - 72
+        - 73
+        - 74
+        - 75
+        - 76
+        - 77
+        - 78
+        - 79
+        - 80
+        - 81
+        - 82
+        - 83
+        - 84
+      object_follows_hand:
+        available: true
+        supported: true
+        sampled_frames:
+        - 69
+        - 70
+        - 71
+        - 72
+        - 73
+        - 74
+        - 75
+        - 76
+        - 77
+        - 78
+        - 79
+        - 80
+        - 81
+        - 82
+        - 83
+        - 84
+        translation_residual_m: 2.220513810852149e-16
+        rotation_residual_deg: 0.0
+        object_displacement_m: 0.09853947982680716
+        hand_displacement_m: 0.09852285526443261
+      object_approaches_target:
+        available: true
+        supported: false
+        start_distance_m: 0.18288469336647356
+        end_distance_m: 0.21773115481289607
+        sampled_frames:
+        - 69
+        - 70
+        - 71
+        - 72
+        - 73
+        - 74
+        - 75
+        - 76
+        - 77
+        - 78
+        - 79
+        - 80
+        - 81
+        - 82
+        - 83
+        - 84
+        reference: declared_visual_pose_origins_not_hidden_support_points
+    holding_evidence: visual_rigid_comotion_not_physical_grasp_certificate
+    frequency_hz: 15.0
+    reference: pad
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal:
+      - - -0.540376202503934
+        - 0.8414212359151858
+        - 0.0019655834730220047
+        - -0.06953641470928928
+      - - -0.8414151030127403
+        - -0.5403797710044073
+        - 0.003213644548541208
+        - -0.1683344175521138
+      - - 0.003766190314867314
+        - 8.270541690558411e-05
+        - 0.99999290445999
+        - 0.11931079864339877
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      object_to_hand: null
+      relation_template:
+        approach:
+        - object
+        - recorded_ee
+        held_transport:
+        - target
+        - object
+      demonstrated_relations:
+      - name: held_transport
+        reference: pad
+        controlled: stapler
+        frame: 84
+        T_reference_controlled:
+        - - -0.540376202503934
+          - 0.8414212359151858
+          - 0.0019655834730220047
+          - -0.06953641470928928
+        - - -0.8414151030127403
+          - -0.5403797710044073
+          - 0.003213644548541208
+          - -0.1683344175521138
+        - - 0.003766190314867314
+          - 8.270541690558411e-05
+          - 0.99999290445999
+          - 0.11931079864339877
+        - - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+        source: synchronous_visual_pose
+      T_reference_recorded_ee_hint:
+      - - -0.006814239181086812
+        - -0.8385729122307191
+        - 0.5447467641182222
+        - -0.06963157760663538
+      - - 0.0025333885188264516
+        - 0.5447431866193165
+        - 0.8385990952621195
+        - -0.16227496046925832
+      - - -0.9999735736943232
+        - 0.0070944700100438185
+        - -0.0015875793778472591
+        - 0.25693446840357104
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      reference_scope: current_visual_pose
+    missing_geometry: []
+    keyframe_ids:
+    - left_002_move_frame69
+    - left_002_move_frame74
+    - left_002_move_frame76
+    - left_002_move_frame78
+    - left_002_move_frame84
+    depends_on:
+    - left_001_grasp
+  - primitive: move
+    arm: left
+    demo_frames:
+    - 84
+    - 118
+    description: 移动机械手或持有物体
+    controller: traditional
+    executor: curobo
+    completion: relative_target_arrival
+    required_parameters:
+    - relative_keyframes
+    recognition:
+      matcher: measured_motion
+      active_bout:
+      - 85
+      - 116
+    evidence_level: recorded_robot_state
+    physical_contact_confirmed: false
+    gripper_state: closed_candidate
+    motion:
+      delta_world_xyz_m:
+      - 0.10661797225475311
+      - 0.15196598693728447
+      - 0.007940232753753662
+      duration_s: 2.2666666666666666
+      path_length_m: 0.19124383211981996
+      orientation_change_deg: 122.83196060139205
+      angular_path_deg: 123.85625280959492
+      maximum_orientation_excursion_deg: 122.83196060139205
+    motion_role: transport
+    id: left_003_move
+    object: stapler
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - stapler
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: true
+        maximum_excursion_deg: 122.83196060139205
+        final_rotation_deg: 122.83196060139205
+        sampled_frames:
+        - 84
+        - 85
+        - 86
+        - 87
+        - 88
+        - 89
+        - 90
+        - 91
+        - 92
+        - 93
+        - 94
+        - 95
+        - 96
+        - 97
+        - 98
+        - 99
+        - 100
+        - 101
+        - 102
+        - 103
+        - 104
+        - 105
+        - 106
+        - 107
+        - 108
+        - 109
+        - 110
+        - 111
+        - 112
+        - 113
+        - 114
+        - 115
+        - 116
+        - 117
+        - 118
+      object_follows_hand:
+        available: true
+        supported: true
+        sampled_frames:
+        - 84
+        - 85
+        - 86
+        - 87
+        - 88
+        - 89
+        - 90
+        - 91
+        - 92
+        - 93
+        - 94
+        - 95
+        - 96
+        - 97
+        - 98
+        - 99
+        - 100
+        - 101
+        - 102
+        - 103
+        - 104
+        - 105
+        - 106
+        - 107
+        - 108
+        - 109
+        - 110
+        - 111
+        - 112
+        - 113
+        - 114
+        - 115
+        - 116
+        - 117
+        - 118
+        translation_residual_m: 2.2633986948989007e-16
+        rotation_residual_deg: 0.0
+        object_displacement_m: 0.19845930184273114
+        hand_displacement_m: 0.18580662122142472
+      object_approaches_target:
+        available: true
+        supported: true
+        start_distance_m: 0.21773115481289607
+        end_distance_m: 0.13193564438372554
+        sampled_frames:
+        - 84
+        - 85
+        - 86
+        - 87
+        - 88
+        - 89
+        - 90
+        - 91
+        - 92
+        - 93
+        - 94
+        - 95
+        - 96
+        - 97
+        - 98
+        - 99
+        - 100
+        - 101
+        - 102
+        - 103
+        - 104
+        - 105
+        - 106
+        - 107
+        - 108
+        - 109
+        - 110
+        - 111
+        - 112
+        - 113
+        - 114
+        - 115
+        - 116
+        - 117
+        - 118
+        reference: declared_visual_pose_origins_not_hidden_support_points
+    holding_evidence: visual_rigid_comotion_not_physical_grasp_certificate
+    variant: move_to
+    frequency_hz: 15.0
+    reference: pad
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal:
+      - - 0.998243304833518
+        - 0.000746932442571378
+        - 0.0592431130763987
+        - 0.0333553747082471
+      - - 0.002755842831630808
+        - 0.9982528960604266
+        - -0.05902169802080488
+        - 0.0011646275470822767
+      - - -0.05918369442121746
+        - 0.05908127959766941
+        - 0.9964972115945727
+        - 0.12764433743687142
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      object_to_hand: null
+      relation_template:
+        approach:
+        - object
+        - recorded_ee
+        held_transport:
+        - target
+        - object
+      demonstrated_relations:
+      - name: held_transport
+        reference: pad
+        controlled: stapler
+        frame: 118
+        T_reference_controlled:
+        - - 0.998243304833518
+          - 0.000746932442571378
+          - 0.0592431130763987
+          - 0.0333553747082471
+        - - 0.002755842831630808
+          - 0.9982528960604266
+          - -0.05902169802080488
+          - 0.0011646275470822767
+        - - -0.05918369442121746
+          - 0.05908127959766941
+          - 0.9964972115945727
+          - 0.12764433743687142
+        - - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+        source: synchronous_visual_pose
+      T_reference_recorded_ee_hint:
+      - - -0.06145838284403893
+        - -0.005495019009172836
+        - -0.9980945205461679
+        - 0.03698639464811773
+      - - 0.05184113688864447
+        - -0.9986526819574877
+        - 0.0023059369484223456
+        - -0.010308973531973853
+      - - -0.9967624409578687
+        - -0.051600635511649506
+        - 0.06166044688862948
+        - 0.2648747011573247
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      reference_scope: current_visual_pose
+    missing_geometry: []
+    keyframe_ids:
+    - left_003_move_frame84
+    - left_003_move_frame101
+    - left_003_move_frame107
+    - left_003_move_frame117
+    - left_003_move_frame118
+    depends_on:
+    - left_002_move
+  - primitive: move
+    arm: left
+    demo_frames:
+    - 118
+    - 135
+    description: 移动机械手或持有物体
+    controller: traditional
+    executor: curobo
+    completion: relative_target_arrival
+    required_parameters:
+    - relative_keyframes
+    recognition:
+      matcher: measured_motion
+      active_bout:
+      - 119
+      - 132
+    evidence_level: recorded_robot_state
+    physical_contact_confirmed: false
+    gripper_state: closed_candidate
+    motion:
+      delta_world_xyz_m:
+      - -0.011622503399848938
+      - 0.003575846552848816
+      - -0.09844619035720825
+      duration_s: 1.1333333333333333
+      path_length_m: 0.09967831243551152
+      orientation_change_deg: 0.05211979643689615
+      angular_path_deg: 1.3872669956470365
+      maximum_orientation_excursion_deg: 0.5212729736518769
+    motion_role: lower
+    id: left_004_move
+    object: stapler
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - stapler
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: true
+        maximum_excursion_deg: 0.5212729736511497
+        final_rotation_deg: 0.052119796414063016
+        sampled_frames:
+        - 118
+        - 119
+        - 120
+        - 121
+        - 122
+        - 123
+        - 124
+        - 125
+        - 126
+        - 127
+        - 128
+        - 129
+        - 130
+        - 131
+        - 132
+        - 133
+        - 134
+        - 135
+      object_follows_hand:
+        available: true
+        supported: true
+        sampled_frames:
+        - 118
+        - 119
+        - 120
+        - 121
+        - 122
+        - 123
+        - 124
+        - 125
+        - 126
+        - 127
+        - 128
+        - 129
+        - 130
+        - 131
+        - 132
+        - 133
+        - 134
+        - 135
+        translation_residual_m: 2.220717083251841e-16
+        rotation_residual_deg: 0.0
+        object_displacement_m: 0.09919701953078866
+        hand_displacement_m: 0.09919436304395882
+      object_approaches_target:
+        available: true
+        supported: true
+        start_distance_m: 0.13193564438372554
+        end_distance_m: 0.03669749940227765
+        sampled_frames:
+        - 118
+        - 119
+        - 120
+        - 121
+        - 122
+        - 123
+        - 124
+        - 125
+        - 126
+        - 127
+        - 128
+        - 129
+        - 130
+        - 131
+        - 132
+        - 133
+        - 134
+        - 135
+        reference: declared_visual_pose_origins_not_hidden_support_points
+    holding_evidence: visual_rigid_comotion_not_physical_grasp_certificate
+    variant: move_to
+    frequency_hz: 15.0
+    reference: pad
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal:
+      - - 0.9982473198834426
+        - 0.001412088542555917
+        - 0.05916328550268258
+        - 0.021746100798858664
+      - - 0.0020519049139405615
+        - 0.998288341257672
+        - -0.05844807435005398
+        - 0.00465844992081265
+      - - -0.0591445520039517
+        - 0.058467031008537534
+        - 0.9965357636599395
+        - 0.029190964471242253
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      object_to_hand: null
+      relation_template:
+        approach:
+        - object
+        - recorded_ee
+        held_transport:
+        - target
+        - object
+      demonstrated_relations:
+      - name: held_transport
+        reference: pad
+        controlled: stapler
+        frame: 135
+        T_reference_controlled:
+        - - 0.9982473198834426
+          - 0.001412088542555917
+          - 0.05916328550268258
+          - 0.021746100798858664
+        - - 0.0020519049139405615
+          - 0.998288341257672
+          - -0.05844807435005398
+          - 0.00465844992081265
+        - - -0.0591445520039517
+          - 0.058467031008537534
+          - 0.9965357636599395
+          - 0.029190964471242253
+        - - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+        source: synchronous_visual_pose
+      T_reference_recorded_ee_hint:
+      - - -0.061383345795390065
+        - -0.006160744258243565
+        - -0.9980952510102169
+        - 0.025363891248268794
+      - - 0.051268834300864666
+        - -0.9986803486188007
+        - 0.003011297404847235
+        - -0.006733126979125037
+      - - -0.9967966650668499
+        - -0.050986336530628236
+        - 0.061618195354874894
+        - 0.16642851080011645
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      reference_scope: current_visual_pose
+    missing_geometry: []
+    keyframe_ids:
+    - left_004_move_frame118
+    - left_004_move_frame126
+    - left_004_move_frame127
+    - left_004_move_frame135
+    depends_on:
+    - left_003_move
+  - primitive: release
+    arm: left
+    demo_frames:
+    - 135
+    - 149
+    description: 张开夹爪释放物体
+    controller: traditional
+    executor: gripper
+    completion: measured_gripper_open
+    required_parameters:
+    - gripper_open_value
+    recognition:
+      matcher: gripper_opening
+      event:
+        kind: gripper_open
+        start_frame: 135
+        end_frame: 149
+        start_value: 0.0
+        end_value: 1.0
+        evidence: recorded_gripper_state
+        physical_grasp_proven: false
+    evidence_level: recorded_robot_state
+    physical_contact_confirmed: false
+    id: left_005_release
+    object: stapler
+    object_binding_source: declared_or_description_candidate
+    object_candidates:
+    - stapler
+    visual_evidence:
+      contact_proximity:
+        available: false
+        reason: recorded_EE_to_contact_region_calibration_missing
+      object_rotation:
+        available: true
+        maximum_excursion_deg: 0.0260045171578026
+        final_rotation_deg: 0.0260045171578026
+        sampled_frames:
+        - 135
+        - 136
+        - 137
+        - 138
+        - 139
+        - 140
+        - 141
+        - 142
+        - 143
+        - 144
+        - 145
+        - 146
+        - 147
+        - 148
+        - 149
+    frequency_hz: 15.0
+    motion:
+      delta_world_xyz_m:
+      - -0.0007691830396652222
+      - 0.0006183460354804993
+      - -0.0014122724533081055
+      duration_s: 0.9333333333333333
+      path_length_m: 0.0017538149529775996
+      orientation_change_deg: 0.19589650304938777
+      angular_path_deg: 0.1986966238740287
+      maximum_orientation_excursion_deg: 0.19589650304938777
+    reference: pad
+    geometry:
+      controlled_frame: recorded_ee
+      requires_runtime_tool_frame_reconciliation: true
+      reusable_object_goal: null
+      object_to_hand: null
+      relation_template:
+        prerelease_object_goal:
+        - target
+        - object
+      demonstrated_relations: []
+      T_reference_recorded_ee_hint:
+      - - -0.06255591371994407
+        - -0.0029597255726479775
+        - -0.9980370722990192
+        - 0.024594708208603572
+      - - 0.05081290409229294
+        - -0.9987081650646346
+        - -0.00022318364185614295
+        - -0.006114780943644538
+      - - -0.9967471125799013
+        - -0.050727123491926554
+        - 0.06262549405684936
+        - 0.16501623834680834
+      - - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+      reference_scope: current_visual_pose
+      gripper_open_value: 1.0
+    missing_geometry: []
+    keyframe_ids:
+    - left_005_release_frame135
+    - left_005_release_frame140
+    - left_005_release_frame142
+    - left_005_release_frame149
+    depends_on:
+    - left_004_move
+  completion: object_target_relation_and_release
+  required_parameters:
+  - object_to_target_goal
+  - runtime_object_to_hand
+  recognition:
+    matcher: held_motion_then_release
+    semantic_basis: placement_goal_and_postclose_motion_then_release
+  evidence_level: task_conditioned_candidate
+  arm: left
+  object_goal:
+    object: stapler
+    reference: pad
+    T_reference_object:
+    - - 0.9982473198834426
+      - 0.001412088542555917
+      - 0.05916328550268258
+      - 0.021746100798858664
+    - - 0.0020519049139405615
+      - 0.998288341257672
+      - -0.05844807435005398
+      - 0.00465844992081265
+    - - -0.0591445520039517
+      - 0.058467031008537534
+      - 0.9965357636599395
+      - 0.029190964471242253
+    - - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+    orientation_policy: requires_task_success_constraint
+    source: synchronous_prerelease_visual_poses
+  demo_object_to_hand:
+  - - -0.0022154694582812657
+    - -0.007185340692547103
+    - -0.9999717308875347
+    - 0.1376040334532589
+  - - -0.0051835795266389805
+    - -0.9999606679046256
+    - 0.007196745585777743
+    - -0.004357015986247242
+  - - -0.9999841109729549
+    - 0.005199377161490914
+    - 0.002178136534319421
+    - -0.004811127047053915
+  - - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  runtime_object_to_hand: remeasure_after_this_run_grasp
+  geometry_template:
+    goal:
+    - target
+    - object
+    runtime_attachment:
+    - recorded_ee
+    - object
+  geometry_schema_version: 1
+  missing_geometry: []
+gripper_configuration_events: []
+execution_graph:
+  nodes:
+  - left_000_move
+  - left_001_grasp
+  - left_002_move
+  - left_003_move
+  - left_004_move
+  - left_005_release
+  edges:
+  - - left_000_move
+    - left_001_grasp
+  - - left_001_grasp
+    - left_002_move
+  - - left_002_move
+    - left_003_move
+  - - left_003_move
+    - left_004_move
+  - - left_004_move
+    - left_005_release
+  independent_arms_can_overlap: true
+visual_input_provenance:
+  path: /data1/xuhuixin/ula/results/demo_visual_tracks_move_stapler_pad_rgbd_left_v1/tracks.npz
+  demo_sha256: 11b51b7fb4fd177b601c2a488bab8eefeb7bb5753f15a0f8370f93fc4b650255
+  world_frame: world
+  units: m
+  grasp_frame: 58
+  release_frame: 138
+  static_entities:
+  - pad
+  template_path: /data1/xuhuixin/ula/results/demo_multiview_template_move_stapler_pad_both_v1/merged_template.npz
+  template_yaw_audit:
+    yaw_accepted: true
+    yaw_deg: -122.68
+    match_cost: 0.09303786974821718
+    uses_CAD: false
+  uses_CAD: false
+  uses_object_truth: false
+runtime_ready: false
+runtime_blockers:
+- new_schema_requires_runtime_compiler
+- recorded_EE_to_tool_frame_mapping
+robot_actions: 0
+live_simulator_reads: false
+uses_CAD: false
+limitations:
+- Gripper closure and measured hand motion are not physical grasp certificates.
+- Task-conditioned contact/action labels remain candidates without visual evidence.
+- Initial visual anchors do not substitute for post-grasp object poses.
+- Demonstrated frame numbers and timings are evidence, not runtime stop commands.
+declared_entities:
+- stapler
+- pad
+official_success:
+  available: true
+  path: /data1/xuhuixin/ula/tra_pipe/RoboTwin/envs/move_stapler_pad.py
+  sha256: c2b7aa7bf4e896afc392a8cf1ac107b6982088a459c716de005a3412fcdedd6d
+  methods:
+  - "def check_success(self):\n        stapler_pose = self.stapler.get_pose().p\n\
+    \        stapler_qpose = np.abs(self.stapler.get_pose().q)\n        target_pos\
+    \ = self.pad.get_pose().p\n        eps = [0.02, 0.02, 0.01]\n        return (np.all(abs(stapler_pose\
+    \ - target_pos) < np.array(eps))\n                and (stapler_qpose.max() - stapler_qpose.min())\
+    \ < 0.02 and self.robot.is_left_gripper_open()\n                and self.robot.is_right_gripper_open())"
+  use: static_task_goal_reference_only
+  method_executed: false
+source_demo:
+  path: /data2/xuhuixin/ula_demo_rgbd/demo_clean_rgbd_stapler_both/demo_clean_rgbd_stapler_both/move_stapler_pad/aloha_agilex/data/episode_0000004.hdf5
+  sha256: 11b51b7fb4fd177b601c2a488bab8eefeb7bb5753f15a0f8370f93fc4b650255
+  recorded_pose_convention: xyz_wxyz_world_recorded_EE
+  controller_labels_present: false
+primitive_library_sha256: 19c23514dca25624279ec647f0c4cd7a7ac5fd7373f42ff3e21a4202988bacad
+keyframes_file: keyframes.json
+events_file: events.json

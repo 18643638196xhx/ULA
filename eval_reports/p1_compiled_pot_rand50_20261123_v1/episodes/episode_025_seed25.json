@@ -1,0 +1,59 @@
+{
+ "seed": 25,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": "both",
+ "failure_stage": "right_002_move",
+ "failure_reason": "bimanual_lift_not_reached",
+ "elapsed_s": 27.315,
+ "final_evaluation": {
+  "pot_xyz": [
+   -0.01868782751262188,
+   0.10468130558729172,
+   0.8783679604530334
+  ],
+  "pot_z": 0.8783679604530334,
+  "tcp_left_err_m": 0.008956625299859052,
+  "tcp_right_err_m": 0.28629894612031065,
+  "pot_dir": 0.861531781463817,
+  "left_closed": true,
+  "right_closed": true
+ },
+ "stages": [
+  {
+   "id": "left_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_002_move",
+   "primitive": "move",
+   "arm": null,
+   "success": false,
+   "reason": "bimanual_lift_not_reached"
+  }
+ ]
+}

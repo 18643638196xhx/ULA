@@ -1,0 +1,10 @@
+{
+ "seed": 4,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": null,
+ "failure_stage": null,
+ "failure_reason": "block_handover_not_confirmed:cmd=1.000;open=0.686",
+ "elapsed_s": 55.26,
+ "final_evaluation": {}
+}

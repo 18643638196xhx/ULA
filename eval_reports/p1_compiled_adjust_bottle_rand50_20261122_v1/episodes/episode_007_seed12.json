@@ -1,0 +1,10 @@
+{
+ "seed": 12,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": null,
+ "failure_stage": "scene_or_runtime_error",
+ "failure_reason": "UnStableError: Objects is unstable in seed(12), unstable objects: 001_bottle",
+ "elapsed_s": 21.288,
+ "final_evaluation": {}
+}

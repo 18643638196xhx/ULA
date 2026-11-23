@@ -1,0 +1,67 @@
+{
+ "seed": 37,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": "right",
+ "failure_stage": "left_001_move",
+ "failure_reason": "press_not_reached",
+ "elapsed_s": 18.929,
+ "final_evaluation": {
+  "stage_success_tag": false,
+  "_diag_alarm_contact_point": [
+   0.12671229243278503,
+   -0.04145887494087219,
+   0.9059929966926574
+  ],
+  "_diag_perceived_alarm": [
+   0.12581210100026904,
+   -0.04258434398643853,
+   0.9316174249452194
+  ],
+  "_diag_yaw_audit": {
+   "yaw_accepted": true,
+   "yaw_deg": 0.25,
+   "match_cost": 0.13658105586417885,
+   "uses_CAD": false
+  },
+  "_diag_alarm_truth_pose": [
+   0.12671229243278503,
+   -0.04145887494087219,
+   0.7409999966621399
+  ],
+  "_diag_alarm_truth_quat": [
+   -0.43903857469558716,
+   -0.43903857469558716,
+   0.5542969703674316,
+   0.5542969703674316
+  ],
+  "_diag_final_ee": [
+   [
+    0.09651609510183334,
+    -0.031485337764024734,
+    1.1349809169769287,
+    0.6083393335638471,
+    -0.17219555308122217,
+    0.562577031276784,
+    0.5327091426078087
+   ]
+  ],
+  "_diag_gripper_contacts": []
+ },
+ "stages": [
+  {
+   "id": "left_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_001_move",
+   "primitive": "press",
+   "arm": null,
+   "success": false,
+   "reason": "press_not_reached"
+  }
+ ]
+}

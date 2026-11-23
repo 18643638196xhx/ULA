@@ -1,0 +1,34 @@
+{
+ "seed": 30,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": "right",
+ "failure_stage": "right_000_move",
+ "failure_reason": "approach_not_reached",
+ "elapsed_s": 23.279,
+ "final_evaluation": {
+  "pillbottle_xyz": [
+   0.13342499732971191,
+   0.08677259832620621,
+   0.7413585186004639
+  ],
+  "pad_xyz": [
+   0.24883873760700226,
+   -0.1294458508491516,
+   0.7409999966621399
+  ],
+  "xy_error_m": 0.2450933479484717,
+  "z_error_m": 0.0003585186004638752,
+  "left_open": true,
+  "right_open": true
+ },
+ "stages": [
+  {
+   "id": "right_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": false,
+   "reason": "approach_not_reached"
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+ "seed": 49,
+ "task_success": true,
+ "controller_complete": true,
+ "selected_arm": "left",
+ "failure_stage": null,
+ "failure_reason": null,
+ "elapsed_s": 26.043,
+ "final_evaluation": {
+  "cup_xyz": [
+   -0.10413854569196701,
+   -0.11358232796192169,
+   0.7486291527748108
+  ],
+  "coaster_xyz": [
+   -0.09486127644777298,
+   -0.12006229907274246,
+   0.7409999966621399
+  ],
+  "xy_error_m": 0.01131626043471695,
+  "z_error_m": 0.0076291561126708984,
+  "left_open": true,
+  "right_open": true
+ },
+ "stages": [
+  {
+   "id": "left_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "place_90_149",
+   "primitive": "place",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_006_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  }
+ ]
+}

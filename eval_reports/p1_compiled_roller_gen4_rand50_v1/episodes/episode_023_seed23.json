@@ -1,0 +1,35 @@
+{
+ "seed": 23,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": "both",
+ "failure_stage": "right_000_move",
+ "failure_reason": "approach_not_reached",
+ "elapsed_s": 23.764,
+ "final_evaluation": {
+  "roller_xyz": [
+   0.14905650913715363,
+   -0.24997206032276154,
+   0.7416648864746094
+  ],
+  "roller_z": 0.7416648864746094,
+  "left_closed": false,
+  "right_closed": false
+ },
+ "stages": [
+  {
+   "id": "left_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": false,
+   "reason": "approach_not_reached"
+  }
+ ]
+}

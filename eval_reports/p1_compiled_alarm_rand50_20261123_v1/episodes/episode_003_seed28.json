@@ -1,0 +1,86 @@
+{
+ "seed": 28,
+ "task_success": false,
+ "controller_complete": true,
+ "selected_arm": "right",
+ "failure_stage": null,
+ "failure_reason": null,
+ "elapsed_s": 20.882,
+ "final_evaluation": {
+  "stage_success_tag": false,
+  "_diag_alarm_contact_point": [
+   0.2408603402851224,
+   -0.16167004316994968,
+   0.8521950137532954
+  ],
+  "_diag_perceived_alarm": [
+   0.21600297533180549,
+   -0.12238150192625911,
+   0.8608572541563141
+  ],
+  "_diag_yaw_audit": {
+   "yaw_accepted": false,
+   "yaw_reason": "no_registration_passed_quality_gate"
+  },
+  "_diag_alarm_truth_pose": [
+   0.24210673570632935,
+   -0.1614598035812378,
+   0.7409999966621399
+  ],
+  "_diag_alarm_truth_quat": [
+   0.5399811267852783,
+   0.5399811267852783,
+   -0.456530898809433,
+   -0.456530898809433
+  ],
+  "_diag_final_ee": [
+   [
+    0.20574800670146942,
+    -0.13731814920902252,
+    1.0133540630340576,
+    0.6227370951936076,
+    -0.3244882555660537,
+    0.601118908268323,
+    0.38152580566958544
+   ]
+  ],
+  "_diag_gripper_contacts": [
+   [
+    0.20475135743618011,
+    -0.1183931827545166,
+    0.8576325178146362
+   ],
+   [
+    0.20812414586544037,
+    -0.12076802551746368,
+    0.8587855696678162
+   ],
+   [
+    0.20809856057167053,
+    -0.12081283330917358,
+    0.8587800860404968
+   ],
+   [
+    0.20744507014751434,
+    -0.12035147845745087,
+    0.858630895614624
+   ]
+  ]
+ },
+ "stages": [
+  {
+   "id": "left_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_001_move",
+   "primitive": "press",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  }
+ ]
+}

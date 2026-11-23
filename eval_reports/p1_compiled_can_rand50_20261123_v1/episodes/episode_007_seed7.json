@@ -1,0 +1,57 @@
+{
+ "seed": 7,
+ "task_success": false,
+ "controller_complete": false,
+ "selected_arm": "right",
+ "failure_stage": "right_001_grasp",
+ "failure_reason": "can_grasp_not_confirmed:cmd=0.001;open=0.000",
+ "elapsed_s": 35.093,
+ "final_evaluation": {
+  "can_xyz": [
+   0.35572749376296997,
+   0.12276795506477356,
+   0.7722876667976379
+  ],
+  "can_qpose": [
+   0.8385011553764343,
+   -0.15806865692138672,
+   0.32338011264801025,
+   0.4090912640094757
+  ],
+  "target_xyz": [
+   1.1278843885520473e-06,
+   9.64986497820064e-07,
+   0.7964016795158386
+  ],
+  "xy_error_m": 0.3763150026693885,
+  "z_error_m": 0.024114012718200684,
+  "pot_xyz": [
+   1.1278843885520473e-06,
+   9.64986497820064e-07,
+   0.7964016795158386
+  ],
+  "dx_can_pot": 0.3557263658785814,
+  "dy_can_pot": 0.12276699007827574,
+  "can_z_minus_table": 0.03128766679763795,
+  "env_arm_tag": "right",
+  "quat_max_err": 0.6580686569213867,
+  "left_open": true,
+  "right_open": false
+ },
+ "stages": [
+  {
+   "id": "right_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "right_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": false,
+   "reason": "can_grasp_not_confirmed:cmd=0.001;open=0.000"
+  }
+ ]
+}

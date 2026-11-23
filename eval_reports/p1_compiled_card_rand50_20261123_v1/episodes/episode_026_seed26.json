@@ -1,0 +1,59 @@
+{
+ "seed": 26,
+ "task_success": true,
+ "controller_complete": true,
+ "selected_arm": "left",
+ "failure_stage": null,
+ "failure_reason": null,
+ "elapsed_s": 28.197,
+ "final_evaluation": {
+  "stage_success_tag": false,
+  "_diag_card_pose": [
+   -0.7287535667419434,
+   0.13604915142059326,
+   0.09460900723934174
+  ],
+  "_diag_final_ee": [
+   [
+    -0.614828884601593,
+    -0.11115296185016632,
+    0.8988260626792908,
+    0.42164598452972196,
+    -0.5650993963732636,
+    0.41640149011258887,
+    0.5740096993784595
+   ]
+  ],
+  "_diag_gripper_contacts": []
+ },
+ "stages": [
+  {
+   "id": "left_000_move",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "left_001_grasp",
+   "primitive": "grasp",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "place_70_110",
+   "primitive": "move",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  },
+  {
+   "id": "release_after_place_70_110",
+   "primitive": "release",
+   "arm": null,
+   "success": true,
+   "reason": "ok"
+  }
+ ]
+}
