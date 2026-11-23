@@ -289,24 +289,45 @@ def _approach_candidates(T_ref: np.ndarray, T_rel: np.ndarray, ctx: RuntimeConte
     yaws_gentle = (-20.0, 20.0, -35.0, 35.0, -50.0, 50.0)
     yaws_other = (90.0, -90.0, 180.0, 135.0, -135.0)
     yaws_cardinal_other = (90.0, -90.0, 180.0)
+    # Detect horizontal side-grasp vs top-down grasp purely from the base approach EE pointing axis
+    # (EE +X column in world frame): side grasps have |R[2, 0]| < 0.5 (horizontal wrist), whereas
+    # top-down grasps have R[2, 0] ~ -1.0.
+    T_base = apply_relative_pose(T_ref, T_rel)
+    is_side_approach = abs(float(T_base[2, 0])) < 0.5
     # Fallback schedule:
-    # Preserve yaw=0 (wrist camera orientation + wrist_roll distribution for VLA) across forward pitch tilts
-    # (0 -> 12 -> 18 -> 24 deg) and slight Z relaxation, then try gentle yaw adjustments (+/-20..50 deg)
-    # BEFORE twisting the wrist to +/-90/180 deg.
+    # - For horizontal side grasps: keep the wrist level and at grasp height via gentle horizontal yaw
+    #   adjustments (+/-20..50 deg) BEFORE pitching downward (18/24 deg) or lowering Z (-2 cm), which
+    #   distorts the horizontal wrist-camera view and risks sweeping standing objects.
+    # - For top-down grasps: preserve yaw=0 across forward pitch tilts (12/18/24 deg) and slight Z
+    #   relaxation BEFORE rotating yaw.
     tiers: list[tuple[int, float, float, tuple[float, ...]]] = [(0, 0.0, 0.0, (0.0,))]
     if ctx.enable_approach_yaw_symmetry:
-        tiers.extend([
-            (1, 12.0, 0.0, (0.0,)),
-            (2, 18.0, 0.0, (0.0,)),
-            (3, 24.0, 0.0, (0.0,)),
-            (4, 0.0, -0.02, (0.0,)),
-            (5, 12.0, -0.02, (0.0,)),
-            (6, 0.0, 0.0, yaws_gentle),
-            (7, 12.0, 0.0, yaws_gentle),
-            (8, 0.0, 0.0, yaws_other),
-            (9, 12.0, 0.0, yaws_cardinal_other),
-            (10, 18.0, 0.0, yaws_cardinal_other),
-        ])
+        if is_side_approach:
+            tiers.extend([
+                (1, 0.0, 0.0, yaws_gentle),
+                (2, 12.0, 0.0, (0.0,)),
+                (3, 12.0, 0.0, yaws_gentle),
+                (4, 18.0, 0.0, (0.0,)),
+                (5, 0.0, -0.02, (0.0,)),
+                (6, 12.0, -0.02, (0.0,)),
+                (7, 24.0, 0.0, (0.0,)),
+                (8, 0.0, 0.0, yaws_other),
+                (9, 12.0, 0.0, yaws_cardinal_other),
+                (10, 18.0, 0.0, yaws_cardinal_other),
+            ])
+        else:
+            tiers.extend([
+                (1, 12.0, 0.0, (0.0,)),
+                (2, 18.0, 0.0, (0.0,)),
+                (3, 24.0, 0.0, (0.0,)),
+                (4, 0.0, -0.02, (0.0,)),
+                (5, 12.0, -0.02, (0.0,)),
+                (6, 0.0, 0.0, yaws_gentle),
+                (7, 12.0, 0.0, yaws_gentle),
+                (8, 0.0, 0.0, yaws_other),
+                (9, 12.0, 0.0, yaws_cardinal_other),
+                (10, 18.0, 0.0, yaws_cardinal_other),
+            ])
     cur = ctx.current_ee_matrix(arm)
     pivot_xyz = np.asarray(T_ref, dtype=float)[:3, 3]
     cands: list[tuple[tuple[int, int, float], float, np.ndarray, float]] = []
@@ -437,7 +458,21 @@ def execute_move(stage: CompiledStage, ctx: RuntimeContext) -> StageExecutionOut
             False, "approach_not_reached", {**last, "attempts": attempts},
         )
 
-    if stage.role == "held_transport" and ("held_transport" in stage.relations or stage.reusable_object_goal is not None):
+    _demo_dxyz = (
+        np.asarray(stage.motion_delta_xyz_m, dtype=float)
+        if stage.motion_delta_xyz_m is not None
+        else np.zeros(3, dtype=float)
+    )
+    _is_pure_vertical_lift = (
+        _demo_dxyz.size == 3
+        and float(_demo_dxyz[2]) > 0.03
+        and float(np.hypot(_demo_dxyz[0], _demo_dxyz[1])) < 0.03
+    )
+    if (
+        stage.role == "held_transport"
+        and not _is_pure_vertical_lift
+        and ("held_transport" in stage.relations or stage.reusable_object_goal is not None)
+    ):
         attachment = ctx.attachments.get(arm)
         if attachment is None:
             return StageExecutionOutcome(
@@ -453,25 +488,29 @@ def execute_move(stage: CompiledStage, ctx: RuntimeContext) -> StageExecutionOut
             T_rel = np.asarray(stage.reusable_object_goal, dtype=float)
         T_target = ctx.observe_entity(ref_name, f"held_transport:{stage.stage_id}", allow_cached=True)
         T_world_obj_goal = apply_relative_pose(T_target, T_rel)
-        cand_yaws: list[float] = []
+        inv_att = np.linalg.inv(np.asarray(attachment, dtype=float))
+        T_obj_upright = np.eye(4, dtype=float)
+        T_obj_upright[:3, 3] = T_world_obj_goal[:3, 3]
+        cand_goals: list[tuple[float, np.ndarray]] = []
         if ctx.enable_approach_yaw_symmetry:
-            _T_best, best_yaw = _best_yaw_hand_goal_for_object_goal(T_world_obj_goal, attachment, ctx, arm)
-            raw_yaws = (
-                [0.0, best_yaw, 30.0, -30.0, (best_yaw + 30.0) % 360.0, (best_yaw - 30.0) % 360.0]
-                if ref_name == "workspace_origin"
-                else [best_yaw, 0.0, (best_yaw + 30.0) % 360.0, (best_yaw - 30.0) % 360.0]
-            )
-            for y in raw_yaws:
-                y_norm = float(y) % 360.0
-                if all(abs(((y_norm - prev + 180.0) % 360.0) - 180.0) > 1.0 for prev in cand_yaws):
-                    cand_yaws.append(y_norm)
+            T_best, best_yaw = _best_yaw_hand_goal_for_object_goal(T_world_obj_goal, attachment, ctx, arm)
+            if ref_name == "workspace_origin":
+                cand_goals.append((0.0, hand_goal_for_object_goal(T_target, T_rel, attachment)))
+                cand_goals.append((float(best_yaw), T_best))
+                for dy in (30.0, -30.0):
+                    y = float(dy) % 360.0
+                    cand_goals.append((y, (T_world_obj_goal @ _rot_z(y)) @ inv_att))
+            else:
+                cand_goals.append((float(best_yaw), T_best))
+                for y in (0.0, (best_yaw + 30.0) % 360.0, (best_yaw - 30.0) % 360.0):
+                    y_norm = float(y) % 360.0
+                    if all(abs(((y_norm - prev + 180.0) % 360.0) - 180.0) > 1.0 for prev, _ in cand_goals):
+                        cand_goals.append((y_norm, (T_obj_upright @ _rot_z(y_norm)) @ inv_att))
         else:
-            cand_yaws = [0.0]
+            cand_goals.append((0.0, hand_goal_for_object_goal(T_target, T_rel, attachment)))
         info: dict[str, Any] = {"reached": False}
-        sel_yaw = cand_yaws[0]
-        for y in cand_yaws:
-            T_obj_y = T_world_obj_goal @ _rot_z(y)
-            T_goal = T_obj_y @ np.linalg.inv(attachment)
+        sel_yaw = cand_goals[0][0]
+        for y, T_goal in cand_goals:
             info = _move_arm_to_recorded_ee_goal(ctx, arm, T_goal, label="held_transport")
             sel_yaw = y
             if info.get("reached"):
@@ -696,7 +735,7 @@ def execute_handover(stage: CompiledStage, ctx: RuntimeContext) -> StageExecutio
         T_donor_object_demo = np.asarray(donor_relation.T_reference_controlled, dtype=float)
         T_target_donor_demo = T_target_object_demo @ np.linalg.inv(T_donor_object_demo)
         T_world_object_goal = T_world_target @ T_target_object_demo
-        if ctx.enable_approach_yaw_symmetry:
+        if ctx.enable_approach_yaw_symmetry and stage.reference_name != "workspace_origin":
             T_world_donor_goal, donor_yaw_deg = _best_yaw_hand_goal_for_object_goal(
                 T_world_object_goal,
                 np.asarray(donor_attachment, dtype=float),
@@ -1761,20 +1800,68 @@ def execute_strike(stage: CompiledStage, ctx: RuntimeContext) -> StageExecutionO
     T_ee_start = T_struck @ np.asarray(rel_start.T_reference_controlled, dtype=float)
 
     attempts: list[dict[str, Any]] = []
-    info = _move_arm_to_recorded_ee_goal(ctx, arm, T_ee_start, label="strike_start")
-    attempts.append({"label": "strike_start", **info})
-    # 交接点只是给 VLA 一个起始位，不需要精确到位：
-    # 规划器可能因为只差几厘米/十几度而拒绝，但实测已在阶段容差内就足以交给 VLA。
-    handoff_within_stage_tolerance = bool(
-        float(info.get("pos_err_m") or 1e9) <= ctx.pos_tol_m
-        and float(info.get("rot_err_deg") or 1e9) <= ctx.rot_tol_deg
-    )
-    if not (info.get("reached") or handoff_within_stage_tolerance):
-        return StageExecutionOutcome(stage.stage_id, stage.primitive, stage.controller,
-                                     stage.executor, False, "strike_start_not_reached",
-                                     {"attempts": attempts})
+    cur_ee = ctx.current_ee_matrix(arm)
+    cur_pos_err = float(np.linalg.norm(cur_ee[:3, 3] - T_ee_start[:3, 3]))
+    cur_rot_err = rotation_error_deg(cur_ee[:3, :3], T_ee_start[:3, :3])
+    if ctx.attachments.get(arm) is not None and cur_pos_err <= 0.06 and cur_rot_err <= 25.0:
+        # Preceding held_transport already aligned the held tool over the target using runtime attachment;
+        # keep this attachment-aligned pose instead of overwriting it with the uncompensated demo EE pose.
+        attempts.append({
+            "label": "strike_start_kept_attachment_aligned",
+            "reached": True,
+            "pos_err_m": cur_pos_err,
+            "rot_err_deg": cur_rot_err,
+        })
+    else:
+        info = _move_arm_to_recorded_ee_goal(ctx, arm, T_ee_start, label="strike_start")
+        attempts.append({"label": "strike_start", **info})
+        # 交接点只是给 VLA 一个起始位，不需要精确到位：
+        # 规划器可能因为只差几厘米/十几度而拒绝，但实测已在阶段容差内就足以交给 VLA。
+        handoff_within_stage_tolerance = bool(
+            float(info.get("pos_err_m") or 1e9) <= ctx.pos_tol_m
+            and float(info.get("rot_err_deg") or 1e9) <= ctx.rot_tol_deg
+        )
+        if not (info.get("reached") or handoff_within_stage_tolerance):
+            return StageExecutionOutcome(stage.stage_id, stage.primitive, stage.controller,
+                                         stage.executor, False, "strike_start_not_reached",
+                                         {"attempts": attempts})
 
-    vla_res = dict(ctx.vla_fn(stage, ctx))  # strike_vla_handoff
+    # Compute demonstrated strike displacement in world frame (zero task hardcoding).
+    delta_strike: np.ndarray | None = None
+    if stage.motion_delta_xyz_m is not None:
+        d = np.asarray(stage.motion_delta_xyz_m, dtype=float)
+        if d.size == 3 and float(np.linalg.norm(d)) > 0.01:
+            delta_strike = d
+    if delta_strike is None and "strike_ee" in stage.relations:
+        T_ee_end = T_struck @ np.asarray(stage.relations["strike_ee"].T_reference_controlled, dtype=float)
+        d = T_ee_end[:3, 3] - T_ee_start[:3, 3]
+        if float(np.linalg.norm(d)) > 0.01:
+            delta_strike = d
+
+    if delta_strike is not None:
+        T_start_now = ctx.current_ee_matrix(arm)
+        moved_any = False
+        last_step_info: dict[str, Any] = {}
+        for frac in (0.5, 0.85, 1.0, 1.08):
+            T_step = T_start_now.copy()
+            T_step[:3, 3] = T_start_now[:3, 3] + float(frac) * delta_strike
+            step_info = _move_arm_to_recorded_ee_goal(ctx, arm, T_step, label=f"strike_press_{int(frac*100)}")
+            attempts.append({"label": f"strike_press_{int(frac*100)}", **step_info})
+            last_step_info = step_info
+            if step_info.get("moved") or step_info.get("reached"):
+                moved_any = True
+            else:
+                # Contact / collision limit after descending means tool reached target surface.
+                if moved_any:
+                    break
+        if moved_any:
+            return StageExecutionOutcome(
+                stage.stage_id, stage.primitive, stage.controller, stage.executor,
+                True, "ok",
+                {"attempts": attempts, "mode": "geometric_demo_press", "delta_strike": delta_strike.tolist(), **last_step_info},
+            )
+
+    vla_res = dict(ctx.vla_fn(stage, ctx))  # fallback when no geometric strike displacement
     attempts.append({"label": "strike_vla", "success": bool(vla_res.get("success")),
                      "vla_steps": vla_res.get("vla_steps")})
     if not bool(vla_res.get("success", False)):

@@ -411,7 +411,7 @@ def main() -> int:
         )
         print(json.dumps(live_summary, indent=2))
         return 0
-    if plan.task == "pick_dual_bottles":
+    if plan.task in ("pick_dual_bottles", "pick_diverse_bottles"):
         from adapters.pick_dual_bottles_compiled_runner import (
             DEFAULT_WORLDLA_ASSET_CKPT as _PDB_WL_ASSET,
             DEFAULT_WORLDLA_MODEL_DIR as _PDB_WL_MODEL,
@@ -428,8 +428,70 @@ def main() -> int:
             worldla_model_dir=args.worldla_model_dir or _PDB_WL_MODEL,
             worldla_asset_checkpoint=args.worldla_asset_checkpoint or _PDB_WL_ASSET,
             right_plan=load_and_compile_rule(args.right_rule, allow_missing_geometry=args.allow_missing_geometry) if args.right_rule else None,
+            task_name=plan.task,
         )
         print(json.dumps(live_summary, indent=2))
+        return 0
+    if plan.task == "place_bread_basket":
+        from adapters.place_bread_basket_compiled_runner import (
+            DEFAULT_WORLDLA_ASSET_CKPT as _PBB_WL_ASSET,
+            DEFAULT_WORLDLA_MODEL_DIR as _PBB_WL_MODEL,
+            run_place_bread_basket_compiled_episodes,
+        )
+        live_summary = run_place_bread_basket_compiled_episodes(
+            plan,
+            cal,
+            output_dir=out_dir,
+            task_config_name=args.task_config,
+            episodes=args.episodes,
+            seed=args.seed,
+            pickup_steps=args.pickup_steps,
+            worldla_model_dir=args.worldla_model_dir or _PBB_WL_MODEL,
+            worldla_asset_checkpoint=args.worldla_asset_checkpoint or _PBB_WL_ASSET,
+            right_plan=load_and_compile_rule(args.right_rule, allow_missing_geometry=args.allow_missing_geometry) if args.right_rule else None,
+        )
+        print(json.dumps(live_summary, indent=2))
+        return 0
+    if plan.task == "handover_mic":
+        from adapters.handover_mic_compiled_runner import (
+            DEFAULT_WORLDLA_ASSET_CKPT as _HM_WL_ASSET,
+            DEFAULT_WORLDLA_MODEL_DIR as _HM_WL_MODEL,
+            run_handover_mic_compiled_episodes,
+        )
+        live_summary = run_handover_mic_compiled_episodes(
+            plan,
+            cal,
+            output_dir=out_dir,
+            task_config_name=args.task_config,
+            episodes=args.episodes,
+            seed=args.seed,
+            pickup_steps=args.pickup_steps,
+            take_steps=args.take_steps,
+            worldla_model_dir=args.worldla_model_dir or _HM_WL_MODEL,
+            worldla_asset_checkpoint=args.worldla_asset_checkpoint or _HM_WL_ASSET,
+            right_plan=load_and_compile_rule(args.right_rule, allow_missing_geometry=args.allow_missing_geometry) if args.right_rule else None,
+        )
+        print(json.dumps(live_summary, indent=2))
+        return 0
+    if plan.task == "handover_block" and not args.allow_missing_geometry and args.policy_backend == "worldla":
+        from adapters.handover_block_v2_compiled_runner import (
+            DEFAULT_WORLDLA_ASSET_CKPT as _HB2_WL_ASSET,
+            DEFAULT_WORLDLA_MODEL_DIR as _HB2_WL_MODEL,
+            run_handover_block_v2_compiled_episodes,
+        )
+        live_summary = run_handover_block_v2_compiled_episodes(
+            plan,
+            cal,
+            output_dir=out_dir,
+            task_config_name=args.task_config,
+            episodes=args.episodes,
+            seed=args.seed,
+            pickup_steps=args.pickup_steps,
+            take_steps=args.take_steps,
+            worldla_model_dir=args.worldla_model_dir or _HB2_WL_MODEL,
+            worldla_asset_checkpoint=args.worldla_asset_checkpoint or _HB2_WL_ASSET,
+        )
+        print(json.dumps(live_summary, indent=2, ensure_ascii=False))
         return 0
     if plan.task != "handover_block":
         raise SystemExit(f"Live perception/VLA adapter currently wired for handover_block; got {plan.task!r}")

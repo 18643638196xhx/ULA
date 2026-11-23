@@ -202,7 +202,7 @@ def run_beat_block_hammer_compiled_episodes(
                     mod.snapshot(task, ep_dir, "initial")
                     try:
                         _ensure_initial_perception()
-                        chosen_arm = "right" if float(perception_cache["hammer"][0, 3]) >= 0.0 else "left"
+                        chosen_arm = "right" if float(perception_cache["block"][0, 3]) >= 0.0 else "left"
                         if chosen_arm == "right" and right_plan is not None:
                             ep_plan = right_plan
                         elif chosen_arm == "left" and plan.active_arms == ("left",):

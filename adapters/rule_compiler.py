@@ -336,6 +336,8 @@ def compile_demo_rule(
                 donor_goal = latest_donor_entry.get("reusable_object_goal")
                 if donor_goal is not None:
                     e["reusable_object_goal"] = donor_goal
+                    if latest_donor_entry.get("reference_name") is not None:
+                        e["reference_name"] = latest_donor_entry["reference_name"]
                     warnings.append(
                         f"Handover {e['stage_id']} uses synchronized object goal from {latest_donor}"
                     )

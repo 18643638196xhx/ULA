@@ -52,6 +52,7 @@ def run_pick_dual_bottles_compiled_episodes(
     worldla_model_dir: Path = DEFAULT_WORLDLA_MODEL_DIR,
     worldla_asset_checkpoint: Path = DEFAULT_WORLDLA_ASSET_CKPT,
     right_plan: CompiledRulePlan | None = None,
+    task_name: str = "pick_dual_bottles",
 ) -> dict[str, Any]:
     output_dir = Path(output_dir).resolve()
     worldla_model_dir = Path(worldla_model_dir).resolve()
@@ -59,7 +60,12 @@ def run_pick_dual_bottles_compiled_episodes(
     old_cwd = os.getcwd()
     os.chdir(ROBOTWIN_ROOT)
     mod = _load_pillbottle_script()
-    from envs.pick_dual_bottles import pick_dual_bottles  # noqa: PLC0415
+    if task_name == "pick_diverse_bottles":
+        from envs.pick_diverse_bottles import pick_diverse_bottles as task_cls  # noqa: PLC0415
+        tpl_path = ULA_ROOT / "results/demo_clean_pointcloud_templates_50_20261120/tasks/pick_diverse_bottles/template.npz"
+    else:
+        from envs.pick_dual_bottles import pick_dual_bottles as task_cls  # noqa: PLC0415
+        tpl_path = DEFAULT_PICK_DUAL_BOTTLES_TEMPLATE
 
     fake_args = SimpleNamespace(
         task_config=task_config_name,
@@ -90,22 +96,39 @@ def run_pick_dual_bottles_compiled_episodes(
         "support_cad": None,
         "object_hints": None,
         "support_hints": None,
-        "object_template": f"{DEFAULT_PICK_DUAL_BOTTLES_TEMPLATE}#bottle1_points_world",
+        "object_template": f"{tpl_path}#bottle1_points_world",
         "support_template": None,
     })
     worker = UnifiedPerceptionWorker(ULA_ROOT, output_dir / "vision_worker")
     policy = WorldLA(ULA_ROOT, worldla_model_dir, worldla_asset_checkpoint, chunk_steps=10)
 
+    from envs.utils.create_actor import UnStableError  # noqa: PLC0415
+
     rows: list[dict[str, Any]] = []
+    next_seed = seed
     try:
         for ep_idx in range(episodes):
-            ep_seed = seed + ep_idx
+            t0 = time.perf_counter()
+            task = None
+            ep_seed = next_seed
+            while True:
+                task = task_cls()
+                try:
+                    task.setup_demo(now_ep_num=ep_idx, seed=ep_seed, **cfg)
+                    next_seed = ep_seed + 1
+                    break
+                except UnStableError as exc:
+                    print(f"[{task_name}] ep={ep_idx} seed={ep_seed} UnStableError ({exc}); trying seed={ep_seed + 1}", flush=True)
+                    try:
+                        task.close_env()
+                    except Exception:
+                        pass
+                    ep_seed += 1
+                    if ep_seed > seed + episodes + 200:
+                        raise
             ep_dir = output_dir / f"episode_{ep_idx:03d}_seed{ep_seed}"
             ep_dir.mkdir(parents=True, exist_ok=True)
-            t0 = time.perf_counter()
-            task = pick_dual_bottles()
             try:
-                task.setup_demo(now_ep_num=ep_idx, seed=ep_seed, **cfg)
                 task.step_lim = max(400, pickup_steps + 200)
                 if not task.get_instruction():
                     task.set_instruction(fake_args.instruction)
@@ -136,7 +159,7 @@ def run_pick_dual_bottles_compiled_episodes(
                             "support_cad": None,
                             "object_hints": None,
                             "support_hints": None,
-                            "object_template": f"{DEFAULT_PICK_DUAL_BOTTLES_TEMPLATE}#{tpl_key}",
+                            "object_template": f"{tpl_path}#{tpl_key}",
                             "support_template": None,
                         })
                         rgb_m = rgb.copy()
@@ -261,7 +284,7 @@ def run_pick_dual_bottles_compiled_episodes(
                 (ep_dir / "result.json").write_text(json.dumps(row, indent=2, ensure_ascii=False))
                 rows.append(row)
                 print(
-                    f"[pick_dual_bottles] ep={ep_idx} seed={ep_seed} ctrl={controller_complete} "
+                    f"[{task_name}] ep={ep_idx} seed={ep_seed} ctrl={controller_complete} "
                     f"ok={task_success} b1={[round(v, 3) for v in b1_fp]} "
                     f"b2={[round(v, 3) for v in b2_fp]} t={row['elapsed_s']}s",
                     flush=True,
@@ -276,7 +299,7 @@ def run_pick_dual_bottles_compiled_episodes(
         os.chdir(old_cwd)
 
     summary = {
-        "task": "pick_dual_bottles",
+        "task": task_name,
         "task_config": task_config_name,
         "episodes": len(rows),
         "controller_complete": sum(1 for r in rows if r["controller_complete"]),

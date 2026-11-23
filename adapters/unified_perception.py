@@ -567,3 +567,57 @@ def estimate_object_z_yaw_adaptive(
             "uses_CAD": False,
         }
     return estimate_template_z_yaw_rotation(pts, template_spec)
+
+
+def validate_pointcloud_against_template(
+    points_world: np.ndarray,
+    template_spec: str,
+    *,
+    ee_positions_world: list[np.ndarray] | None = None,
+    min_ee_clearance_m: float = 0.09,
+    table_height_m: float | None = None,
+    min_points: int = 20,
+) -> tuple[bool, dict]:
+    """General, environment-independent candidate validation (zero hardcoded world heights, zero truth).
+
+    Rejects:
+      1) Sparse noise (< min_points)
+      2) Robot self-detections near current proprioceptive EE positions
+      3) Flat planar patches (e.g. bare table) or oversized background masks via 3D template extent ratio
+      4) Floating detections far above the scene's auto-estimated support plane (if provided)
+    """
+    pts = np.asarray(points_world, dtype=float)
+    if pts.ndim != 2 or pts.shape[1] != 3 or len(pts) < min_points:
+        return False, {"reason": "too_few_points", "n_points": int(len(pts)) if pts.ndim >= 1 else 0}
+    med = np.median(pts, axis=0)
+    if ee_positions_world:
+        for ee_xyz in ee_positions_world:
+            ee_arr = np.asarray(ee_xyz, dtype=float)[:3]
+            dist = float(np.linalg.norm(med - ee_arr))
+            if dist < min_ee_clearance_m:
+                return False, {"reason": "near_robot_ee", "ee_dist_m": round(dist, 4)}
+    cand_ext = np.percentile(pts, 95, axis=0) - np.percentile(pts, 5, axis=0)
+    tpl_pts = None
+    if template_spec and "#" in str(template_spec):
+        tpl_file, tpl_key = str(template_spec).split("#", 1)
+        if Path(tpl_file).is_file():
+            with np.load(tpl_file, allow_pickle=True) as _td:
+                if tpl_key in _td:
+                    tpl_pts = np.asarray(_td[tpl_key], dtype=float)
+    if tpl_pts is not None and len(tpl_pts) >= 20:
+        tpl_ext = np.percentile(tpl_pts, 95, axis=0) - np.percentile(tpl_pts, 5, axis=0)
+        min_z_ext = max(0.005, 0.25 * float(tpl_ext[2]))
+        max_xy_ext = max(0.22, 3.8 * float(max(tpl_ext[0], tpl_ext[1])))
+        max_z_ext = max(0.15, 4.0 * float(tpl_ext[2]))
+        if float(cand_ext[2]) < min_z_ext:
+            return False, {"reason": "flat_planar_patch", "cand_z_ext": round(float(cand_ext[2]), 4), "min_z_ext": round(min_z_ext, 4)}
+        if float(max(cand_ext[0], cand_ext[1])) > max_xy_ext:
+            return False, {"reason": "oversized_xy_mask", "cand_xy_max": round(float(max(cand_ext[0], cand_ext[1])), 4), "max_xy_ext": round(max_xy_ext, 4)}
+        if float(cand_ext[2]) > max_z_ext:
+            return False, {"reason": "oversized_z_mask", "cand_z_ext": round(float(cand_ext[2]), 4), "max_z_ext": round(max_z_ext, 4)}
+        if table_height_m is not None:
+            z_lo = float(np.percentile(pts[:, 2], 5))
+            max_float_above = max(0.10, 4.0 * float(tpl_ext[2]))
+            if z_lo > float(table_height_m) + max_float_above:
+                return False, {"reason": "floating_above_support_plane", "z_lo": round(z_lo, 4), "table_height_m": round(float(table_height_m), 4)}
+    return True, {"reason": "ok", "n_points": int(len(pts)), "cand_ext": [round(float(v), 4) for v in cand_ext]}

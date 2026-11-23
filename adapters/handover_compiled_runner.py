@@ -399,17 +399,26 @@ def run_handover_compiled_episodes(
                         shared.snapshot(task, ep_dir, "pre_handover_vla")
                         right_policy.load()
                         res = {}
-                        with shared.policy_without_truth(right_policy):
-                            rollout_take(
-                                task,
-                                right_policy,
-                                res,
-                                max_steps=take_steps,
-                                protect_donor=True,
-                                freeze_donor_arm=(os.environ.get("HANDOVER_FREEZE_DONOR_ARM", "1") != "0"),
-                                stable_receiver_close_steps=10,
-                            )
-                        settle_receiver_gripper(task, res)
+                        recv_start_pose = list(ctx.robot_backend.get_arm_pose("right"))
+                        for _h_try in range(2):
+                            res = {}
+                            with shared.policy_without_truth(right_policy):
+                                rollout_take(
+                                    task,
+                                    right_policy,
+                                    res,
+                                    max_steps=take_steps,
+                                    protect_donor=True,
+                                    freeze_donor_arm=(os.environ.get("HANDOVER_FREEZE_DONOR_ARM", "1") != "0"),
+                                    stable_receiver_close_steps=10,
+                                )
+                            settle_receiver_gripper(task, res)
+                            res["handover_attempt"] = _h_try + 1
+                            if res.get("donor_protected") and res.get("receiver_aperture_confirmed"):
+                                break
+                            if _h_try == 0:
+                                ctx.robot_backend.set_gripper("right", 1.0)
+                                ctx.robot_backend.move_to_pose("right", recv_start_pose)
                         right_val = float(task.robot.get_right_gripper_val())
                         if (
                             res.get("donor_protected")
@@ -469,7 +478,7 @@ def run_handover_compiled_episodes(
                         handover_confirmation_fn=handover_confirmation_fn,
                         pos_tol_m=0.03,
                         rot_tol_deg=20.0,
-                        handover_vla_handles_receiver_approach=True,
+                        handover_vla_handles_receiver_approach=(policy_backend != "worldla"),
                         receiver_preapproach_standoff_m=receiver_preapproach_standoff_m,
                         uses_object_truth=False,
                     )
