@@ -1,0 +1,82 @@
+{
+  "task": "place_dual_shoes",
+  "status": "finished",
+  "gpu": 0,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 3
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_dual_shoes/rgbd.npz",
+  "sensor_sha256": "5f3c411ac780651a83e3d3745bd1a2b29775544cacbcf3eadd46e4863b6c4780",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_dual_shoes/template.npz",
+  "template_sha256": "8ed27f99059fe4d8090b97498735f1cee844c7afe3315f602dab7109f6781ce2",
+  "targets": {
+    "left_shoe": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_dual_shoes/template.npz",
+      "array": "left_shoe_points_world",
+      "point_count": 2763,
+      "visible_bounds_world": [
+        [
+          -0.3474782923365746,
+          -0.14997990458202956,
+          0.6442085848092
+        ],
+        [
+          -0.17314291066877663,
+          -0.0515022749643513,
+          0.7331859133065167
+        ]
+      ],
+      "visible_diameter_m": 0.2191064440469354
+    },
+    "right_shoe": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_dual_shoes/template.npz",
+      "array": "right_shoe_points_world",
+      "point_count": 2365,
+      "visible_bounds_world": [
+        [
+          0.1527159017958729,
+          -0.04598817916217158,
+          0.6476382149152385
+        ],
+        [
+          0.30473761594514825,
+          0.0951674770608386,
+          0.7329589259840772
+        ]
+      ],
+      "visible_diameter_m": 0.22431037558241676
+    },
+    "shoe_box": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_dual_shoes/template.npz",
+      "array": "shoe_box_points_world",
+      "point_count": 13430,
+      "visible_bounds_world": [
+        [
+          -0.12698803142324994,
+          -0.21671735322786492,
+          0.6427703237429986
+        ],
+        [
+          0.12499849307852155,
+          -0.04402070277810886,
+          0.7419937842245902
+        ]
+      ],
+      "visible_diameter_m": 0.3211956362047733
+    }
+  }
+}

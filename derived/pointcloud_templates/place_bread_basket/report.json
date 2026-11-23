@@ -1,0 +1,82 @@
+{
+  "task": "place_bread_basket",
+  "status": "finished",
+  "gpu": 3,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 3
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_bread_basket/rgbd.npz",
+  "sensor_sha256": "99234b4907c57afe059c1791538b0c7da7809c55c1527b7af11364de684040b6",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_bread_basket/template.npz",
+  "template_sha256": "865d87723b34d558af786623b863575c5260ece407d8b8dc4afe9d18ce6c4386",
+  "targets": {
+    "bread_0": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_bread_basket/template.npz",
+      "array": "bread_0_points_world",
+      "point_count": 800,
+      "visible_bounds_world": [
+        [
+          -0.22831072912875286,
+          -0.018981446903694618,
+          0.7485730572630267
+        ],
+        [
+          -0.1599877650172371,
+          0.04651231865526503,
+          0.7730431003061203
+        ]
+      ],
+      "visible_diameter_m": 0.0977560420567767
+    },
+    "bread_1": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_bread_basket/template.npz",
+      "array": "bread_1_points_world",
+      "point_count": 1031,
+      "visible_bounds_world": [
+        [
+          0.21443246371514665,
+          -0.07309834774542415,
+          0.7429798034639796
+        ],
+        [
+          0.2835831974931878,
+          -0.003591443724257842,
+          0.7659084923683362
+        ]
+      ],
+      "visible_diameter_m": 0.10069140213306153
+    },
+    "breadbasket": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_bread_basket/template.npz",
+      "array": "breadbasket_points_world",
+      "point_count": 7204,
+      "visible_bounds_world": [
+        [
+          -0.097039655399689,
+          -0.26209823603988824,
+          0.748107413146929
+        ],
+        [
+          0.09515600461763404,
+          -0.12358623104984927,
+          0.8028917150627733
+        ]
+      ],
+      "visible_diameter_m": 0.24315852235169838
+    }
+  }
+}

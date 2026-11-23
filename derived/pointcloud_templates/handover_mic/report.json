@@ -1,0 +1,46 @@
+{
+  "task": "handover_mic",
+  "status": "finished",
+  "gpu": 2,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 1
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/handover_mic/rgbd.npz",
+  "sensor_sha256": "440778baedfbdba467a53e72cf58ee600469b38226f6d5c3b78b7df884057fef",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/handover_mic/template.npz",
+  "template_sha256": "bb6a6c1c66a328804c1b575b543fd5165563e98a67448867d4ce72a14e9cedc3",
+  "targets": {
+    "microphone": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/handover_mic/template.npz",
+      "array": "microphone_points_world",
+      "point_count": 739,
+      "visible_bounds_world": [
+        [
+          -0.17797426847405676,
+          -0.12511529445064176,
+          0.7475087951231403
+        ],
+        [
+          -0.15063645866538355,
+          0.01910369738962837,
+          0.7758057949602118
+        ]
+      ],
+      "visible_diameter_m": 0.1494897777519865
+    }
+  }
+}

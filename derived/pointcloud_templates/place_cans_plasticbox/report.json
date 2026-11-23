@@ -1,0 +1,82 @@
+{
+  "task": "place_cans_plasticbox",
+  "status": "finished",
+  "gpu": 3,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 3
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_cans_plasticbox/rgbd.npz",
+  "sensor_sha256": "4641e61463c1e8027b196e79ee9664f650a528eb58a370245d60b8d499591ebe",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_cans_plasticbox/template.npz",
+  "template_sha256": "42b3f16b2e5bbed53b374f7d80462b2be0c4c224066dccfa883d9d7bcb6f52b3",
+  "targets": {
+    "object1": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_cans_plasticbox/template.npz",
+      "array": "object1_points_world",
+      "point_count": 1065,
+      "visible_bounds_world": [
+        [
+          -0.232103155059789,
+          -0.10686503786561148,
+          0.7514054387706754
+        ],
+        [
+          -0.187224927750654,
+          -0.06219186334298501,
+          0.8345985105052515
+        ]
+      ],
+      "visible_diameter_m": 0.10455063363257894
+    },
+    "object2": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_cans_plasticbox/template.npz",
+      "array": "object2_points_world",
+      "point_count": 828,
+      "visible_bounds_world": [
+        [
+          0.2249715948816464,
+          -0.1074586172525666,
+          0.7482028736036818
+        ],
+        [
+          0.2584591268062478,
+          -0.06728490448829454,
+          0.8359418831122739
+        ]
+      ],
+      "visible_diameter_m": 0.10214438692956287
+    },
+    "plasticbox": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_cans_plasticbox/template.npz",
+      "array": "plasticbox_points_world",
+      "point_count": 7159,
+      "visible_bounds_world": [
+        [
+          -0.07375948419630016,
+          -0.19631508817170212,
+          0.7551850149202018
+        ],
+        [
+          0.0695590402983236,
+          -0.021574165548442777,
+          0.8138283427677714
+        ]
+      ],
+      "visible_diameter_m": 0.2334815397490378
+    }
+  }
+}

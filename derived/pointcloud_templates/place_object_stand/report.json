@@ -1,0 +1,64 @@
+{
+  "task": "place_object_stand",
+  "status": "finished",
+  "gpu": 3,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 2
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_object_stand/rgbd.npz",
+  "sensor_sha256": "2ef7d24e49c6d99976a4cad228bdc2b586b5f057aa228c6d2d0bd5293e363752",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_object_stand/template.npz",
+  "template_sha256": "83ac760690853c3720be967cac563dfb9b7c2e3c98d7dccfb1ee629f2eaaa52b",
+  "targets": {
+    "object": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_object_stand/template.npz",
+      "array": "object_points_world",
+      "point_count": 1146,
+      "visible_bounds_world": [
+        [
+          -0.2413632094250636,
+          -0.01478938131749331,
+          0.7451817449699067
+        ],
+        [
+          -0.18530941738121604,
+          0.04072017900677306,
+          0.798376356054438
+        ]
+      ],
+      "visible_diameter_m": 0.09514728339959483
+    },
+    "displaystand": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_object_stand/template.npz",
+      "array": "displaystand_points_world",
+      "point_count": 6244,
+      "visible_bounds_world": [
+        [
+          -0.10574958189977789,
+          -0.20131774905690344,
+          0.7568012578580402
+        ],
+        [
+          0.08237879301758715,
+          -0.058960568064734216,
+          0.7819388386957811
+        ]
+      ],
+      "visible_diameter_m": 0.2372546109129596
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "task": "place_bread_skillet",
+  "status": "finished",
+  "gpu": 1,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 2
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_bread_skillet/rgbd.npz",
+  "sensor_sha256": "04884e26e5b93a4fc2f283fe2758934b76eadd357ca6aacbe689bbbcabaf2f89",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_bread_skillet/template.npz",
+  "template_sha256": "de7c263482f7e6ffe30c42bf1c3d032e7faaaa343d8b18c694f45c3a48f224fd",
+  "targets": {
+    "bread": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_bread_skillet/template.npz",
+      "array": "bread_points_world",
+      "point_count": 941,
+      "visible_bounds_world": [
+        [
+          -0.23368878495539733,
+          -0.012841932900516061,
+          0.7426215860862381
+        ],
+        [
+          -0.1694410282824194,
+          0.04707560623823522,
+          0.7659358678038467
+        ]
+      ],
+      "visible_diameter_m": 0.09089247199830133
+    },
+    "skillet": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_bread_skillet/template.npz",
+      "array": "skillet_points_world",
+      "point_count": 4597,
+      "visible_bounds_world": [
+        [
+          0.14058559715887833,
+          -0.2468612014951214,
+          0.745302246185907
+        ],
+        [
+          0.2715284273100689,
+          -0.037929211314072585,
+          0.7802660626413173
+        ]
+      ],
+      "visible_diameter_m": 0.2490402974422915
+    }
+  }
+}

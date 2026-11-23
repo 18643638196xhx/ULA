@@ -1,0 +1,100 @@
+{
+  "task": "put_bottles_dustbin",
+  "status": "finished",
+  "gpu": 3,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 4
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/put_bottles_dustbin/rgbd.npz",
+  "sensor_sha256": "caeb748a7eadc4a08d96f7fad57e094cf70b0b6a4daa93de4e2fd98613c3aa95",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/put_bottles_dustbin/template.npz",
+  "template_sha256": "9591c8e22a3cd9575acdad545bbafa7907d6ef2a8cb95121cc549b977d35477c",
+  "targets": {
+    "bottles_0": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/put_bottles_dustbin/template.npz",
+      "array": "bottles_0_points_world",
+      "point_count": 1716,
+      "visible_bounds_world": [
+        [
+          0.02894128342367763,
+          0.1833050965522899,
+          0.742657184838421
+        ],
+        [
+          0.09190951339193745,
+          0.21202955627671344,
+          0.9083923501013653
+        ]
+      ],
+      "visible_diameter_m": 0.17960578380589845
+    },
+    "bottles_1": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/put_bottles_dustbin/template.npz",
+      "array": "bottles_1_points_world",
+      "point_count": 2519,
+      "visible_bounds_world": [
+        [
+          -0.22679110076973577,
+          0.0046695094633217886,
+          0.7507815508254433
+        ],
+        [
+          -0.17337809040476518,
+          0.04218242549123695,
+          0.9679469513889783
+        ]
+      ],
+      "visible_diameter_m": 0.22676194510342007
+    },
+    "bottles_2": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/put_bottles_dustbin/template.npz",
+      "array": "bottles_2_points_world",
+      "point_count": 2450,
+      "visible_bounds_world": [
+        [
+          0.1582146340391948,
+          0.09188532106417203,
+          0.7527003134589707
+        ],
+        [
+          0.21608813523180162,
+          0.13011072788682893,
+          0.9589457661641148
+        ]
+      ],
+      "visible_diameter_m": 0.21759529091549315
+    },
+    "dustbin": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/put_bottles_dustbin/template.npz",
+      "array": "dustbin_points_world",
+      "point_count": 5063,
+      "visible_bounds_world": [
+        [
+          -0.5525042058301821,
+          -0.0312855961532824,
+          0.21149602039508852
+        ],
+        [
+          -0.3217549427072737,
+          0.29048283389770035,
+          0.7280290107194896
+        ]
+      ],
+      "visible_diameter_m": 0.6508352134778105
+    }
+  }
+}

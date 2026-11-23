@@ -1,0 +1,82 @@
+{
+  "task": "blocks_ranking_size",
+  "status": "finished",
+  "gpu": 3,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 3
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/blocks_ranking_size/rgbd.npz",
+  "sensor_sha256": "c3fba8070ea63f0fbb9bcc395c4ba99bb1cd8f4bb42494c0310df58319277f62",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/blocks_ranking_size/template.npz",
+  "template_sha256": "a5b6b9b5ccade0f5798fb7d893bf5795e17df5d56f944244891c1ecf11144eb2",
+  "targets": {
+    "block1": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/blocks_ranking_size/template.npz",
+      "array": "block1_points_world",
+      "point_count": 1446,
+      "visible_bounds_world": [
+        [
+          0.11580694563892686,
+          -0.005449162581854533,
+          0.7419422747313342
+        ],
+        [
+          0.19266967018925182,
+          0.06601707763124641,
+          0.8011484688811358
+        ]
+      ],
+      "visible_diameter_m": 0.12050176488831925
+    },
+    "block2": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/blocks_ranking_size/template.npz",
+      "array": "block2_points_world",
+      "point_count": 913,
+      "visible_bounds_world": [
+        [
+          -0.24044840869562098,
+          -0.0227597587579002,
+          0.7416836501127895
+        ],
+        [
+          -0.18827793886783784,
+          0.02733796705240986,
+          0.7887365422538621
+        ]
+      ],
+      "visible_diameter_m": 0.08628739602199186
+    },
+    "block3": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/blocks_ranking_size/template.npz",
+      "array": "block3_points_world",
+      "point_count": 678,
+      "visible_bounds_world": [
+        [
+          0.07021541696381854,
+          -0.08480934169771633,
+          0.741486098430528
+        ],
+        [
+          0.11401310553682327,
+          -0.0431702152849075,
+          0.781579543112157
+        ]
+      ],
+      "visible_diameter_m": 0.07252267699967113
+    }
+  }
+}

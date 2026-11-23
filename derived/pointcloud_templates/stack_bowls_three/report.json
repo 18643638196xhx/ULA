@@ -1,0 +1,82 @@
+{
+  "task": "stack_bowls_three",
+  "status": "finished",
+  "gpu": 3,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 3
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/stack_bowls_three/rgbd.npz",
+  "sensor_sha256": "1c3bf8ed9e873aeebd61b18908d060d3e1f83e24b8b7f18572e92f2b782222b3",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/stack_bowls_three/template.npz",
+  "template_sha256": "8153342fbc619d6fa109850125e97267c51abb666b38b84a0e625930dab42a90",
+  "targets": {
+    "bowl1": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/stack_bowls_three/template.npz",
+      "array": "bowl1_points_world",
+      "point_count": 2060,
+      "visible_bounds_world": [
+        [
+          0.18993119049726445,
+          -0.18835254005124114,
+          0.7449548927028531
+        ],
+        [
+          0.27563462369881575,
+          -0.06496610429880673,
+          0.7904578491619464
+        ]
+      ],
+      "visible_diameter_m": 0.156970729872612
+    },
+    "bowl2": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/stack_bowls_three/template.npz",
+      "array": "bowl2_points_world",
+      "point_count": 2985,
+      "visible_bounds_world": [
+        [
+          0.11141801524102903,
+          -0.0552429339393376,
+          0.7452615391916629
+        ],
+        [
+          0.23624456217304998,
+          0.07197636059659861,
+          0.7905305077546628
+        ]
+      ],
+      "visible_diameter_m": 0.18389044356885756
+    },
+    "bowl3": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/stack_bowls_three/template.npz",
+      "array": "bowl3_points_world",
+      "point_count": 2548,
+      "visible_bounds_world": [
+        [
+          -0.3512381289259105,
+          0.03580653593207516,
+          0.7452949673560451
+        ],
+        [
+          -0.22599969739599138,
+          0.16317241071764674,
+          0.7905886794722875
+        ]
+      ],
+      "visible_diameter_m": 0.1842776469060672
+    }
+  }
+}

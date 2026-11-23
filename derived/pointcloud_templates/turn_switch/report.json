@@ -1,0 +1,46 @@
+{
+  "task": "turn_switch",
+  "status": "finished",
+  "gpu": 2,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 1
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/turn_switch/rgbd.npz",
+  "sensor_sha256": "d4c908adb24388704c2dfbd3b365690b4f4e7d3234830fe9ea6acb397a106c01",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/turn_switch/template.npz",
+  "template_sha256": "85cb31b68018ebd0961551d19cfe7e5279e3712da6eff6a35460aa3e54482ed6",
+  "targets": {
+    "switch": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/turn_switch/template.npz",
+      "array": "switch_points_world",
+      "point_count": 2450,
+      "visible_bounds_world": [
+        [
+          -0.14679209755606645,
+          -0.0438915858879538,
+          0.7690580123265516
+        ],
+        [
+          -0.060241388725296,
+          0.04326199358807203,
+          0.8745090807039424
+        ]
+      ],
+      "visible_diameter_m": 0.16188483386817282
+    }
+  }
+}

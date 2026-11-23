@@ -1,0 +1,46 @@
+{
+  "task": "adjust_bottle",
+  "status": "finished",
+  "gpu": 0,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 1
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/adjust_bottle/rgbd.npz",
+  "sensor_sha256": "330619b2a072d98d0784cd9bb546c1746b51ac3a43fc34ccf4a5e48c0d062276",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/adjust_bottle/template.npz",
+  "template_sha256": "c29db7653a0eb5f7cd870963df5e48ad7978fdf06aa2306988f409fb6dafbc0c",
+  "targets": {
+    "bottle": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/adjust_bottle/template.npz",
+      "array": "bottle_points_world",
+      "point_count": 3550,
+      "visible_bounds_world": [
+        [
+          -0.08007609015918968,
+          -0.1355570893365382,
+          0.7669835034589584
+        ],
+        [
+          0.16106156008327568,
+          -0.07824170684408752,
+          0.8086547500352057
+        ]
+      ],
+      "visible_diameter_m": 0.2513342639313866
+    }
+  }
+}

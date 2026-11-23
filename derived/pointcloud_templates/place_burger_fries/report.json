@@ -1,0 +1,82 @@
+{
+  "task": "place_burger_fries",
+  "status": "finished",
+  "gpu": 0,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 3
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_burger_fries/rgbd.npz",
+  "sensor_sha256": "1897adc3d4ed493a5dac187bdabc359929365844633260a32510657b4264edfa",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_burger_fries/template.npz",
+  "template_sha256": "1542e5ef705b1e91d922f2d49449f399756ee50bab44db7f3ffff31c52a992e1",
+  "targets": {
+    "hamburg": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_burger_fries/template.npz",
+      "array": "hamburg_points_world",
+      "point_count": 770,
+      "visible_bounds_world": [
+        [
+          -0.3069034956490017,
+          -0.11513333096114105,
+          0.7431626770934675
+        ],
+        [
+          -0.2524802820715871,
+          -0.05664928445951091,
+          0.7646313561561515
+        ]
+      ],
+      "visible_diameter_m": 0.08272347944806388
+    },
+    "frenchfries": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_burger_fries/template.npz",
+      "array": "frenchfries_points_world",
+      "point_count": 343,
+      "visible_bounds_world": [
+        [
+          0.26974803220241605,
+          -0.08535852790308239,
+          0.7429593143368675
+        ],
+        [
+          0.29952996266915327,
+          0.0009572181143079426,
+          0.7669078912899525
+        ]
+      ],
+      "visible_diameter_m": 0.09439759388322376
+    },
+    "tray": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/place_burger_fries/template.npz",
+      "array": "tray_points_world",
+      "point_count": 12765,
+      "visible_bounds_world": [
+        [
+          -0.14722726164023367,
+          -0.1977518844409167,
+          0.7447514771762622
+        ],
+        [
+          0.1452016807198966,
+          -0.011797121187693788,
+          0.767266425655259
+        ]
+      ],
+      "visible_diameter_m": 0.34727623473459635
+    }
+  }
+}

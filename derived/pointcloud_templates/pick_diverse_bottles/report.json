@@ -1,0 +1,74 @@
+{
+  "task": "pick_diverse_bottles",
+  "status": "finished",
+  "gpu": 3,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "initialization_rejected",
+      "error": "Objects is unstable in seed(0), unstable objects: 001_bottle"
+    },
+    {
+      "seed": 1,
+      "status": "initialization_rejected",
+      "error": "Objects is unstable in seed(1), unstable objects: 001_bottle"
+    },
+    {
+      "seed": 2,
+      "status": "captured",
+      "target_count": 2
+    }
+  ],
+  "selected_seed": 2,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/pick_diverse_bottles/rgbd.npz",
+  "sensor_sha256": "1fbbbca991ace2bcfd53afe490df72bd4cce25119d0433ed9b7c67acbc47b25a",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/pick_diverse_bottles/template.npz",
+  "template_sha256": "82c30db5d24f59b61e8695ec40474724f85a93412e475bec65c124ad8a288991",
+  "targets": {
+    "bottle1": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/pick_diverse_bottles/template.npz",
+      "array": "bottle1_points_world",
+      "point_count": 3229,
+      "visible_bounds_world": [
+        [
+          -0.21864219537016377,
+          0.050006596210628536,
+          0.7507852754347858
+        ],
+        [
+          -0.15435771728147973,
+          0.09497785284753574,
+          0.9904419642515718
+        ]
+      ],
+      "visible_diameter_m": 0.25217104619932657
+    },
+    "bottle2": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/pick_diverse_bottles/template.npz",
+      "array": "bottle2_points_world",
+      "point_count": 2293,
+      "visible_bounds_world": [
+        [
+          0.048229396016041794,
+          0.14903942172567766,
+          0.7515213623961767
+        ],
+        [
+          0.11993197919282712,
+          0.18519709752464145,
+          0.9340202854319798
+        ]
+      ],
+      "visible_diameter_m": 0.19938529249328987
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "task": "lift_pot",
+  "status": "finished",
+  "gpu": 1,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 1
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/lift_pot/rgbd.npz",
+  "sensor_sha256": "134d5d468c99ebb1d6f6f2bff87c348843a1598ac0a5e885c32caacd9917767f",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/lift_pot/template.npz",
+  "template_sha256": "ca41a707789c78fa067474c04bd2a8b4af0a3be324fc451c3946338bb06388d2",
+  "targets": {
+    "pot": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/lift_pot/template.npz",
+      "array": "pot_points_world",
+      "point_count": 5135,
+      "visible_bounds_world": [
+        [
+          -0.12595985413203953,
+          -0.11786670860625872,
+          0.7481475768317944
+        ],
+        [
+          0.082462378445311,
+          0.02055726376878667,
+          0.83971481859281
+        ]
+      ],
+      "visible_diameter_m": 0.26643119735559273
+    }
+  }
+}

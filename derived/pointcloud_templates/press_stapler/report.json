@@ -1,0 +1,46 @@
+{
+  "task": "press_stapler",
+  "status": "finished",
+  "gpu": 2,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 1
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/press_stapler/rgbd.npz",
+  "sensor_sha256": "4373563628ca0ef25c298f80c730b6622a840e185cba57ab5df7804368b8c86c",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/press_stapler/template.npz",
+  "template_sha256": "46ddf217fba43e35fe8b363821d71ba077254d969ffdc48ab0879a96af440644",
+  "targets": {
+    "stapler": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/press_stapler/template.npz",
+      "array": "stapler_points_world",
+      "point_count": 488,
+      "visible_bounds_world": [
+        [
+          -0.04491675812453034,
+          -0.01149754006784971,
+          0.745595282118405
+        ],
+        [
+          -0.007424924745204783,
+          0.07586692814490459,
+          0.7872603605334648
+        ]
+      ],
+      "visible_diameter_m": 0.10379868320731989
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "task": "grab_roller",
+  "status": "finished",
+  "gpu": 2,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 1
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/grab_roller/rgbd.npz",
+  "sensor_sha256": "9a785a22ef6420515702793ff96fbdad4866c61296fef2f0512754c125f8d598",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/grab_roller/template.npz",
+  "template_sha256": "1b532d1aeec11bc1a94ebeefeccb895f5e20520a7d2aa92034bf7aa549c4044c",
+  "targets": {
+    "roller": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/grab_roller/template.npz",
+      "array": "roller_points_world",
+      "point_count": 1172,
+      "visible_bounds_world": [
+        [
+          -0.1070048835147303,
+          -0.2564140328433498,
+          0.7553107814056844
+        ],
+        [
+          0.03772354077300928,
+          -0.18314753852674814,
+          0.7733142294706883
+        ]
+      ],
+      "visible_diameter_m": 0.16321280626374232
+    }
+  }
+}

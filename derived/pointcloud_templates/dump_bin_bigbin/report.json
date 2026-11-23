@@ -1,0 +1,89 @@
+{
+  "task": "dump_bin_bigbin",
+  "status": "finished",
+  "gpu": 1,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "initialization_rejected",
+      "error": "Objects is unstable in seed(0), unstable objects: garbage, garbage, garbage, garbage, garbage"
+    },
+    {
+      "seed": 1,
+      "status": "initialization_rejected",
+      "error": "Objects is unstable in seed(1), unstable objects: garbage, garbage, garbage, garbage"
+    },
+    {
+      "seed": 2,
+      "status": "initialization_rejected",
+      "error": "Objects is unstable in seed(2), unstable objects: garbage, garbage, garbage, garbage"
+    },
+    {
+      "seed": 3,
+      "status": "initialization_rejected",
+      "error": "Objects is unstable in seed(3), unstable objects: garbage, garbage, garbage, garbage, garbage"
+    },
+    {
+      "seed": 4,
+      "status": "initialization_rejected",
+      "error": "Objects is unstable in seed(4), unstable objects: garbage"
+    },
+    {
+      "seed": 5,
+      "status": "captured",
+      "target_count": 2
+    }
+  ],
+  "selected_seed": 5,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/dump_bin_bigbin/rgbd.npz",
+  "sensor_sha256": "afa0b51fb06c7fd3640c21a23a426a2a671af5c5af139853836eb46562f8cab7",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/dump_bin_bigbin/template.npz",
+  "template_sha256": "9dab7f86488b3c3dbd5cd9defa03da8bec530d5a6b949dd4715d05f17289dccd",
+  "targets": {
+    "deskbin": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/dump_bin_bigbin/template.npz",
+      "array": "deskbin_points_world",
+      "point_count": 2854,
+      "visible_bounds_world": [
+        [
+          0.061472221359534784,
+          -0.16641202893293633,
+          0.748222244823758
+        ],
+        [
+          0.14794217949342314,
+          -0.0794864669653055,
+          0.8560330147239328
+        ]
+      ],
+      "visible_diameter_m": 0.1632674771334857
+    },
+    "dustbin": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/dump_bin_bigbin/template.npz",
+      "array": "dustbin_points_world",
+      "point_count": 5134,
+      "visible_bounds_world": [
+        [
+          -0.5525677630005569,
+          -0.030811565896952015,
+          0.21157017234266962
+        ],
+        [
+          -0.3156940420680881,
+          0.29029938614123885,
+          0.7282072335144112
+        ]
+      ],
+      "visible_diameter_m": 0.6527903615736375
+    }
+  }
+}

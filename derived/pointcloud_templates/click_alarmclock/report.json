@@ -1,0 +1,46 @@
+{
+  "task": "click_alarmclock",
+  "status": "finished",
+  "gpu": 3,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "captured",
+      "target_count": 1
+    }
+  ],
+  "selected_seed": 0,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/click_alarmclock/rgbd.npz",
+  "sensor_sha256": "34be94649efe3454be197bc7797113914ed3743bd9d96ad75927694a449ae0ef",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/click_alarmclock/template.npz",
+  "template_sha256": "cd0cb70aff3180bf34cd4056af6b511c236a9ba786180dc08b2fecb78eed7755",
+  "targets": {
+    "alarm": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/click_alarmclock/template.npz",
+      "array": "alarm_points_world",
+      "point_count": 4161,
+      "visible_bounds_world": [
+        [
+          0.08285004399327323,
+          -0.12249166795295288,
+          0.7660187337766127
+        ],
+        [
+          0.1844552849793294,
+          0.05104519348367353,
+          0.8608847687737069
+        ]
+      ],
+      "visible_diameter_m": 0.22234709773050634
+    }
+  }
+}

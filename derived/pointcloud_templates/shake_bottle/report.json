@@ -1,0 +1,71 @@
+{
+  "task": "shake_bottle",
+  "status": "finished",
+  "gpu": 3,
+  "configuration": "demo_clean",
+  "seed_start": 0,
+  "max_attempts": 10,
+  "uses_CAD": false,
+  "robot_task_actions_executed": 0,
+  "template_segmentation_source": "offline_renderer_identity_mask",
+  "runtime_randomized_inference_receives_template_points_only": true,
+  "official_demo_hdf5_used": false,
+  "reason_official_hdf5_not_used": "official_demo_clean_HDF5_has_RGB_but_no_depth",
+  "attempts": [
+    {
+      "seed": 0,
+      "status": "initialization_rejected",
+      "error": "Objects is unstable in seed(0), unstable objects: 001_bottle"
+    },
+    {
+      "seed": 1,
+      "status": "initialization_rejected",
+      "error": "Objects is unstable in seed(1), unstable objects: 001_bottle"
+    },
+    {
+      "seed": 2,
+      "status": "initialization_rejected",
+      "error": "Objects is unstable in seed(2), unstable objects: 001_bottle"
+    },
+    {
+      "seed": 3,
+      "status": "initialization_rejected",
+      "error": "Objects is unstable in seed(3), unstable objects: 001_bottle"
+    },
+    {
+      "seed": 4,
+      "status": "initialization_rejected",
+      "error": "Objects is unstable in seed(4), unstable objects: 001_bottle"
+    },
+    {
+      "seed": 5,
+      "status": "captured",
+      "target_count": 1
+    }
+  ],
+  "selected_seed": 5,
+  "sensor": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/shake_bottle/rgbd.npz",
+  "sensor_sha256": "a4d4cc16bf438b6852bd1dba00bc208f21ac99c97cced58501692597b45f01f3",
+  "template": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/shake_bottle/template.npz",
+  "template_sha256": "a9b70987f139141b1802e1a5a5aa1fcb686954006f170a978ecfb0c5b47d56c9",
+  "targets": {
+    "bottle": {
+      "path": "/data1/xuhuixin/ula/results/demo_clean_pointcloud_templates_50_20261120/tasks/shake_bottle/template.npz",
+      "array": "bottle_points_world",
+      "point_count": 3730,
+      "visible_bounds_world": [
+        [
+          -0.16964980569852783,
+          -0.13124434131991253,
+          0.7571359634323145
+        ],
+        [
+          -0.09080556651752805,
+          0.11472177149425004,
+          0.8138312691822999
+        ]
+      ],
+      "visible_diameter_m": 0.2644430002836611
+    }
+  }
+}
