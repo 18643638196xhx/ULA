@@ -1,0 +1,308 @@
+{
+ "adjust_bottle/left": {
+  "source_dir": "demo_primitives_adjust_bottle_rgbd_left_v1",
+  "source_mtime": 1795356799,
+  "sha256": "e433442cf8720998c01d0f160c19e6f808b70a2cb28f57847fc67e8ff6b873f2",
+  "candidates": [
+   "demo_primitives_adjust_bottle_rgbd_left_v1"
+  ]
+ },
+ "adjust_bottle/right": {
+  "source_dir": "demo_primitives_adjust_bottle_rgbd_right_v1",
+  "source_mtime": 1795356802,
+  "sha256": "25418d181369c2b02e84759f7ee10179da12eb2fded6a0ff0115bea4d077fa93",
+  "candidates": [
+   "demo_primitives_adjust_bottle_rgbd_right_v1"
+  ]
+ },
+ "beat_block_hammer/left": {
+  "source_dir": "demo_primitives_beat_block_hammer_rgbd_left_v1",
+  "source_mtime": 1795368018,
+  "sha256": "3ecc95d151a3a08e7ae42433291eecf5b7bd62b3355c757c53636a5ea6a9d445",
+  "candidates": [
+   "demo_primitives_beat_block_hammer_rgbd_left_v1"
+  ]
+ },
+ "beat_block_hammer/right": {
+  "source_dir": "demo_primitives_beat_block_hammer_rgbd_right_v1",
+  "source_mtime": 1795368019,
+  "sha256": "b58e01510a97db8b0833971f22376875a58ae8427fdf2db59bd37ec94327fc6f",
+  "candidates": [
+   "demo_primitives_beat_block_hammer_rgbd_right_v1"
+  ]
+ },
+ "click_bell/left": {
+  "source_dir": "demo_primitives_click_bell_rgbd_left_v1",
+  "source_mtime": 1795362986,
+  "sha256": "466c5d9862032b5e360e00e32ddafa35069b55152800824d1b258f2df3f116d6",
+  "candidates": [
+   "demo_primitives_click_bell_rgbd_left_v1"
+  ]
+ },
+ "grab_roller/left": {
+  "source_dir": "demo_primitives_grab_roller_rgbd_left_v1",
+  "source_mtime": 1795370031,
+  "sha256": "6e80d0127c785f7dad357ac967ff99474557f113d6eabd1d75b20820ed673540",
+  "candidates": [
+   "demo_primitives_grab_roller_rgbd_left_v1"
+  ]
+ },
+ "grab_roller/right": {
+  "source_dir": "demo_primitives_grab_roller_rgbd_right_v1",
+  "source_mtime": 1795370032,
+  "sha256": "9d7f8ebcacb487b481e47aba5836aac505c8397ee46c0ea866352b8097801430",
+  "candidates": [
+   "demo_primitives_grab_roller_rgbd_right_v1"
+  ]
+ },
+ "handover_block/both": {
+  "source_dir": "demo_primitives_handover_block_rgbd_v2",
+  "source_mtime": 1795448589,
+  "sha256": "6f23a468df7f0b7be07b8bd1552a6a243ae9e9b4d9ef99104ded86869be80d5b",
+  "candidates": [
+   "demo_primitives_handover_block_rgbd_v2",
+   "demo_primitives_handover_block_rgbd_raw_v2",
+   "demo_primitives_handover_rgbd_geometry_v5",
+   "demo_primitives_handover_rgbd_geometry_v4",
+   "demo_primitives_handover_rgbd_geometry_v3",
+   "demo_primitives_handover_rgbd_geometry_v2",
+   "demo_primitives_handover_rgbd_geometry_v1",
+   "demo_primitives_handover_rgbd_skeleton_v1",
+   "demo_primitives_handover_geometry_v1"
+  ]
+ },
+ "handover_mic/both": {
+  "source_dir": "demo_primitives_handover_mic_rgbd_raw_ep1_v1",
+  "source_mtime": 1795439597,
+  "sha256": "49283703ec18d823b1f22ea1a4bcd6fcdf42bcf6d15e9c9f4f0b5ac3e135d3f3",
+  "candidates": [
+   "demo_primitives_handover_mic_rgbd_raw_ep1_v1",
+   "demo_primitives_handover_mic_rgbd_raw_ep0_v1"
+  ]
+ },
+ "handover_mic/left": {
+  "source_dir": "demo_primitives_handover_mic_rgbd_left_v1",
+  "source_mtime": 1795443406,
+  "sha256": "43b22be630b5894525f1c167dd3587d24e97b84af98ac4e5929db9ee70da0882",
+  "candidates": [
+   "demo_primitives_handover_mic_rgbd_left_v1"
+  ]
+ },
+ "handover_mic/right": {
+  "source_dir": "demo_primitives_handover_mic_rgbd_right_v1",
+  "source_mtime": 1795443406,
+  "sha256": "d7cf7f6ea0d5bc08825f5e6535488344af96ec59d59531b095c491c946a5c97b",
+  "candidates": [
+   "demo_primitives_handover_mic_rgbd_right_v1"
+  ]
+ },
+ "lift_pot/left": {
+  "source_dir": "demo_primitives_lift_pot_rgbd_left_v1",
+  "source_mtime": 1795370404,
+  "sha256": "d45cc1bddd1a7294405bf36bb64bf8ab508ecb9b829e14f23e2a3d9a67173895",
+  "candidates": [
+   "demo_primitives_lift_pot_rgbd_left_v1"
+  ]
+ },
+ "lift_pot/right": {
+  "source_dir": "demo_primitives_lift_pot_rgbd_right_v1",
+  "source_mtime": 1795370407,
+  "sha256": "1bd2b7a4a45bdf0912f3684dd27428e9d97cafcf9f893d3f265b318a116568f9",
+  "candidates": [
+   "demo_primitives_lift_pot_rgbd_right_v1"
+  ]
+ },
+ "move_can_pot/left": {
+  "source_dir": "demo_primitives_move_can_pot_rgbd_left_v1",
+  "source_mtime": 1795371679,
+  "sha256": "dfcd617c5428b2b2e3120fa9a03064b5dce4bee5d47f9a51169ad27d6ea35684",
+  "candidates": [
+   "demo_primitives_move_can_pot_rgbd_left_v1"
+  ]
+ },
+ "move_can_pot/right": {
+  "source_dir": "demo_primitives_move_can_pot_rgbd_right_v2",
+  "source_mtime": 1795373300,
+  "sha256": "e3dd25b3d34607d9cdd1d66d1231716bd6e634d96c5435ac09bfd515d3cf2647",
+  "candidates": [
+   "demo_primitives_move_can_pot_rgbd_right_v2",
+   "demo_primitives_move_can_pot_rgbd_right_v1"
+  ]
+ },
+ "move_pillbottle_pad/both": {
+  "source_dir": "demo_primitives_move_pillbottle_pad_rgbd_v1",
+  "source_mtime": 1795279939,
+  "sha256": "aaeab5e46734a2282493f060f30f2b8e98c177ed1d02ebac0a7213db0bcae85f",
+  "candidates": [
+   "demo_primitives_move_pillbottle_pad_rgbd_v1",
+   "demo_primitives_move_pillbottle_pad_rgbd_skeleton_v1"
+  ]
+ },
+ "move_pillbottle_pad/right": {
+  "source_dir": "demo_primitives_move_pillbottle_pad_rgbd_right_v1",
+  "source_mtime": 1795283919,
+  "sha256": "df2c220af5f14fe0fb7b2f933b99ffe8fe11223d01c6eb605c1781acb9d03ca6",
+  "candidates": [
+   "demo_primitives_move_pillbottle_pad_rgbd_right_v1",
+   "demo_primitives_move_pillbottle_pad_rgbd_right_skeleton_v1"
+  ]
+ },
+ "move_stapler_pad/left": {
+  "source_dir": "demo_primitives_move_stapler_pad_rgbd_left_v1",
+  "source_mtime": 1795360325,
+  "sha256": "3af76c37e1139092689595a48eaf10959b28f5fe296bb5c4532f071007818c50",
+  "candidates": [
+   "demo_primitives_move_stapler_pad_rgbd_left_v1"
+  ]
+ },
+ "move_stapler_pad/right": {
+  "source_dir": "demo_primitives_move_stapler_pad_rgbd_right_v1",
+  "source_mtime": 1795360326,
+  "sha256": "5e980f87719729baddafb771ed84d6328a6a26dd373b36b789210e721c599599",
+  "candidates": [
+   "demo_primitives_move_stapler_pad_rgbd_right_v1"
+  ]
+ },
+ "pick_diverse_bottles/both": {
+  "source_dir": "demo_primitives_pick_diverse_bottles_rgbd_v1",
+  "source_mtime": 1795406799,
+  "sha256": "7de11b26daf2e3137acc3515253c11c5816a714925122158fc01e3e79fc73210",
+  "candidates": [
+   "demo_primitives_pick_diverse_bottles_rgbd_v1"
+  ]
+ },
+ "pick_dual_bottles/both": {
+  "source_dir": "demo_primitives_pick_dual_bottles_rgbd_v1",
+  "source_mtime": 1795379321,
+  "sha256": "d67ade3402ee1b973f71b350b2b3c49134b0b093ddeed543eeacfba057e16df3",
+  "candidates": [
+   "demo_primitives_pick_dual_bottles_rgbd_v1"
+  ]
+ },
+ "place_bread_basket/both": {
+  "source_dir": "demo_primitives_place_bread_basket_rgbd_raw_v1",
+  "source_mtime": 1795430008,
+  "sha256": "00ca64df66f033a866136ff49d00f1d22797ea592e7d5a5e35c4920cf0c4a29a",
+  "candidates": [
+   "demo_primitives_place_bread_basket_rgbd_raw_v1"
+  ]
+ },
+ "place_bread_basket/left": {
+  "source_dir": "demo_primitives_place_bread_basket_rgbd_left_v1",
+  "source_mtime": 1795430061,
+  "sha256": "5c785d8239b6dc19482077c475cb373b6fd75a7c9cb2a8a2b699b3856b1ff016",
+  "candidates": [
+   "demo_primitives_place_bread_basket_rgbd_left_v1"
+  ]
+ },
+ "place_bread_basket/right": {
+  "source_dir": "demo_primitives_place_bread_basket_rgbd_right_v1",
+  "source_mtime": 1795430061,
+  "sha256": "cae87cc5a7519e6fe26334ef409a08608be4162e2ad93a1863f30cf5b0cc4679",
+  "candidates": [
+   "demo_primitives_place_bread_basket_rgbd_right_v1"
+  ]
+ },
+ "place_container_plate/left": {
+  "source_dir": "demo_primitives_place_container_plate_rgbd_left_v1",
+  "source_mtime": 1795374459,
+  "sha256": "4701104a61dd6418a4ebb1e2bb9a41b43de16ab5dff997a07474e96a39e2e6f6",
+  "candidates": [
+   "demo_primitives_place_container_plate_rgbd_left_v1"
+  ]
+ },
+ "place_container_plate/right": {
+  "source_dir": "demo_primitives_place_container_plate_rgbd_right_v1",
+  "source_mtime": 1795374462,
+  "sha256": "5c8c0d507d8511f8023bd427afd3a0db27c3a6f52858fcd0586cd1b73164c08d",
+  "candidates": [
+   "demo_primitives_place_container_plate_rgbd_right_v1"
+  ]
+ },
+ "place_empty_cup/left": {
+  "source_dir": "demo_primitives_place_empty_cup_rgbd_left_v1",
+  "source_mtime": 1795326387,
+  "sha256": "11a1fcb42a1ec97b6bcb38ee3014a7c52faafdcbd1899a54c4df296e39ebca50",
+  "candidates": [
+   "demo_primitives_place_empty_cup_rgbd_left_v1"
+  ]
+ },
+ "place_empty_cup/right": {
+  "source_dir": "demo_primitives_place_empty_cup_rgbd_right_v1",
+  "source_mtime": 1795324721,
+  "sha256": "a17babd79355525db1c13ed8bb4cfbb9ab2c94a0af9cc6b186cad1d72d485d4c",
+  "candidates": [
+   "demo_primitives_place_empty_cup_rgbd_right_v1"
+  ]
+ },
+ "place_fan/left": {
+  "source_dir": "demo_primitives_place_fan_rgbd_left_v4_360",
+  "source_mtime": 1795350538,
+  "sha256": "95f411388f52b79c4586023901f7c5decedbcde517c54575847bd40bf7ddc557",
+  "candidates": [
+   "demo_primitives_place_fan_rgbd_left_v4_360",
+   "demo_primitives_place_fan_rgbd_left_v3",
+   "demo_primitives_place_fan_rgbd_left_v2"
+  ]
+ },
+ "place_fan/right": {
+  "source_dir": "demo_primitives_place_fan_rgbd_right_ep5_v4",
+  "source_mtime": 1795346313,
+  "sha256": "2af1961e41444b678b85b87655bd9785a1a4f3671d509d0377084fc20a695d60",
+  "candidates": [
+   "demo_primitives_place_fan_rgbd_right_ep5_v4",
+   "demo_primitives_place_fan_rgbd_right_v3",
+   "demo_primitives_place_fan_rgbd_right_v2"
+  ]
+ },
+ "place_mouse_pad/left": {
+  "source_dir": "demo_primitives_place_mouse_pad_rgbd_left_v2_360",
+  "source_mtime": 1795354697,
+  "sha256": "d1cb74df219f2a7a4e2b3ad4c8475d99414fe9db9ef45951cbb382dc90987353",
+  "candidates": [
+   "demo_primitives_place_mouse_pad_rgbd_left_v2_360",
+   "demo_primitives_place_mouse_pad_rgbd_left_v1"
+  ]
+ },
+ "place_mouse_pad/right": {
+  "source_dir": "demo_primitives_place_mouse_pad_rgbd_right_v2_360",
+  "source_mtime": 1795354699,
+  "sha256": "e57c05e80ffec97b7607239d4181c68ca7f0ffb5125fb6145460d64a8590f32f",
+  "candidates": [
+   "demo_primitives_place_mouse_pad_rgbd_right_v2_360",
+   "demo_primitives_place_mouse_pad_rgbd_right_v1"
+  ]
+ },
+ "place_shoe/left": {
+  "source_dir": "demo_primitives_place_shoe_rgbd_left_v1",
+  "source_mtime": 1795357607,
+  "sha256": "53d6c5ad685fbd1da79b4abef147ee9a56d5174cafd25a6c1619b4aa61a1de8b",
+  "candidates": [
+   "demo_primitives_place_shoe_rgbd_left_v1"
+  ]
+ },
+ "place_shoe/right": {
+  "source_dir": "demo_primitives_place_shoe_rgbd_right_v1",
+  "source_mtime": 1795357610,
+  "sha256": "0610f25fab34ff6ebbef31444c4708c7884acdde2c6fb4274b89db05ea8c3455",
+  "candidates": [
+   "demo_primitives_place_shoe_rgbd_right_v1"
+  ]
+ },
+ "stamp_seal/left": {
+  "source_dir": "demo_primitives_stamp_seal_rgbd_left_v1",
+  "source_mtime": 1795373509,
+  "sha256": "e439ef2494beb05665d671ab1ec8cbc964033bcf18adb9e3d30447ed882a6a14",
+  "candidates": [
+   "demo_primitives_stamp_seal_rgbd_left_v1"
+  ]
+ },
+ "stamp_seal/right": {
+  "source_dir": "demo_primitives_stamp_seal_rgbd_right_v1",
+  "source_mtime": 1795373510,
+  "sha256": "c6c4f66d3098c5bf80d2ac12801ce4b16e00b1c20b63583f51000789f957c8af",
+  "candidates": [
+   "demo_primitives_stamp_seal_rgbd_right_v1"
+  ]
+ }
+}
